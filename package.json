@@ -1,0 +1,22 @@
+{
+  "name": "html-document",
+  "description": "Partial implementation of document, HTMLElement for node",
+  "keywords": [
+    "springbokjs"
+  ],
+  "version": "0.1.0",
+  "homepage": "https://github.com/christophehurpeau/html-element",
+  "license": "MIT",
+  "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
+  "repository": "",
+  "scripts": {
+    "test": "node_modules/.bin/mocha --harmony --recursive -u tdd tests/lib"
+  },
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "gulp": "^3.8",
+    "mocha": "^1.21",
+    "proclaim": "^2.0",
+    "springbokjs-library": "^2.5.2"
+  }
+}
