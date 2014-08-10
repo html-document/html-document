@@ -1,3 +1,4 @@
+var Node = require('./Node').Node;
 var ParentNode = require('./ParentNode').ParentNode;
 
 /**
@@ -45,3 +46,5 @@ export class Element extends ParentNode {
     }
 
 }
+
+Object.defineProperty(Element.prototype, 'nodeType', { value: Node.ELEMENT_NODE });

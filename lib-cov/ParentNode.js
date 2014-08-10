@@ -63,42 +63,60 @@ if (! _$jscoverage['ParentNode.js']) {
   _$jscoverage['ParentNode.js'][42] = 0;
   _$jscoverage['ParentNode.js'][44] = 0;
   _$jscoverage['ParentNode.js'][45] = 0;
+  _$jscoverage['ParentNode.js'][46] = 0;
   _$jscoverage['ParentNode.js'][47] = 0;
   _$jscoverage['ParentNode.js'][48] = 0;
-  _$jscoverage['ParentNode.js'][49] = 0;
-  _$jscoverage['ParentNode.js'][54] = 0;
+  _$jscoverage['ParentNode.js'][50] = 0;
+  _$jscoverage['ParentNode.js'][52] = 0;
+  _$jscoverage['ParentNode.js'][53] = 0;
+  _$jscoverage['ParentNode.js'][55] = 0;
   _$jscoverage['ParentNode.js'][56] = 0;
   _$jscoverage['ParentNode.js'][57] = 0;
-  _$jscoverage['ParentNode.js'][58] = 0;
-  _$jscoverage['ParentNode.js'][60] = 0;
-  _$jscoverage['ParentNode.js'][61] = 0;
   _$jscoverage['ParentNode.js'][62] = 0;
-  _$jscoverage['ParentNode.js'][63] = 0;
+  _$jscoverage['ParentNode.js'][64] = 0;
+  _$jscoverage['ParentNode.js'][65] = 0;
+  _$jscoverage['ParentNode.js'][66] = 0;
   _$jscoverage['ParentNode.js'][68] = 0;
-  _$jscoverage['ParentNode.js'][70] = 0;
+  _$jscoverage['ParentNode.js'][69] = 0;
   _$jscoverage['ParentNode.js'][71] = 0;
   _$jscoverage['ParentNode.js'][72] = 0;
+  _$jscoverage['ParentNode.js'][73] = 0;
   _$jscoverage['ParentNode.js'][74] = 0;
-  _$jscoverage['ParentNode.js'][75] = 0;
   _$jscoverage['ParentNode.js'][76] = 0;
+  _$jscoverage['ParentNode.js'][78] = 0;
+  _$jscoverage['ParentNode.js'][79] = 0;
   _$jscoverage['ParentNode.js'][81] = 0;
-  _$jscoverage['ParentNode.js'][83] = 0;
-  _$jscoverage['ParentNode.js'][84] = 0;
-  _$jscoverage['ParentNode.js'][85] = 0;
+  _$jscoverage['ParentNode.js'][82] = 0;
   _$jscoverage['ParentNode.js'][87] = 0;
-  _$jscoverage['ParentNode.js'][88] = 0;
   _$jscoverage['ParentNode.js'][89] = 0;
+  _$jscoverage['ParentNode.js'][90] = 0;
   _$jscoverage['ParentNode.js'][91] = 0;
   _$jscoverage['ParentNode.js'][93] = 0;
-  _$jscoverage['ParentNode.js'][98] = 0;
+  _$jscoverage['ParentNode.js'][94] = 0;
+  _$jscoverage['ParentNode.js'][95] = 0;
   _$jscoverage['ParentNode.js'][100] = 0;
-  _$jscoverage['ParentNode.js'][101] = 0;
+  _$jscoverage['ParentNode.js'][102] = 0;
+  _$jscoverage['ParentNode.js'][103] = 0;
+  _$jscoverage['ParentNode.js'][104] = 0;
+  _$jscoverage['ParentNode.js'][106] = 0;
   _$jscoverage['ParentNode.js'][107] = 0;
   _$jscoverage['ParentNode.js'][109] = 0;
   _$jscoverage['ParentNode.js'][110] = 0;
+  _$jscoverage['ParentNode.js'][111] = 0;
+  _$jscoverage['ParentNode.js'][112] = 0;
+  _$jscoverage['ParentNode.js'][114] = 0;
   _$jscoverage['ParentNode.js'][116] = 0;
+  _$jscoverage['ParentNode.js'][117] = 0;
+  _$jscoverage['ParentNode.js'][119] = 0;
+  _$jscoverage['ParentNode.js'][124] = 0;
+  _$jscoverage['ParentNode.js'][126] = 0;
+  _$jscoverage['ParentNode.js'][127] = 0;
+  _$jscoverage['ParentNode.js'][133] = 0;
+  _$jscoverage['ParentNode.js'][135] = 0;
+  _$jscoverage['ParentNode.js'][136] = 0;
+  _$jscoverage['ParentNode.js'][142] = 0;
 }
-_$jscoverage['ParentNode.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  ParentNode: {get: function() {","      return ParentNode;","    }},","  __esModule: {value: true}","});","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var Node = require('./Node').Node;","var ParentNode = function($__super) {","  \"use strict\";","  function ParentNode() {","    $__Object$getPrototypeOf(ParentNode.prototype).constructor.call(this);","    this._childNodes = [];","  }","  ParentNode.__proto__ = ($__super !== null ? $__super : Function.prototype);","  ParentNode.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(ParentNode.prototype, \"constructor\", {value: ParentNode});","  $__Object$defineProperty(ParentNode.prototype, \"childNodes\", {","    get: function() {","      return this._childNodes;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"firstChild\", {","    get: function() {","      return this._childNodes[0] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"lastChild\", {","    get: function() {","      return this._childNodes[this._childNodes.length - 1] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"appendChild\", {","    value: function(child) {","      if (this._childNodes.indexOf(child) !== -1) {","        return child;","      }","      child._parentNode = this;","      this._childNodes.push(child);","      return child;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"replaceChild\", {","    value: function(newChild, oldChild) {","      var index = this._childNodes.indexOf(oldChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      newChild._parentNode = this;","      this._childNodes[index] = newChild;","      delete oldChild._parentNode;","      return oldChild;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"removeChild\", {","    value: function(toRemoveChild) {","      var index = this._childNodes.indexOf(toRemoveChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      this._childNodes.splice(index, 1);","      delete toRemoveChild._parentNode;","      return toRemoveChild;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"insertBefore\", {","    value: function(child, existingChild) {","      var index = this._childNodes.indexOf(existingChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      child._parentNode = this;","      if (index === 0) {","        this._childNodes.unshift(child);","      } else {","        this._childNodes.splice(index, 0, child);","      }","      return child;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"innerHTML\", {","    get: function() {","      return this._childNodes.reduce(function(value, node) {","        return value + node._toHTML();","      }, '');","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"textContent\", {","    get: function() {","      return this._childNodes.reduce(function(value, node) {","        return value + node.textContent;","      }, '');","    },","    enumerable: true,","    configurable: true","  });","  return ParentNode;","}(Node);","","//# sourceMappingURL=ParentNode.js.map"];
+_$jscoverage['ParentNode.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  ParentNode: {get: function() {","      return ParentNode;","    }},","  __esModule: {value: true}","});","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var Node = require('./Node').Node;","var ParentNode = function($__super) {","  \"use strict\";","  function ParentNode() {","    $__Object$getPrototypeOf(ParentNode.prototype).constructor.call(this);","    this._childNodes = [];","  }","  ParentNode.__proto__ = ($__super !== null ? $__super : Function.prototype);","  ParentNode.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(ParentNode.prototype, \"constructor\", {value: ParentNode});","  $__Object$defineProperty(ParentNode.prototype, \"childNodes\", {","    get: function() {","      return this._childNodes;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"firstChild\", {","    get: function() {","      return this._childNodes[0] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"lastChild\", {","    get: function() {","      return this._childNodes[this._childNodes.length - 1] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"appendChild\", {","    value: function(child) {","      if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {","        var childNode;","        while (childNode = child.firstChild) {","          child.removeChild(childNode);","          this.appendChild(childNode);","        }","        return child;","      }","      if (this._childNodes.indexOf(child) !== -1) {","        return child;","      }","      child._parentNode = this;","      this._childNodes.push(child);","      return child;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"replaceChild\", {","    value: function(newChild, oldChild) {","      var index = this._childNodes.indexOf(oldChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      if (newChild.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {","        var newChildren = [],","            childNode;","        while (childNode = newChild.firstChild) {","          newChild.removeChild(childNode);","          childNode._parentNode = this;","          newChildren.push(childNode);","        }","        this._childNodes.splice.bind(this._childNodes, index, 1).apply(null, newChildren);","      } else {","        newChild._parentNode = this;","        this._childNodes[index] = newChild;","      }","      delete oldChild._parentNode;","      return oldChild;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"removeChild\", {","    value: function(toRemoveChild) {","      var index = this._childNodes.indexOf(toRemoveChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      this._childNodes.splice(index, 1);","      delete toRemoveChild._parentNode;","      return toRemoveChild;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"insertBefore\", {","    value: function(child, existingChild) {","      var index = this._childNodes.indexOf(existingChild);","      if (index === -1) {","        throw new Error('Node was not found');","      }","      if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {","        var children = [],","            childNode;","        while (childNode = child.firstChild) {","          child.removeChild(childNode);","          childNode._parentNode = this;","          children.push(childNode);","        }","        this._childNodes.splice.bind(this._childNodes, index, 0).apply(null, children);","      } else {","        child._parentNode = this;","        this._childNodes.splice(index, 0, child);","      }","      return child;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"innerHTML\", {","    get: function() {","      return this._childNodes.reduce(function(value, node) {","        return value + node._toHTML();","      }, '');","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(ParentNode.prototype, \"textContent\", {","    get: function() {","      return this._childNodes.reduce(function(value, node) {","        return value + node.textContent;","      }, '');","    },","    enumerable: true,","    configurable: true","  });","  return ParentNode;","}(Node);","","//# sourceMappingURL=ParentNode.js.map"];
 _$jscoverage['ParentNode.js'][1]++;
 "use strict";
 _$jscoverage['ParentNode.js'][2]++;
@@ -149,90 +167,133 @@ var ParentNode = (function ($__super) {
   _$jscoverage['ParentNode.js'][42]++;
   $__Object$defineProperty(ParentNode.prototype, "appendChild", {value: (function (child) {
   _$jscoverage['ParentNode.js'][44]++;
-  if ((this._childNodes.indexOf(child) !== -1)) {
+  if ((child.nodeType === Node.DOCUMENT_FRAGMENT_NODE)) {
     _$jscoverage['ParentNode.js'][45]++;
+    var childNode;
+    _$jscoverage['ParentNode.js'][46]++;
+    while ((childNode = child.firstChild)) {
+      _$jscoverage['ParentNode.js'][47]++;
+      child.removeChild(childNode);
+      _$jscoverage['ParentNode.js'][48]++;
+      this.appendChild(childNode);
+}
+    _$jscoverage['ParentNode.js'][50]++;
     return child;
   }
-  _$jscoverage['ParentNode.js'][47]++;
+  _$jscoverage['ParentNode.js'][52]++;
+  if ((this._childNodes.indexOf(child) !== -1)) {
+    _$jscoverage['ParentNode.js'][53]++;
+    return child;
+  }
+  _$jscoverage['ParentNode.js'][55]++;
   child._parentNode = this;
-  _$jscoverage['ParentNode.js'][48]++;
+  _$jscoverage['ParentNode.js'][56]++;
   this._childNodes.push(child);
-  _$jscoverage['ParentNode.js'][49]++;
+  _$jscoverage['ParentNode.js'][57]++;
   return child;
 }), enumerable: false, writable: true});
-  _$jscoverage['ParentNode.js'][54]++;
-  $__Object$defineProperty(ParentNode.prototype, "replaceChild", {value: (function (newChild, oldChild) {
-  _$jscoverage['ParentNode.js'][56]++;
-  var index = this._childNodes.indexOf(oldChild);
-  _$jscoverage['ParentNode.js'][57]++;
-  if ((index === -1)) {
-    _$jscoverage['ParentNode.js'][58]++;
-    throw new Error("Node was not found");
-  }
-  _$jscoverage['ParentNode.js'][60]++;
-  newChild._parentNode = this;
-  _$jscoverage['ParentNode.js'][61]++;
-  this._childNodes[index] = newChild;
   _$jscoverage['ParentNode.js'][62]++;
-  (delete oldChild._parentNode);
-  _$jscoverage['ParentNode.js'][63]++;
-  return oldChild;
-}), enumerable: false, writable: true});
+  $__Object$defineProperty(ParentNode.prototype, "replaceChild", {value: (function (newChild, oldChild) {
+  _$jscoverage['ParentNode.js'][64]++;
+  var index = this._childNodes.indexOf(oldChild);
+  _$jscoverage['ParentNode.js'][65]++;
+  if ((index === -1)) {
+    _$jscoverage['ParentNode.js'][66]++;
+    throw new Error("Node was not found");
+  }
   _$jscoverage['ParentNode.js'][68]++;
-  $__Object$defineProperty(ParentNode.prototype, "removeChild", {value: (function (toRemoveChild) {
-  _$jscoverage['ParentNode.js'][70]++;
-  var index = this._childNodes.indexOf(toRemoveChild);
-  _$jscoverage['ParentNode.js'][71]++;
-  if ((index === -1)) {
-    _$jscoverage['ParentNode.js'][72]++;
-    throw new Error("Node was not found");
-  }
-  _$jscoverage['ParentNode.js'][74]++;
-  this._childNodes.splice(index, 1);
-  _$jscoverage['ParentNode.js'][75]++;
-  (delete toRemoveChild._parentNode);
-  _$jscoverage['ParentNode.js'][76]++;
-  return toRemoveChild;
-}), enumerable: false, writable: true});
-  _$jscoverage['ParentNode.js'][81]++;
-  $__Object$defineProperty(ParentNode.prototype, "insertBefore", {value: (function (child, existingChild) {
-  _$jscoverage['ParentNode.js'][83]++;
-  var index = this._childNodes.indexOf(existingChild);
-  _$jscoverage['ParentNode.js'][84]++;
-  if ((index === -1)) {
-    _$jscoverage['ParentNode.js'][85]++;
-    throw new Error("Node was not found");
-  }
-  _$jscoverage['ParentNode.js'][87]++;
-  child._parentNode = this;
-  _$jscoverage['ParentNode.js'][88]++;
-  if ((index === 0)) {
-    _$jscoverage['ParentNode.js'][89]++;
-    this._childNodes.unshift(child);
+  if ((newChild.nodeType === Node.DOCUMENT_FRAGMENT_NODE)) {
+    _$jscoverage['ParentNode.js'][69]++;
+    var newChildren = [], childNode;
+    _$jscoverage['ParentNode.js'][71]++;
+    while ((childNode = newChild.firstChild)) {
+      _$jscoverage['ParentNode.js'][72]++;
+      newChild.removeChild(childNode);
+      _$jscoverage['ParentNode.js'][73]++;
+      childNode._parentNode = this;
+      _$jscoverage['ParentNode.js'][74]++;
+      newChildren.push(childNode);
+}
+    _$jscoverage['ParentNode.js'][76]++;
+    this._childNodes.splice.bind(this._childNodes, index, 1).apply(null, newChildren);
   }
   else {
+    _$jscoverage['ParentNode.js'][78]++;
+    newChild._parentNode = this;
+    _$jscoverage['ParentNode.js'][79]++;
+    this._childNodes[index] = newChild;
+  }
+  _$jscoverage['ParentNode.js'][81]++;
+  (delete oldChild._parentNode);
+  _$jscoverage['ParentNode.js'][82]++;
+  return oldChild;
+}), enumerable: false, writable: true});
+  _$jscoverage['ParentNode.js'][87]++;
+  $__Object$defineProperty(ParentNode.prototype, "removeChild", {value: (function (toRemoveChild) {
+  _$jscoverage['ParentNode.js'][89]++;
+  var index = this._childNodes.indexOf(toRemoveChild);
+  _$jscoverage['ParentNode.js'][90]++;
+  if ((index === -1)) {
     _$jscoverage['ParentNode.js'][91]++;
-    this._childNodes.splice(index, 0, child);
+    throw new Error("Node was not found");
   }
   _$jscoverage['ParentNode.js'][93]++;
+  this._childNodes.splice(index, 1);
+  _$jscoverage['ParentNode.js'][94]++;
+  (delete toRemoveChild._parentNode);
+  _$jscoverage['ParentNode.js'][95]++;
+  return toRemoveChild;
+}), enumerable: false, writable: true});
+  _$jscoverage['ParentNode.js'][100]++;
+  $__Object$defineProperty(ParentNode.prototype, "insertBefore", {value: (function (child, existingChild) {
+  _$jscoverage['ParentNode.js'][102]++;
+  var index = this._childNodes.indexOf(existingChild);
+  _$jscoverage['ParentNode.js'][103]++;
+  if ((index === -1)) {
+    _$jscoverage['ParentNode.js'][104]++;
+    throw new Error("Node was not found");
+  }
+  _$jscoverage['ParentNode.js'][106]++;
+  if ((child.nodeType === Node.DOCUMENT_FRAGMENT_NODE)) {
+    _$jscoverage['ParentNode.js'][107]++;
+    var children = [], childNode;
+    _$jscoverage['ParentNode.js'][109]++;
+    while ((childNode = child.firstChild)) {
+      _$jscoverage['ParentNode.js'][110]++;
+      child.removeChild(childNode);
+      _$jscoverage['ParentNode.js'][111]++;
+      childNode._parentNode = this;
+      _$jscoverage['ParentNode.js'][112]++;
+      children.push(childNode);
+}
+    _$jscoverage['ParentNode.js'][114]++;
+    this._childNodes.splice.bind(this._childNodes, index, 0).apply(null, children);
+  }
+  else {
+    _$jscoverage['ParentNode.js'][116]++;
+    child._parentNode = this;
+    _$jscoverage['ParentNode.js'][117]++;
+    this._childNodes.splice(index, 0, child);
+  }
+  _$jscoverage['ParentNode.js'][119]++;
   return child;
 }), enumerable: false, writable: true});
-  _$jscoverage['ParentNode.js'][98]++;
+  _$jscoverage['ParentNode.js'][124]++;
   $__Object$defineProperty(ParentNode.prototype, "innerHTML", {get: (function () {
-  _$jscoverage['ParentNode.js'][100]++;
+  _$jscoverage['ParentNode.js'][126]++;
   return this._childNodes.reduce((function (value, node) {
-  _$jscoverage['ParentNode.js'][101]++;
+  _$jscoverage['ParentNode.js'][127]++;
   return (value + node._toHTML());
 }), "");
 }), enumerable: true, configurable: true});
-  _$jscoverage['ParentNode.js'][107]++;
+  _$jscoverage['ParentNode.js'][133]++;
   $__Object$defineProperty(ParentNode.prototype, "textContent", {get: (function () {
-  _$jscoverage['ParentNode.js'][109]++;
+  _$jscoverage['ParentNode.js'][135]++;
   return this._childNodes.reduce((function (value, node) {
-  _$jscoverage['ParentNode.js'][110]++;
+  _$jscoverage['ParentNode.js'][136]++;
   return (value + node.textContent);
 }), "");
 }), enumerable: true, configurable: true});
-  _$jscoverage['ParentNode.js'][116]++;
+  _$jscoverage['ParentNode.js'][142]++;
   return ParentNode;
 })(Node);

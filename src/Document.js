@@ -1,3 +1,4 @@
+var Node = require('./Node').Node;
 var Comment = require('./Comment').Comment;
 var DocumentFragment = require('./DocumentFragment').DocumentFragment;
 var HTMLElement = require('./HTMLElement').HTMLElement;
@@ -53,3 +54,5 @@ export class Document {
         return new Text(textContent);
     }
 }
+
+Object.defineProperty(Document.prototype, 'nodeType', { value: Node.DOCUMENT_NODE });

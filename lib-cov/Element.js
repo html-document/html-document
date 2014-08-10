@@ -52,20 +52,22 @@ if (! _$jscoverage['Element.js']) {
   _$jscoverage['Element.js'][15] = 0;
   _$jscoverage['Element.js'][16] = 0;
   _$jscoverage['Element.js'][17] = 0;
-  _$jscoverage['Element.js'][19] = 0;
+  _$jscoverage['Element.js'][18] = 0;
   _$jscoverage['Element.js'][20] = 0;
   _$jscoverage['Element.js'][21] = 0;
   _$jscoverage['Element.js'][22] = 0;
-  _$jscoverage['Element.js'][24] = 0;
-  _$jscoverage['Element.js'][29] = 0;
-  _$jscoverage['Element.js'][31] = 0;
-  _$jscoverage['Element.js'][36] = 0;
-  _$jscoverage['Element.js'][38] = 0;
-  _$jscoverage['Element.js'][43] = 0;
-  _$jscoverage['Element.js'][45] = 0;
-  _$jscoverage['Element.js'][50] = 0;
+  _$jscoverage['Element.js'][23] = 0;
+  _$jscoverage['Element.js'][25] = 0;
+  _$jscoverage['Element.js'][30] = 0;
+  _$jscoverage['Element.js'][32] = 0;
+  _$jscoverage['Element.js'][37] = 0;
+  _$jscoverage['Element.js'][39] = 0;
+  _$jscoverage['Element.js'][44] = 0;
+  _$jscoverage['Element.js'][46] = 0;
+  _$jscoverage['Element.js'][51] = 0;
+  _$jscoverage['Element.js'][53] = 0;
 }
-_$jscoverage['Element.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Element: {get: function() {","      return Element;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var ParentNode = require('./ParentNode').ParentNode;","var Element = function($__super) {","  \"use strict\";","  function Element() {","    var $__0 = $__Object$getPrototypeOf(Element.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, arguments);","  }","  Element.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Element.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Element.prototype, \"constructor\", {value: Element});","  $__Object$defineProperty(Element.prototype, \"children\", {","    get: function() {","      return this._childNodes;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"firstElementChild\", {","    get: function() {","      return this._childNodes[0] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"lastElementChild\", {","    get: function() {","      return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"childElementCount\", {","    get: function() {","      return this._childNodes.length;","    },","    enumerable: true,","    configurable: true","  });","  return Element;","}(ParentNode);","","//# sourceMappingURL=Element.js.map"];
+_$jscoverage['Element.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Element: {get: function() {","      return Element;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var Node = require('./Node').Node;","var ParentNode = require('./ParentNode').ParentNode;","var Element = function($__super) {","  \"use strict\";","  function Element() {","    var $__0 = $__Object$getPrototypeOf(Element.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, arguments);","  }","  Element.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Element.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Element.prototype, \"constructor\", {value: Element});","  $__Object$defineProperty(Element.prototype, \"children\", {","    get: function() {","      return this._childNodes;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"firstElementChild\", {","    get: function() {","      return this._childNodes[0] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"lastElementChild\", {","    get: function() {","      return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"childElementCount\", {","    get: function() {","      return this._childNodes.length;","    },","    enumerable: true,","    configurable: true","  });","  return Element;","}(ParentNode);","Object.defineProperty(Element.prototype, 'nodeType', {value: Node.ELEMENT_NODE});","","//# sourceMappingURL=Element.js.map"];
 _$jscoverage['Element.js'][1]++;
 "use strict";
 _$jscoverage['Element.js'][2]++;
@@ -80,47 +82,51 @@ var $__Object$create = Object.create;
 _$jscoverage['Element.js'][10]++;
 var $__Object$getPrototypeOf = Object.getPrototypeOf;
 _$jscoverage['Element.js'][11]++;
-var ParentNode = require("./ParentNode").ParentNode;
+var Node = require("./Node").Node;
 _$jscoverage['Element.js'][12]++;
+var ParentNode = require("./ParentNode").ParentNode;
+_$jscoverage['Element.js'][13]++;
 var Element = (function ($__super) {
-  _$jscoverage['Element.js'][13]++;
-  "use strict";
   _$jscoverage['Element.js'][14]++;
+  "use strict";
+  _$jscoverage['Element.js'][15]++;
   function Element() {
-    _$jscoverage['Element.js'][15]++;
-    var $__0 = $__Object$getPrototypeOf(Element.prototype);
     _$jscoverage['Element.js'][16]++;
+    var $__0 = $__Object$getPrototypeOf(Element.prototype);
+    _$jscoverage['Element.js'][17]++;
     if (($__0 !== null)) {
-      _$jscoverage['Element.js'][17]++;
+      _$jscoverage['Element.js'][18]++;
       $__0.constructor.apply(this, arguments);
     }
 }
-  _$jscoverage['Element.js'][19]++;
-  Element.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Element.js'][20]++;
-  Element.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  Element.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Element.js'][21]++;
-  $__Object$defineProperty(Element.prototype, "constructor", {value: Element});
+  Element.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['Element.js'][22]++;
+  $__Object$defineProperty(Element.prototype, "constructor", {value: Element});
+  _$jscoverage['Element.js'][23]++;
   $__Object$defineProperty(Element.prototype, "children", {get: (function () {
-  _$jscoverage['Element.js'][24]++;
+  _$jscoverage['Element.js'][25]++;
   return this._childNodes;
 }), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][29]++;
+  _$jscoverage['Element.js'][30]++;
   $__Object$defineProperty(Element.prototype, "firstElementChild", {get: (function () {
-  _$jscoverage['Element.js'][31]++;
+  _$jscoverage['Element.js'][32]++;
   return (this._childNodes[0] || null);
 }), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][36]++;
+  _$jscoverage['Element.js'][37]++;
   $__Object$defineProperty(Element.prototype, "lastElementChild", {get: (function () {
-  _$jscoverage['Element.js'][38]++;
+  _$jscoverage['Element.js'][39]++;
   return ((this._childNodes.length === 0)? null: this._childNodes[(this._childNodes.length - 1)]);
 }), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][43]++;
+  _$jscoverage['Element.js'][44]++;
   $__Object$defineProperty(Element.prototype, "childElementCount", {get: (function () {
-  _$jscoverage['Element.js'][45]++;
+  _$jscoverage['Element.js'][46]++;
   return this._childNodes.length;
 }), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][50]++;
+  _$jscoverage['Element.js'][51]++;
   return Element;
 })(ParentNode);
+_$jscoverage['Element.js'][53]++;
+Object.defineProperty(Element.prototype, "nodeType", {value: Node.ELEMENT_NODE});
