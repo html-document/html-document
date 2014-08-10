@@ -4,6 +4,10 @@ var HTMLElement = require('./HTMLElement').HTMLElement;
 var Text = require('./Text').Text;
 
 export class Document {
+    constructor() {
+        this.documentElement = this.createElement('html');
+    }
+
     /**
      * Creates a new {@link Comment}.
      *

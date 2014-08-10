@@ -52,17 +52,18 @@ if (! _$jscoverage['Document.js']) {
   _$jscoverage['Document.js'][15] = 0;
   _$jscoverage['Document.js'][16] = 0;
   _$jscoverage['Document.js'][18] = 0;
-  _$jscoverage['Document.js'][23] = 0;
+  _$jscoverage['Document.js'][20] = 0;
   _$jscoverage['Document.js'][25] = 0;
-  _$jscoverage['Document.js'][30] = 0;
+  _$jscoverage['Document.js'][27] = 0;
   _$jscoverage['Document.js'][32] = 0;
-  _$jscoverage['Document.js'][33] = 0;
   _$jscoverage['Document.js'][34] = 0;
-  _$jscoverage['Document.js'][39] = 0;
+  _$jscoverage['Document.js'][35] = 0;
+  _$jscoverage['Document.js'][36] = 0;
   _$jscoverage['Document.js'][41] = 0;
-  _$jscoverage['Document.js'][46] = 0;
+  _$jscoverage['Document.js'][43] = 0;
+  _$jscoverage['Document.js'][48] = 0;
 }
-_$jscoverage['Document.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Document: {get: function() {","      return Document;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Comment = require('./Comment').Comment;","var DocumentFragment = require('./DocumentFragment').DocumentFragment;","var HTMLElement = require('./HTMLElement').HTMLElement;","var Text = require('./Text').Text;","var Document = function() {","  \"use strict\";","  function Document() {}","  $__Object$defineProperty(Document.prototype, \"createComment\", {","    value: function(data) {","      return new Comment(data);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createDocumentFragment\", {","    value: function() {","      return new DocumentFragment();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createElement\", {","    value: function(name) {","      var element = new HTMLElement();","      element.nodeName = name;","      return element;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createTextNode\", {","    value: function(textContent) {","      return new Text(textContent);","    },","    enumerable: false,","    writable: true","  });","  return Document;","}();","","//# sourceMappingURL=Document.js.map"];
+_$jscoverage['Document.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Document: {get: function() {","      return Document;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Comment = require('./Comment').Comment;","var DocumentFragment = require('./DocumentFragment').DocumentFragment;","var HTMLElement = require('./HTMLElement').HTMLElement;","var Text = require('./Text').Text;","var Document = function() {","  \"use strict\";","  function Document() {","    this.documentElement = this.createElement('html');","  }","  $__Object$defineProperty(Document.prototype, \"createComment\", {","    value: function(data) {","      return new Comment(data);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createDocumentFragment\", {","    value: function() {","      return new DocumentFragment();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createElement\", {","    value: function(name) {","      var element = new HTMLElement();","      element.nodeName = name;","      return element;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Document.prototype, \"createTextNode\", {","    value: function(textContent) {","      return new Text(textContent);","    },","    enumerable: false,","    writable: true","  });","  return Document;","}();","","//# sourceMappingURL=Document.js.map"];
 _$jscoverage['Document.js'][1]++;
 "use strict";
 _$jscoverage['Document.js'][2]++;
@@ -86,31 +87,33 @@ var Document = (function () {
   "use strict";
   _$jscoverage['Document.js'][15]++;
   function Document() {
+    _$jscoverage['Document.js'][16]++;
+    this.documentElement = this.createElement("html");
 }
-  _$jscoverage['Document.js'][16]++;
-  $__Object$defineProperty(Document.prototype, "createComment", {value: (function (data) {
   _$jscoverage['Document.js'][18]++;
+  $__Object$defineProperty(Document.prototype, "createComment", {value: (function (data) {
+  _$jscoverage['Document.js'][20]++;
   return new Comment(data);
 }), enumerable: false, writable: true});
-  _$jscoverage['Document.js'][23]++;
-  $__Object$defineProperty(Document.prototype, "createDocumentFragment", {value: (function () {
   _$jscoverage['Document.js'][25]++;
+  $__Object$defineProperty(Document.prototype, "createDocumentFragment", {value: (function () {
+  _$jscoverage['Document.js'][27]++;
   return new DocumentFragment();
 }), enumerable: false, writable: true});
-  _$jscoverage['Document.js'][30]++;
-  $__Object$defineProperty(Document.prototype, "createElement", {value: (function (name) {
   _$jscoverage['Document.js'][32]++;
-  var element = new HTMLElement();
-  _$jscoverage['Document.js'][33]++;
-  element.nodeName = name;
+  $__Object$defineProperty(Document.prototype, "createElement", {value: (function (name) {
   _$jscoverage['Document.js'][34]++;
+  var element = new HTMLElement();
+  _$jscoverage['Document.js'][35]++;
+  element.nodeName = name;
+  _$jscoverage['Document.js'][36]++;
   return element;
 }), enumerable: false, writable: true});
-  _$jscoverage['Document.js'][39]++;
-  $__Object$defineProperty(Document.prototype, "createTextNode", {value: (function (textContent) {
   _$jscoverage['Document.js'][41]++;
+  $__Object$defineProperty(Document.prototype, "createTextNode", {value: (function (textContent) {
+  _$jscoverage['Document.js'][43]++;
   return new Text(textContent);
 }), enumerable: false, writable: true});
-  _$jscoverage['Document.js'][46]++;
+  _$jscoverage['Document.js'][48]++;
   return Document;
 })();
