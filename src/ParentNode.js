@@ -1,4 +1,5 @@
 var Node = require('./Node').Node;
+var parser = require('./parser');
 
 /**
  * The ParentNode interface contains methods that are particular to Node objects that can have children.
@@ -126,6 +127,11 @@ export class ParentNode extends Node {
         return this._childNodes.reduce(function(value, node) {
             return value + node._toHTML();
         }, '');
+    }
+
+    set innerHTML(html) {
+        this._childNodes = [];
+        parser.parse(html, this);
     }
 
     /**

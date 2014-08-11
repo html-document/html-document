@@ -4,7 +4,7 @@
   "keywords": [
     "springbokjs"
   ],
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/christophehurpeau/html-document",
   "license": "MIT",
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
@@ -18,5 +18,8 @@
     "mocha": "^1.21",
     "proclaim": "^2.0",
     "springbokjs-library": "^2.5.2"
+  },
+  "dependencies": {
+    "htmlparser2": "^3.7.3"
   }
 }

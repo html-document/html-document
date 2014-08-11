@@ -18,7 +18,9 @@ export class Document {
      * @return {Comment}
     */
     createComment(data/* : String*/) {
-        return new Comment(data);
+        var comment = new Comment(data);
+        comment.ownerDocument = this;
+        return comment;
     }
 
     /**
@@ -29,7 +31,9 @@ export class Document {
      * @return {DocumentFragment}
     */
     createDocumentFragment() {
-        return new DocumentFragment();
+        var fragment = new DocumentFragment();
+        fragment.ownerDocument = this;
+        return fragment;
     }
 
     /**
@@ -41,6 +45,7 @@ export class Document {
     createElement(name) {
         var element = new HTMLElement();
         element.nodeName = name;
+        element.ownerDocument = this;
         return element;
     }
 
@@ -51,7 +56,9 @@ export class Document {
      * @return {Text}
     */
     createTextNode(textContent) {
-        return new Text(textContent);
+        var text = new Text(textContent);
+        text.ownerDocument = this;
+        return text;
     }
 }
 
