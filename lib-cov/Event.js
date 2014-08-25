@@ -58,10 +58,15 @@ if (! _$jscoverage['Event.js']) {
   _$jscoverage['Event.js'][22] = 0;
   _$jscoverage['Event.js'][24] = 0;
   _$jscoverage['Event.js'][29] = 0;
-  _$jscoverage['Event.js'][34] = 0;
+  _$jscoverage['Event.js'][31] = 0;
+  _$jscoverage['Event.js'][32] = 0;
+  _$jscoverage['Event.js'][37] = 0;
   _$jscoverage['Event.js'][39] = 0;
+  _$jscoverage['Event.js'][44] = 0;
+  _$jscoverage['Event.js'][46] = 0;
+  _$jscoverage['Event.js'][51] = 0;
 }
-_$jscoverage['Event.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Event: {get: function() {","      return Event;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Event = function() {","  \"use strict\";","  function Event(type) {","    this.bubbles = false;","    this.cancelable = false;","    this.currentTarget = false;","    this.defaultPrevented = false;","    this.eventPhase = 0;","    this.target = null;","    this.timeStamp = Date.now() * 1000;","    this.type = type.toLowerCase();","    this.isTrusted = false;","  }","  $__Object$defineProperty(Event.prototype, \"preventDefault\", {","    value: function() {","      this.defaultPrevented = true;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Event.prototype, \"stopImmediatePropagation\", {","    value: function() {},","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Event.prototype, \"stopPropagation\", {","    value: function() {},","    enumerable: false,","    writable: true","  });","  return Event;","}();","","//# sourceMappingURL=Event.js.map"];
+_$jscoverage['Event.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Event: {get: function() {","      return Event;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Event = function() {","  \"use strict\";","  function Event(type) {","    this.bubbles = false;","    this.cancelable = false;","    this.currentTarget = false;","    this.defaultPrevented = false;","    this.eventPhase = 0;","    this.target = null;","    this.timeStamp = Date.now() * 1000;","    this.type = type.toLowerCase();","    this.isTrusted = false;","  }","  $__Object$defineProperty(Event.prototype, \"preventDefault\", {","    value: function() {","      this.defaultPrevented = true;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Event.prototype, \"stopImmediatePropagation\", {","    value: function() {","      this.immediatePropagationStopped = true;","      this.stopPropagation();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Event.prototype, \"stopPropagation\", {","    value: function() {","      this.propagationStopped = true;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Event.prototype, \"isImmediatePropagationStopped\", {","    value: function() {","      return this.immediatePropagationStopped;","    },","    enumerable: false,","    writable: true","  });","  return Event;","}();","","//# sourceMappingURL=Event.js.map"];
 _$jscoverage['Event.js'][1]++;
 "use strict";
 _$jscoverage['Event.js'][2]++;
@@ -103,10 +108,21 @@ var Event = (function () {
 }), enumerable: false, writable: true});
   _$jscoverage['Event.js'][29]++;
   $__Object$defineProperty(Event.prototype, "stopImmediatePropagation", {value: (function () {
+  _$jscoverage['Event.js'][31]++;
+  this.immediatePropagationStopped = true;
+  _$jscoverage['Event.js'][32]++;
+  this.stopPropagation();
 }), enumerable: false, writable: true});
-  _$jscoverage['Event.js'][34]++;
+  _$jscoverage['Event.js'][37]++;
   $__Object$defineProperty(Event.prototype, "stopPropagation", {value: (function () {
-}), enumerable: false, writable: true});
   _$jscoverage['Event.js'][39]++;
+  this.propagationStopped = true;
+}), enumerable: false, writable: true});
+  _$jscoverage['Event.js'][44]++;
+  $__Object$defineProperty(Event.prototype, "isImmediatePropagationStopped", {value: (function () {
+  _$jscoverage['Event.js'][46]++;
+  return this.immediatePropagationStopped;
+}), enumerable: false, writable: true});
+  _$jscoverage['Event.js'][51]++;
   return Event;
 })();

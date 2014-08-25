@@ -61,10 +61,15 @@ export class Event {
     }
 
     stopImmediatePropagation() {
-
+        this.immediatePropagationStopped = true;
+        this.stopPropagation();
     }
 
     stopPropagation() {
+        this.propagationStopped = true;
+    }
 
+    isImmediatePropagationStopped() {
+        return this.immediatePropagationStopped;
     }
 }

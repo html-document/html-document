@@ -74,6 +74,72 @@ export class Node {
         return this.outerHTML;
     }
 
+    /* EVENTS */
+
+    addEventListener(eventType, listener, capturingPhase) {
+        var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';
+        if (!this[_eventsKey]) {
+            this[_eventsKey] = new Map();
+        }
+        var callbacks;
+        if (!this[_eventsKey].has(eventType)) {
+            this[_eventsKey].set(eventType, callbacks = []);
+        } else {
+            callbacks = this[_eventsKey].get(eventType);
+        }
+        callbacks.push(listener);
+        return this;
+    }
+
+    removeEventListener(eventType, listener, capturingPhase) {
+        var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';
+        if (this[_eventsKey] && this[_eventsKey].has(eventType)) {
+            var callbacks = this[_eventsKey].get(eventType);
+            var i = callbacks.indexOf(listener);
+            if (i === -1) {
+                return false;
+            }
+            callbacks.splice(i, 1);
+        }
+    }
+
+    dispatchEvent(event) {
+        event.target = this;
+        // Capturing phase
+        var capturingPhase = function(event) {
+            if (this._parentNode) {
+                capturingPhase.call(this._parentNode, event);
+            }
+            if (event.propagationStopped) {
+                return;
+            }
+            var callbacks = this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type);
+            if (callbacks) {
+                callbacks.some(function() {
+                    return event.immediatePropagationStopped;
+                });
+            }
+        };
+        capturingPhase.call(this, event);
+
+        // Bubbling phase
+        if (!event.propagationStopped) {
+            var bubblingPhase = function(event) {
+                var callbacks = this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type);
+                if (callbacks) {
+                    callbacks.some(function() {
+                        return event.immediatePropagationStopped;
+                    });
+                }
+                if (!event.propagationStopped && this._parentNode) {
+                    bubblingPhase.call(this._parentNode, event);
+                }
+            };
+            bubblingPhase.call(this, event);
+        }
+
+        return !event.defaultPrevented;
+    }
 }
 
 Object.defineProperty(Node, 'ELEMENT_NODE', { value: 1 });

@@ -120,6 +120,7 @@ export class AbstractCSSStyleDeclaration {
             var value = this._propertiesMap[propertyName];
             this._properties.splice(this._properties.indexOf(value), 1);
             delete this._propertiesMap[propertyName];
+            this._stringify();
             return value.value;
         }
     }

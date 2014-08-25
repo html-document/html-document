@@ -66,17 +66,57 @@ if (! _$jscoverage['Node.js']) {
   _$jscoverage['Node.js'][65] = 0;
   _$jscoverage['Node.js'][66] = 0;
   _$jscoverage['Node.js'][67] = 0;
-  _$jscoverage['Node.js'][68] = 0;
   _$jscoverage['Node.js'][69] = 0;
   _$jscoverage['Node.js'][70] = 0;
   _$jscoverage['Node.js'][71] = 0;
-  _$jscoverage['Node.js'][72] = 0;
   _$jscoverage['Node.js'][73] = 0;
-  _$jscoverage['Node.js'][74] = 0;
   _$jscoverage['Node.js'][75] = 0;
   _$jscoverage['Node.js'][76] = 0;
+  _$jscoverage['Node.js'][81] = 0;
+  _$jscoverage['Node.js'][83] = 0;
+  _$jscoverage['Node.js'][84] = 0;
+  _$jscoverage['Node.js'][85] = 0;
+  _$jscoverage['Node.js'][86] = 0;
+  _$jscoverage['Node.js'][87] = 0;
+  _$jscoverage['Node.js'][88] = 0;
+  _$jscoverage['Node.js'][90] = 0;
+  _$jscoverage['Node.js'][96] = 0;
+  _$jscoverage['Node.js'][98] = 0;
+  _$jscoverage['Node.js'][99] = 0;
+  _$jscoverage['Node.js'][100] = 0;
+  _$jscoverage['Node.js'][101] = 0;
+  _$jscoverage['Node.js'][103] = 0;
+  _$jscoverage['Node.js'][104] = 0;
+  _$jscoverage['Node.js'][106] = 0;
+  _$jscoverage['Node.js'][107] = 0;
+  _$jscoverage['Node.js'][108] = 0;
+  _$jscoverage['Node.js'][109] = 0;
+  _$jscoverage['Node.js'][113] = 0;
+  _$jscoverage['Node.js'][114] = 0;
+  _$jscoverage['Node.js'][115] = 0;
+  _$jscoverage['Node.js'][116] = 0;
+  _$jscoverage['Node.js'][117] = 0;
+  _$jscoverage['Node.js'][118] = 0;
+  _$jscoverage['Node.js'][119] = 0;
+  _$jscoverage['Node.js'][122] = 0;
+  _$jscoverage['Node.js'][123] = 0;
+  _$jscoverage['Node.js'][126] = 0;
+  _$jscoverage['Node.js'][128] = 0;
+  _$jscoverage['Node.js'][133] = 0;
+  _$jscoverage['Node.js'][135] = 0;
+  _$jscoverage['Node.js'][136] = 0;
+  _$jscoverage['Node.js'][137] = 0;
+  _$jscoverage['Node.js'][138] = 0;
+  _$jscoverage['Node.js'][139] = 0;
+  _$jscoverage['Node.js'][140] = 0;
+  _$jscoverage['Node.js'][141] = 0;
+  _$jscoverage['Node.js'][142] = 0;
+  _$jscoverage['Node.js'][143] = 0;
+  _$jscoverage['Node.js'][144] = 0;
+  _$jscoverage['Node.js'][145] = 0;
+  _$jscoverage['Node.js'][146] = 0;
 }
-_$jscoverage['Node.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Node: {get: function() {","      return Node;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Node = function() {","  \"use strict\";","  function Node() {","    this._attributes = {};","  }","  $__Object$defineProperty(Node.prototype, \"getAttribute\", {","    value: function(attributeName) {","      return this._attributes[attributeName];","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._setAttribute(attributeName, attributeValue);","      this._updatedAttribute(attributeName, this._attributes[attributeName]);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._attributes[attributeName] = String(attributeValue);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeAttribute\", {","    value: function(attributeName) {","      delete this._attributes[attributeName];","      this._updatedAttribute(attributeName);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_updatedAttribute\", {","    value: function(attributeName) {},","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"textContent\", {","    get: function() {","      return '';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Node.prototype, \"_toHTML\", {","    value: function() {","      return this.outerHTML;","    },","    enumerable: false,","    writable: true","  });","  return Node;","}();","Object.defineProperty(Node, 'ELEMENT_NODE', {value: 1});","Object.defineProperty(Node, 'ATTRIBUTE_NODE', {value: 2});","Object.defineProperty(Node, 'TEXT_NODE', {value: 3});","Object.defineProperty(Node, 'CDATA_SECTION_NODE', {value: 4});","Object.defineProperty(Node, 'ENTITY_REFERENCE_NODE', {value: 5});","Object.defineProperty(Node, 'ENTITY_NODE', {value: 6});","Object.defineProperty(Node, 'PROCESSING_INSTRUCTION_NODE', {value: 7});","Object.defineProperty(Node, 'COMMENT_NODE', {value: 8});","Object.defineProperty(Node, 'DOCUMENT_NODE', {value: 9});","Object.defineProperty(Node, 'DOCUMENT_TYPE_NODE', {value: 10});","Object.defineProperty(Node, 'DOCUMENT_FRAGMENT_NODE', {value: 11});","Object.defineProperty(Node, 'NOTATION_NODE', {value: 12});","","//# sourceMappingURL=Node.js.map"];
+_$jscoverage['Node.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Node: {get: function() {","      return Node;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Node = function() {","  \"use strict\";","  function Node() {","    this._attributes = {};","  }","  $__Object$defineProperty(Node.prototype, \"getAttribute\", {","    value: function(attributeName) {","      return this._attributes[attributeName];","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._setAttribute(attributeName, attributeValue);","      this._updatedAttribute(attributeName, this._attributes[attributeName]);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._attributes[attributeName] = String(attributeValue);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeAttribute\", {","    value: function(attributeName) {","      delete this._attributes[attributeName];","      this._updatedAttribute(attributeName);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_updatedAttribute\", {","    value: function(attributeName) {},","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"textContent\", {","    get: function() {","      return '';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Node.prototype, \"_toHTML\", {","    value: function() {","      return this.outerHTML;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"addEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (!this[_eventsKey]) {","        this[_eventsKey] = new Map();","      }","      var callbacks;","      if (!this[_eventsKey].has(eventType)) {","        this[_eventsKey].set(eventType, callbacks = []);","      } else {","        callbacks = this[_eventsKey].get(eventType);","      }","      callbacks.push(listener);","      return this;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (this[_eventsKey] &amp;&amp; this[_eventsKey].has(eventType)) {","        var callbacks = this[_eventsKey].get(eventType);","        var i = callbacks.indexOf(listener);","        if (i === -1) {","          return false;","        }","        callbacks.splice(i, 1);","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"dispatchEvent\", {","    value: function(event) {","      event.target = this;","      var capturingPhase = function(event) {","        if (this._parentNode) {","          capturingPhase.call(this._parentNode, event);","        }","        if (event.propagationStopped) {","          return;","        }","        var callbacks = this._eventsCapturingPhase &amp;&amp; this._eventsCapturingPhase.get(event.type);","        if (callbacks) {","          callbacks.some(function() {","            return event.immediatePropagationStopped;","          });","        }","      };","      capturingPhase.call(this, event);","      if (!event.propagationStopped) {","        var bubblingPhase = function(event) {","          var callbacks = this._eventsBubblingPhase &amp;&amp; this._eventsBubblingPhase.get(event.type);","          if (callbacks) {","            callbacks.some(function() {","              return event.immediatePropagationStopped;","            });","          }","          if (!event.propagationStopped &amp;&amp; this._parentNode) {","            bubblingPhase.call(this._parentNode, event);","          }","        };","        bubblingPhase.call(this, event);","      }","      return !event.defaultPrevented;","    },","    enumerable: false,","    writable: true","  });","  return Node;","}();","Object.defineProperty(Node, 'ELEMENT_NODE', {value: 1});","Object.defineProperty(Node, 'ATTRIBUTE_NODE', {value: 2});","Object.defineProperty(Node, 'TEXT_NODE', {value: 3});","Object.defineProperty(Node, 'CDATA_SECTION_NODE', {value: 4});","Object.defineProperty(Node, 'ENTITY_REFERENCE_NODE', {value: 5});","Object.defineProperty(Node, 'ENTITY_NODE', {value: 6});","Object.defineProperty(Node, 'PROCESSING_INSTRUCTION_NODE', {value: 7});","Object.defineProperty(Node, 'COMMENT_NODE', {value: 8});","Object.defineProperty(Node, 'DOCUMENT_NODE', {value: 9});","Object.defineProperty(Node, 'DOCUMENT_TYPE_NODE', {value: 10});","Object.defineProperty(Node, 'DOCUMENT_FRAGMENT_NODE', {value: 11});","Object.defineProperty(Node, 'NOTATION_NODE', {value: 12});","","//# sourceMappingURL=Node.js.map"];
 _$jscoverage['Node.js'][1]++;
 "use strict";
 _$jscoverage['Node.js'][2]++;
@@ -133,29 +173,128 @@ var Node = (function () {
   return this.outerHTML;
 }), enumerable: false, writable: true});
   _$jscoverage['Node.js'][63]++;
+  $__Object$defineProperty(Node.prototype, "addEventListener", {value: (function (eventType, listener, capturingPhase) {
+  _$jscoverage['Node.js'][65]++;
+  var _eventsKey = (capturingPhase? "_eventsCapturingPhase": "_eventsBubblingPhase");
+  _$jscoverage['Node.js'][66]++;
+  if ((! this[_eventsKey])) {
+    _$jscoverage['Node.js'][67]++;
+    this[_eventsKey] = new Map();
+  }
+  _$jscoverage['Node.js'][69]++;
+  var callbacks;
+  _$jscoverage['Node.js'][70]++;
+  if ((! this[_eventsKey].has(eventType))) {
+    _$jscoverage['Node.js'][71]++;
+    this[_eventsKey].set(eventType, (callbacks = []));
+  }
+  else {
+    _$jscoverage['Node.js'][73]++;
+    callbacks = this[_eventsKey].get(eventType);
+  }
+  _$jscoverage['Node.js'][75]++;
+  callbacks.push(listener);
+  _$jscoverage['Node.js'][76]++;
+  return this;
+}), enumerable: false, writable: true});
+  _$jscoverage['Node.js'][81]++;
+  $__Object$defineProperty(Node.prototype, "removeEventListener", {value: (function (eventType, listener, capturingPhase) {
+  _$jscoverage['Node.js'][83]++;
+  var _eventsKey = (capturingPhase? "_eventsCapturingPhase": "_eventsBubblingPhase");
+  _$jscoverage['Node.js'][84]++;
+  if ((this[_eventsKey] && this[_eventsKey].has(eventType))) {
+    _$jscoverage['Node.js'][85]++;
+    var callbacks = this[_eventsKey].get(eventType);
+    _$jscoverage['Node.js'][86]++;
+    var i = callbacks.indexOf(listener);
+    _$jscoverage['Node.js'][87]++;
+    if ((i === -1)) {
+      _$jscoverage['Node.js'][88]++;
+      return false;
+    }
+    _$jscoverage['Node.js'][90]++;
+    callbacks.splice(i, 1);
+  }
+}), enumerable: false, writable: true});
+  _$jscoverage['Node.js'][96]++;
+  $__Object$defineProperty(Node.prototype, "dispatchEvent", {value: (function (event) {
+  _$jscoverage['Node.js'][98]++;
+  event.target = this;
+  _$jscoverage['Node.js'][99]++;
+  var capturingPhase = (function (event) {
+  _$jscoverage['Node.js'][100]++;
+  if (this._parentNode) {
+    _$jscoverage['Node.js'][101]++;
+    capturingPhase.call(this._parentNode, event);
+  }
+  _$jscoverage['Node.js'][103]++;
+  if (event.propagationStopped) {
+    _$jscoverage['Node.js'][104]++;
+    return;
+  }
+  _$jscoverage['Node.js'][106]++;
+  var callbacks = (this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type));
+  _$jscoverage['Node.js'][107]++;
+  if (callbacks) {
+    _$jscoverage['Node.js'][108]++;
+    callbacks.some((function () {
+  _$jscoverage['Node.js'][109]++;
+  return event.immediatePropagationStopped;
+}));
+  }
+});
+  _$jscoverage['Node.js'][113]++;
+  capturingPhase.call(this, event);
+  _$jscoverage['Node.js'][114]++;
+  if ((! event.propagationStopped)) {
+    _$jscoverage['Node.js'][115]++;
+    var bubblingPhase = (function (event) {
+  _$jscoverage['Node.js'][116]++;
+  var callbacks = (this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type));
+  _$jscoverage['Node.js'][117]++;
+  if (callbacks) {
+    _$jscoverage['Node.js'][118]++;
+    callbacks.some((function () {
+  _$jscoverage['Node.js'][119]++;
+  return event.immediatePropagationStopped;
+}));
+  }
+  _$jscoverage['Node.js'][122]++;
+  if (((! event.propagationStopped) && this._parentNode)) {
+    _$jscoverage['Node.js'][123]++;
+    bubblingPhase.call(this._parentNode, event);
+  }
+});
+    _$jscoverage['Node.js'][126]++;
+    bubblingPhase.call(this, event);
+  }
+  _$jscoverage['Node.js'][128]++;
+  return (! event.defaultPrevented);
+}), enumerable: false, writable: true});
+  _$jscoverage['Node.js'][133]++;
   return Node;
 })();
-_$jscoverage['Node.js'][65]++;
+_$jscoverage['Node.js'][135]++;
 Object.defineProperty(Node, "ELEMENT_NODE", {value: 1});
-_$jscoverage['Node.js'][66]++;
+_$jscoverage['Node.js'][136]++;
 Object.defineProperty(Node, "ATTRIBUTE_NODE", {value: 2});
-_$jscoverage['Node.js'][67]++;
+_$jscoverage['Node.js'][137]++;
 Object.defineProperty(Node, "TEXT_NODE", {value: 3});
-_$jscoverage['Node.js'][68]++;
+_$jscoverage['Node.js'][138]++;
 Object.defineProperty(Node, "CDATA_SECTION_NODE", {value: 4});
-_$jscoverage['Node.js'][69]++;
+_$jscoverage['Node.js'][139]++;
 Object.defineProperty(Node, "ENTITY_REFERENCE_NODE", {value: 5});
-_$jscoverage['Node.js'][70]++;
+_$jscoverage['Node.js'][140]++;
 Object.defineProperty(Node, "ENTITY_NODE", {value: 6});
-_$jscoverage['Node.js'][71]++;
+_$jscoverage['Node.js'][141]++;
 Object.defineProperty(Node, "PROCESSING_INSTRUCTION_NODE", {value: 7});
-_$jscoverage['Node.js'][72]++;
+_$jscoverage['Node.js'][142]++;
 Object.defineProperty(Node, "COMMENT_NODE", {value: 8});
-_$jscoverage['Node.js'][73]++;
+_$jscoverage['Node.js'][143]++;
 Object.defineProperty(Node, "DOCUMENT_NODE", {value: 9});
-_$jscoverage['Node.js'][74]++;
+_$jscoverage['Node.js'][144]++;
 Object.defineProperty(Node, "DOCUMENT_TYPE_NODE", {value: 10});
-_$jscoverage['Node.js'][75]++;
+_$jscoverage['Node.js'][145]++;
 Object.defineProperty(Node, "DOCUMENT_FRAGMENT_NODE", {value: 11});
-_$jscoverage['Node.js'][76]++;
+_$jscoverage['Node.js'][146]++;
 Object.defineProperty(Node, "NOTATION_NODE", {value: 12});

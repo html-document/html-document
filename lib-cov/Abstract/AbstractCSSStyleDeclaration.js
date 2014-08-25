@@ -90,20 +90,21 @@ if (! _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js']) {
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][94] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][95] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][96] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][102] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][104] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][97] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][103] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][105] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][110] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][112] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][106] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][111] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][113] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][115] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][114] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][116] = 0;
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][117] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][119] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][121] = 0;
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][126] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][118] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][120] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][122] = 0;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][127] = 0;
 }
-_$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  AbstractCSSStyleDeclaration: {get: function() {","      return AbstractCSSStyleDeclaration;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var CSSStyleRule = function() {","  \"use strict\";","  function CSSStyleRule(propertyName, value, important) {","    this.name = propertyName;","    this.value = value;","    this.important = important;","  }","  return CSSStyleRule;","}();","var AbstractCSSStyleDeclaration = function() {","  \"use strict\";","  function AbstractCSSStyleDeclaration() {","    throw new Error('Abstract class');","  }","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"cssText\", {","    get: function() {","      return this._value;","    },","    set: function(style) {","      this._parse(style);","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_parse\", {","    value: function(style) {","      this._properties = [];","      this._propertiesMap = {};","      style.split(';').forEach(function(part) {","        part = part.trim();","        if (!part) {","          return;","        }","        var important = !!part.match(/!important$/);","        if (important) {","          part = part.slice(0, -'!important'.length);","        }","        var splitPoint = part.indexOf(':');","        if (splitPoint) {","          var key = part.slice(0, splitPoint).trim();","          var value = part.slice(splitPoint + 1).trim();","          this._setProperty(key, value, important &amp;&amp; 'important');","        }","      }.bind(this));","      this._stringify();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_stringify\", {","    value: function() {","      var stylified = '';","      this._properties.forEach(function(s) {","        stylified += s.name + ':' + s.value + (s.important &amp;&amp; '!important' || '') + ';';","      });","      this._value = stylified;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"getPropertyPriority\", {","    value: function(propertyName) {","      return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].important &amp;&amp; 'important';","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"getPropertyValue\", {","    value: function(propertyName) {","      return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].value;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"item\", {","    value: function(index) {","      return this._properties[index] &amp;&amp; this._properties[index].name;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"removeProperty\", {","    value: function(propertyName) {","      if (this._propertiesMap[propertyName]) {","        var value = this._propertiesMap[propertyName];","        this._properties.splice(this._properties.indexOf(value), 1);","        delete this._propertiesMap[propertyName];","        return value.value;","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"setProperty\", {","    value: function(propertyName, value, important) {","      this._setProperty(propertyName, value, important);","      this._stringify();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_setProperty\", {","    value: function(propertyName, value, important) {","      if (!propertyName.match(/^[a-z\\-]+$/)) {","        throw new Error('Not valid property name: ' + propertyName);","      }","      var cssRule = new CSSStyleRule(propertyName, value, important === 'important');","      if (this._propertiesMap[propertyName]) {","        this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);","      } else {","        this._properties.push(cssRule);","      }","      this._propertiesMap[propertyName] = cssRule;","    },","    enumerable: false,","    writable: true","  });","  return AbstractCSSStyleDeclaration;","}();","","//# sourceMappingURL=../Abstract/AbstractCSSStyleDeclaration.js.map"];
+_$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  AbstractCSSStyleDeclaration: {get: function() {","      return AbstractCSSStyleDeclaration;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var CSSStyleRule = function() {","  \"use strict\";","  function CSSStyleRule(propertyName, value, important) {","    this.name = propertyName;","    this.value = value;","    this.important = important;","  }","  return CSSStyleRule;","}();","var AbstractCSSStyleDeclaration = function() {","  \"use strict\";","  function AbstractCSSStyleDeclaration() {","    throw new Error('Abstract class');","  }","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"cssText\", {","    get: function() {","      return this._value;","    },","    set: function(style) {","      this._parse(style);","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_parse\", {","    value: function(style) {","      this._properties = [];","      this._propertiesMap = {};","      style.split(';').forEach(function(part) {","        part = part.trim();","        if (!part) {","          return;","        }","        var important = !!part.match(/!important$/);","        if (important) {","          part = part.slice(0, -'!important'.length);","        }","        var splitPoint = part.indexOf(':');","        if (splitPoint) {","          var key = part.slice(0, splitPoint).trim();","          var value = part.slice(splitPoint + 1).trim();","          this._setProperty(key, value, important &amp;&amp; 'important');","        }","      }.bind(this));","      this._stringify();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_stringify\", {","    value: function() {","      var stylified = '';","      this._properties.forEach(function(s) {","        stylified += s.name + ':' + s.value + (s.important &amp;&amp; '!important' || '') + ';';","      });","      this._value = stylified;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"getPropertyPriority\", {","    value: function(propertyName) {","      return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].important &amp;&amp; 'important';","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"getPropertyValue\", {","    value: function(propertyName) {","      return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].value;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"item\", {","    value: function(index) {","      return this._properties[index] &amp;&amp; this._properties[index].name;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"removeProperty\", {","    value: function(propertyName) {","      if (this._propertiesMap[propertyName]) {","        var value = this._propertiesMap[propertyName];","        this._properties.splice(this._properties.indexOf(value), 1);","        delete this._propertiesMap[propertyName];","        this._stringify();","        return value.value;","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"setProperty\", {","    value: function(propertyName, value, important) {","      this._setProperty(propertyName, value, important);","      this._stringify();","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, \"_setProperty\", {","    value: function(propertyName, value, important) {","      if (!propertyName.match(/^[a-z\\-]+$/)) {","        throw new Error('Not valid property name: ' + propertyName);","      }","      var cssRule = new CSSStyleRule(propertyName, value, important === 'important');","      if (this._propertiesMap[propertyName]) {","        this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);","      } else {","        this._properties.push(cssRule);","      }","      this._propertiesMap[propertyName] = cssRule;","    },","    enumerable: false,","    writable: true","  });","  return AbstractCSSStyleDeclaration;","}();","","//# sourceMappingURL=../Abstract/AbstractCSSStyleDeclaration.js.map"];
 _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][1]++;
 "use strict";
 _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][2]++;
@@ -221,37 +222,39 @@ var AbstractCSSStyleDeclaration = (function () {
     _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][95]++;
     (delete this._propertiesMap[propertyName]);
     _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][96]++;
+    this._stringify();
+    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][97]++;
     return value.value;
   }
 }), enumerable: false, writable: true});
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][102]++;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][103]++;
   $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, "setProperty", {value: (function (propertyName, value, important) {
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][104]++;
-  this._setProperty(propertyName, value, important);
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][105]++;
+  this._setProperty(propertyName, value, important);
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][106]++;
   this._stringify();
 }), enumerable: false, writable: true});
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][110]++;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][111]++;
   $__Object$defineProperty(AbstractCSSStyleDeclaration.prototype, "_setProperty", {value: (function (propertyName, value, important) {
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][112]++;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][113]++;
   if ((! propertyName.match(/^[a-z\-]+$/))) {
-    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][113]++;
+    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][114]++;
     throw new Error(("Not valid property name: " + propertyName));
   }
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][115]++;
-  var cssRule = new CSSStyleRule(propertyName, value, (important === "important"));
   _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][116]++;
+  var cssRule = new CSSStyleRule(propertyName, value, (important === "important"));
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][117]++;
   if (this._propertiesMap[propertyName]) {
-    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][117]++;
+    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][118]++;
     this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);
   }
   else {
-    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][119]++;
+    _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][120]++;
     this._properties.push(cssRule);
   }
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][121]++;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][122]++;
   this._propertiesMap[propertyName] = cssRule;
 }), enumerable: false, writable: true});
-  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][126]++;
+  _$jscoverage['Abstract/AbstractCSSStyleDeclaration.js'][127]++;
   return AbstractCSSStyleDeclaration;
 })();

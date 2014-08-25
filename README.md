@@ -18,13 +18,22 @@ expect(h1.outerHTML, '<h1 id="title">Hello</h1>');
 
 - Document
     - createComment(data)
+    - createDocumentFragment()
     - createElement()
     - createTextNode()
+    - getElementById(id)
+    - getElementsByTagName(tagName)
+    - documentElement
+    - head
+    - body
 
 - HTMLElement
     - childNodes
+    - parentNode
     - firstChild
     - lastChild
+    - previousSibling
+    - nextSibling
     - appendChild(child)
     - replaceChild(newChild, oldChild)
     - removeChild(toRemoveChild)
@@ -40,9 +49,22 @@ expect(h1.outerHTML, '<h1 id="title">Hello</h1>');
     - setAttribute(attributeName, attributeValue)
     - removeAttribute(attributeName)
     - style
+    - classList
+    - getElementById(id)
+    - getElementsByTagName(tagName)
 
 - Text
     - textContent
 
 - Comment
     - data
+
+- HTMLSelectElement : HTMLElement
+    - disabled: Boolean
+    - length: Number
+    - multiple: Number
+    - name: String
+    - options
+    - required: Boolean
+    - size: Number
+    - type: String

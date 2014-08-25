@@ -44,8 +44,10 @@ if (! _$jscoverage['index.js']) {
   _$jscoverage['index.js'][3] = 0;
   _$jscoverage['index.js'][4] = 0;
   _$jscoverage['index.js'][5] = 0;
+  _$jscoverage['index.js'][6] = 0;
+  _$jscoverage['index.js'][7] = 0;
 }
-_$jscoverage['index.js'].source = ["\"use strict\";","var Document = require('./Document').Document;","global.window = global;","global.document = new Document();","global.Event = require('./Event').Event;","","//# sourceMappingURL=index.js.map"];
+_$jscoverage['index.js'].source = ["\"use strict\";","var Document = require('./Document').Document;","global.window = global;","global.document = new Document();","global.Event = require('./Event').Event;","global.Node = require('./Node').Node;","global.DocumentFragment = require('./DocumentFragment').DocumentFragment;","","//# sourceMappingURL=index.js.map"];
 _$jscoverage['index.js'][1]++;
 "use strict";
 _$jscoverage['index.js'][2]++;
@@ -56,3 +58,7 @@ _$jscoverage['index.js'][4]++;
 global.document = new Document();
 _$jscoverage['index.js'][5]++;
 global.Event = require("./Event").Event;
+_$jscoverage['index.js'][6]++;
+global.Node = require("./Node").Node;
+_$jscoverage['index.js'][7]++;
+global.DocumentFragment = require("./DocumentFragment").DocumentFragment;

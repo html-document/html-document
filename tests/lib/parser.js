@@ -9,5 +9,11 @@ test('parse innerHTML', function() {
   div.innerHTML = '<span/><span data-test="test">content</span>';
   expect(div.innerHTML, '<span></span><span data-test="test">content</span>');
 });
+test('parse nodeText', function() {
+  var div = document.createElement('div');
+  div.innerHTML = 'content';
+  expect(div.childNodes.length, 1);
+  expect(div.innerHTML, 'content');
+});
 
 //# sourceMappingURL=parser.js.map

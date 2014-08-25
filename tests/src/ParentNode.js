@@ -14,7 +14,6 @@ test('empty ParentNode', () => {
     expect(parentNode.childNodes.length, 0);
 });
 
-
 test('appendChild Node', () => {
     var parentNode = new ParentNode();
     var span1 = document.createElement('span');
@@ -30,7 +29,37 @@ test('appendChild Node', () => {
     expect(result, span2);
     expect(parentNode.firstChild, span1);
     expect(parentNode.lastChild, span2);
+
+    result = parentNode.appendChild(span1);
+    expect(result, span1);
+    expect(parentNode.childNodes.length, 2);
+    expect(parentNode.firstChild, span2);
+    expect(parentNode.lastChild, span1);
 });
+
+
+test('firstChild, lastChild, previousSibling, nextSibling Node', () => {
+    var parentNode = new ParentNode();
+    var span1 = document.createElement('span');
+
+    var result = parentNode.appendChild(span1);
+    expect(parentNode.firstChild, span1);
+    expect(parentNode.lastChild, span1);
+    expect(span1.previousSibling, null);
+    expect(span1.nextSibling, null);
+
+    var span2 = document.createElement('span');
+    result = parentNode.appendChild(span2);
+    expect(result, span2);
+    expect(parentNode.firstChild, span1);
+    expect(parentNode.lastChild, span2);
+    expect(span1.previousSibling, null);
+    expect(span2.previousSibling, span1);
+    expect(span1.nextSibling, span2);
+    expect(span2.nextSibling, null);
+});
+
+
 
 test('appendChild DocumentFragment', () => {
     var parentNode = new ParentNode();

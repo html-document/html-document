@@ -53,18 +53,25 @@ if (! _$jscoverage['HTMLElement.js']) {
   _$jscoverage['HTMLElement.js'][16] = 0;
   _$jscoverage['HTMLElement.js'][17] = 0;
   _$jscoverage['HTMLElement.js'][18] = 0;
+  _$jscoverage['HTMLElement.js'][19] = 0;
   _$jscoverage['HTMLElement.js'][20] = 0;
-  _$jscoverage['HTMLElement.js'][21] = 0;
   _$jscoverage['HTMLElement.js'][22] = 0;
   _$jscoverage['HTMLElement.js'][23] = 0;
+  _$jscoverage['HTMLElement.js'][24] = 0;
   _$jscoverage['HTMLElement.js'][25] = 0;
-  _$jscoverage['HTMLElement.js'][26] = 0;
-  _$jscoverage['HTMLElement.js'][32] = 0;
-  _$jscoverage['HTMLElement.js'][34] = 0;
+  _$jscoverage['HTMLElement.js'][27] = 0;
+  _$jscoverage['HTMLElement.js'][30] = 0;
   _$jscoverage['HTMLElement.js'][35] = 0;
+  _$jscoverage['HTMLElement.js'][37] = 0;
+  _$jscoverage['HTMLElement.js'][38] = 0;
+  _$jscoverage['HTMLElement.js'][40] = 0;
   _$jscoverage['HTMLElement.js'][41] = 0;
+  _$jscoverage['HTMLElement.js'][47] = 0;
+  _$jscoverage['HTMLElement.js'][49] = 0;
+  _$jscoverage['HTMLElement.js'][50] = 0;
+  _$jscoverage['HTMLElement.js'][56] = 0;
 }
-_$jscoverage['HTMLElement.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  HTMLElement: {get: function() {","      return HTMLElement;","    }},","  __esModule: {value: true}","});","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var Element = require('./Element').Element;","var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration').CSSStyleDeclaration;","var escapeAttribute = require('./utils/escapeAttribute');","var HTMLElement = function($__super) {","  \"use strict\";","  function HTMLElement() {","    $__Object$getPrototypeOf(HTMLElement.prototype).constructor.call(this);","    this.style = new CSSStyleDeclaration(this);","  }","  HTMLElement.__proto__ = ($__super !== null ? $__super : Function.prototype);","  HTMLElement.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(HTMLElement.prototype, \"constructor\", {value: HTMLElement});","  $__Object$defineProperty(HTMLElement.prototype, \"_updatedAttribute\", {","    value: function(attributeName, value) {","      if (attributeName === 'style') {","        this.style.cssText = value || '';","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(HTMLElement.prototype, \"outerHTML\", {","    get: function() {","      return '&lt;' + this.nodeName + Object.keys(this._attributes).reduce(function(value, attributeName) {","        return value + ' ' + attributeName + '=\"' + escapeAttribute(this._attributes[attributeName]) + '\"';","      }.bind(this), '') + '&gt;' + this.innerHTML + '&lt;/' + this.nodeName + '&gt;';","    },","    enumerable: true,","    configurable: true","  });","  return HTMLElement;","}(Element);","","//# sourceMappingURL=HTMLElement.js.map"];
+_$jscoverage['HTMLElement.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  HTMLElement: {get: function() {","      return HTMLElement;","    }},","  __esModule: {value: true}","});","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var Element = require('./Element').Element;","var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration').CSSStyleDeclaration;","var ClassList = require('./HTMLElement/ClassList').ClassList;","var escapeAttribute = require('./utils/escapeAttribute');","var HTMLElement = function($__super) {","  \"use strict\";","  function HTMLElement() {","    $__Object$getPrototypeOf(HTMLElement.prototype).constructor.call(this);","    this.style = new CSSStyleDeclaration(this);","    this.classList = new ClassList(this);","  }","  HTMLElement.__proto__ = ($__super !== null ? $__super : Function.prototype);","  HTMLElement.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(HTMLElement.prototype, \"constructor\", {value: HTMLElement});","  $__Object$defineProperty(HTMLElement.prototype, \"className\", {","    get: function() {","      return this.getAttribute('class');","    },","    set: function(className) {","      this.setAttribute('class', className);","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(HTMLElement.prototype, \"_updatedAttribute\", {","    value: function(attributeName, value) {","      if (attributeName === 'style') {","        this.style.cssText = value || '';","      }","      if (attributeName === 'class') {","        this.classList._parse(value || '');","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(HTMLElement.prototype, \"outerHTML\", {","    get: function() {","      return '&lt;' + this.nodeName + Object.keys(this._attributes).reduce(function(value, attributeName) {","        return value + ' ' + attributeName + '=\"' + escapeAttribute(this._attributes[attributeName]) + '\"';","      }.bind(this), '') + '&gt;' + this.innerHTML + '&lt;/' + this.nodeName + '&gt;';","    },","    enumerable: true,","    configurable: true","  });","  return HTMLElement;","}(Element);","","//# sourceMappingURL=HTMLElement.js.map"];
 _$jscoverage['HTMLElement.js'][1]++;
 "use strict";
 _$jscoverage['HTMLElement.js'][2]++;
@@ -83,40 +90,57 @@ var Element = require("./Element").Element;
 _$jscoverage['HTMLElement.js'][12]++;
 var CSSStyleDeclaration = require("./HTMLElement/CSSStyleDeclaration").CSSStyleDeclaration;
 _$jscoverage['HTMLElement.js'][13]++;
-var escapeAttribute = require("./utils/escapeAttribute");
+var ClassList = require("./HTMLElement/ClassList").ClassList;
 _$jscoverage['HTMLElement.js'][14]++;
+var escapeAttribute = require("./utils/escapeAttribute");
+_$jscoverage['HTMLElement.js'][15]++;
 var HTMLElement = (function ($__super) {
-  _$jscoverage['HTMLElement.js'][15]++;
-  "use strict";
   _$jscoverage['HTMLElement.js'][16]++;
+  "use strict";
+  _$jscoverage['HTMLElement.js'][17]++;
   function HTMLElement() {
-    _$jscoverage['HTMLElement.js'][17]++;
-    $__Object$getPrototypeOf(HTMLElement.prototype).constructor.call(this);
     _$jscoverage['HTMLElement.js'][18]++;
+    $__Object$getPrototypeOf(HTMLElement.prototype).constructor.call(this);
+    _$jscoverage['HTMLElement.js'][19]++;
     this.style = new CSSStyleDeclaration(this);
+    _$jscoverage['HTMLElement.js'][20]++;
+    this.classList = new ClassList(this);
 }
-  _$jscoverage['HTMLElement.js'][20]++;
-  HTMLElement.__proto__ = (($__super !== null)? $__super: Function.prototype);
-  _$jscoverage['HTMLElement.js'][21]++;
-  HTMLElement.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['HTMLElement.js'][22]++;
-  $__Object$defineProperty(HTMLElement.prototype, "constructor", {value: HTMLElement});
+  HTMLElement.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['HTMLElement.js'][23]++;
-  $__Object$defineProperty(HTMLElement.prototype, "_updatedAttribute", {value: (function (attributeName, value) {
+  HTMLElement.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  _$jscoverage['HTMLElement.js'][24]++;
+  $__Object$defineProperty(HTMLElement.prototype, "constructor", {value: HTMLElement});
   _$jscoverage['HTMLElement.js'][25]++;
+  $__Object$defineProperty(HTMLElement.prototype, "className", {get: (function () {
+  _$jscoverage['HTMLElement.js'][27]++;
+  return this.getAttribute("class");
+}), set: (function (className) {
+  _$jscoverage['HTMLElement.js'][30]++;
+  this.setAttribute("class", className);
+}), enumerable: true, configurable: true});
+  _$jscoverage['HTMLElement.js'][35]++;
+  $__Object$defineProperty(HTMLElement.prototype, "_updatedAttribute", {value: (function (attributeName, value) {
+  _$jscoverage['HTMLElement.js'][37]++;
   if ((attributeName === "style")) {
-    _$jscoverage['HTMLElement.js'][26]++;
+    _$jscoverage['HTMLElement.js'][38]++;
     this.style.cssText = (value || "");
   }
+  _$jscoverage['HTMLElement.js'][40]++;
+  if ((attributeName === "class")) {
+    _$jscoverage['HTMLElement.js'][41]++;
+    this.classList._parse((value || ""));
+  }
 }), enumerable: false, writable: true});
-  _$jscoverage['HTMLElement.js'][32]++;
+  _$jscoverage['HTMLElement.js'][47]++;
   $__Object$defineProperty(HTMLElement.prototype, "outerHTML", {get: (function () {
-  _$jscoverage['HTMLElement.js'][34]++;
+  _$jscoverage['HTMLElement.js'][49]++;
   return ("<" + this.nodeName + Object.keys(this._attributes).reduce((function (value, attributeName) {
-  _$jscoverage['HTMLElement.js'][35]++;
+  _$jscoverage['HTMLElement.js'][50]++;
   return (value + " " + attributeName + "=\"" + escapeAttribute(this._attributes[attributeName]) + "\"");
 }).bind(this), "") + ">" + this.innerHTML + "</" + this.nodeName + ">");
 }), enumerable: true, configurable: true});
-  _$jscoverage['HTMLElement.js'][41]++;
+  _$jscoverage['HTMLElement.js'][56]++;
   return HTMLElement;
 })(Element);

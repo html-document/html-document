@@ -19,6 +19,38 @@ export class ParentNode extends Node {
         return this._childNodes;
     }
 
+    _childNodesRecursiveForEach(callback) {
+        this._childNodes.forEach(function(node) {
+            callback(node);
+            if (node instanceof ParentNode) {
+                node._childNodesRecursiveForEach(callback);
+            }
+        });
+    }
+
+    _childNodesRecursiveFind(callback) {
+        var result;
+        this._childNodes.some(function(node) {
+            if (callback(node)) {
+                result = node;
+                return true;
+            }
+            if (node instanceof ParentNode) {
+                result = node._childNodesRecursiveFind(callback);
+                if (result !== undefined) {
+                    return true;
+                }
+            }
+        });
+        return result;
+    }
+
+    /**
+     * @return {Node|null}
+     */
+    get parentNode() {
+        return this._parentNode || null;
+    }
     /**
      * @return {Node|null}
      */
@@ -34,19 +66,41 @@ export class ParentNode extends Node {
     }
 
     /**
+     * @return {Node|null}
+     */
+    get previousSibling() {
+        var indexInParent = this.parentNode._childNodes.indexOf(this);
+        if (indexInParent === -1) {
+            throw new Error('Unexpected state: this node is not in the parent');
+        }
+        return indexInParent !== 0 && this.parentNode._childNodes[indexInParent -1] || null;
+    }
+
+    /**
+     * @return {Node|null}
+     */
+    get nextSibling() {
+        var indexInParent = this.parentNode._childNodes.indexOf(this);
+        if (indexInParent === -1) {
+            throw new Error('Unexpected state: this node is not in the parent');
+        }
+        return this.parentNode._childNodes[indexInParent +1] || null;
+    }
+
+    /**
      * @param {Node}
      * @return {Node}
      */
     appendChild(child) {
+        if (child._parentNode) {
+            child._parentNode.removeChild(child);
+        }
         if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
             var childNode;
             while (childNode = child.firstChild) {
                 child.removeChild(childNode);
                 this.appendChild(childNode);
             }
-            return child;
-        }
-        if (this._childNodes.indexOf(child) !== -1) {
             return child;
         }
         child._parentNode = this;
@@ -63,6 +117,9 @@ export class ParentNode extends Node {
         var index = this._childNodes.indexOf(oldChild);
         if (index === -1) {
             throw new Error('Node was not found');
+        }
+        if (newChild._parentNode) {
+            newChild._parentNode.removeChild(newChild);
         }
         if (newChild.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
             var newChildren = [], childNode;
@@ -95,14 +152,17 @@ export class ParentNode extends Node {
     }
 
     /**
-     * @param {Node}
-     * @param {Node}
+     * @param {Node} child
+     * @param {Node} existingChild
      * @return {Node}
      */
     insertBefore(child, existingChild) {
         var index = this._childNodes.indexOf(existingChild);
         if (index === -1) {
             throw new Error('Node was not found');
+        }
+        if (child._parentNode) {
+            child._parentNode.removeChild(child);
         }
         if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
             var children = [], childNode;

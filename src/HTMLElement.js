@@ -1,5 +1,6 @@
 var Element = require('./Element').Element;
 var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration').CSSStyleDeclaration;
+var ClassList = require('./HTMLElement/ClassList').ClassList;
 var escapeAttribute = require('./utils/escapeAttribute');
 
 /**
@@ -11,12 +12,40 @@ export class HTMLElement extends Element {
     constructor() {
         super();
         this.style = new CSSStyleDeclaration(this);
-        //TODO : classList
+        /**
+         * returns a token list of the class attribute of the element
+         * @type {ClassList}
+         */
+        this.classList = new ClassList(this);
     }
+
+
+    /**
+     * Gets the class of the element.
+     *
+     * @return {String}
+     */
+    get className() {
+        return this.getAttribute('class');
+    }
+
+    /**
+     * Sets the class of the element.
+     *
+     * @param {String} className
+     */
+    set className(className) {
+        this.setAttribute('class', className);
+    }
+
+
 
     _updatedAttribute(attributeName, value) {
         if (attributeName === 'style') {
             this.style.cssText = value || '';
+        }
+        if (attributeName === 'class') {
+            this.classList._parse(value || '');
         }
     }
 
