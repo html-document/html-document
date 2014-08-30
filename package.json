@@ -2,9 +2,11 @@
   "name": "html-document",
   "description": "Partial implementation of document, HTMLElement for node",
   "keywords": [
+    "html", "document", "element", "parser", "DOM",
+    "HTMLElement",
     "springbokjs"
   ],
-  "version": "0.3.0",
+  "version": "0.3.1",
   "homepage": "https://github.com/christophehurpeau/html-document",
   "license": "MIT",
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
