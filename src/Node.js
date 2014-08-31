@@ -115,7 +115,8 @@ export class Node {
             }
             var callbacks = this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type);
             if (callbacks) {
-                callbacks.some(function() {
+                callbacks.some(function(callback) {
+                    callback();
                     return event.immediatePropagationStopped;
                 });
             }
@@ -127,7 +128,8 @@ export class Node {
             var bubblingPhase = function(event) {
                 var callbacks = this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type);
                 if (callbacks) {
-                    callbacks.some(function() {
+                    callbacks.some(function(callback) {
+                        callback();
                         return event.immediatePropagationStopped;
                     });
                 }

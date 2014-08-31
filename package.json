@@ -6,7 +6,7 @@
     "HTMLElement",
     "springbokjs"
   ],
-  "version": "0.3.1",
+  "version": "0.3.2",
   "homepage": "https://github.com/christophehurpeau/html-document",
   "license": "MIT",
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",

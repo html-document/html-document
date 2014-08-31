@@ -91,20 +91,20 @@ if (! _$jscoverage['Node.js']) {
   _$jscoverage['Node.js'][107] = 0;
   _$jscoverage['Node.js'][108] = 0;
   _$jscoverage['Node.js'][109] = 0;
-  _$jscoverage['Node.js'][113] = 0;
+  _$jscoverage['Node.js'][110] = 0;
   _$jscoverage['Node.js'][114] = 0;
   _$jscoverage['Node.js'][115] = 0;
   _$jscoverage['Node.js'][116] = 0;
   _$jscoverage['Node.js'][117] = 0;
   _$jscoverage['Node.js'][118] = 0;
   _$jscoverage['Node.js'][119] = 0;
-  _$jscoverage['Node.js'][122] = 0;
-  _$jscoverage['Node.js'][123] = 0;
-  _$jscoverage['Node.js'][126] = 0;
+  _$jscoverage['Node.js'][120] = 0;
+  _$jscoverage['Node.js'][121] = 0;
+  _$jscoverage['Node.js'][124] = 0;
+  _$jscoverage['Node.js'][125] = 0;
   _$jscoverage['Node.js'][128] = 0;
-  _$jscoverage['Node.js'][133] = 0;
+  _$jscoverage['Node.js'][130] = 0;
   _$jscoverage['Node.js'][135] = 0;
-  _$jscoverage['Node.js'][136] = 0;
   _$jscoverage['Node.js'][137] = 0;
   _$jscoverage['Node.js'][138] = 0;
   _$jscoverage['Node.js'][139] = 0;
@@ -115,8 +115,10 @@ if (! _$jscoverage['Node.js']) {
   _$jscoverage['Node.js'][144] = 0;
   _$jscoverage['Node.js'][145] = 0;
   _$jscoverage['Node.js'][146] = 0;
+  _$jscoverage['Node.js'][147] = 0;
+  _$jscoverage['Node.js'][148] = 0;
 }
-_$jscoverage['Node.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Node: {get: function() {","      return Node;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Node = function() {","  \"use strict\";","  function Node() {","    this._attributes = {};","  }","  $__Object$defineProperty(Node.prototype, \"getAttribute\", {","    value: function(attributeName) {","      return this._attributes[attributeName];","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._setAttribute(attributeName, attributeValue);","      this._updatedAttribute(attributeName, this._attributes[attributeName]);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._attributes[attributeName] = String(attributeValue);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeAttribute\", {","    value: function(attributeName) {","      delete this._attributes[attributeName];","      this._updatedAttribute(attributeName);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_updatedAttribute\", {","    value: function(attributeName) {},","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"textContent\", {","    get: function() {","      return '';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Node.prototype, \"_toHTML\", {","    value: function() {","      return this.outerHTML;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"addEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (!this[_eventsKey]) {","        this[_eventsKey] = new Map();","      }","      var callbacks;","      if (!this[_eventsKey].has(eventType)) {","        this[_eventsKey].set(eventType, callbacks = []);","      } else {","        callbacks = this[_eventsKey].get(eventType);","      }","      callbacks.push(listener);","      return this;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (this[_eventsKey] &amp;&amp; this[_eventsKey].has(eventType)) {","        var callbacks = this[_eventsKey].get(eventType);","        var i = callbacks.indexOf(listener);","        if (i === -1) {","          return false;","        }","        callbacks.splice(i, 1);","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"dispatchEvent\", {","    value: function(event) {","      event.target = this;","      var capturingPhase = function(event) {","        if (this._parentNode) {","          capturingPhase.call(this._parentNode, event);","        }","        if (event.propagationStopped) {","          return;","        }","        var callbacks = this._eventsCapturingPhase &amp;&amp; this._eventsCapturingPhase.get(event.type);","        if (callbacks) {","          callbacks.some(function() {","            return event.immediatePropagationStopped;","          });","        }","      };","      capturingPhase.call(this, event);","      if (!event.propagationStopped) {","        var bubblingPhase = function(event) {","          var callbacks = this._eventsBubblingPhase &amp;&amp; this._eventsBubblingPhase.get(event.type);","          if (callbacks) {","            callbacks.some(function() {","              return event.immediatePropagationStopped;","            });","          }","          if (!event.propagationStopped &amp;&amp; this._parentNode) {","            bubblingPhase.call(this._parentNode, event);","          }","        };","        bubblingPhase.call(this, event);","      }","      return !event.defaultPrevented;","    },","    enumerable: false,","    writable: true","  });","  return Node;","}();","Object.defineProperty(Node, 'ELEMENT_NODE', {value: 1});","Object.defineProperty(Node, 'ATTRIBUTE_NODE', {value: 2});","Object.defineProperty(Node, 'TEXT_NODE', {value: 3});","Object.defineProperty(Node, 'CDATA_SECTION_NODE', {value: 4});","Object.defineProperty(Node, 'ENTITY_REFERENCE_NODE', {value: 5});","Object.defineProperty(Node, 'ENTITY_NODE', {value: 6});","Object.defineProperty(Node, 'PROCESSING_INSTRUCTION_NODE', {value: 7});","Object.defineProperty(Node, 'COMMENT_NODE', {value: 8});","Object.defineProperty(Node, 'DOCUMENT_NODE', {value: 9});","Object.defineProperty(Node, 'DOCUMENT_TYPE_NODE', {value: 10});","Object.defineProperty(Node, 'DOCUMENT_FRAGMENT_NODE', {value: 11});","Object.defineProperty(Node, 'NOTATION_NODE', {value: 12});","","//# sourceMappingURL=Node.js.map"];
+_$jscoverage['Node.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Node: {get: function() {","      return Node;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var Node = function() {","  \"use strict\";","  function Node() {","    this._attributes = {};","  }","  $__Object$defineProperty(Node.prototype, \"getAttribute\", {","    value: function(attributeName) {","      return this._attributes[attributeName];","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._setAttribute(attributeName, attributeValue);","      this._updatedAttribute(attributeName, this._attributes[attributeName]);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_setAttribute\", {","    value: function(attributeName, attributeValue) {","      this._attributes[attributeName] = String(attributeValue);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeAttribute\", {","    value: function(attributeName) {","      delete this._attributes[attributeName];","      this._updatedAttribute(attributeName);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"_updatedAttribute\", {","    value: function(attributeName) {},","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"textContent\", {","    get: function() {","      return '';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Node.prototype, \"_toHTML\", {","    value: function() {","      return this.outerHTML;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"addEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (!this[_eventsKey]) {","        this[_eventsKey] = new Map();","      }","      var callbacks;","      if (!this[_eventsKey].has(eventType)) {","        this[_eventsKey].set(eventType, callbacks = []);","      } else {","        callbacks = this[_eventsKey].get(eventType);","      }","      callbacks.push(listener);","      return this;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"removeEventListener\", {","    value: function(eventType, listener, capturingPhase) {","      var _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';","      if (this[_eventsKey] &amp;&amp; this[_eventsKey].has(eventType)) {","        var callbacks = this[_eventsKey].get(eventType);","        var i = callbacks.indexOf(listener);","        if (i === -1) {","          return false;","        }","        callbacks.splice(i, 1);","      }","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Node.prototype, \"dispatchEvent\", {","    value: function(event) {","      event.target = this;","      var capturingPhase = function(event) {","        if (this._parentNode) {","          capturingPhase.call(this._parentNode, event);","        }","        if (event.propagationStopped) {","          return;","        }","        var callbacks = this._eventsCapturingPhase &amp;&amp; this._eventsCapturingPhase.get(event.type);","        if (callbacks) {","          callbacks.some(function(callback) {","            callback();","            return event.immediatePropagationStopped;","          });","        }","      };","      capturingPhase.call(this, event);","      if (!event.propagationStopped) {","        var bubblingPhase = function(event) {","          var callbacks = this._eventsBubblingPhase &amp;&amp; this._eventsBubblingPhase.get(event.type);","          if (callbacks) {","            callbacks.some(function(callback) {","              callback();","              return event.immediatePropagationStopped;","            });","          }","          if (!event.propagationStopped &amp;&amp; this._parentNode) {","            bubblingPhase.call(this._parentNode, event);","          }","        };","        bubblingPhase.call(this, event);","      }","      return !event.defaultPrevented;","    },","    enumerable: false,","    writable: true","  });","  return Node;","}();","Object.defineProperty(Node, 'ELEMENT_NODE', {value: 1});","Object.defineProperty(Node, 'ATTRIBUTE_NODE', {value: 2});","Object.defineProperty(Node, 'TEXT_NODE', {value: 3});","Object.defineProperty(Node, 'CDATA_SECTION_NODE', {value: 4});","Object.defineProperty(Node, 'ENTITY_REFERENCE_NODE', {value: 5});","Object.defineProperty(Node, 'ENTITY_NODE', {value: 6});","Object.defineProperty(Node, 'PROCESSING_INSTRUCTION_NODE', {value: 7});","Object.defineProperty(Node, 'COMMENT_NODE', {value: 8});","Object.defineProperty(Node, 'DOCUMENT_NODE', {value: 9});","Object.defineProperty(Node, 'DOCUMENT_TYPE_NODE', {value: 10});","Object.defineProperty(Node, 'DOCUMENT_FRAGMENT_NODE', {value: 11});","Object.defineProperty(Node, 'NOTATION_NODE', {value: 12});","","//# sourceMappingURL=Node.js.map"];
 _$jscoverage['Node.js'][1]++;
 "use strict";
 _$jscoverage['Node.js'][2]++;
@@ -237,64 +239,68 @@ var Node = (function () {
   _$jscoverage['Node.js'][107]++;
   if (callbacks) {
     _$jscoverage['Node.js'][108]++;
-    callbacks.some((function () {
+    callbacks.some((function (callback) {
   _$jscoverage['Node.js'][109]++;
+  callback();
+  _$jscoverage['Node.js'][110]++;
   return event.immediatePropagationStopped;
 }));
   }
 });
-  _$jscoverage['Node.js'][113]++;
-  capturingPhase.call(this, event);
   _$jscoverage['Node.js'][114]++;
+  capturingPhase.call(this, event);
+  _$jscoverage['Node.js'][115]++;
   if ((! event.propagationStopped)) {
-    _$jscoverage['Node.js'][115]++;
+    _$jscoverage['Node.js'][116]++;
     var bubblingPhase = (function (event) {
-  _$jscoverage['Node.js'][116]++;
-  var callbacks = (this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type));
   _$jscoverage['Node.js'][117]++;
+  var callbacks = (this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type));
+  _$jscoverage['Node.js'][118]++;
   if (callbacks) {
-    _$jscoverage['Node.js'][118]++;
-    callbacks.some((function () {
-  _$jscoverage['Node.js'][119]++;
+    _$jscoverage['Node.js'][119]++;
+    callbacks.some((function (callback) {
+  _$jscoverage['Node.js'][120]++;
+  callback();
+  _$jscoverage['Node.js'][121]++;
   return event.immediatePropagationStopped;
 }));
   }
-  _$jscoverage['Node.js'][122]++;
+  _$jscoverage['Node.js'][124]++;
   if (((! event.propagationStopped) && this._parentNode)) {
-    _$jscoverage['Node.js'][123]++;
+    _$jscoverage['Node.js'][125]++;
     bubblingPhase.call(this._parentNode, event);
   }
 });
-    _$jscoverage['Node.js'][126]++;
+    _$jscoverage['Node.js'][128]++;
     bubblingPhase.call(this, event);
   }
-  _$jscoverage['Node.js'][128]++;
+  _$jscoverage['Node.js'][130]++;
   return (! event.defaultPrevented);
 }), enumerable: false, writable: true});
-  _$jscoverage['Node.js'][133]++;
+  _$jscoverage['Node.js'][135]++;
   return Node;
 })();
-_$jscoverage['Node.js'][135]++;
-Object.defineProperty(Node, "ELEMENT_NODE", {value: 1});
-_$jscoverage['Node.js'][136]++;
-Object.defineProperty(Node, "ATTRIBUTE_NODE", {value: 2});
 _$jscoverage['Node.js'][137]++;
-Object.defineProperty(Node, "TEXT_NODE", {value: 3});
+Object.defineProperty(Node, "ELEMENT_NODE", {value: 1});
 _$jscoverage['Node.js'][138]++;
-Object.defineProperty(Node, "CDATA_SECTION_NODE", {value: 4});
+Object.defineProperty(Node, "ATTRIBUTE_NODE", {value: 2});
 _$jscoverage['Node.js'][139]++;
-Object.defineProperty(Node, "ENTITY_REFERENCE_NODE", {value: 5});
+Object.defineProperty(Node, "TEXT_NODE", {value: 3});
 _$jscoverage['Node.js'][140]++;
-Object.defineProperty(Node, "ENTITY_NODE", {value: 6});
+Object.defineProperty(Node, "CDATA_SECTION_NODE", {value: 4});
 _$jscoverage['Node.js'][141]++;
-Object.defineProperty(Node, "PROCESSING_INSTRUCTION_NODE", {value: 7});
+Object.defineProperty(Node, "ENTITY_REFERENCE_NODE", {value: 5});
 _$jscoverage['Node.js'][142]++;
-Object.defineProperty(Node, "COMMENT_NODE", {value: 8});
+Object.defineProperty(Node, "ENTITY_NODE", {value: 6});
 _$jscoverage['Node.js'][143]++;
-Object.defineProperty(Node, "DOCUMENT_NODE", {value: 9});
+Object.defineProperty(Node, "PROCESSING_INSTRUCTION_NODE", {value: 7});
 _$jscoverage['Node.js'][144]++;
-Object.defineProperty(Node, "DOCUMENT_TYPE_NODE", {value: 10});
+Object.defineProperty(Node, "COMMENT_NODE", {value: 8});
 _$jscoverage['Node.js'][145]++;
-Object.defineProperty(Node, "DOCUMENT_FRAGMENT_NODE", {value: 11});
+Object.defineProperty(Node, "DOCUMENT_NODE", {value: 9});
 _$jscoverage['Node.js'][146]++;
+Object.defineProperty(Node, "DOCUMENT_TYPE_NODE", {value: 10});
+_$jscoverage['Node.js'][147]++;
+Object.defineProperty(Node, "DOCUMENT_FRAGMENT_NODE", {value: 11});
+_$jscoverage['Node.js'][148]++;
 Object.defineProperty(Node, "NOTATION_NODE", {value: 12});
