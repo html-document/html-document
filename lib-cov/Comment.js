@@ -50,21 +50,20 @@ if (! _$jscoverage['Comment.js']) {
   _$jscoverage['Comment.js'][13] = 0;
   _$jscoverage['Comment.js'][14] = 0;
   _$jscoverage['Comment.js'][15] = 0;
-  _$jscoverage['Comment.js'][17] = 0;
+  _$jscoverage['Comment.js'][16] = 0;
   _$jscoverage['Comment.js'][18] = 0;
   _$jscoverage['Comment.js'][19] = 0;
   _$jscoverage['Comment.js'][20] = 0;
-  _$jscoverage['Comment.js'][22] = 0;
-  _$jscoverage['Comment.js'][27] = 0;
-  _$jscoverage['Comment.js'][29] = 0;
-  _$jscoverage['Comment.js'][34] = 0;
-  _$jscoverage['Comment.js'][36] = 0;
-  _$jscoverage['Comment.js'][39] = 0;
-  _$jscoverage['Comment.js'][44] = 0;
-  _$jscoverage['Comment.js'][46] = 0;
+  _$jscoverage['Comment.js'][21] = 0;
+  _$jscoverage['Comment.js'][24] = 0;
+  _$jscoverage['Comment.js'][31] = 0;
+  _$jscoverage['Comment.js'][38] = 0;
+  _$jscoverage['Comment.js'][41] = 0;
   _$jscoverage['Comment.js'][47] = 0;
+  _$jscoverage['Comment.js'][49] = 0;
+  _$jscoverage['Comment.js'][50] = 0;
 }
-_$jscoverage['Comment.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Comment: {get: function() {","      return Comment;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var escapeHTML = require('./utils/escapeHTML');","var Node = require('./Node').Node;","var Comment = function($__super) {","  \"use strict\";","  function Comment(comment) {","    this._value = comment;","  }","  Comment.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Comment.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Comment.prototype, \"constructor\", {value: Comment});","  $__Object$defineProperty(Comment.prototype, \"innerHTML\", {","    get: function() {","      return '';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Comment.prototype, \"outerHTML\", {","    get: function() {","      return '&lt;!--' + escapeHTML(this._value) + '--&gt;';","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Comment.prototype, \"data\", {","    get: function() {","      return this._value;","    },","    set: function(data) {","      this._value = data;","    },","    enumerable: true,","    configurable: true","  });","  return Comment;","}(Node);","Object.defineProperty(Comment.prototype, 'nodeType', {value: Node.COMMENT_NODE});","Object.defineProperty(Comment.prototype, 'nodeName', {value: '#comment'});","","//# sourceMappingURL=Comment.js.map"];
+_$jscoverage['Comment.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Comment: {get: function() {","      return Comment;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperties = Object.defineProperties;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var escapeHTML = require('./utils/escapeHTML');","var Node = require('./Node').Node;","var Comment = function($__super) {","  \"use strict\";","  function Comment(comment) {","    this._value = comment;","  }","  Comment.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Comment.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Comment.prototype, \"constructor\", {value: Comment});","  $__Object$defineProperties(Comment.prototype, {","    innerHTML: {","      get: function() {","        return '';","      },","      enumerable: true,","      configurable: true","    },","    outerHTML: {","      get: function() {","        return '&lt;!--' + escapeHTML(this._value) + '--&gt;';","      },","      enumerable: true,","      configurable: true","    },","    data: {","      get: function() {","        return this._value;","      },","      set: function(data) {","        this._value = data;","      },","      enumerable: true,","      configurable: true","    }","  });","  return Comment;","}(Node);","Object.defineProperty(Comment.prototype, 'nodeType', {value: Node.COMMENT_NODE});","Object.defineProperty(Comment.prototype, 'nodeName', {value: '#comment'});","","//# sourceMappingURL=Comment.js.map"];
 _$jscoverage['Comment.js'][1]++;
 "use strict";
 _$jscoverage['Comment.js'][2]++;
@@ -73,50 +72,48 @@ Object.defineProperties(exports, {Comment: {get: (function () {
   return Comment;
 })}, __esModule: {value: true}});
 _$jscoverage['Comment.js'][8]++;
-var $__Object$defineProperty = Object.defineProperty;
+var $__Object$defineProperties = Object.defineProperties;
 _$jscoverage['Comment.js'][9]++;
-var $__Object$create = Object.create;
+var $__Object$defineProperty = Object.defineProperty;
 _$jscoverage['Comment.js'][10]++;
-var escapeHTML = require("./utils/escapeHTML");
+var $__Object$create = Object.create;
 _$jscoverage['Comment.js'][11]++;
-var Node = require("./Node").Node;
+var escapeHTML = require("./utils/escapeHTML");
 _$jscoverage['Comment.js'][12]++;
+var Node = require("./Node").Node;
+_$jscoverage['Comment.js'][13]++;
 var Comment = (function ($__super) {
-  _$jscoverage['Comment.js'][13]++;
-  "use strict";
   _$jscoverage['Comment.js'][14]++;
+  "use strict";
+  _$jscoverage['Comment.js'][15]++;
   function Comment(comment) {
-    _$jscoverage['Comment.js'][15]++;
+    _$jscoverage['Comment.js'][16]++;
     this._value = comment;
 }
-  _$jscoverage['Comment.js'][17]++;
-  Comment.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Comment.js'][18]++;
-  Comment.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  Comment.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Comment.js'][19]++;
-  $__Object$defineProperty(Comment.prototype, "constructor", {value: Comment});
+  Comment.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['Comment.js'][20]++;
-  $__Object$defineProperty(Comment.prototype, "innerHTML", {get: (function () {
-  _$jscoverage['Comment.js'][22]++;
+  $__Object$defineProperty(Comment.prototype, "constructor", {value: Comment});
+  _$jscoverage['Comment.js'][21]++;
+  $__Object$defineProperties(Comment.prototype, {innerHTML: {get: (function () {
+  _$jscoverage['Comment.js'][24]++;
   return "";
-}), enumerable: true, configurable: true});
-  _$jscoverage['Comment.js'][27]++;
-  $__Object$defineProperty(Comment.prototype, "outerHTML", {get: (function () {
-  _$jscoverage['Comment.js'][29]++;
+}), enumerable: true, configurable: true}, outerHTML: {get: (function () {
+  _$jscoverage['Comment.js'][31]++;
   return ("<!--" + escapeHTML(this._value) + "-->");
-}), enumerable: true, configurable: true});
-  _$jscoverage['Comment.js'][34]++;
-  $__Object$defineProperty(Comment.prototype, "data", {get: (function () {
-  _$jscoverage['Comment.js'][36]++;
+}), enumerable: true, configurable: true}, data: {get: (function () {
+  _$jscoverage['Comment.js'][38]++;
   return this._value;
 }), set: (function (data) {
-  _$jscoverage['Comment.js'][39]++;
+  _$jscoverage['Comment.js'][41]++;
   this._value = data;
-}), enumerable: true, configurable: true});
-  _$jscoverage['Comment.js'][44]++;
+}), enumerable: true, configurable: true}});
+  _$jscoverage['Comment.js'][47]++;
   return Comment;
 })(Node);
-_$jscoverage['Comment.js'][46]++;
+_$jscoverage['Comment.js'][49]++;
 Object.defineProperty(Comment.prototype, "nodeType", {value: Node.COMMENT_NODE});
-_$jscoverage['Comment.js'][47]++;
+_$jscoverage['Comment.js'][50]++;
 Object.defineProperty(Comment.prototype, "nodeName", {value: "#comment"});

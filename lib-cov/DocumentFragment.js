@@ -53,15 +53,17 @@ if (! _$jscoverage['DocumentFragment.js']) {
   _$jscoverage['DocumentFragment.js'][16] = 0;
   _$jscoverage['DocumentFragment.js'][17] = 0;
   _$jscoverage['DocumentFragment.js'][18] = 0;
+  _$jscoverage['DocumentFragment.js'][19] = 0;
   _$jscoverage['DocumentFragment.js'][20] = 0;
-  _$jscoverage['DocumentFragment.js'][21] = 0;
   _$jscoverage['DocumentFragment.js'][22] = 0;
   _$jscoverage['DocumentFragment.js'][23] = 0;
+  _$jscoverage['DocumentFragment.js'][24] = 0;
   _$jscoverage['DocumentFragment.js'][25] = 0;
-  _$jscoverage['DocumentFragment.js'][30] = 0;
+  _$jscoverage['DocumentFragment.js'][27] = 0;
   _$jscoverage['DocumentFragment.js'][32] = 0;
+  _$jscoverage['DocumentFragment.js'][34] = 0;
 }
-_$jscoverage['DocumentFragment.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  DocumentFragment: {get: function() {","      return DocumentFragment;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var Node = require('./Node').Node;","var ParentNode = require('./ParentNode').ParentNode;","var DocumentFragment = function($__super) {","  \"use strict\";","  function DocumentFragment() {","    var $__0 = $__Object$getPrototypeOf(DocumentFragment.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, arguments);","  }","  DocumentFragment.__proto__ = ($__super !== null ? $__super : Function.prototype);","  DocumentFragment.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(DocumentFragment.prototype, \"constructor\", {value: DocumentFragment});","  $__Object$defineProperty(DocumentFragment.prototype, \"outerHTML\", {","    get: function() {","      return this.innerHTML;","    },","    enumerable: true,","    configurable: true","  });","  return DocumentFragment;","}(ParentNode);","Object.defineProperty(DocumentFragment.prototype, 'nodeType', {value: Node.DOCUMENT_FRAGMENT_NODE});","","//# sourceMappingURL=DocumentFragment.js.map"];
+_$jscoverage['DocumentFragment.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  DocumentFragment: {get: function() {","      return DocumentFragment;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperties = Object.defineProperties;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var Node = require('./Node').Node;","var ParentNode = require('./ParentNode').ParentNode;","var DocumentFragment = function($__super) {","  \"use strict\";","  function DocumentFragment() {","    var $__arguments = arguments;","    var $__0 = $__Object$getPrototypeOf(DocumentFragment.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, $__arguments);","  }","  DocumentFragment.__proto__ = ($__super !== null ? $__super : Function.prototype);","  DocumentFragment.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(DocumentFragment.prototype, \"constructor\", {value: DocumentFragment});","  $__Object$defineProperties(DocumentFragment.prototype, {outerHTML: {","      get: function() {","        return this.innerHTML;","      },","      enumerable: true,","      configurable: true","    }});","  return DocumentFragment;","}(ParentNode);","Object.defineProperty(DocumentFragment.prototype, 'nodeType', {value: Node.DOCUMENT_FRAGMENT_NODE});","","//# sourceMappingURL=DocumentFragment.js.map"];
 _$jscoverage['DocumentFragment.js'][1]++;
 "use strict";
 _$jscoverage['DocumentFragment.js'][2]++;
@@ -70,42 +72,46 @@ Object.defineProperties(exports, {DocumentFragment: {get: (function () {
   return DocumentFragment;
 })}, __esModule: {value: true}});
 _$jscoverage['DocumentFragment.js'][8]++;
-var $__Object$defineProperty = Object.defineProperty;
+var $__Object$defineProperties = Object.defineProperties;
 _$jscoverage['DocumentFragment.js'][9]++;
-var $__Object$create = Object.create;
+var $__Object$defineProperty = Object.defineProperty;
 _$jscoverage['DocumentFragment.js'][10]++;
-var $__Object$getPrototypeOf = Object.getPrototypeOf;
+var $__Object$create = Object.create;
 _$jscoverage['DocumentFragment.js'][11]++;
-var Node = require("./Node").Node;
+var $__Object$getPrototypeOf = Object.getPrototypeOf;
 _$jscoverage['DocumentFragment.js'][12]++;
-var ParentNode = require("./ParentNode").ParentNode;
+var Node = require("./Node").Node;
 _$jscoverage['DocumentFragment.js'][13]++;
+var ParentNode = require("./ParentNode").ParentNode;
+_$jscoverage['DocumentFragment.js'][14]++;
 var DocumentFragment = (function ($__super) {
-  _$jscoverage['DocumentFragment.js'][14]++;
-  "use strict";
   _$jscoverage['DocumentFragment.js'][15]++;
+  "use strict";
+  _$jscoverage['DocumentFragment.js'][16]++;
   function DocumentFragment() {
-    _$jscoverage['DocumentFragment.js'][16]++;
-    var $__0 = $__Object$getPrototypeOf(DocumentFragment.prototype);
     _$jscoverage['DocumentFragment.js'][17]++;
+    var $__arguments = arguments;
+    _$jscoverage['DocumentFragment.js'][18]++;
+    var $__0 = $__Object$getPrototypeOf(DocumentFragment.prototype);
+    _$jscoverage['DocumentFragment.js'][19]++;
     if (($__0 !== null)) {
-      _$jscoverage['DocumentFragment.js'][18]++;
-      $__0.constructor.apply(this, arguments);
+      _$jscoverage['DocumentFragment.js'][20]++;
+      $__0.constructor.apply(this, $__arguments);
     }
 }
-  _$jscoverage['DocumentFragment.js'][20]++;
-  DocumentFragment.__proto__ = (($__super !== null)? $__super: Function.prototype);
-  _$jscoverage['DocumentFragment.js'][21]++;
-  DocumentFragment.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['DocumentFragment.js'][22]++;
-  $__Object$defineProperty(DocumentFragment.prototype, "constructor", {value: DocumentFragment});
+  DocumentFragment.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['DocumentFragment.js'][23]++;
-  $__Object$defineProperty(DocumentFragment.prototype, "outerHTML", {get: (function () {
+  DocumentFragment.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  _$jscoverage['DocumentFragment.js'][24]++;
+  $__Object$defineProperty(DocumentFragment.prototype, "constructor", {value: DocumentFragment});
   _$jscoverage['DocumentFragment.js'][25]++;
+  $__Object$defineProperties(DocumentFragment.prototype, {outerHTML: {get: (function () {
+  _$jscoverage['DocumentFragment.js'][27]++;
   return this.innerHTML;
-}), enumerable: true, configurable: true});
-  _$jscoverage['DocumentFragment.js'][30]++;
+}), enumerable: true, configurable: true}});
+  _$jscoverage['DocumentFragment.js'][32]++;
   return DocumentFragment;
 })(ParentNode);
-_$jscoverage['DocumentFragment.js'][32]++;
+_$jscoverage['DocumentFragment.js'][34]++;
 Object.defineProperty(DocumentFragment.prototype, "nodeType", {value: Node.DOCUMENT_FRAGMENT_NODE});

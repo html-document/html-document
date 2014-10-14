@@ -3,6 +3,8 @@ var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration').CSSStyleD
 var ClassList = require('./HTMLElement/ClassList').ClassList;
 var escapeAttribute = require('./utils/escapeAttribute');
 
+var voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');
+
 /**
  * The HTMLElement interface represents any HTML element.
  *
@@ -56,7 +58,7 @@ export class HTMLElement extends Element {
     get outerHTML() {
         return '<' + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) => {
             return value + ' ' + attributeName + '="' + escapeAttribute(this._attributes[attributeName]) + '"';
-        }, '') + '>' + this.innerHTML + '</' + this.nodeName + '>';
+        }, '') + '>' + (voidElements.indexOf(this.nodeName) !== -1 ? '' : this.innerHTML + '</' + this.nodeName + '>');
     }
 
 }

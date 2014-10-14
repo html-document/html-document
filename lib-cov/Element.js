@@ -53,40 +53,35 @@ if (! _$jscoverage['Element.js']) {
   _$jscoverage['Element.js'][16] = 0;
   _$jscoverage['Element.js'][17] = 0;
   _$jscoverage['Element.js'][18] = 0;
+  _$jscoverage['Element.js'][19] = 0;
   _$jscoverage['Element.js'][20] = 0;
-  _$jscoverage['Element.js'][21] = 0;
   _$jscoverage['Element.js'][22] = 0;
   _$jscoverage['Element.js'][23] = 0;
+  _$jscoverage['Element.js'][24] = 0;
   _$jscoverage['Element.js'][25] = 0;
   _$jscoverage['Element.js'][28] = 0;
-  _$jscoverage['Element.js'][33] = 0;
-  _$jscoverage['Element.js'][35] = 0;
-  _$jscoverage['Element.js'][40] = 0;
-  _$jscoverage['Element.js'][42] = 0;
-  _$jscoverage['Element.js'][43] = 0;
-  _$jscoverage['Element.js'][49] = 0;
-  _$jscoverage['Element.js'][51] = 0;
-  _$jscoverage['Element.js'][56] = 0;
-  _$jscoverage['Element.js'][58] = 0;
-  _$jscoverage['Element.js'][63] = 0;
-  _$jscoverage['Element.js'][65] = 0;
-  _$jscoverage['Element.js'][70] = 0;
-  _$jscoverage['Element.js'][72] = 0;
-  _$jscoverage['Element.js'][73] = 0;
-  _$jscoverage['Element.js'][74] = 0;
-  _$jscoverage['Element.js'][81] = 0;
-  _$jscoverage['Element.js'][83] = 0;
-  _$jscoverage['Element.js'][84] = 0;
+  _$jscoverage['Element.js'][31] = 0;
+  _$jscoverage['Element.js'][38] = 0;
+  _$jscoverage['Element.js'][45] = 0;
+  _$jscoverage['Element.js'][46] = 0;
+  _$jscoverage['Element.js'][54] = 0;
+  _$jscoverage['Element.js'][61] = 0;
+  _$jscoverage['Element.js'][68] = 0;
+  _$jscoverage['Element.js'][75] = 0;
+  _$jscoverage['Element.js'][76] = 0;
+  _$jscoverage['Element.js'][77] = 0;
   _$jscoverage['Element.js'][86] = 0;
   _$jscoverage['Element.js'][87] = 0;
-  _$jscoverage['Element.js'][88] = 0;
   _$jscoverage['Element.js'][89] = 0;
   _$jscoverage['Element.js'][90] = 0;
+  _$jscoverage['Element.js'][91] = 0;
+  _$jscoverage['Element.js'][92] = 0;
   _$jscoverage['Element.js'][93] = 0;
-  _$jscoverage['Element.js'][98] = 0;
-  _$jscoverage['Element.js'][100] = 0;
+  _$jscoverage['Element.js'][96] = 0;
+  _$jscoverage['Element.js'][102] = 0;
+  _$jscoverage['Element.js'][104] = 0;
 }
-_$jscoverage['Element.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Element: {get: function() {","      return Element;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var Node = require('./Node').Node;","var ParentNode = require('./ParentNode').ParentNode;","var Element = function($__super) {","  \"use strict\";","  function Element() {","    var $__0 = $__Object$getPrototypeOf(Element.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, arguments);","  }","  Element.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Element.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Element.prototype, \"constructor\", {value: Element});","  $__Object$defineProperty(Element.prototype, \"id\", {","    get: function() {","      return this.getAttribute('id');","    },","    set: function(id) {","      this.setAttribute('id', id);","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"tagName\", {","    get: function() {","      return this.nodeName;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"children\", {","    get: function() {","      return this._childNodes.filter(function(n) {","        return n instanceof Element;","      });","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"firstElementChild\", {","    get: function() {","      return this._childNodes[0] || null;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"lastElementChild\", {","    get: function() {","      return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"childElementCount\", {","    get: function() {","      return this._childNodes.length;","    },","    enumerable: true,","    configurable: true","  });","  $__Object$defineProperty(Element.prototype, \"getElementById\", {","    value: function(id) {","      return this._childNodesRecursiveFind(function(e) {","        if (e instanceof Element &amp;&amp; e.getAttribute('id') === id) {","          return true;","        }","      }) || null;","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Element.prototype, \"getElementsByTagName\", {","    value: function(tagName, _array) {","      if (!tagName) {","        return !_array ? this.children.slice() : _array.push.apply(_array, this.children);","      }","      _array = _array || [];","      tagName = tagName.toLowerCase();","      this.children.forEach(function(e) {","        if (e.nodeName.toLowerCase() === tagName) {","          _array.push(e);","        }","      });","      return _array;","    },","    enumerable: false,","    writable: true","  });","  return Element;","}(ParentNode);","Object.defineProperty(Element.prototype, 'nodeType', {value: Node.ELEMENT_NODE});","","//# sourceMappingURL=Element.js.map"];
+_$jscoverage['Element.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Element: {get: function() {","      return Element;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperties = Object.defineProperties;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var $__Object$getPrototypeOf = Object.getPrototypeOf;","var Node = require('./Node').Node;","var ParentNode = require('./ParentNode').ParentNode;","var Element = function($__super) {","  \"use strict\";","  function Element() {","    var $__arguments = arguments;","    var $__0 = $__Object$getPrototypeOf(Element.prototype);","    if ($__0 !== null)","      $__0.constructor.apply(this, $__arguments);","  }","  Element.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Element.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Element.prototype, \"constructor\", {value: Element});","  $__Object$defineProperties(Element.prototype, {","    id: {","      get: function() {","        return this.getAttribute('id');","      },","      set: function(id) {","        this.setAttribute('id', id);","      },","      enumerable: true,","      configurable: true","    },","    tagName: {","      get: function() {","        return this.nodeName;","      },","      enumerable: true,","      configurable: true","    },","    children: {","      get: function() {","        return this._childNodes.filter(function(n) {","          return n instanceof Element;","        });","      },","      enumerable: true,","      configurable: true","    },","    firstElementChild: {","      get: function() {","        return this._childNodes[0] || null;","      },","      enumerable: true,","      configurable: true","    },","    lastElementChild: {","      get: function() {","        return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];","      },","      enumerable: true,","      configurable: true","    },","    childElementCount: {","      get: function() {","        return this._childNodes.length;","      },","      enumerable: true,","      configurable: true","    },","    getElementById: {","      value: function(id) {","        return this._childNodesRecursiveFind(function(e) {","          if (e instanceof Element &amp;&amp; e.getAttribute('id') === id) {","            return true;","          }","        }) || null;","      },","      enumerable: false,","      writable: true","    },","    getElementsByTagName: {","      value: function(tagName, _array) {","        if (!tagName) {","          return !_array ? this.children.slice() : _array.push.apply(_array, this.children);","        }","        _array = _array || [];","        tagName = tagName.toLowerCase();","        this.children.forEach(function(e) {","          if (e.nodeName.toLowerCase() === tagName) {","            _array.push(e);","          }","        });","        return _array;","      },","      enumerable: false,","      writable: true","    }","  });","  return Element;","}(ParentNode);","Object.defineProperty(Element.prototype, 'nodeType', {value: Node.ELEMENT_NODE});","","//# sourceMappingURL=Element.js.map"];
 _$jscoverage['Element.js'][1]++;
 "use strict";
 _$jscoverage['Element.js'][2]++;
@@ -95,106 +90,96 @@ Object.defineProperties(exports, {Element: {get: (function () {
   return Element;
 })}, __esModule: {value: true}});
 _$jscoverage['Element.js'][8]++;
-var $__Object$defineProperty = Object.defineProperty;
+var $__Object$defineProperties = Object.defineProperties;
 _$jscoverage['Element.js'][9]++;
-var $__Object$create = Object.create;
+var $__Object$defineProperty = Object.defineProperty;
 _$jscoverage['Element.js'][10]++;
-var $__Object$getPrototypeOf = Object.getPrototypeOf;
+var $__Object$create = Object.create;
 _$jscoverage['Element.js'][11]++;
-var Node = require("./Node").Node;
+var $__Object$getPrototypeOf = Object.getPrototypeOf;
 _$jscoverage['Element.js'][12]++;
-var ParentNode = require("./ParentNode").ParentNode;
+var Node = require("./Node").Node;
 _$jscoverage['Element.js'][13]++;
+var ParentNode = require("./ParentNode").ParentNode;
+_$jscoverage['Element.js'][14]++;
 var Element = (function ($__super) {
-  _$jscoverage['Element.js'][14]++;
-  "use strict";
   _$jscoverage['Element.js'][15]++;
+  "use strict";
+  _$jscoverage['Element.js'][16]++;
   function Element() {
-    _$jscoverage['Element.js'][16]++;
-    var $__0 = $__Object$getPrototypeOf(Element.prototype);
     _$jscoverage['Element.js'][17]++;
+    var $__arguments = arguments;
+    _$jscoverage['Element.js'][18]++;
+    var $__0 = $__Object$getPrototypeOf(Element.prototype);
+    _$jscoverage['Element.js'][19]++;
     if (($__0 !== null)) {
-      _$jscoverage['Element.js'][18]++;
-      $__0.constructor.apply(this, arguments);
+      _$jscoverage['Element.js'][20]++;
+      $__0.constructor.apply(this, $__arguments);
     }
 }
-  _$jscoverage['Element.js'][20]++;
-  Element.__proto__ = (($__super !== null)? $__super: Function.prototype);
-  _$jscoverage['Element.js'][21]++;
-  Element.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['Element.js'][22]++;
-  $__Object$defineProperty(Element.prototype, "constructor", {value: Element});
+  Element.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Element.js'][23]++;
-  $__Object$defineProperty(Element.prototype, "id", {get: (function () {
+  Element.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  _$jscoverage['Element.js'][24]++;
+  $__Object$defineProperty(Element.prototype, "constructor", {value: Element});
   _$jscoverage['Element.js'][25]++;
+  $__Object$defineProperties(Element.prototype, {id: {get: (function () {
+  _$jscoverage['Element.js'][28]++;
   return this.getAttribute("id");
 }), set: (function (id) {
-  _$jscoverage['Element.js'][28]++;
+  _$jscoverage['Element.js'][31]++;
   this.setAttribute("id", id);
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][33]++;
-  $__Object$defineProperty(Element.prototype, "tagName", {get: (function () {
-  _$jscoverage['Element.js'][35]++;
+}), enumerable: true, configurable: true}, tagName: {get: (function () {
+  _$jscoverage['Element.js'][38]++;
   return this.nodeName;
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][40]++;
-  $__Object$defineProperty(Element.prototype, "children", {get: (function () {
-  _$jscoverage['Element.js'][42]++;
+}), enumerable: true, configurable: true}, children: {get: (function () {
+  _$jscoverage['Element.js'][45]++;
   return this._childNodes.filter((function (n) {
-  _$jscoverage['Element.js'][43]++;
+  _$jscoverage['Element.js'][46]++;
   return (n instanceof Element);
 }));
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][49]++;
-  $__Object$defineProperty(Element.prototype, "firstElementChild", {get: (function () {
-  _$jscoverage['Element.js'][51]++;
+}), enumerable: true, configurable: true}, firstElementChild: {get: (function () {
+  _$jscoverage['Element.js'][54]++;
   return (this._childNodes[0] || null);
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][56]++;
-  $__Object$defineProperty(Element.prototype, "lastElementChild", {get: (function () {
-  _$jscoverage['Element.js'][58]++;
+}), enumerable: true, configurable: true}, lastElementChild: {get: (function () {
+  _$jscoverage['Element.js'][61]++;
   return ((this._childNodes.length === 0)? null: this._childNodes[(this._childNodes.length - 1)]);
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][63]++;
-  $__Object$defineProperty(Element.prototype, "childElementCount", {get: (function () {
-  _$jscoverage['Element.js'][65]++;
+}), enumerable: true, configurable: true}, childElementCount: {get: (function () {
+  _$jscoverage['Element.js'][68]++;
   return this._childNodes.length;
-}), enumerable: true, configurable: true});
-  _$jscoverage['Element.js'][70]++;
-  $__Object$defineProperty(Element.prototype, "getElementById", {value: (function (id) {
-  _$jscoverage['Element.js'][72]++;
+}), enumerable: true, configurable: true}, getElementById: {value: (function (id) {
+  _$jscoverage['Element.js'][75]++;
   return (this._childNodesRecursiveFind((function (e) {
-  _$jscoverage['Element.js'][73]++;
+  _$jscoverage['Element.js'][76]++;
   if (((e instanceof Element) && (e.getAttribute("id") === id))) {
-    _$jscoverage['Element.js'][74]++;
+    _$jscoverage['Element.js'][77]++;
     return true;
   }
 })) || null);
-}), enumerable: false, writable: true});
-  _$jscoverage['Element.js'][81]++;
-  $__Object$defineProperty(Element.prototype, "getElementsByTagName", {value: (function (tagName, _array) {
-  _$jscoverage['Element.js'][83]++;
+}), enumerable: false, writable: true}, getElementsByTagName: {value: (function (tagName, _array) {
+  _$jscoverage['Element.js'][86]++;
   if ((! tagName)) {
-    _$jscoverage['Element.js'][84]++;
+    _$jscoverage['Element.js'][87]++;
     return ((! _array)? this.children.slice(): _array.push.apply(_array, this.children));
   }
-  _$jscoverage['Element.js'][86]++;
-  _array = (_array || []);
-  _$jscoverage['Element.js'][87]++;
-  tagName = tagName.toLowerCase();
-  _$jscoverage['Element.js'][88]++;
-  this.children.forEach((function (e) {
   _$jscoverage['Element.js'][89]++;
+  _array = (_array || []);
+  _$jscoverage['Element.js'][90]++;
+  tagName = tagName.toLowerCase();
+  _$jscoverage['Element.js'][91]++;
+  this.children.forEach((function (e) {
+  _$jscoverage['Element.js'][92]++;
   if ((e.nodeName.toLowerCase() === tagName)) {
-    _$jscoverage['Element.js'][90]++;
+    _$jscoverage['Element.js'][93]++;
     _array.push(e);
   }
 }));
-  _$jscoverage['Element.js'][93]++;
+  _$jscoverage['Element.js'][96]++;
   return _array;
-}), enumerable: false, writable: true});
-  _$jscoverage['Element.js'][98]++;
+}), enumerable: false, writable: true}});
+  _$jscoverage['Element.js'][102]++;
   return Element;
 })(ParentNode);
-_$jscoverage['Element.js'][100]++;
+_$jscoverage['Element.js'][104]++;
 Object.defineProperty(Element.prototype, "nodeType", {value: Node.ELEMENT_NODE});

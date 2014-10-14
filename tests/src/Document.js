@@ -38,3 +38,21 @@ test('create an element and add nodes inside', () => {
   expect(h1.innerHTML, 'Hello<span></span>');
   expect(h1.textContent, 'Hello');
 });
+
+
+test('create elements without content', () => {
+  var document = new Document();
+  var span = document.createElement('span');
+  var textNode1 = document.createTextNode('Hello1');
+  var textNode2 = document.createTextNode('Hello2');
+  var br1 = document.createElement('br');
+  var br2 = document.createElement('br');
+  br2.setAttribute('class', 'test');
+
+  span.appendChild(textNode1);
+  span.appendChild(br1);
+  span.appendChild(br2);
+  span.appendChild(textNode2);
+  expect(span.outerHTML, '<span>' + span.innerHTML + '</span>');
+  expect(span.innerHTML, 'Hello1<br><br class="test">Hello2');
+});

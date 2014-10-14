@@ -50,19 +50,19 @@ if (! _$jscoverage['Text.js']) {
   _$jscoverage['Text.js'][13] = 0;
   _$jscoverage['Text.js'][14] = 0;
   _$jscoverage['Text.js'][15] = 0;
-  _$jscoverage['Text.js'][17] = 0;
+  _$jscoverage['Text.js'][16] = 0;
   _$jscoverage['Text.js'][18] = 0;
   _$jscoverage['Text.js'][19] = 0;
   _$jscoverage['Text.js'][20] = 0;
-  _$jscoverage['Text.js'][22] = 0;
-  _$jscoverage['Text.js'][27] = 0;
-  _$jscoverage['Text.js'][29] = 0;
-  _$jscoverage['Text.js'][32] = 0;
-  _$jscoverage['Text.js'][37] = 0;
-  _$jscoverage['Text.js'][39] = 0;
+  _$jscoverage['Text.js'][21] = 0;
+  _$jscoverage['Text.js'][24] = 0;
+  _$jscoverage['Text.js'][31] = 0;
+  _$jscoverage['Text.js'][34] = 0;
   _$jscoverage['Text.js'][40] = 0;
+  _$jscoverage['Text.js'][42] = 0;
+  _$jscoverage['Text.js'][43] = 0;
 }
-_$jscoverage['Text.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Text: {get: function() {","      return Text;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var escapeHTML = require('./utils/escapeHTML');","var Node = require('./Node').Node;","var Text = function($__super) {","  \"use strict\";","  function Text(textContent) {","    this.value = textContent;","  }","  Text.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Text.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Text.prototype, \"constructor\", {value: Text});","  $__Object$defineProperty(Text.prototype, \"_toHTML\", {","    value: function() {","      return escapeHTML(this.value);","    },","    enumerable: false,","    writable: true","  });","  $__Object$defineProperty(Text.prototype, \"textContent\", {","    get: function() {","      return this.value;","    },","    set: function(textContent) {","      this.value = textContent;","    },","    enumerable: true,","    configurable: true","  });","  return Text;","}(Node);","Object.defineProperty(Text.prototype, 'nodeType', {value: Node.TEXT_NODE});","Object.defineProperty(Text.prototype, 'nodeName', {value: '#text'});","","//# sourceMappingURL=Text.js.map"];
+_$jscoverage['Text.js'].source = ["\"use strict\";","Object.defineProperties(exports, {","  Text: {get: function() {","      return Text;","    }},","  __esModule: {value: true}","});","var $__Object$defineProperties = Object.defineProperties;","var $__Object$defineProperty = Object.defineProperty;","var $__Object$create = Object.create;","var escapeHTML = require('./utils/escapeHTML');","var Node = require('./Node').Node;","var Text = function($__super) {","  \"use strict\";","  function Text(textContent) {","    this.value = textContent;","  }","  Text.__proto__ = ($__super !== null ? $__super : Function.prototype);","  Text.prototype = $__Object$create(($__super !== null ? $__super.prototype : null));","  $__Object$defineProperty(Text.prototype, \"constructor\", {value: Text});","  $__Object$defineProperties(Text.prototype, {","    _toHTML: {","      value: function() {","        return escapeHTML(this.value);","      },","      enumerable: false,","      writable: true","    },","    textContent: {","      get: function() {","        return this.value;","      },","      set: function(textContent) {","        this.value = textContent;","      },","      enumerable: true,","      configurable: true","    }","  });","  return Text;","}(Node);","Object.defineProperty(Text.prototype, 'nodeType', {value: Node.TEXT_NODE});","Object.defineProperty(Text.prototype, 'nodeName', {value: '#text'});","","//# sourceMappingURL=Text.js.map"];
 _$jscoverage['Text.js'][1]++;
 "use strict";
 _$jscoverage['Text.js'][2]++;
@@ -71,45 +71,45 @@ Object.defineProperties(exports, {Text: {get: (function () {
   return Text;
 })}, __esModule: {value: true}});
 _$jscoverage['Text.js'][8]++;
-var $__Object$defineProperty = Object.defineProperty;
+var $__Object$defineProperties = Object.defineProperties;
 _$jscoverage['Text.js'][9]++;
-var $__Object$create = Object.create;
+var $__Object$defineProperty = Object.defineProperty;
 _$jscoverage['Text.js'][10]++;
-var escapeHTML = require("./utils/escapeHTML");
+var $__Object$create = Object.create;
 _$jscoverage['Text.js'][11]++;
-var Node = require("./Node").Node;
+var escapeHTML = require("./utils/escapeHTML");
 _$jscoverage['Text.js'][12]++;
+var Node = require("./Node").Node;
+_$jscoverage['Text.js'][13]++;
 var Text = (function ($__super) {
-  _$jscoverage['Text.js'][13]++;
-  "use strict";
   _$jscoverage['Text.js'][14]++;
+  "use strict";
+  _$jscoverage['Text.js'][15]++;
   function Text(textContent) {
-    _$jscoverage['Text.js'][15]++;
+    _$jscoverage['Text.js'][16]++;
     this.value = textContent;
 }
-  _$jscoverage['Text.js'][17]++;
-  Text.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Text.js'][18]++;
-  Text.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
+  Text.__proto__ = (($__super !== null)? $__super: Function.prototype);
   _$jscoverage['Text.js'][19]++;
-  $__Object$defineProperty(Text.prototype, "constructor", {value: Text});
+  Text.prototype = $__Object$create((($__super !== null)? $__super.prototype: null));
   _$jscoverage['Text.js'][20]++;
-  $__Object$defineProperty(Text.prototype, "_toHTML", {value: (function () {
-  _$jscoverage['Text.js'][22]++;
+  $__Object$defineProperty(Text.prototype, "constructor", {value: Text});
+  _$jscoverage['Text.js'][21]++;
+  $__Object$defineProperties(Text.prototype, {_toHTML: {value: (function () {
+  _$jscoverage['Text.js'][24]++;
   return escapeHTML(this.value);
-}), enumerable: false, writable: true});
-  _$jscoverage['Text.js'][27]++;
-  $__Object$defineProperty(Text.prototype, "textContent", {get: (function () {
-  _$jscoverage['Text.js'][29]++;
+}), enumerable: false, writable: true}, textContent: {get: (function () {
+  _$jscoverage['Text.js'][31]++;
   return this.value;
 }), set: (function (textContent) {
-  _$jscoverage['Text.js'][32]++;
+  _$jscoverage['Text.js'][34]++;
   this.value = textContent;
-}), enumerable: true, configurable: true});
-  _$jscoverage['Text.js'][37]++;
+}), enumerable: true, configurable: true}});
+  _$jscoverage['Text.js'][40]++;
   return Text;
 })(Node);
-_$jscoverage['Text.js'][39]++;
+_$jscoverage['Text.js'][42]++;
 Object.defineProperty(Text.prototype, "nodeType", {value: Node.TEXT_NODE});
-_$jscoverage['Text.js'][40]++;
+_$jscoverage['Text.js'][43]++;
 Object.defineProperty(Text.prototype, "nodeName", {value: "#text"});

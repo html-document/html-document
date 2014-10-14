@@ -6,11 +6,11 @@
     "HTMLElement",
     "springbokjs"
   ],
-  "version": "0.3.2",
+  "version": "0.3.3",
   "homepage": "https://github.com/christophehurpeau/html-document",
   "license": "MIT",
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
-  "repository": "",
+  "repository": "git://github.com/christophehurpeau/html-document.git",
   "scripts": {
     "test": "node_modules/.bin/mocha --harmony --recursive -u tdd tests/lib"
   },
@@ -19,7 +19,7 @@
     "gulp": "^3.8",
     "mocha": "^1.21",
     "proclaim": "^2.0",
-    "springbokjs-library": "^2.6.0"
+    "springbokjs-library": "^2.7.1"
   },
   "dependencies": {
     "htmlparser2": "^3.7.3"
