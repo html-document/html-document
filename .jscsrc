@@ -1,0 +1,165 @@
+{
+    // Attempts to parse your code as ES6 using the harmony version of the esprima parser.
+    "esnext": true,
+
+    "excludeFiles": [
+        "**/*.min.js"
+    ],
+
+    "requireCurlyBraces": [
+        "if",
+        "else",
+        "for",
+        "while",
+        "do",
+        "switch",
+        "return",
+        "try",
+        "default"
+    ],
+
+    /*"disallowSpaceBeforeKeywords": false,
+
+    "requireSpaceBeforeKeywords": [
+        "else",
+        "while",
+        "catch"
+    ],
+
+    "disallowSpaceAfterKeywords": [],
+    */
+
+    "requireSpaceAfterKeywords": [
+        "do",
+        "for",
+        "if",
+        "else",
+        "switch",
+        "case",
+        "try",
+        "catch",
+        "void",
+        "while",
+        "with",
+        "return",
+        "typeof"
+    ],
+
+    // "disallowSpaceAfterKeywords": [ ],
+
+    "requireSpaceBeforeBlockStatements": true,
+
+    // "requireParenthesesAroundIIFE": false,
+
+    "requireSpacesInConditionalExpression": true,
+
+    "disallowSpacesInFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+
+    "requireSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "disallowSpacesInAnonymousFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+
+    "requireSpacesInNamedFunctionExpression": {
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "disallowSpacesInNamedFunctionExpression": {
+        "beforeOpeningRoundBrace": true
+    },
+
+    "requireSpacesInFunctionDeclaration": {
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "disallowSpacesInFunctionDeclaration": {
+        "beforeOpeningRoundBrace": true
+    },
+
+    "requireSpacesInFunction": {
+        "beforeOpeningCurlyBrace": true
+    },
+
+    "disallowSpacesInFunction": {
+        "beforeOpeningRoundBrace": true
+    },
+
+    "disallowSpacesInCallExpression": true,
+
+    // "disallowMultipleVarDecl": true,
+    // "requireBlocksOnNewline": true,
+    // "disallowPaddingNewlinesInBlocks": true,
+    // "disallowPaddingNewLinesInObjects": true,
+
+    /*
+    "requirePaddingNewlinesBeforeKeywords": [
+        "do",
+        "for",
+        "if",
+        "switch",
+        "case",
+        "try",
+        "void",
+        "with"
+    ],
+    */
+
+    // "disallowEmptyBlocks": false,
+    // "disallowSpacesInsideObjectBrackets": false,
+    // "disallowSpacesInsideArrayBrackets": false,
+    // "disallowSpacesInsideParentheses":
+
+    "requireSpacesInsideObjectBrackets": "all",
+    // "requireSpacesInsideArrayBrackets": false,
+    "disallowQuotedKeysInObjects": true, // ES3+ reserved words should be quoted by the uglify / closure compiler
+    // "disallowDanglingUnderscores"
+
+    // Youhou :)
+    "disallowSpaceAfterObjectKeys": true,
+    "requireSpaceBeforeObjectValues": true,
+    "requireCommaBeforeLineBreak": true,
+
+    // Could be useful one day
+    // requireAlignedObjectValues
+    "requireOperatorBeforeLineBreak": true,
+
+    "disallowSpaceAfterPrefixUnaryOperators": true,
+    "requireSpaceBeforeBinaryOperators": true,
+    "requireSpaceAfterBinaryOperators": true,
+
+    "requireCamelCaseOrUpperCaseIdentifiers": true,
+
+    "disallowKeywords": ["with", "void"],
+
+    "disallowMixedSpacesAndTabs": true,
+    "disallowTrailingWhitespace": true,
+    // "disallowTrailingComma": true,
+
+    "disallowKeywordsOnNewLine": ["else", "catch"],
+
+    "requireLineFeedAtFileEnd": true,
+    "maximumLineLength": 120,
+
+    "requireCapitalizedConstructors": true,
+    "requireDotNotation": true,
+    "disallowYodaConditions": true,
+    "requireSpaceAfterLineComment": "allowSlash",
+
+    "disallowFunctionDeclarations": true,
+
+    "disallowNewlineBeforeBlockStatements": true,
+
+    "validateLineBreaks": "LF",
+
+    "validateQuoteMarks": { "mark": "'", "escape": true },
+
+    "validateIndentation": 4,
+
+    "validateParameterSeparator": ", "
+
+}

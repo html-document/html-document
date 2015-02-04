@@ -1,0 +1,14 @@
+{
+    "opts": {
+        "template": "node_modules/springbokjs-library/node_modules/ink-docstrap/template"
+    },
+    "templates" : {
+        "systemName" : "",
+        "footer" : "",
+        "theme" : "spacelab",
+        "inverseNav" : true,
+        "outputSourceFiles" : true,
+        "outputSourcePath" : true,
+        "linenums": true
+    }
+}
