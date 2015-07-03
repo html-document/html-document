@@ -6,7 +6,7 @@
     "HTMLElement",
     "springbokjs"
   ],
-  "version": "0.4.0",
+  "version": "0.5.0",
   "homepage": "https://github.com/christophehurpeau/html-document",
   "license": "MIT",
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
@@ -18,8 +18,8 @@
   "devDependencies": {
     "gulp": "^3.8",
     "mocha": "^2.1",
-    "proclaim": "^2.0",
-    "springbokjs-library": "^3.4.0"
+    "proclaim": "^3.0",
+    "springbokjs-library": "^5.0.0"
   },
   "dependencies": {
     "htmlparser2": "^3.8.2"

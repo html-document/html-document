@@ -10,6 +10,7 @@ var HTMLSelectElement = require('./HTMLElement/elements/HTMLSelectElement').HTML
 
 export class Document extends Node {
     constructor() {
+        super();
         this.documentElement = this.createElement('html');
         this.head = this.createElement('head');
         this.documentElement.appendChild(this.head);

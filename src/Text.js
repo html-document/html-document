@@ -3,6 +3,7 @@ var Node = require('./Node').Node;
 
 export class Text extends Node {
     constructor(textContent) {
+        super();
         this.value = textContent;
     }
 

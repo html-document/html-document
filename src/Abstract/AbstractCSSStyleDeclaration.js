@@ -16,12 +16,6 @@ class CSSStyleRule {
  */
 export class AbstractCSSStyleDeclaration {
     /**
-     */
-    constructor() {
-        throw new Error('Abstract class');
-    }
-
-    /**
      * @return {String}
      */
     get cssText() {

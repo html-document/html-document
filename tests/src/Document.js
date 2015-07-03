@@ -4,6 +4,7 @@ var expect = assert.strictEqual;
 var lib = '../../lib/';
 
 var Document = require(lib + 'Document').Document;
+var Doctype = require(lib + 'Doctype').Doctype;
 
 test('create a Text Node', () => {
   var document = new Document();
@@ -55,4 +56,17 @@ test('create elements without content', () => {
   span.appendChild(textNode2);
   expect(span.outerHTML, '<span>' + span.innerHTML + '</span>');
   expect(span.innerHTML, 'Hello1<br><br class="test">Hello2');
+});
+
+test('create a html layout', () => {
+    var document = new Document();
+    var fragment = document.createDocumentFragment();
+    fragment.appendChild(new Doctype());
+    var html = document.createElement('html');
+    fragment.appendChild(html);
+    var head = document.createElement('head');
+    html.appendChild(head);
+    var body = document.createElement('body');
+    html.appendChild(body);
+    expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></html>');
 });

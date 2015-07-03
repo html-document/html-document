@@ -7,9 +7,6 @@ var lib = '../../../lib/';
 var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration').AbstractCSSStyleDeclaration;
 
 class MockCSSStyleDeclaration extends AbstractCSSStyleDeclaration {
-    constructor() {
-
-    }
 }
 
 

@@ -9,6 +9,7 @@ export class Comment extends Node {
      * @param {String}
      */
     constructor(comment) {
+        super();
         this._value = comment;
     }
 

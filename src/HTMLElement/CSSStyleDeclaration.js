@@ -6,6 +6,7 @@ export class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
      * @param {HTMLElement} element
      */
     constructor(element) {
+        super();
         this._element = element;
     }
 
