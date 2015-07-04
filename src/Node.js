@@ -22,6 +22,16 @@ export class Node {
     }
 
     /**
+     * checks if attribute exists for node
+     *
+     * @param {String} attributeName
+     * @returns {boolean}
+     */
+    hasAttribute(attributeName) {
+        return attributeName in this._attributes;
+    }
+
+    /**
      * set attribute's value
      *
      * @param {String} attributeName

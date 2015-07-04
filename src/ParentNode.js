@@ -92,7 +92,7 @@ export class ParentNode extends Node {
      * @return {Node}
      */
     appendChild(child) {
-        if (!child instanceof Node) {
+        if (!(child instanceof Node)) {
             throw new Error('Trying to add non node element');
         }
         if (child._parentNode) {
