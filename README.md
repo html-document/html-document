@@ -46,6 +46,7 @@ expect(h1.outerHTML, '<h1 id="title">Hello</h1>');
     - lastElementChild
     - childElementCount
     - getAttribute(attributeName)
+    - hasAttribute(attributeName)
     - setAttribute(attributeName, attributeValue)
     - removeAttribute(attributeName)
     - style
