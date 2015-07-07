@@ -4,7 +4,7 @@
  *
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/Node}
  */
-export class Node {
+export default class Node {
     constructor() {
         this._attributes = {};
     }

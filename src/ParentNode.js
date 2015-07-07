@@ -1,4 +1,4 @@
-var Node = require('./Node').Node;
+var Node = require('./Node');
 var parser = require('./parser');
 
 /**
@@ -6,7 +6,7 @@ var parser = require('./parser');
  *
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/ParentNode}
  */
-export class ParentNode extends Node {
+export default class ParentNode extends Node {
     constructor() {
         super();
         this._childNodes = [];
@@ -62,7 +62,7 @@ export class ParentNode extends Node {
      * @return {Node|null}
      */
     get lastChild() {
-        return this._childNodes[this._childNodes.length -1] || null;
+        return this._childNodes[this._childNodes.length - 1] || null;
     }
 
     /**
@@ -73,7 +73,7 @@ export class ParentNode extends Node {
         if (indexInParent === -1) {
             throw new Error('Unexpected state: this node is not in the parent');
         }
-        return indexInParent !== 0 && this.parentNode._childNodes[indexInParent -1] || null;
+        return indexInParent !== 0 && this.parentNode._childNodes[indexInParent - 1] || null;
     }
 
     /**
@@ -84,7 +84,7 @@ export class ParentNode extends Node {
         if (indexInParent === -1) {
             throw new Error('Unexpected state: this node is not in the parent');
         }
-        return this.parentNode._childNodes[indexInParent +1] || null;
+        return this.parentNode._childNodes[indexInParent + 1] || null;
     }
 
     /**

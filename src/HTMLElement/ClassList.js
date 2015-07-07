@@ -1,6 +1,6 @@
 // TODO : DOMTokenList, unit tests
 
-export class ClassList {
+export default class ClassList {
     /**
      * @param {HTMLElement} element
      */

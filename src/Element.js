@@ -1,12 +1,12 @@
-var Node = require('./Node').Node;
-var ParentNode = require('./ParentNode').ParentNode;
+var Node = require('./Node');
+var ParentNode = require('./ParentNode');
 
 /**
  * The Element interface represents an object within a DOM document.
  * This interface describes methods and properties common to all kinds of elements.
  * Specific behaviors are described in interfaces which inherit from Element but add additional functionality.
  */
-export class Element extends ParentNode {
+export default class Element extends ParentNode {
 
 
     /**

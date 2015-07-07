@@ -1,14 +1,14 @@
-var Node = require('./Node').Node;
-var Comment = require('./Comment').Comment;
-var DocumentFragment = require('./DocumentFragment').DocumentFragment;
-var HTMLElement = require('./HTMLElement').HTMLElement;
-var Text = require('./Text').Text;
+var Node = require('./Node');
+var Comment = require('./Comment');
+var DocumentFragment = require('./DocumentFragment');
+var HTMLElement = require('./HTMLElement');
+var Text = require('./Text');
 
 // HTML Elements
-var HTMLOptionElement = require('./HTMLElement/elements/HTMLOptionElement').HTMLOptionElement;
-var HTMLSelectElement = require('./HTMLElement/elements/HTMLSelectElement').HTMLSelectElement;
+var HTMLOptionElement = require('./HTMLElement/elements/HTMLOptionElement');
+var HTMLSelectElement = require('./HTMLElement/elements/HTMLSelectElement');
 
-export class Document extends Node {
+export default class Document extends Node {
     constructor() {
         super();
         this.documentElement = this.createElement('html');

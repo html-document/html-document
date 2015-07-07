@@ -1,7 +1,6 @@
-var AbstractCSSStyleDeclaration = require('../Abstract/AbstractCSSStyleDeclaration')
-                                                            .AbstractCSSStyleDeclaration;
+var AbstractCSSStyleDeclaration = require('../Abstract/AbstractCSSStyleDeclaration');
 
-export class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
+export default class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
     /**
      * @param {HTMLElement} element
      */

@@ -1,10 +1,10 @@
-var HTMLElement = require('../../HTMLElement').HTMLElement;
+var HTMLElement = require('../../HTMLElement');
 
 /**
  * The HTMLOptionElement interface represents <option> elements
  * and inherits all classes and methods of the HTMLElement interface.
  */
-export class HTMLOptionElement extends HTMLElement {
+export default class HTMLOptionElement extends HTMLElement {
     constructor() {
         super();
         this.nodeName = 'option';

@@ -4,7 +4,7 @@
 var assert = require('proclaim');
 var lib = '../../lib/';
 
-var Document = require(lib + 'Document').Document;
+var Document = require(lib + 'Document');
 
 test('Node attributes', function () {
     var document = new Document();

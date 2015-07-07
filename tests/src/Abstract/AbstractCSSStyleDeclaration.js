@@ -4,11 +4,10 @@ var expect = assert.strictEqual;
 
 var lib = '../../../lib/';
 
-var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration').AbstractCSSStyleDeclaration;
+var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
 
 class MockCSSStyleDeclaration extends AbstractCSSStyleDeclaration {
 }
-
 
 test('CSSStyleDeclaration set and get cssText', () => {
     var style = new MockCSSStyleDeclaration();

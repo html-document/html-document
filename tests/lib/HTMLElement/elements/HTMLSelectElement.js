@@ -6,7 +6,7 @@ var expect = assert.strictEqual;
 
 var lib = '../../../../lib/';
 
-var HTMLSelectElement = require(lib + 'HTMLElement/elements/HTMLSelectElement').HTMLSelectElement;
+var HTMLSelectElement = require(lib + 'HTMLElement/elements/HTMLSelectElement');
 
 test('HTMLSelectElement shoud have the nodeName == select ', function () {
     var elt = new HTMLSelectElement();

@@ -1,11 +1,11 @@
-var HTMLElement = require('../../HTMLElement').HTMLElement;
+var HTMLElement = require('../../HTMLElement');
 
 /**
  * HTML <select> elements share all of the properties and methods
  * of other HTML elements described in the element section.
  * They also have the specialized interface HTMLSelectElement.
  */
-export class HTMLSelectElement extends HTMLElement {
+export default class HTMLSelectElement extends HTMLElement {
     constructor() {
         super();
         this.nodeName = 'select';

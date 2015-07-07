@@ -1,6 +1,6 @@
-var Node = require('./Node').Node;
+var Node = require('./Node');
 
-export class Doctype extends Node {
+export default class Doctype extends Node {
     _toHTML() {
         return '<!DOCTYPE html>';
     }

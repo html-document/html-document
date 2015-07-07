@@ -1,10 +1,10 @@
 var escapeHTML = require('./utils/escapeHTML');
-var Node = require('./Node').Node;
+var Node = require('./Node');
 
 /**
  * Comment Node
  */
-export class Comment extends Node {
+export default class Comment extends Node {
     /**
      * @param {String}
      */

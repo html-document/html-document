@@ -3,8 +3,8 @@ var assert = require('proclaim');
 var expect = assert.strictEqual;
 var lib = '../../lib/';
 
-var ParentNode = require(lib + 'ParentNode').ParentNode;
-var Document = require(lib + 'Document').Document;
+var ParentNode = require(lib + 'ParentNode');
+var Document = require(lib + 'Document');
 var document = new Document();// jshint ignore: line
 
 test('empty ParentNode', () => {

@@ -3,7 +3,7 @@ var assert = require('proclaim');
 var expect = assert.strictEqual;
 var lib = '../../lib/';
 
-var Document = require(lib + 'Document').Document;
+var Document = require(lib + 'Document');
 var document = new Document();// jshint ignore: line
 
 test('parse innerHTML', () => {

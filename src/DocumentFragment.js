@@ -1,11 +1,11 @@
-var Node = require('./Node').Node;
-var ParentNode = require('./ParentNode').ParentNode;
+var Node = require('./Node');
+var ParentNode = require('./ParentNode');
 
 /**
  * The DocumentFragment interface represents a minimal document object that has no parent. It is used as
  * a light-weight version of Document to store well-formed or potentially non-well-formed fragments of XML.
  */
-export class DocumentFragment extends ParentNode {
+export default class DocumentFragment extends ParentNode {
 
     /**
      * @return {String}

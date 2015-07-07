@@ -4,7 +4,7 @@ var expect = assert.strictEqual;
 
 var lib = '../../../lib/';
 
-var HTMLElement = require(lib + 'HTMLElement').HTMLElement;
+var HTMLElement = require(lib + 'HTMLElement');
 
 test('CSSStyleDeclaration set should update element', () => {
     var elt = new HTMLElement();

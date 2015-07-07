@@ -1,7 +1,7 @@
 var escapeHTML = require('./utils/escapeHTML');
-var Node = require('./Node').Node;
+var Node = require('./Node');
 
-export class Text extends Node {
+export default class Text extends Node {
     constructor(textContent) {
         super();
         this.value = textContent;

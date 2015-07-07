@@ -1,6 +1,6 @@
-var Element = require('./Element').Element;
-var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration').CSSStyleDeclaration;
-var ClassList = require('./HTMLElement/ClassList').ClassList;
+var Element = require('./Element');
+var CSSStyleDeclaration = require('./HTMLElement/CSSStyleDeclaration');
+var ClassList = require('./HTMLElement/ClassList');
 var escapeAttribute = require('./utils/escapeAttribute');
 
 var voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');
@@ -10,7 +10,7 @@ var voidElements = 'area base br col embed hr img input keygen link meta param s
  *
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement}
  */
-export class HTMLElement extends Element {
+export default class HTMLElement extends Element {
     constructor() {
         super();
         this.style = new CSSStyleDeclaration(this);

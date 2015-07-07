@@ -4,7 +4,7 @@ var htmlparser = require('htmlparser2');
 exports.parse = function(html, node) {
     var stack = [ node ];
     var last = function() {
-        return stack.length === 0 ? null : stack[stack.length -1];
+        return stack.length === 0 ? null : stack[stack.length - 1];
     };
     var document = node.ownerDocument;
 

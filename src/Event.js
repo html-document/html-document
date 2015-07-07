@@ -1,4 +1,4 @@
-export class Event {
+export default class Event {
     constructor(type) {
         /**
          * A boolean indicating whether the event bubbles up through the DOM or not.

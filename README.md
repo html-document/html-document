@@ -6,6 +6,9 @@ Partial implementation of document, HTMLElement for node
 ## Example
 
 ```js
+import Document from 'html-document'; // or var Document = require('html-document');
+const document = new Document();
+
 var textNode = document.createTextNode('Hello');
 var h1 = document.createElement('h1');
 h1.setAttribute('id', 'title');

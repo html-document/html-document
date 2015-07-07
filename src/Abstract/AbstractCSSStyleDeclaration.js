@@ -14,7 +14,7 @@ class CSSStyleRule {
  * property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
  * - CSSStyleDeclaration is also a read-only interface to the result of window.getComputedStyle().
  */
-export class AbstractCSSStyleDeclaration {
+export default class AbstractCSSStyleDeclaration {
     /**
      * @return {String}
      */
