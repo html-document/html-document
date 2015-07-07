@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Html-document : document shim for node">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Html-document</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/christophehurpeau/html-document">View on GitHub</a>
+
+          <h1 id="project_title">Html-document</h1>
+          <h2 id="project_tagline">document shim for node</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/christophehurpeau/html-document/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/christophehurpeau/html-document/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="html-document----" class="anchor" href="#html-document----" aria-hidden="true"><span class="octicon octicon-link"></span></a>html-document <a href="https://npmjs.org/package/html-document"><img src="https://img.shields.io/npm/v/html-document.svg?style=flat" alt="NPM version"></a> <a href="https://circleci.com/gh/christophehurpeau/html-document"><img src="https://circleci.com/gh/christophehurpeau/html-document.svg?style=svg" alt="Build Status"></a> <a href="https://codeclimate.com/github/christophehurpeau/html-document"><img src="https://codeclimate.com/github/christophehurpeau/html-document/badges/gpa.svg" alt="Code Climate"></a> <a href="http://christophehurpeau.github.io/html-document/coverage/lcov-report/lib/index.js.html"><img src="https://codeclimate.com/github/christophehurpeau/html-document/badges/coverage.svg" alt="Coverage"></a>
+</h1>
+
+<p>Partial implementation of document, HTMLElement for node</p>
+
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h2>
+
+<div class="highlight highlight-js"><pre><span class="pl-k">import</span> Document <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>html-document<span class="pl-pds">'</span></span>; // or var Document = require(<span class="pl-s"><span class="pl-pds">'</span>html-document<span class="pl-pds">'</span></span>);
+<span class="pl-k">const</span> <span class="pl-c1">document</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">Document</span>();
+
+<span class="pl-k">var</span> textNode <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">createTextNode</span>(<span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>);
+<span class="pl-k">var</span> h1 <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">createElement</span>(<span class="pl-s"><span class="pl-pds">'</span>h1<span class="pl-pds">'</span></span>);
+h1.<span class="pl-c1">setAttribute</span>(<span class="pl-s"><span class="pl-pds">'</span>id<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>title<span class="pl-pds">'</span></span>);
+
+h1.<span class="pl-c1">appendChild</span>(textNode);
+expect(h1.outerHTML, <span class="pl-s"><span class="pl-pds">'</span>&lt;h1 id="title"&gt;Hello&lt;/h1&gt;<span class="pl-pds">'</span></span>);</pre></div>
+
+<h3>
+<a id="api" class="anchor" href="#api" aria-hidden="true"><span class="octicon octicon-link"></span></a>API</h3>
+
+<ul>
+<li>
+<p>Document</p>
+
+<ul>
+<li>createComment(data)</li>
+<li>createDocumentFragment()</li>
+<li>createElement()</li>
+<li>createTextNode()</li>
+<li>getElementById(id)</li>
+<li>getElementsByTagName(tagName)</li>
+<li>documentElement</li>
+<li>head</li>
+<li>body</li>
+</ul>
+</li>
+<li>
+<p>HTMLElement</p>
+
+<ul>
+<li>childNodes</li>
+<li>parentNode</li>
+<li>firstChild</li>
+<li>lastChild</li>
+<li>previousSibling</li>
+<li>nextSibling</li>
+<li>appendChild(child)</li>
+<li>replaceChild(newChild, oldChild)</li>
+<li>removeChild(toRemoveChild)</li>
+<li>insertBefore(child, existingChild)</li>
+<li>outerHTML</li>
+<li>innerHTML</li>
+<li>textContent</li>
+<li>children</li>
+<li>firstElementChild</li>
+<li>lastElementChild</li>
+<li>childElementCount</li>
+<li>getAttribute(attributeName)</li>
+<li>hasAttribute(attributeName)</li>
+<li>setAttribute(attributeName, attributeValue)</li>
+<li>removeAttribute(attributeName)</li>
+<li>style</li>
+<li>classList</li>
+<li>getElementById(id)</li>
+<li>getElementsByTagName(tagName)</li>
+</ul>
+</li>
+<li>
+<p>Text</p>
+
+<ul>
+<li>textContent</li>
+</ul>
+</li>
+<li>
+<p>Comment</p>
+
+<ul>
+<li>data</li>
+</ul>
+</li>
+<li>
+<p>HTMLSelectElement : HTMLElement</p>
+
+<ul>
+<li>disabled: Boolean</li>
+<li>length: Number</li>
+<li>multiple: Number</li>
+<li>name: String</li>
+<li>options</li>
+<li>required: Boolean</li>
+<li>size: Number</li>
+<li>type: String</li>
+</ul>
+</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Html-document maintained by <a href="https://github.com/christophehurpeau">christophehurpeau</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
