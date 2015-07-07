@@ -7,8 +7,6 @@ var ParentNode = require('./ParentNode');
  * Specific behaviors are described in interfaces which inherit from Element but add additional functionality.
  */
 export default class Element extends ParentNode {
-
-
     /**
      * Gets the id of the element.
      *
@@ -64,7 +62,7 @@ export default class Element extends ParentNode {
      * @return {Element}
      */
     get lastElementChild() {
-        return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length -1];
+        return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];
     }
 
     /**
@@ -113,7 +111,6 @@ export default class Element extends ParentNode {
         });
         return _array;
     }
-
 }
 
 Object.defineProperty(Element.prototype, 'nodeType', { value: Node.ELEMENT_NODE });

@@ -46,12 +46,12 @@ export default class AbstractCSSStyleDeclaration {
             }
             var important = !!part.match(/!important$/);
             if (important) {
-                part = part.slice(0, - '!important'.length);
+                part = part.slice(0, -'!important'.length);
             }
             var splitPoint = part.indexOf(':');
             if (splitPoint) {
                 var key = part.slice(0, splitPoint).trim();
-                var value = part.slice(splitPoint+1).trim();
+                var value = part.slice(splitPoint + 1).trim();
                 this._setProperty(key, value, important && 'important');
             }
         });

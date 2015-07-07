@@ -14,8 +14,7 @@
         "do",
         "switch",
         "return",
-        "try",
-        "default"
+        "try"
     ],
 
     /*"disallowSpaceBeforeKeywords": false,

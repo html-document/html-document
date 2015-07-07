@@ -37,8 +37,8 @@ export default class HTMLOptionElement extends HTMLElement {
      * @return {Boolean}
      */
     get disabled() {
-        return !!this.getAttribute('disabled')
-             && (this.parentNode.nodeName !== 'optgroup' || !this.parentNode.disabled);
+        return !!this.getAttribute('disabled') &&
+             (this.parentNode.nodeName !== 'optgroup' || !this.parentNode.disabled);
     }
 
     /**

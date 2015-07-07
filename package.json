@@ -2,8 +2,12 @@
   "name": "html-document",
   "description": "Partial implementation of document, HTMLElement for node",
   "keywords": [
-    "html", "document", "element", "parser", "DOM",
+    "DOM",
     "HTMLElement",
+    "document",
+    "element",
+    "html",
+    "parser",
     "springbokjs"
   ],
   "version": "0.6.0",
@@ -16,10 +20,8 @@
   },
   "main": "./lib/Document.js",
   "devDependencies": {
-    "gulp": "^3.8",
-    "mocha": "^2.1",
     "proclaim": "^3.0",
-    "springbokjs-library": "^5.0.0"
+    "springbokjs-library": "^5.0.2"
   },
   "dependencies": {
     "htmlparser2": "^3.8.2"
