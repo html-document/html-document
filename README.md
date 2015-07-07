@@ -78,7 +78,7 @@ expect(h1.outerHTML, '<h1 id="title">Hello</h1>');
 [npm-image]: https://img.shields.io/npm/v/html-document.svg?style=flat
 [npm-url]: https://npmjs.org/package/html-document
 [coverage-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/coverage.svg
-[coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/lib/index.js.html
+[coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/
 [code-climate-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/gpa.svg
 [code-climate-url]: https://codeclimate.com/github/christophehurpeau/html-document
 
