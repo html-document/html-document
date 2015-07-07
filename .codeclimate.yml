@@ -2,5 +2,5 @@ languages:
   JavaScript: true
 
 exclude_paths:
-  - lib/**/*
-  - tests/lib/**/*
+  - lib/*
+  - tests/*
