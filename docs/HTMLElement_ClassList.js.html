@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation Source: HTMLElement/ClassList.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+	</div>
+	<div class="navbar-collapse">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#AbstractCSSStyleDeclaration">AbstractCSSStyleDeclaration</a></li><li><a href="global.html#Comment">Comment</a></li><li><a href="global.html#DocumentFragment">DocumentFragment</a></li><li><a href="global.html#Element">Element</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#HTMLOptionElement">HTMLOptionElement</a></li><li><a href="global.html#HTMLSelectElement">HTMLSelectElement</a></li><li><a href="global.html#ParentNode">ParentNode</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#value">value</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+    		<h1 class="page-title">Source: HTMLElement/ClassList.js</h1>
+			
+
+		<h1 class="page-title">Source: HTMLElement/ClassList.js</h1>
+    
+<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">// TODO : DOMTokenList, unit tests
+
+'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+var ClassList = (function () {
+    /**
+     * @param {HTMLElement} element
+     */
+
+    function ClassList(element) {
+        _classCallCheck(this, ClassList);
+
+        this._element = element;
+        this.tokens = [];
+    }
+
+    _createClass(ClassList, [{
+        key: '_parse',
+
+        /**
+         *
+         */
+        value: function _parse(tokens) {
+            this.tokens = tokens.split(' ');
+        }
+    }, {
+        key: '_stringify',
+
+        /**
+         *
+         */
+        value: function _stringify() {
+            this._element._setAttribute('class', this.tokens.join(' '));
+        }
+    }, {
+        key: 'add',
+
+        /**
+         * Adds a class to an element's list of classes
+         *
+         * @param {...string} className
+         *
+         */
+        value: function add() {
+            var _this = this;
+
+            var updated = false;
+            Array.prototype.forEach.call(arguments, function (token) {
+                token = String(token);
+                if (_this.tokens.indexOf(token) === -1) {
+                    _this.tokens.push(token);
+                    updated = true;
+                }
+            });
+            if (updated) {
+                this._stringify();
+            }
+        }
+    }, {
+        key: 'remove',
+
+        /**
+         * Removes a class from an element's list of classes
+         *
+         * @param {...string} token
+         */
+        value: function remove() {
+            var _this2 = this;
+
+            var updated = false;
+            Array.prototype.forEach.call(arguments, function (token) {
+                var index = _this2.tokens.indexOf(token);
+                if (index !== -1) {
+                    _this2.tokens.splice(index, 1);
+                    updated = true;
+                }
+            });
+            if (updated) {
+                this._stringify();
+            }
+        }
+    }, {
+        key: 'toggle',
+
+        /**
+         * Toggles the existence of a class in an element's list of classes
+         *
+         * @param {string} token
+         * @param {Boolean} force
+         * @return {Boolean} if the token was added
+         *
+         */
+        value: function toggle(token, force) {
+            var result = this.contains(token);
+            var method = result ? force !== true &amp;&amp; 'remove' : force !== false &amp;&amp; 'add';
+
+            if (method) {
+                this[method](token);
+            }
+            return !result;
+        }
+    }, {
+        key: 'contains',
+
+        /**
+         * Checks if an element's list of classes contains a specific class
+         *
+         * @param {string} token
+         * @return {Boolean} if the token is present
+         */
+        value: function contains(token) {
+            return this.tokens.indexOf(token) !== -1;
+        }
+    }, {
+        key: 'length',
+
+        /**
+         * @return {Number}
+         */
+        get: function get() {
+            return this.tokens.length;
+        }
+    }]);
+
+    return ClassList;
+})();
+
+exports['default'] = ClassList;
+module.exports = exports['default'];
+//# sourceMappingURL=ClassList.js.map</pre>
+	</article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a>
+	on 2015-07-07T21:38:31+00:00 using the <a
+	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<!--<script src="scripts/sunlight.js"></script>-->
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/bootstrap-dropdown.js"></script>
+<script src="scripts/toc.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "h1,h2,h3,h4",
+		showAndHide : false,
+		scrollTo    : "100px"
+	} );
+
+	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			lang = "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+</body>
+</html>

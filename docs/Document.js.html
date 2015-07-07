@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Documentation Source: Document.js</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.spacelab.css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top navbar-inverse">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">Documentation</a>
+	</div>
+	<div class="navbar-collapse">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#AbstractCSSStyleDeclaration">AbstractCSSStyleDeclaration</a></li><li><a href="global.html#Comment">Comment</a></li><li><a href="global.html#DocumentFragment">DocumentFragment</a></li><li><a href="global.html#Element">Element</a></li><li><a href="global.html#get">get</a></li><li><a href="global.html#HTMLElement">HTMLElement</a></li><li><a href="global.html#HTMLOptionElement">HTMLOptionElement</a></li><li><a href="global.html#HTMLSelectElement">HTMLSelectElement</a></li><li><a href="global.html#ParentNode">ParentNode</a></li><li><a href="global.html#set">set</a></li><li><a href="global.html#value">value</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+	</div>
+</div>
+</div>
+
+
+<div class="container">
+<div class="row">
+
+	
+	<div class="col-md-12">
+	
+		<div id="main">
+    		<h1 class="page-title">Source: Document.js</h1>
+			
+
+		<h1 class="page-title">Source: Document.js</h1>
+    
+<section>
+	<article>
+		<pre
+			class="sunlight-highlight-javascript linenums">'use strict';
+
+Object.defineProperty(exports, '__esModule', {
+    value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i &lt; props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== 'function' &amp;&amp; superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var Node = require('./Node');
+var Comment = require('./Comment');
+var DocumentFragment = require('./DocumentFragment');
+var HTMLElement = require('./HTMLElement');
+var Text = require('./Text');
+
+// HTML Elements
+var HTMLOptionElement = require('./HTMLElement/elements/HTMLOptionElement');
+var HTMLSelectElement = require('./HTMLElement/elements/HTMLSelectElement');
+
+var Document = (function (_Node) {
+    function Document() {
+        _classCallCheck(this, Document);
+
+        _get(Object.getPrototypeOf(Document.prototype), 'constructor', this).call(this);
+        this.documentElement = this.createElement('html');
+        this.head = this.createElement('head');
+        this.documentElement.appendChild(this.head);
+        this.body = this.createElement('body');
+        this.documentElement.appendChild(this.body);
+    }
+
+    _inherits(Document, _Node);
+
+    _createClass(Document, [{
+        key: 'createComment',
+
+        /**
+         * Creates a new {@link Comment}.
+         *
+         * {@link https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment}
+         *
+         * @param {string} data
+         * @return {Comment}
+        */
+        value: function createComment(data /* : String*/) {
+            var comment = new Comment(data);
+            comment.ownerDocument = this;
+            return comment;
+        }
+    }, {
+        key: 'createDocumentFragment',
+
+        /**
+         * Creates a new empty {@link DocumentFragment}.
+         *
+         * {@link https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment}
+         *
+         * @return {DocumentFragment}
+        */
+        value: function createDocumentFragment() {
+            var fragment = new DocumentFragment();
+            fragment.ownerDocument = this;
+            return fragment;
+        }
+    }, {
+        key: 'createElement',
+
+        /**
+         * Creates a new element with the given tag name.
+         *
+         * @param {string} name
+         * @return {HTMLElement}
+        */
+        value: function createElement(name) {
+            var element;
+            switch (name.toLowerCase()) {
+                case 'select':
+                    element = new HTMLSelectElement();
+                    break;
+                case 'option':
+                    element = new HTMLOptionElement();
+                    break;
+                default:
+                    element = new HTMLElement();
+                    element.nodeName = name;
+            }
+            element.ownerDocument = this;
+            return element;
+        }
+    }, {
+        key: 'createTextNode',
+
+        /**
+         * Creates a text node.
+         *
+         * @param {string} textContent
+         * @return {Text}
+        */
+        value: function createTextNode(textContent) {
+            var text = new Text(textContent);
+            text.ownerDocument = this;
+            return text;
+        }
+    }, {
+        key: 'getElementById',
+
+        /**
+         * Returns a reference to the element by its ID.
+         *
+         * @param {string} id case-sensitive string representing the unique ID of the element being sought
+         * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
+         */
+        value: function getElementById(id) {
+            return this.documentElement.getElementById(id);
+        }
+    }, {
+        key: 'getElementsByTagName',
+
+        /**
+         * Returns an HTMLCollection of elements with the given tag name.
+         * The complete document is searched, including the root node.
+         * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
+         * with the DOM treewithout having to call document.getElementsByTagName() again.
+         *
+         * @param {string} tagName
+         * @return {HTMLCollection}
+         */
+        value: function getElementsByTagName(tagName, _array) {
+            return this.documentElement.getElementsByTagName(tagName, _array);
+        }
+    }, {
+        key: 'getElementsByClassName',
+        value: function getElementsByClassName(className) {
+            throw new Error('Not implemented');
+        }
+    }, {
+        key: 'querySelector',
+        value: function querySelector() {
+            throw new Error('Not implemented');
+        }
+    }, {
+        key: 'querySelectorAll',
+        value: function querySelectorAll() {
+            throw new Error('Not implemented');
+        }
+    }]);
+
+    return Document;
+})(Node);
+
+exports['default'] = Document;
+
+Object.defineProperty(Document.prototype, 'nodeType', { value: Node.DOCUMENT_NODE });
+module.exports = exports['default'];
+//# sourceMappingURL=Document.js.map</pre>
+	</article>
+</section>
+
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+
+</div>
+</div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0-dev</a>
+	on 2015-07-07T21:38:31+00:00 using the <a
+	href="https://github.com/terryweiss/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<!--<script src="scripts/sunlight.js"></script>-->
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/bootstrap-dropdown.js"></script>
+<script src="scripts/toc.js"></script>
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "h1,h2,h3,h4",
+		showAndHide : false,
+		scrollTo    : "100px"
+	} );
+
+	$( "#toc>ul" ).addClass( "nav nav-pills nav-stacked" );
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+	//			$( ".tutorial-section pre, .readme-section pre" ).addClass( "sunlight-highlight-javascript" ).addClass( "linenums" );
+
+	$( ".tutorial-section pre, .readme-section pre" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			lang = "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : true,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+
+</body>
+</html>
