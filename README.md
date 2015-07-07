@@ -1,4 +1,4 @@
-html-document [![NPM version][npm-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage][coverage-image]][coverage-url]
+html-document [![NPM version][npm-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Code Climate][code-climate-image]][code-climate-url] [![Coverage][coverage-image]][coverage-url]
 ============================
 
 Partial implementation of document, HTMLElement for node
@@ -73,9 +73,13 @@ expect(h1.outerHTML, '<h1 id="title">Hello</h1>');
     - size: Number
     - type: String
 
-[build-status-image]: https://drone.io/github.com/christophehurpeau/html-document/status.png
-[build-status-url]: https://drone.io/github.com/christophehurpeau/html-document/latest
+[build-status-image]: https://circleci.com/gh/christophehurpeau/html-document.svg?style=svg
+[build-status-url]: https://circleci.com/gh/christophehurpeau/html-document
 [npm-image]: https://img.shields.io/npm/v/html-document.svg?style=flat
 [npm-url]: https://npmjs.org/package/html-document
-[coverage-image]: http://img.shields.io/badge/coverage-1%-red.svg?style=flat
-[coverage-url]: http://christophehurpeau.github.io/html-document/docs/coverage.html
+[coverage-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/coverage.svg
+[coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/lib/index.js.html
+[code-climate-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/gpa.svg
+[code-climate-url]: https://codeclimate.com/github/christophehurpeau/html-document
+
+

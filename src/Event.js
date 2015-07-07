@@ -44,7 +44,7 @@ export default class Event {
 
         /**
          * The name of the event (case-insensitive).
-         * @type {String}
+         * @type {string}
          */
         this.type = type.toLowerCase();
 

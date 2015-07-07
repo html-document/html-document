@@ -1,6 +1,6 @@
 {
     "opts": {
-        "template": "node_modules/springbokjs-library/node_modules/ink-docstrap/template"
+        "template": "node_modules/ink-docstrap/template"
     },
     "templates" : {
         "systemName" : "",

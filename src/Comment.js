@@ -6,7 +6,7 @@ var Node = require('./Node');
  */
 export default class Comment extends Node {
     /**
-     * @param {String}
+     * @param {string}
      */
     constructor(comment) {
         super();
@@ -14,14 +14,14 @@ export default class Comment extends Node {
     }
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get innerHTML() {
         return '' ;
     }
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get outerHTML() {
         return '<!--' + escapeHTML(this._value) + '-->' ;
@@ -30,7 +30,7 @@ export default class Comment extends Node {
     /**
      * Returns comment's value
      *
-     * @return {String}
+     * @return {string}
      */
     get data() {
         return this._value;
@@ -39,8 +39,8 @@ export default class Comment extends Node {
     /**
      * Set comment's value
      *
-     * @param {String} data
-     * @return {String}
+     * @param {string} data
+     * @return {string}
      */
     set data(data) {
         this._value = data;

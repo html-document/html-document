@@ -149,7 +149,7 @@ export default class HTMLOptionElement extends HTMLElement {
     /**
      * Contains the text content of the element.
      *
-     * @return {String}
+     * @return {string}
      */
     get text() {
         return this.textContent;
@@ -158,7 +158,7 @@ export default class HTMLOptionElement extends HTMLElement {
     /**
      * Contains the text content of the element.
      *
-     * @param {String} text
+     * @param {string} text
      */
     set text(text) {
         while (this.firstChild) {
@@ -171,7 +171,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * Reflects the value of the value HTML attribute, if it exists;
      * otherwise reflects value of the Node.textContent property.
      *
-     * @return {String}
+     * @return {string}
      */
     get value() {
         var value = this.getAttribute('value');
@@ -182,7 +182,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * Reflects the value of the value HTML attribute, if it exists;
      * otherwise reflects value of the Node.textContent property.
      *
-     * @param {String} value
+     * @param {string} value
      */
     set value(value) {
         if (value) {

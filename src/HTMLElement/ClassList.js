@@ -33,7 +33,7 @@ export default class ClassList {
     /**
      * Adds a class to an element's list of classes
      *
-     * @param {String...} className
+     * @param {...string} className
      *
      */
     add() {
@@ -53,7 +53,7 @@ export default class ClassList {
     /**
      * Removes a class from an element's list of classes
      *
-     * @param {String...} token
+     * @param {...string} token
      */
     remove() {
         var updated = false;
@@ -72,7 +72,7 @@ export default class ClassList {
     /**
      * Toggles the existence of a class in an element's list of classes
      *
-     * @param {String} token
+     * @param {string} token
      * @param {Boolean} force
      * @return {Boolean} if the token was added
      *
@@ -92,7 +92,7 @@ export default class ClassList {
     /**
      * Checks if an element's list of classes contains a specific class
      *
-     * @param {String} token
+     * @param {string} token
      * @return {Boolean} if the token is present
      */
     contains(token) {

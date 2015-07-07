@@ -110,7 +110,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * Reflects the name HTML attribute, containing the name of this control used by servers and DOM search functions.
      *
-     * @param {String} name
+     * @param {string} name
      */
     set name(name) {
         this.setAttribute('name', name);
@@ -231,7 +231,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * Reflects the size HTML attribute, which contains the number of visible items in the control.
      *
-     * @param {String} name
+     * @param {string} name
      */
     set size(size) {
         this.setAttribute('size', size);
@@ -247,7 +247,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * The form control's type. When multiple is true, it returns select-multiple; otherwise, it returns select-one.
      * Read only.
      *
-     * @return {String}
+     * @return {string}
      */
     get type() {
         return this.multiple ? 'select-multiple' : 'select-one';
@@ -276,7 +276,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The value of this form control, that is, of the first selected option.
      *
-     * @return {String}
+     * @return {string}
      */
     get value() {
         return this.selectedOption && this.selectedOption.value;
@@ -285,7 +285,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The value of this form control, that is, of the first selected option.
      *
-     * @param {String} value
+     * @param {string} value
      */
     set value(value) {
         return this.selectedOption.value = value;
@@ -314,7 +314,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * Gets the item in the options collection with the specified name.
      * The name string can match either the id or the name attribute of an option node
      *
-     * @param {String} name
+     * @param {string} name
      * @return {HTMLOptionElement}
      */
     namedItem(name) {

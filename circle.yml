@@ -23,7 +23,7 @@ test:
     - make build
     - node_modules/.bin/mocha --harmony --recursive --reporter xunit-file -u tdd tests/lib > $CIRCLE_TEST_REPORTS/junit/xunit.xml
     - make docs
-    - CODECLIMATE_REPO_TOKEN=cfe56f607a4bba603192e6979cd2b6a8477ec4dd45b74dbf6e5e30e781d24cbc node_modules/.bin/codeclimate < coverage/lcov.info
+    - CODECLIMATE_REPO_TOKEN=cfe56f607a4bba603192e6979cd2b6a8477ec4dd45b74dbf6e5e30e781d24cbc node_modules/.bin/codeclimate-test-reporter < coverage/lcov.info
 
 #echo "\n> Prepare tests for browsers"
 #node_modules/.bin/gulp springbokjs-shim || exit 1
@@ -32,19 +32,19 @@ test:
 #sudo start xvfb
 #karma start karma.conf.js --single-run --browsers=Firefox,Chrome,PhantomJS || exit 1
 
-# deployment:
-#   production:
-#     branch: master
-#     commands:
-#       - git config user.email "builds@circleci.com"
-#       - git config user.name "CircleCi"
-#       - mv coverage coverage-tmp
-#       - mv docs docs-tmp
-#       - git checkout -f gh-pages
-#       - rm -Rf docs coverage
-#       - mv docs-tmp docs
-#       - mv coverage-tmp coverage
-#       - date > date.txt
-#       - git add -f docs coverage
-#       - git commit -m"auto commit from circleci"
-#       - git push origin gh-pages
+deployment:
+  docs:
+    branch: master
+    commands:
+      - git config user.email "builds@circleci.com"
+      - git config user.name "CircleCi"
+      - mv coverage coverage-tmp
+      - mv docs docs-tmp
+      - git checkout -f gh-pages
+      - rm -Rf docs coverage
+      - mv docs-tmp docs
+      - mv coverage-tmp coverage
+      - date > date.txt
+      - git add -f docs coverage
+      - git commit -m"auto commit from circleci"
+      - git push origin gh-pages

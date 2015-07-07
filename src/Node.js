@@ -14,8 +14,8 @@ export default class Node {
     /**
      * get attribute's value
      *
-     * @param {String} attributeName
-     * @return {String}
+     * @param {string} attributeName
+     * @return {string}
      */
     getAttribute(attributeName) {
         return this._attributes[attributeName];
@@ -24,7 +24,7 @@ export default class Node {
     /**
      * checks if attribute exists for node
      *
-     * @param {String} attributeName
+     * @param {string} attributeName
      * @returns {boolean}
      */
     hasAttribute(attributeName) {
@@ -34,8 +34,8 @@ export default class Node {
     /**
      * set attribute's value
      *
-     * @param {String} attributeName
-     * @param {String} attributeValue
+     * @param {string} attributeName
+     * @param {string} attributeValue
      */
     setAttribute(attributeName, attributeValue) {
         this._setAttribute(attributeName, attributeValue);
@@ -46,8 +46,8 @@ export default class Node {
      * set attribute's value
      *
      * @internal
-     * @param {String} attributeName
-     * @param {String} attributeValue
+     * @param {string} attributeName
+     * @param {string} attributeValue
      */
     _setAttribute(attributeName, attributeValue) {
         this._attributes[attributeName] = String(attributeValue);
@@ -56,7 +56,7 @@ export default class Node {
     /**
      * remove attribute
      *
-     * @param {String} attributeName
+     * @param {string} attributeName
      */
     removeAttribute(attributeName) {
         delete this._attributes[attributeName];
@@ -65,7 +65,7 @@ export default class Node {
 
     /**
      * @internal
-     * @param {String} attributeName
+     * @param {string} attributeName
      */
     _updatedAttribute(attributeName) {
 
@@ -74,7 +74,7 @@ export default class Node {
     /* CONTENT */
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get textContent() {
         return '';

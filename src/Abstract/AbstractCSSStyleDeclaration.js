@@ -16,15 +16,15 @@ class CSSStyleRule {
  */
 export default class AbstractCSSStyleDeclaration {
     /**
-     * @return {String}
+     * @return {string}
      */
     get cssText() {
         return this._value;
     }
 
     /**
-     * @param {String} style
-     * @return {String}
+     * @param {string} style
+     * @return {string}
      */
     set cssText(style) {
         this._parse(style);
@@ -34,7 +34,7 @@ export default class AbstractCSSStyleDeclaration {
      * Parse style
      *
      * @internal
-     * @param {String} style
+     * @param {string} style
      */
     _parse(style) {
         this._properties = [];
@@ -63,7 +63,7 @@ export default class AbstractCSSStyleDeclaration {
      * Parse style
      *
      * @internal
-     * @return {String} style
+     * @return {string} style
      */
     _stringify() {
         var stylified = '';
@@ -76,7 +76,7 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
      *
-     * @param {String} propertyName
+     * @param {string} propertyName
      * @param {String|undefined|false} important
      */
     getPropertyPriority(propertyName) {
@@ -86,7 +86,7 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
      *
-     * @param {String} propertyName
+     * @param {string} propertyName
      * @return {*} propertyValue
      */
     getPropertyValue(propertyName) {
@@ -97,7 +97,7 @@ export default class AbstractCSSStyleDeclaration {
      * Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
      *
      * @param {Number} index
-     * @return {String} propertyName
+     * @return {string} propertyName
      */
     item(index) {
         return this._properties[index] && this._properties[index].name;
@@ -106,7 +106,7 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the value deleted. Example: valString= styleObj.removeProperty('color')
      *
-     * @param {String} propertyName
+     * @param {string} propertyName
      * @return {*} propertyValue
      */
     removeProperty(propertyName) {
@@ -122,9 +122,9 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * No return. Example: styleObj.setProperty('color', 'red', 'important')
      *
-     * @param {String} propertyName
-     * @param {String} value
-     * @param {String} important
+     * @param {string} propertyName
+     * @param {string} value
+     * @param {string} important
      */
     setProperty(propertyName, value, important) {
         this._setProperty(propertyName, value, important);
@@ -135,9 +135,9 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * No return. Example: styleObj.setProperty('color', 'red', 'important')
      *
-     * @param {String} propertyName
-     * @param {String} value
-     * @param {String} important
+     * @param {string} propertyName
+     * @param {string} value
+     * @param {string} important
      */
     _setProperty(propertyName, value, important) {
         if (!propertyName.match(/^[a-z\-]+$/)) {

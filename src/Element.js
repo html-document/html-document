@@ -10,7 +10,7 @@ export default class Element extends ParentNode {
     /**
      * Gets the id of the element.
      *
-     * @return {String}
+     * @return {string}
      */
     get id() {
         return this.getAttribute('id');
@@ -19,7 +19,7 @@ export default class Element extends ParentNode {
     /**
      * Sets the id of the element.
      *
-     * @param {String} id
+     * @param {string} id
      */
     set id(id) {
         this.setAttribute('id', id);
@@ -28,7 +28,7 @@ export default class Element extends ParentNode {
     /**
      * Gets the tagName of the element.
      *
-     * @return {String}
+     * @return {string}
      */
     get tagName() {
         return this.nodeName;
@@ -77,7 +77,7 @@ export default class Element extends ParentNode {
     /**
      * Returns a reference to the element by its ID.
      *
-     * @param {String} id case-sensitive string representing the unique ID of the element being sought
+     * @param {string} id case-sensitive string representing the unique ID of the element being sought
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
@@ -94,7 +94,7 @@ export default class Element extends ParentNode {
      * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
      * with the DOM treewithout having to call document.getElementsByTagName() again.
      *
-     * @param {String} tagName
+     * @param {string} tagName
      * @return {HTMLCollection}
      */
     getElementsByTagName(tagName, _array) {

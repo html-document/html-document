@@ -25,7 +25,7 @@ export default class HTMLElement extends Element {
     /**
      * Gets the class of the element.
      *
-     * @return {String}
+     * @return {string}
      */
     get className() {
         return this.getAttribute('class');
@@ -34,7 +34,7 @@ export default class HTMLElement extends Element {
     /**
      * Sets the class of the element.
      *
-     * @param {String} className
+     * @param {string} className
      */
     set className(className) {
         this.setAttribute('class', className);
@@ -53,7 +53,7 @@ export default class HTMLElement extends Element {
 
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get outerHTML() {
         return '<' + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) => {

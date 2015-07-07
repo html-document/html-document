@@ -184,7 +184,7 @@ export default class ParentNode extends Node {
 
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get innerHTML() {
         return this._childNodes.reduce(function(value, node) {
@@ -198,7 +198,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get textContent() {
         return this._childNodes.reduce(function(value, node) {

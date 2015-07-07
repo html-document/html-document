@@ -8,7 +8,7 @@ var ParentNode = require('./ParentNode');
 export default class DocumentFragment extends ParentNode {
 
     /**
-     * @return {String}
+     * @return {string}
      */
     get outerHTML() {
         return this.innerHTML;

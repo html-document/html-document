@@ -23,7 +23,7 @@ export default class Document extends Node {
      *
      * {@link https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment}
      *
-     * @param {String} data
+     * @param {string} data
      * @return {Comment}
     */
     createComment(data/* : String*/) {
@@ -48,7 +48,7 @@ export default class Document extends Node {
     /**
      * Creates a new element with the given tag name.
      *
-     * @param {String} name
+     * @param {string} name
      * @return {HTMLElement}
     */
     createElement(name) {
@@ -71,7 +71,7 @@ export default class Document extends Node {
     /**
      * Creates a text node.
      *
-     * @param {String} textContent
+     * @param {string} textContent
      * @return {Text}
     */
     createTextNode(textContent) {
@@ -83,7 +83,7 @@ export default class Document extends Node {
     /**
      * Returns a reference to the element by its ID.
      *
-     * @param {String} id case-sensitive string representing the unique ID of the element being sought
+     * @param {string} id case-sensitive string representing the unique ID of the element being sought
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
@@ -96,7 +96,7 @@ export default class Document extends Node {
      * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
      * with the DOM treewithout having to call document.getElementsByTagName() again.
      *
-     * @param {String} tagName
+     * @param {string} tagName
      * @return {HTMLCollection}
      */
     getElementsByTagName(tagName, _array) {
