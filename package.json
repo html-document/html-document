@@ -18,7 +18,7 @@
   "main": "./lib/Document.js",
   "devDependencies": {
     "proclaim": "^3.3",
-    "springbokjs-library": "^7.0.4"
+    "springbokjs-library": "^7.0.5"
   },
   "dependencies": {
     "htmlparser2": "^3.8.3"
