@@ -11,8 +11,8 @@ dependencies:
   cache_directories:
     - node_modules
   override:
-    - npm install -g npm@3
-    - npm prune && npm install
+    - npm install -g npm@3.0-latest
+    - npm prune && npm install --no-spin
     - npm install codeclimate-test-reporter xunit-file
 
 test:
