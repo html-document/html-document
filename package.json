@@ -10,7 +10,7 @@
     "parser",
     "springbokjs"
   ],
-  "version": "0.7.1",
+  "version": "0.7.2",
   "repository": "christophehurpeau/html-document",
   "homepage": "https://christophehurpeau.github.io/html-document/docs/",
   "license": "MIT",
