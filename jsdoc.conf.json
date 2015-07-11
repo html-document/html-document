@@ -1,14 +1,8 @@
 {
     "opts": {
-        "template": "node_modules/ink-docstrap/template"
+        "template": "node_modules/jaguarjs-jsdoc"
     },
     "templates" : {
-        "systemName" : "",
-        "footer" : "",
-        "theme" : "spacelab",
-        "inverseNav" : true,
-        "outputSourceFiles" : true,
-        "outputSourcePath" : true,
-        "linenums": true
+        "applicationName" : "html-document"
     }
 }

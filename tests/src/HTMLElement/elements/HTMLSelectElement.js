@@ -1,13 +1,12 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var lib = '../../../../lib/';
+const lib = '../../../../lib/';
 
-var HTMLSelectElement = require(lib + 'HTMLElement/elements/HTMLSelectElement');
+const HTMLSelectElement = require(lib + 'HTMLElement/elements/HTMLSelectElement');
 
 test('HTMLSelectElement shoud have the nodeName == select ', () => {
-    var elt = new HTMLSelectElement();
-
+    let elt = new HTMLSelectElement();
     expect(elt.nodeName, 'select');
 });

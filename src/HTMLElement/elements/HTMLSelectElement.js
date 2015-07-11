@@ -1,16 +1,18 @@
-var HTMLElement = require('../../HTMLElement');
+import HTMLElement from '../../HTMLElement';
 
 /**
- * HTML <select> elements share all of the properties and methods
+ * HTML select elements share all of the properties and methods
  * of other HTML elements described in the element section.
  * They also have the specialized interface HTMLSelectElement.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/HTMLSelectElement
+ * @class HTMLSelectElement
+ *
  */
 export default class HTMLSelectElement extends HTMLElement {
     constructor() {
         super();
-        this.nodeName = 'select';
     }
-
 
     get autoFocus() {
         throw new Error('Not implemented');
@@ -26,7 +28,8 @@ export default class HTMLSelectElement extends HTMLElement {
      * If the element is not a descendant of a form element, then:
      * The attribute can be the ID of any form element in the same document.
      *
-     * @return {HTMLFormElement}
+     * @type {HTMLFormElement}
+     * @ignore Not implemented
      */
     get form() {
         throw new Error('Not implemented');
@@ -44,16 +47,14 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the disabled HTML attribute, which indicates whether the control is disabled.
      * If it is disabled, it does not accept clicks.
      *
-     * @return {Boolean}
+     * @member {Boolean} HTMLSelectElement#disabled
      */
     get disabled() {
         return !!this.getAttribute('disabled');
     }
 
     /**
-     * Reflects the disabled HTML attribute, which indicates whether the control is disabled.
-     * If it is disabled, it does not accept clicks.
-     *
+     * @ignore
      * @param {Boolean} disabled
      */
     set disabled(disabled) {
@@ -65,9 +66,10 @@ export default class HTMLSelectElement extends HTMLElement {
     }
 
     /**
-     * The number of <option> elements in this select element.
+     * The number of option elements in this select element.
      *
-     * @return {Number}
+     * @member {Number} HTMLSelectElement#length
+     * @readonly
      */
     get length() {
         return this.options.length;
@@ -77,19 +79,17 @@ export default class HTMLSelectElement extends HTMLElement {
         throw new Error('Length is read only');
     }
 
-
     /**
      * Reflects the multiple HTML attribute, whichindicates whether multiple items can be selected.
      *
-     * @return {Boolean}
+     * @member {Boolean} HTMLSelectElement#multiple
      */
     get multiple() {
         return !!this.getAttribute('multiple');
     }
 
     /**
-     * Reflects the multiple HTML attribute, whichindicates whether multiple items can be selected.
-     *
+     * @ignore
      * @param {Boolean} multiple
      */
     set multiple(multiple) {
@@ -102,22 +102,26 @@ export default class HTMLSelectElement extends HTMLElement {
 
     /**
      * Reflects the name HTML attribute, containing the name of this control used by servers and DOM search functions.
+     *
+     * @member {String} HTMLSelectElement#name
      */
     get name() {
         return this.getAttribute('name');
     }
 
     /**
-     * Reflects the name HTML attribute, containing the name of this control used by servers and DOM search functions.
-     *
-     * @param {string} name
+     * @ignore
+     * @param {String} name
      */
     set name(name) {
         this.setAttribute('name', name);
     }
 
     /**
-     * The set of <option> elements contained by this element. Read only.
+     * The set of option elements contained by this element.
+     *
+     * @member {Array.<Element>} HTMLSelectElement#options
+     * @readonly
      */
     get options() {
         return this.getElementsByTagName('option');
@@ -131,16 +135,14 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the required HTML attribute, which indicates whether the user is required
      * to select a value before submitting the form
      *
-     * @return {Boolean}
+     * @member {Boolean} HTMLSelectElement#required
      */
     get required() {
         return !!this.getAttribute('required');
     }
 
     /**
-     * Reflects the required HTML attribute, which indicates whether the user is required
-     * to select a value before submitting the form
-     *
+     * @ignore
      * @param {Boolean} required
      */
     set required(required) {
@@ -152,22 +154,25 @@ export default class HTMLSelectElement extends HTMLElement {
     }
 
     /**
-     * The index of the first selected <option> element. The value -1 is returned if no element is selected.
+     * The index of the first selected option element. The value -1 is returned if no element is selected.
      *
-     * @return {Number}
+     * @member {Number} HTMLSelectElement#selectedIndex
      */
     get selectedIndex() {
-        var index = -1;
-        var options = this.options;
+        let index = -1;
+        const options = this.options;
+
         if (!options.length) {
             return index;
         }
+
         options.some(function(option, i) {
             if (option.selected) {
                 index = i;
                 return true;
             }
         });
+
         if (index === -1 && !this.multiple) {
             options.some(function(option, i) {
                 if (option.value === '') {
@@ -175,17 +180,18 @@ export default class HTMLSelectElement extends HTMLElement {
                     return true;
                 }
             });
+
             if (index === -1) {
                 return 0;
             }
         }
+
         return index;
     }
 
     /**
-     * The index of the first selected <option> element. The value -1 is returned if no element is selected.
-     *
-     * @return {Number}
+     * @ignore
+     * @param {Number} index
      */
     set selectedIndex(index) {
         throw new Error('Not implemented');
@@ -194,7 +200,8 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The set of options that are selected.
      *
-     * @return {HTMLCollection}
+     * @member {Array.<Element>} HTMLSelectElement#selectedOptions
+     * @readonly
      */
     get selectedOptions() {
         return this.options.filter(function(option) {
@@ -205,10 +212,11 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The first selected option.
      *
-     * @return HTMLOptionElement
+     * @member {Array.<Element>} HTMLSelectElement#selectedOptions
+     * @readonly
      */
     get selectedOption() {
-        var selectedOption;
+        let selectedOption;
         this.options.some(function(option) {
             if (option.selected) {
                 selectedOption = option;
@@ -222,22 +230,19 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the size HTML attribute, which contains the number of visible items in the control.
      * The default is 1, unless multiple is true, in which case it is 4.
      *
-     * @return {Number}
+     * @member {Number} HTMLSelectElement#size
      */
     get size() {
         return Number(this.getAttribute('size')) || (this.multiple ? 4 : 1);
     }
 
     /**
-     * Reflects the size HTML attribute, which contains the number of visible items in the control.
-     *
-     * @param {string} name
+     * @ignore
+     * @param {String} size
      */
     set size(size) {
         this.setAttribute('size', size);
     }
-
-
 
     get tabIndex() {
         throw new Error('Obsolete since HTML5');
@@ -247,7 +252,8 @@ export default class HTMLSelectElement extends HTMLElement {
      * The form control's type. When multiple is true, it returns select-multiple; otherwise, it returns select-one.
      * Read only.
      *
-     * @return {string}
+     * @member {Number} HTMLSelectElement#size
+     * @readonly
      */
     get type() {
         return this.multiple ? 'select-multiple' : 'select-one';
@@ -276,19 +282,19 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The value of this form control, that is, of the first selected option.
      *
-     * @return {string}
+     * @member {String} HTMLSelectElement#value
      */
     get value() {
         return this.selectedOption && this.selectedOption.value;
     }
 
     /**
-     * The value of this form control, that is, of the first selected option.
-     *
-     * @param {string} value
+     * @ignore
+     * @param {String} value
      */
     set value(value) {
-        return this.selectedOption.value = value;
+        this.selectedOption.value = value;
+        return value;
     }
 
     get willValidate() {
@@ -299,12 +305,11 @@ export default class HTMLSelectElement extends HTMLElement {
         throw new Error('willValidate is read only');
     }
 
-
     /**
      * Gets an item from the options collection for this select element.
      *
      * @param {Number} index
-     * @return {HTMLOptionElement}
+     * @ return {HTMLSelectElement}
      */
     item(index) {
         throw new Error('Not implemented');
@@ -314,8 +319,10 @@ export default class HTMLSelectElement extends HTMLElement {
      * Gets the item in the options collection with the specified name.
      * The name string can match either the id or the name attribute of an option node
      *
-     * @param {string} name
-     * @return {HTMLOptionElement}
+     * @ignore Not implemented
+     * @method HTMLSelectElement#namedItem
+     * @param {String} name
+     * @ return {HTMLSelectElement}
      */
     namedItem(name) {
         throw new Error('Not implemented');
@@ -324,9 +331,16 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * Removes the element at the specified index from the options collection for this select element.
      *
+     * @ignore Not implemented
+     * @method HTMLSelectElement#remove
      * @param {Number} index
      */
     remove(index) {
         throw new Error('Not implemented');
     }
 }
+
+/**
+ * @constant {string} HTMLSelectElement#nodeName option
+ */
+Object.defineProperty(HTMLSelectElement.prototype, 'nodeName', { value: 'select' });

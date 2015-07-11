@@ -1,31 +1,31 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
-var lib = '../../lib/';
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var Document = require(lib + 'Document');
-var Doctype = require(lib + 'Doctype');
+const lib = '../../lib/';
+
+const Document = require(lib + 'Document');
+const Doctype = require(lib + 'Doctype');
 
 test('create a Text Node', () => {
-    var document = new Document();
-    var textNode = document.createTextNode('Hello');
+    let document = new Document();
+    let textNode = document.createTextNode('Hello');
 
     expect(textNode.textContent, 'Hello');
 });
 
 test('create an HTMLElement', () => {
-    var document = new Document();
-    var h1 = document.createElement('h1');
+    let document = new Document();
+    let h1 = document.createElement('h1');
     expect(h1.outerHTML, '<h1></h1>');
     expect(h1.innerHTML, '');
     expect(h1.textContent, '');
 });
 
-
 test('create an element and add nodes inside', () => {
-    var document = new Document();
-    var textNode = document.createTextNode('Hello');
-    var h1 = document.createElement('h1');
+    let document = new Document();
+    let textNode = document.createTextNode('Hello');
+    let h1 = document.createElement('h1');
     h1.setAttribute('id', 'title');
 
     h1.appendChild(textNode);
@@ -33,21 +33,20 @@ test('create an element and add nodes inside', () => {
     expect(h1.innerHTML, 'Hello');
     expect(h1.textContent, 'Hello');
 
-    var span = document.createElement('span');
+    let span = document.createElement('span');
     h1.appendChild(span);
     expect(h1.outerHTML, '<h1 id="title">Hello<span></span></h1>');
     expect(h1.innerHTML, 'Hello<span></span>');
     expect(h1.textContent, 'Hello');
 });
 
-
 test('create elements without content', () => {
-    var document = new Document();
-    var span = document.createElement('span');
-    var textNode1 = document.createTextNode('Hello1');
-    var textNode2 = document.createTextNode('Hello2');
-    var br1 = document.createElement('br');
-    var br2 = document.createElement('br');
+    let document = new Document();
+    let span = document.createElement('span');
+    let textNode1 = document.createTextNode('Hello1');
+    let textNode2 = document.createTextNode('Hello2');
+    let br1 = document.createElement('br');
+    let br2 = document.createElement('br');
     br2.setAttribute('class', 'test');
 
     span.appendChild(textNode1);
@@ -59,14 +58,14 @@ test('create elements without content', () => {
 });
 
 test('create a html layout', () => {
-    var document = new Document();
-    var fragment = document.createDocumentFragment();
+    let document = new Document();
+    let fragment = document.createDocumentFragment();
     fragment.appendChild(new Doctype());
-    var html = document.createElement('html');
+    let html = document.createElement('html');
     fragment.appendChild(html);
-    var head = document.createElement('head');
+    let head = document.createElement('head');
     html.appendChild(head);
-    var body = document.createElement('body');
+    let body = document.createElement('body');
     html.appendChild(body);
     expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></html>');
 });

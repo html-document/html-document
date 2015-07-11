@@ -1,24 +1,23 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var lib = '../../../lib/';
+const lib = '../../../lib/';
 
-var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
+const AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
 
 class MockCSSStyleDeclaration extends AbstractCSSStyleDeclaration {
 }
 
 test('CSSStyleDeclaration set and get cssText', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.cssText, 'color:white;background:#FFF!important;');
 });
 
-
 test('CSSStyleDeclaration _parse', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style._properties.length, 2);
@@ -32,9 +31,8 @@ test('CSSStyleDeclaration _parse', () => {
     expect(style._propertiesMap.background.important, true);
 });
 
-
 test('CSSStyleDeclaration _stringify', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     style._stringify();
@@ -42,7 +40,7 @@ test('CSSStyleDeclaration _stringify', () => {
 });
 
 test('CSSStyleDeclaration getPropertyPriority', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.getPropertyPriority('color'), false);
@@ -50,9 +48,8 @@ test('CSSStyleDeclaration getPropertyPriority', () => {
     expect(style.getPropertyPriority('background'), 'important');
 });
 
-
 test('CSSStyleDeclaration getPropertyValue', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.getPropertyValue('color'), 'white');
@@ -61,7 +58,7 @@ test('CSSStyleDeclaration getPropertyValue', () => {
 });
 
 test('CSSStyleDeclaration item', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.item(0), 'color');
@@ -70,7 +67,7 @@ test('CSSStyleDeclaration item', () => {
 });
 
 test('CSSStyleDeclaration removeProperty', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.removeProperty('color'), 'white');
@@ -79,7 +76,7 @@ test('CSSStyleDeclaration removeProperty', () => {
 });
 
 test('CSSStyleDeclaration setProperty', () => {
-    var style = new MockCSSStyleDeclaration();
+    let style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white';
     expect(style.item(0), 'color');

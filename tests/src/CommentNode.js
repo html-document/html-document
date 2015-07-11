@@ -1,14 +1,13 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var lib = '../../lib/';
+const lib = '../../lib/';
 
-var Comment = require(lib + 'Comment');
-
+const Comment = require(lib + 'Comment');
 
 test('create a Comment Node', () => {
-    var comment = new Comment('Hello');
+    let comment = new Comment('Hello');
 
     expect(comment.data, 'Hello');
     expect(comment.innerHTML, '');

@@ -1,39 +1,57 @@
-var Node = require('./Node');
-var ParentNode = require('./ParentNode');
+import Node from './Node';
+import ParentNode from './ParentNode';
 
 /**
  * The Element interface represents an object within a DOM document.
  * This interface describes methods and properties common to all kinds of elements.
  * Specific behaviors are described in interfaces which inherit from Element but add additional functionality.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/Element
+ * @class Element
+ * @extends ParentNode
  */
+/**
+ * The Element.innerHTML property sets or gets the HTML syntax describing the element's descendants.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
+ * @member {String} Element#innerHTML
+ */
+/**
+ * The outerHTML attribute of the element DOM interface gets the serialized HTML fragment
+ * describing the element including its descendants.
+ * It can be set to replace the element with nodes parsed from the given string.
+ *
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
+ * @member {String} Element#outerHTML
+ */
+
 export default class Element extends ParentNode {
     /**
-     * Gets the id of the element.
+     * The id of the element.
      *
-     * @return {string}
+     * @member {String} Element#id
      */
     get id() {
         return this.getAttribute('id');
     }
 
     /**
-     * Sets the id of the element.
-     *
-     * @param {string} id
+     * @ignore
+     * @param {String} id
      */
     set id(id) {
         this.setAttribute('id', id);
     }
 
     /**
-     * Gets the tagName of the element.
+     * The tag name of the element.
      *
-     * @return {string}
+     * @member {String} Element#tagName
+     * @readonly
      */
     get tagName() {
         return this.nodeName;
     }
-
 
     /**
      * Returns a live {@link HTMLCollection} containing all objects of type {@link Element}
@@ -41,7 +59,10 @@ export default class Element extends ParentNode {
      *
      * Note: this currently returns a non-live array.
      *
-     * @return {HTMLCollection}
+     * later type {HTMLCollection}
+     *
+     * @member {Array.<Element>} Element#children
+     * @readonly
      */
     get children() {
         return this._childNodes.filter((n) => n instanceof Element);
@@ -50,7 +71,8 @@ export default class Element extends ParentNode {
     /**
      * Returns the {@link Element} that is the first child of this ParentNode, or null if there is none.
      *
-     * @return {Element}
+     * @member {Element} Element#firstElementChild
+     * @readonly
      */
     get firstElementChild() {
         return this._childNodes[0] || null;
@@ -59,7 +81,8 @@ export default class Element extends ParentNode {
     /**
      * Returns the {@link Element} that is the first child of this ParentNode, or null if there is none.
      *
-     * @return {Element}
+     * @member {Element} Element#lastElementChild
+     * @readonly
      */
     get lastElementChild() {
         return this._childNodes.length === 0 ? null : this._childNodes[this._childNodes.length - 1];
@@ -68,7 +91,8 @@ export default class Element extends ParentNode {
     /**
      * Returns an unsigned long giving the amount of children that the object has.
      *
-     * @return {Number}
+     * @member {Number} Element#childElementCount
+     * @readonly
      */
     get childElementCount() {
         return this._childNodes.length;
@@ -77,14 +101,13 @@ export default class Element extends ParentNode {
     /**
      * Returns a reference to the element by its ID.
      *
-     * @param {string} id case-sensitive string representing the unique ID of the element being sought
+     * @method Element#getElementById
+     * @param {String} id case-sensitive string representing the unique ID of the element being sought
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
-        return this._childNodesRecursiveFind((e) => {
-            if (e instanceof Element && e.getAttribute('id') === id) {
-                return true;
-            }
+        return this._childNodesRecursiveFind(e => {
+            return e instanceof Element && e.getAttribute('id') === id;
         }) || null;
     }
 
@@ -94,7 +117,8 @@ export default class Element extends ParentNode {
      * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
      * with the DOM treewithout having to call document.getElementsByTagName() again.
      *
-     * @param {string} tagName
+     * @method Element#getElementsByTagName
+     * @param {String} tagName
      * @return {HTMLCollection}
      */
     getElementsByTagName(tagName, _array) {
@@ -102,6 +126,7 @@ export default class Element extends ParentNode {
             return !_array ? this.children.slice()
                          : _array.push.apply(_array, this.children);
         }
+
         _array = _array || [];
         tagName = tagName.toLowerCase();
         this.children.forEach((e) => {
@@ -113,4 +138,7 @@ export default class Element extends ParentNode {
     }
 }
 
+/**
+ * @constant {string} Comment#nodeType
+ */
 Object.defineProperty(Element.prototype, 'nodeType', { value: Node.ELEMENT_NODE });

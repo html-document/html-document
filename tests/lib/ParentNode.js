@@ -1,8 +1,14 @@
 /* global test, document */
 'use strict';
 
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _proclaim = require('proclaim');
+
+var _proclaim2 = _interopRequireDefault(_proclaim);
+
+var expect = _proclaim2['default'].strictEqual;
+
 var lib = '../../lib/';
 
 var ParentNode = require(lib + 'ParentNode');
@@ -11,8 +17,8 @@ var document = new Document(); // jshint ignore: line
 
 test('empty ParentNode', function () {
     var parentNode = new ParentNode();
-    assert.isNull(parentNode.firstChild);
-    assert.isNull(parentNode.lastChild);
+    _proclaim2['default'].isNull(parentNode.firstChild);
+    _proclaim2['default'].isNull(parentNode.lastChild);
     expect(parentNode.childNodes.length, 0);
 });
 
@@ -85,7 +91,7 @@ test('replaceChild throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    assert.throws(function () {
+    _proclaim2['default'].throws(function () {
         parentNode.replaceChild(span2, span1);
     }, 'Node was not found');
 });
@@ -151,7 +157,7 @@ test('removeChild throws', function () {
     var parentNode = new ParentNode();
     var span1 = document.createElement('span');
 
-    assert.throws(function () {
+    _proclaim2['default'].throws(function () {
         parentNode.removeChild(span1);
     }, 'Node was not found');
 });
@@ -187,7 +193,7 @@ test('insertBefore throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    assert.throws(function () {
+    _proclaim2['default'].throws(function () {
         parentNode.insertBefore(span2, span1);
     }, 'Node was not found');
 });

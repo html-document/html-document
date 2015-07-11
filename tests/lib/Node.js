@@ -1,7 +1,12 @@
 /* global test */
 'use strict';
 
-var assert = require('proclaim');
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _proclaim = require('proclaim');
+
+var _proclaim2 = _interopRequireDefault(_proclaim);
+
 var lib = '../../lib/';
 
 var Document = require(lib + 'Document');
@@ -9,11 +14,11 @@ var Document = require(lib + 'Document');
 test('Node attributes', function () {
     var document = new Document();
     var div = document.createElement('div');
-    assert.isUndefined(div.getAttribute('id'));
-    assert.isFalse(div.hasAttribute('id'));
+    _proclaim2['default'].isUndefined(div.getAttribute('id'));
+    _proclaim2['default'].isFalse(div.hasAttribute('id'));
     div.setAttribute('id', 'testid');
-    assert.strictEqual(div.getAttribute('id'), 'testid');
-    assert.isTrue(div.hasAttribute('id'));
-    assert.strictEqual(div.outerHTML, '<div id="testid"></div>');
+    _proclaim2['default'].strictEqual(div.getAttribute('id'), 'testid');
+    _proclaim2['default'].isTrue(div.hasAttribute('id'));
+    _proclaim2['default'].strictEqual(div.outerHTML, '<div id="testid"></div>');
 });
 //# sourceMappingURL=Node.js.map

@@ -1,12 +1,13 @@
 /* global test */
-var assert = require('proclaim');
-var lib = '../../lib/';
+import assert from 'proclaim';
 
-var Document = require(lib + 'Document');
+const lib = '../../lib/';
+
+const Document = require(lib + 'Document');
 
 test('Node attributes', () => {
-    var document = new Document();
-    var div = document.createElement('div');
+    const document = new Document();
+    const div = document.createElement('div');
     assert.isUndefined(div.getAttribute('id'));
     assert.isFalse(div.hasAttribute('id'));
     div.setAttribute('id', 'testid');

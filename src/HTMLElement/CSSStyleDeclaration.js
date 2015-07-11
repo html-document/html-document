@@ -1,5 +1,10 @@
-var AbstractCSSStyleDeclaration = require('../Abstract/AbstractCSSStyleDeclaration');
+import AbstractCSSStyleDeclaration from '../Abstract/AbstractCSSStyleDeclaration';
 
+/**
+ * @see https://developer.mozilla.org/en/docs/Web/API/CSSStyleDeclaration
+ * @class CSSStyleDeclaration
+ * @param {HTMLElement} element
+ */
 export default class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
     /**
      * @param {HTMLElement} element
@@ -9,9 +14,6 @@ export default class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
         this._element = element;
     }
 
-    /**
-     *
-     */
     _stringify() {
         super._stringify();
         this._element._setAttribute('style', this.cssText);

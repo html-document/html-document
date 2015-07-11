@@ -1,7 +1,11 @@
-var Document = require('./Document').Document;
+import Node from './Node';
+import Event from './Event';
+import Document from './Document';
+import DocumentFragment from './DocumentFragment';
 
 global.window = global;
 global.document = new Document();
-global.Event = require('./Event').Event;
-global.Node = require('./Node').Node;
-global.DocumentFragment = require('./DocumentFragment').DocumentFragment;
+global.Event = Event;
+global.Node = Node;
+global.Document = Document;
+global.DocumentFragment = DocumentFragment;

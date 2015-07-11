@@ -1,36 +1,42 @@
-var escapeHTML = require('./utils/escapeHTML');
-var Node = require('./Node');
+import escapeHTML from './utils/escapeHTML';
+import Node from './Node';
 
 /**
- * Comment Node
+ * @see https://developer.mozilla.org/en/docs/Web/API/Comment
+ * @class Comment
+ * @extends Node
+ * @param {String} comment
  */
 export default class Comment extends Node {
-    /**
-     * @param {string}
+    /*
+     * @constructs Comment
+     *
+     * @param {String} comment
      */
-    constructor(comment) {
+    constructor(comment: string) {
         super();
         this._value = comment;
     }
 
     /**
-     * @return {string}
+     * @property Comment#innerHTML
+     * @inheritdoc
      */
     get innerHTML() {
-        return '' ;
+        return '';
     }
 
     /**
-     * @return {string}
+     * @inheritdoc
      */
     get outerHTML() {
-        return '<!--' + escapeHTML(this._value) + '-->' ;
+        return '<!--' + escapeHTML(this._value) + '-->';
     }
 
     /**
      * Returns comment's value
      *
-     * @return {string}
+     * @type {String}
      */
     get data() {
         return this._value;
@@ -39,12 +45,19 @@ export default class Comment extends Node {
     /**
      * Set comment's value
      *
-     * @param {string} data
-     * @return {string}
+     * @param {String} data
      */
     set data(data) {
         this._value = data;
     }
 }
+
+/**
+ * @constant {number} Comment#nodeType
+ */
 Object.defineProperty(Comment.prototype, 'nodeType', { value: Node.COMMENT_NODE });
+
+/**
+ * @constant {string} Comment#nodeName
+ */
 Object.defineProperty(Comment.prototype, 'nodeName', { value: '#comment' });

@@ -1,19 +1,20 @@
 /* global test, document */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
-var lib = '../../lib/';
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var Document = require(lib + 'Document');
-var document = new Document();// jshint ignore: line
+const lib = '../../lib/';
+
+const Document = require(lib + 'Document');
+const document = new Document();// jshint ignore: line
 
 test('parse innerHTML', () => {
-    var div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = '<span/><span data-test="test">content</span>';
     expect(div.innerHTML, '<span></span><span data-test="test">content</span>');
 });
 
 test('parse nodeText', () => {
-    var div = document.createElement('div');
+    const div = document.createElement('div');
     div.innerHTML = 'content';
     expect(div.childNodes.length, 1);
     expect(div.innerHTML, 'content');

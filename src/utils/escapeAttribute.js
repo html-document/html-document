@@ -1,4 +1,5 @@
-var escapeHTML = require('./escapeHTML');
-module.exports = function(string) {
+import escapeHTML from './escapeHTML';
+
+export default function escapeAttribute(string) {
     return escapeHTML(string).replace(/"/g, '&quot;');
-};
+}

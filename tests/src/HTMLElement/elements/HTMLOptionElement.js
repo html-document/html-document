@@ -1,13 +1,12 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var lib = '../../../../lib/';
+const lib = '../../../../lib/';
 
-var HTMLOptionElement = require(lib + 'HTMLElement/elements/HTMLOptionElement');
+const HTMLOptionElement = require(lib + 'HTMLElement/elements/HTMLOptionElement');
 
 test('HTMLOptionElement shoud have the nodeName == option ', () => {
-    var elt = new HTMLOptionElement();
-
+    let elt = new HTMLOptionElement();
     expect(elt.nodeName, 'option');
 });

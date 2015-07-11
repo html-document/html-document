@@ -1,5 +1,5 @@
 class CSSStyleRule {
-    constructor(propertyName, value, important) {
+    constructor(propertyName: string, value: string, important: boolean) {
         this.name = propertyName;
         this.value = value;
         this.important = important;
@@ -16,15 +16,14 @@ class CSSStyleRule {
  */
 export default class AbstractCSSStyleDeclaration {
     /**
-     * @return {string}
+     * @type {String}
      */
     get cssText() {
         return this._value;
     }
 
     /**
-     * @param {string} style
-     * @return {string}
+     * @param {String} style
      */
     set cssText(style) {
         this._parse(style);
@@ -34,7 +33,7 @@ export default class AbstractCSSStyleDeclaration {
      * Parse style
      *
      * @internal
-     * @param {string} style
+     * @param {String} style
      */
     _parse(style) {
         this._properties = [];
@@ -44,31 +43,31 @@ export default class AbstractCSSStyleDeclaration {
             if (!part) {
                 return;
             }
-            var important = !!part.match(/!important$/);
+
+            const important = !!part.match(/!important$/);
             if (important) {
                 part = part.slice(0, -'!important'.length);
             }
-            var splitPoint = part.indexOf(':');
+
+            const splitPoint = part.indexOf(':');
             if (splitPoint) {
-                var key = part.slice(0, splitPoint).trim();
-                var value = part.slice(splitPoint + 1).trim();
+                const key = part.slice(0, splitPoint).trim();
+                const value = part.slice(splitPoint + 1).trim();
                 this._setProperty(key, value, important && 'important');
             }
         });
         this._stringify();
     }
 
-
     /**
      * Parse style
      *
      * @internal
-     * @return {string} style
      */
     _stringify() {
-        var stylified = '';
+        let stylified = '';
         this._properties.forEach((s) => {
-            stylified += s.name + ':' + s.value + (s.important && '!important' || '' ) + ';';
+            stylified += s.name + ':' + s.value + (s.important && '!important' || '') + ';';
         });
         this._value = stylified;
     }
@@ -76,7 +75,7 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
      *
-     * @param {string} propertyName
+     * @param {String} propertyName
      * @param {String|undefined|false} important
      */
     getPropertyPriority(propertyName) {
@@ -86,7 +85,7 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
      *
-     * @param {string} propertyName
+     * @param {String} propertyName
      * @return {*} propertyValue
      */
     getPropertyValue(propertyName) {
@@ -97,7 +96,7 @@ export default class AbstractCSSStyleDeclaration {
      * Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
      *
      * @param {Number} index
-     * @return {string} propertyName
+     * @return {String} propertyName
      */
     item(index) {
         return this._properties[index] && this._properties[index].name;
@@ -106,12 +105,12 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * Returns the value deleted. Example: valString= styleObj.removeProperty('color')
      *
-     * @param {string} propertyName
+     * @param {String} propertyName
      * @return {*} propertyValue
      */
     removeProperty(propertyName) {
         if (this._propertiesMap[propertyName]) {
-            var value = this._propertiesMap[propertyName];
+            const value = this._propertiesMap[propertyName];
             this._properties.splice(this._properties.indexOf(value), 1);
             delete this._propertiesMap[propertyName];
             this._stringify();
@@ -122,33 +121,34 @@ export default class AbstractCSSStyleDeclaration {
     /**
      * No return. Example: styleObj.setProperty('color', 'red', 'important')
      *
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {string} important
+     * @param {String} propertyName
+     * @param {String} value
+     * @param {String} important
      */
     setProperty(propertyName, value, important) {
         this._setProperty(propertyName, value, important);
         this._stringify();
     }
 
-
     /**
      * No return. Example: styleObj.setProperty('color', 'red', 'important')
      *
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {string} important
+     * @param {String} propertyName
+     * @param {String} value
+     * @param {String} important
      */
     _setProperty(propertyName, value, important) {
         if (!propertyName.match(/^[a-z\-]+$/)) {
             throw new Error('Not valid property name: ' + propertyName);
         }
-        var cssRule = new CSSStyleRule(propertyName, value, important === 'important');
+
+        const cssRule = new CSSStyleRule(propertyName, value, important === 'important');
         if (this._propertiesMap[propertyName]) {
             this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);
         } else {
             this._properties.push(cssRule);
         }
+
         this._propertiesMap[propertyName] = cssRule;
     }
 }

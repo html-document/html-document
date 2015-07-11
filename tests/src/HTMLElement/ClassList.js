@@ -1,13 +1,13 @@
 /* global test */
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+import assert from 'proclaim';
+const expect = assert.strictEqual;
 
-var lib = '../../../lib/';
+const lib = '../../../lib/';
 
-var HTMLElement = require(lib + 'HTMLElement');
+const HTMLElement = require(lib + 'HTMLElement');
 
 test('ClassList add single class', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.add('test');
     expect(elt.getAttribute('class'), 'test');
@@ -15,7 +15,7 @@ test('ClassList add single class', () => {
 });
 
 test('ClassList add existing class', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.add('test');
     expect(elt.getAttribute('class'), 'test');
@@ -24,7 +24,7 @@ test('ClassList add existing class', () => {
 });
 
 test('ClassList add multiple class', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.add('test', 'test2', 'test');
     expect(elt.getAttribute('class'), 'test test2');
@@ -32,7 +32,7 @@ test('ClassList add multiple class', () => {
 });
 
 test('ClassList remove class', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.add('test');
     elt.classList.remove('test');
@@ -41,7 +41,7 @@ test('ClassList remove class', () => {
 });
 
 test('ClassList remove multiple class', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.add('test', 'test3', 'test4');
     elt.classList.remove('test2', 'test3', 'test5');
@@ -49,7 +49,7 @@ test('ClassList remove multiple class', () => {
 });
 
 test('ClassList toggle', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.toggle('test');
     expect(elt.getAttribute('class'), 'test');
@@ -58,7 +58,7 @@ test('ClassList toggle', () => {
 });
 
 test('ClassList toggle, force', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     elt.classList.toggle('test', true);
     expect(elt.getAttribute('class'), 'test');
@@ -70,9 +70,8 @@ test('ClassList toggle, force', () => {
     expect(elt.getAttribute('class'), '');
 });
 
-
 test('ClassList contains', () => {
-    var elt = new HTMLElement();
+    let elt = new HTMLElement();
 
     expect(elt.classList.contains('test'), false);
     elt.classList.add('test');

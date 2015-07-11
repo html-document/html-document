@@ -1,8 +1,13 @@
 /* global test */
 'use strict';
 
-var assert = require('proclaim');
-var expect = assert.strictEqual;
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+var _proclaim = require('proclaim');
+
+var _proclaim2 = _interopRequireDefault(_proclaim);
+
+var expect = _proclaim2['default'].strictEqual;
 
 var lib = '../../../lib/';
 
