@@ -10,7 +10,7 @@
     "parser",
     "springbokjs"
   ],
-  "version": "0.7.0",
+  "version": "0.7.1",
   "repository": "christophehurpeau/html-document",
   "homepage": "https://christophehurpeau.github.io/html-document/docs/",
   "license": "MIT",
@@ -22,5 +22,14 @@
   },
   "dependencies": {
     "htmlparser2": "^3.8.3"
+  },
+  "scripts": {
+    "preversion": "make pre-version",
+    "version": "make version",
+    "prepublish": "make pre-publish",
+    "postpublish": "make post-publish",
+    "test": "make tests",
+    "build": "make build",
+    "watch": "make watch"
   }
 }
