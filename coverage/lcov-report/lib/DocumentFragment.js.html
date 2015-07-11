@@ -15,10 +15,10 @@
 <div class="header medium">
     <h1>Code coverage report for <span class="entity">lib/DocumentFragment.js</span></h1>
     <h2>
-        Statements: <span class="metric">71.43% <small>(45 / 63)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">50% <small>(14 / 28)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">88.89% <small>(8 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">94.44% <small>(17 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">73.13% <small>(49 / 67)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">53.13% <small>(17 / 32)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">90% <small>(9 / 10)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">95.24% <small>(20 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; DocumentFragment.js</div>
@@ -74,7 +74,21 @@
 47
 48
 49
-50</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -84,12 +98,23 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -121,6 +146,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
@@ -133,16 +161,27 @@ var _createClass = (function () { function defineProperties(target, props) { for
 &nbsp;
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; desc = parent = getter = undefined; _again = false; <span class="missing-if-branch" title="if path not taken" >I</span>if (object === null) <span class="cstat-no" title="statement not covered" >object = Function.prototype; </span>var desc = Object.getOwnPropertyDescriptor(object, property); <span class="missing-if-branch" title="if path not taken" >I</span>if (desc === undefined) { <span class="cstat-no" title="statement not covered" >var parent = Object.getPrototypeOf(object); <span class="cstat-no" title="statement not covered" ></span>if (parent === null) { <span class="cstat-no" title="statement not covered" >return undefined; </span>} else { <span class="cstat-no" title="statement not covered" >_x = parent; <span class="cstat-no" title="statement not covered" ></span>_x2 = property; <span class="cstat-no" title="statement not covered" ></span>_x3 = receiver; <span class="cstat-no" title="statement not covered" ></span>_again = true; <span class="cstat-no" title="statement not covered" ></span>continue _function; </span>} </span>} else <span class="missing-if-branch" title="else path not taken" >E</span>if ('value' in desc) { return desc.value; } else { <span class="cstat-no" title="statement not covered" >var getter = desc.get; <span class="cstat-no" title="statement not covered" ></span>if (getter === undefined) { <span class="cstat-no" title="statement not covered" >return undefined; </span>} <span class="cstat-no" title="statement not covered" ></span>return getter.call(receiver); </span>} } };
 &nbsp;
+function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { 'default': obj }; }
+&nbsp;
 function _classCallCheck(instance, Constructor) { <span class="missing-if-branch" title="if path not taken" >I</span>if (!(instance instanceof Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError('Cannot call a class as a function'); </span>} }
 &nbsp;
 function _inherits(subClass, superClass) { <span class="missing-if-branch" title="if path not taken" >I</span>if (typeof superClass !== 'function' &amp;&amp; <span class="branch-1 cbranch-no" title="branch not covered" >superClass !== null)</span> { <span class="cstat-no" title="statement not covered" >throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); </span>} subClass.prototype = Object.create(superClass &amp;&amp; superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); <span class="missing-if-branch" title="else path not taken" >E</span>if (superClass) subClass.__proto__ = superClass; }
 &nbsp;
-var Node = require('./Node');
-var ParentNode = require('./ParentNode');
+var _Node = require('./Node');
+&nbsp;
+var _Node2 = _interopRequireDefault(_Node);
+&nbsp;
+var _ParentNode2 = require('./ParentNode');
+&nbsp;
+var _ParentNode3 = _interopRequireDefault(_ParentNode2);
 &nbsp;
 /**
  * The DocumentFragment interface represents a minimal document object that has no parent. It is used as
  * a light-weight version of Document to store well-formed or potentially non-well-formed fragments of XML.
+ *
+  * @see https://developer.mozilla.org/en/docs/Web/API/DocumentFragment
+  * @class DocumentFragment
+  * @extends ParentNode
  */
 &nbsp;
 var DocumentFragment = (function (_ParentNode) {
@@ -158,7 +197,7 @@ var DocumentFragment = (function (_ParentNode) {
     key: 'outerHTML',
 &nbsp;
     /**
-     * @return {string}
+     * @inheritdoc
      */
     get: <span class="fstat-no" title="function not covered" >function get() {</span>
 <span class="cstat-no" title="statement not covered" >      return this.innerHTML;</span>
@@ -166,18 +205,21 @@ var DocumentFragment = (function (_ParentNode) {
   }]);
 &nbsp;
   return DocumentFragment;
-})(ParentNode);
+})(_ParentNode3['default']);
 &nbsp;
 exports['default'] = DocumentFragment;
 &nbsp;
-Object.defineProperty(DocumentFragment.prototype, 'nodeType', { value: Node.DOCUMENT_FRAGMENT_NODE });
+/**
+ * @constant {number} Comment#nodeType
+ */
+Object.defineProperty(DocumentFragment.prototype, 'nodeType', { value: _Node2['default'].DOCUMENT_FRAGMENT_NODE });
 module.exports = exports['default'];
 //# sourceMappingURL=DocumentFragment.js.map</pre></td></tr>
 </table></pre>
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jul 07 2015 22:05:08 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 11 2015 14:29:35 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

@@ -219,7 +219,9 @@
 192
 193
 194
-195</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+195
+196
+197</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -270,9 +272,11 @@
 <span class="cline-any cline-yes">22</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">21</span>
 <span class="cline-any cline-yes">21</span>
 <span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">21</span>
 <span class="cline-any cline-yes">21</span>
@@ -282,7 +286,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -381,11 +384,13 @@
 <span class="cline-any cline-yes">23</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23</span>
 <span class="cline-any cline-yes">23</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">22</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">23</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -397,7 +402,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -423,7 +427,7 @@ var _createClass = (function () { function defineProperties(target, props) { for
 &nbsp;
 function _classCallCheck(instance, Constructor) { <span class="missing-if-branch" title="if path not taken" >I</span>if (!(instance instanceof Constructor)) { <span class="cstat-no" title="statement not covered" >throw new TypeError('Cannot call a class as a function'); </span>} }
 &nbsp;
-var CSSStyleRule = function CSSStyleRule(propertyName, value, important) {
+var CSSStyleRule = function CSSStyleRule(propertyName /*: string*/, value /*: string*/, important /*: boolean*/) {
     _classCallCheck(this, CSSStyleRule);
 &nbsp;
     this.name = propertyName;
@@ -452,7 +456,7 @@ var AbstractCSSStyleDeclaration = (function () {
          * Parse style
          *
          * @internal
-         * @param {string} style
+         * @param {String} style
          */
         value: function _parse(style) {
             var _this = this;
@@ -464,10 +468,12 @@ var AbstractCSSStyleDeclaration = (function () {
                 if (!part) {
                     return;
                 }
+&nbsp;
                 var important = !!part.match(/!important$/);
                 if (important) {
                     part = part.slice(0, -'!important'.length);
                 }
+&nbsp;
                 var splitPoint = part.indexOf(':');
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (splitPoint) {
                     var key = part.slice(0, splitPoint).trim();
@@ -484,7 +490,6 @@ var AbstractCSSStyleDeclaration = (function () {
          * Parse style
          *
          * @internal
-         * @return {string} style
          */
         value: function _stringify() {
             var stylified = '';
@@ -499,7 +504,7 @@ var AbstractCSSStyleDeclaration = (function () {
         /**
          * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
          *
-         * @param {string} propertyName
+         * @param {String} propertyName
          * @param {String|undefined|false} important
          */
         value: function getPropertyPriority(propertyName) {
@@ -511,7 +516,7 @@ var AbstractCSSStyleDeclaration = (function () {
         /**
          * Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
          *
-         * @param {string} propertyName
+         * @param {String} propertyName
          * @return {*} propertyValue
          */
         value: function getPropertyValue(propertyName) {
@@ -524,7 +529,7 @@ var AbstractCSSStyleDeclaration = (function () {
          * Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
          *
          * @param {Number} index
-         * @return {string} propertyName
+         * @return {String} propertyName
          */
         value: function item(index) {
             return this._properties[index] &amp;&amp; this._properties[index].name;
@@ -535,7 +540,7 @@ var AbstractCSSStyleDeclaration = (function () {
         /**
          * Returns the value deleted. Example: valString= styleObj.removeProperty('color')
          *
-         * @param {string} propertyName
+         * @param {String} propertyName
          * @return {*} propertyValue
          */
         value: function removeProperty(propertyName) {
@@ -553,9 +558,9 @@ var AbstractCSSStyleDeclaration = (function () {
         /**
          * No return. Example: styleObj.setProperty('color', 'red', 'important')
          *
-         * @param {string} propertyName
-         * @param {string} value
-         * @param {string} important
+         * @param {String} propertyName
+         * @param {String} value
+         * @param {String} important
          */
         value: function setProperty(propertyName, value, important) {
             this._setProperty(propertyName, value, important);
@@ -567,35 +572,36 @@ var AbstractCSSStyleDeclaration = (function () {
         /**
          * No return. Example: styleObj.setProperty('color', 'red', 'important')
          *
-         * @param {string} propertyName
-         * @param {string} value
-         * @param {string} important
+         * @param {String} propertyName
+         * @param {String} value
+         * @param {String} important
          */
         value: function _setProperty(propertyName, value, important) {
             <span class="missing-if-branch" title="if path not taken" >I</span>if (!propertyName.match(/^[a-z\-]+$/)) {
 <span class="cstat-no" title="statement not covered" >                throw new Error('Not valid property name: ' + propertyName);</span>
             }
+&nbsp;
             var cssRule = new CSSStyleRule(propertyName, value, important === 'important');
             if (this._propertiesMap[propertyName]) {
                 this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);
             } else {
                 this._properties.push(cssRule);
             }
+&nbsp;
             this._propertiesMap[propertyName] = cssRule;
         }
     }, {
         key: 'cssText',
 &nbsp;
         /**
-         * @return {string}
+         * @type {String}
          */
         get: function get() {
             return this._value;
         },
 &nbsp;
         /**
-         * @param {string} style
-         * @return {string}
+         * @param {String} style
          */
         set: function set(style) {
             this._parse(style);
@@ -612,7 +618,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jul 07 2015 22:05:08 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Jul 11 2015 14:29:35 GMT+0000 (UTC)</div>
 </div>
 <script src="../../prettify.js"></script>
 <script>

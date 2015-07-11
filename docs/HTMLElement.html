@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Global</title>
+    <title>Class: HTMLElement</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -703,7 +703,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="global.html">Global</h1>
+        <h1 class="page-title" data-filename="HTMLElement.html">Class: HTMLElement</h1>
         
 
 
@@ -712,7 +712,7 @@
     
 <header>
     <h2>
-    
+    HTMLElement
     </h2>
     
 </header>  
@@ -723,8 +723,121 @@
     
     
         
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="HTMLElement">
+            
+            new HTMLElement<span class="signature">()</span>
+        </h4>
+    
         
+        <div class="tag-source">
+            HTMLElement.js, line 35
+        </div>
         
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        The HTMLElement interface represents any HTML element.
+    </div>
+    
+
+    
+    
+    
+    
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en/docs/Web/API/HTMLElement">https://developer.mozilla.org/en/docs/Web/API/HTMLElement</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+    
+    </div>
+    
+    
+        <h3 class="subsection-title">Extends</h3>
+        
+        <ul>
+            <li><a href="Element.html">Element</a></li>
+        </ul>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+        <h3 class="subsection-title">Members</h3>
+        
+        <dl>
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="childElementCount"><span class="type-signature ">readonly</span>childElementCount<span class="type-signature type number">Number</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns an unsigned long giving the amount of children that the object has.
+    </div>
+    
+    
+    
 <dl class="details">
     
         
@@ -749,29 +862,15 @@
     
 </dl>
 
+    
+    
+</dd>
+
         
-        
-    
-    </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <h3 class="subsection-title">Members</h3>
-        
-        <dl>
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="AbstractCSSStyleDeclaration">AbstractCSSStyleDeclaration</h4>
+        <h4 class="name" id="childNodes"><span class="type-signature ">readonly</span>childNodes<span class="type-signature type string">String</span> </h4>
     </div>
     
     
@@ -779,12 +878,683 @@
 <dd>
     
     <div class="description">
-        CSSStyleDeclaration represents a collection of CSS property-value pairs. It is used in a few APIs
+        TODO return {HTMLCollection}
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
 
-- HTMLElement.style - to manipulate the style of a single element (<elem style="...">);
-- (TODO: reword) is an interface to the declaration block returned by the style
-property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
-- CSSStyleDeclaration is also a read-only interface to the result of window.getComputedStyle().
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="children"><span class="type-signature ">readonly</span>children<span class="type-signature type array.<element>">Array.&lt;<a href="Element.html">Element</a>></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns a live HTMLCollection containing all objects of type <a href="Element.html">Element</a>
+that are children of this ParentNode.
+
+Note: this currently returns a non-live array.
+
+later type {HTMLCollection}
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="classList"><span class="type-signature ">readonly</span>classList<span class="type-signature type classlist"><a href="ClassList.html">ClassList</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        returns a token list of the class attribute of the element
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="className">className<span class="type-signature type string">String</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The class of the element.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="firstChild"><span class="type-signature ">readonly</span>firstChild<span class="type-signature type node"><a href="Node.html">Node</a></span> <span class="type-signature type null">null</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="firstElementChild"><span class="type-signature ">readonly</span>firstElementChild<span class="type-signature type element"><a href="Element.html">Element</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the <a href="Element.html">Element</a> that is the first child of this ParentNode, or null if there is none.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="id">id<span class="type-signature type string">String</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The id of the element.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="innerHTML">innerHTML<span class="type-signature type string">String</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The Element.innerHTML property sets or gets the HTML syntax describing the element's descendants.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML">https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="lastChild"><span class="type-signature ">readonly</span>lastChild<span class="type-signature type node"><a href="Node.html">Node</a></span> <span class="type-signature type null">null</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="lastElementChild"><span class="type-signature ">readonly</span>lastElementChild<span class="type-signature type element"><a href="Element.html">Element</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns the <a href="Element.html">Element</a> that is the first child of this ParentNode, or null if there is none.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="nextSibling"><span class="type-signature ">readonly</span>nextSibling<span class="type-signature type node"><a href="Node.html">Node</a></span> <span class="type-signature type null">null</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="outerHTML">outerHTML<span class="type-signature type string">String</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The outerHTML attribute of the element DOM interface gets the serialized HTML fragment
+describing the element including its descendants.
+It can be set to replace the element with nodes parsed from the given string.
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML">https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML</a></li>
+        </ul>
+    </dd>
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="parentNode"><span class="type-signature ">readonly</span>parentNode<span class="type-signature type node"><a href="Node.html">Node</a></span> <span class="type-signature type null">null</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="previousSibling"><span class="type-signature ">readonly</span>previousSibling<span class="type-signature type node"><a href="Node.html">Node</a></span> <span class="type-signature type null">null</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="style"><span class="type-signature ">readonly</span>style<span class="type-signature type cssstyledeclaration"><a href="CSSStyleDeclaration.html">CSSStyleDeclaration</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        returns a token list of the class attribute of the element
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tagName"><span class="type-signature ">readonly</span>tagName<span class="type-signature type string">String</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The tag name of the element.
     </div>
     
     
@@ -826,542 +1596,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         <dl>
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="addEventListener">
             
-            get<span class="signature">()</span>
+                <span class="inherited"><a href="Node.html#addEventListener">inherited</a></span>
+            
+            addEventListener<span class="signature">(eventType, listener, capturingPhase)</span>
         </h4>
     
         
         <div class="tag-source">
-            Comment.js, line 55
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Comment#innerHTML</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
-            
-            get<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 180
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
-            
-            get<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Comment.js, line 75
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns comment's value
-    </div>
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
-            
-            get<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Comment.js, line 64
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
-            
-            get<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{String}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 224
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#textContent</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        String
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="get">
-            
-            get<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            DocumentFragment.js, line 49
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="parse">
-            
-            parse<span class="signature">(html, node)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            parse.js, line 19
+            Node.js, line 140
         </div>
         
     </div>
@@ -1399,13 +1644,13 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 	
         <tr>
             
-                <td class="name"><code>html</code></td>
+                <td class="name"><code>eventType</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">string</span>
 
 
             
@@ -1422,7 +1667,144 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 	
         <tr>
             
-                <td class="name"><code>node</code></td>
+                <td class="name"><code>listener</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>capturingPhase</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="appendChild">
+            
+                <span class="inherited"><a href="ParentNode.html#appendChild">inherited</a></span>
+            
+            appendChild<span class="signature">(child)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Node.html">Node</a>}</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            ParentNode.js, line 75
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
             
             
             <td class="type">
@@ -1481,121 +1863,34 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
     
     
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="set">
-            
-            set<span class="signature">(data)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Comment.js, line 84
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Set comment's value
-    </div>
+    <h5>Returns:</h5>
     
 
-    
-    
-    
-    
-    
-        
 
 <table class="params">
     <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
         <tr>
-            
-                <td class="name"><code>data</code></td>
-            
             
             <td class="type">
             
-                
-<span class="param-type">String</span>
-
-
-            
+                        <a href="Node.html">Node</a>
+                        
+                    
             </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
+            <td class="description last"></td>
         </tr>
-	
-	
-	</tbody>
+    
+    </tbody>
 </table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
     
     
     
@@ -1604,15 +1899,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="set">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="dispatchEvent">
             
-            set<span class="signature">(style)</span>
+                <span class="inherited"><a href="Node.html#dispatchEvent">inherited</a></span>
+            
+            dispatchEvent<span class="signature">(event)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
         </h4>
     
         
         <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 187
+            Node.js, line 161
         </div>
         
     </div>
@@ -1650,129 +1947,13 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 	
         <tr>
             
-                <td class="name"><code>style</code></td>
+                <td class="name"><code>event</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(propertyName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{*}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 103
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>propertyName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
+<span class="param-type"><a href="Event.html">Event</a></span>
 
 
             
@@ -1843,11 +2024,11 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
             
             <td class="type">
             
-                        *
+                        boolean
                         
                     
             </td>
-            <td class="description last">propertyValue</td>
+            <td class="description last"></td>
         </tr>
     
     </tbody>
@@ -1861,15 +2042,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getAttribute">
             
-            value<span class="signature">(propertyName, value, important)</span>
+                <span class="inherited"><a href="Node.html#getAttribute">inherited</a></span>
+            
+            getAttribute<span class="signature">(attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{String}</span>
         </h4>
     
         
         <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 160
+            Node.js, line 34
         </div>
         
     </div>
@@ -1880,7 +2063,7 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
     
     <div class="description">
-        No return. Example: styleObj.setProperty('color', 'red', 'important')
+        get attribute's value
     </div>
     
 
@@ -1911,482 +2094,13 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 	
         <tr>
             
-                <td class="name"><code>propertyName</code></td>
+                <td class="name"><code>attributeName</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>important</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(propertyName, value, important)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 146
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        No return. Example: styleObj.setProperty('color', 'red', 'important')
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>propertyName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>important</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(propertyName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{*}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 127
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns the value deleted. Example: valString= styleObj.removeProperty('color')
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>propertyName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        *
-                        
-                    
-            </td>
-            <td class="description last">propertyValue</td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(index)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{String}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 115
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>index</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
 
 
             
@@ -2461,7 +2175,7 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
                         
                     
             </td>
-            <td class="description last">propertyName</td>
+            <td class="description last"></td>
         </tr>
     
     </tbody>
@@ -2475,15 +2189,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getElementById">
             
-            value<span class="signature">()</span>
+                <span class="inherited"><a href="Element.html#getElementById">inherited</a></span>
+            
+            getElementById<span class="signature">(id)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Element.html">Element</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            HTMLElement/ClassList.js, line 45
+            Element.js, line 61
         </div>
         
     </div>
@@ -2493,11 +2209,60 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 <dd>
     
     
+    <div class="description">
+        Returns a reference to the element by its ID.
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                case-sensitive string representing the unique ID of the element being sought</td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -2535,6 +2300,35 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
     
     
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Element.html">Element</a>
+                        
+                    
+            </td>
+            <td class="description last">reference to an Element, or null if an element with the specified ID is not in the document.</td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
     
     
 </dd>
@@ -2542,15 +2336,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="getElementsByTagName">
             
-            value<span class="signature">(propertyName, important)</span>
+                <span class="inherited"><a href="Element.html#getElementsByTagName">inherited</a></span>
+            
+            getElementsByTagName<span class="signature">(tagName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{HTMLCollection}</span>
         </h4>
     
         
         <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 91
+            Element.js, line 76
         </div>
         
     </div>
@@ -2561,7 +2357,10 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
     
     <div class="description">
-        Returns the optional priority, "important". Example: priString= styleObj.getPropertyPriority('color')
+        Returns an HTMLCollection of elements with the given tag name.
+The complete document is searched, including the root node.
+The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
+with the DOM treewithout having to call document.getElementsByTagName() again.
     </div>
     
 
@@ -2592,7 +2391,7 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 	
         <tr>
             
-                <td class="name"><code>propertyName</code></td>
+                <td class="name"><code>tagName</code></td>
             
             
             <td class="type">
@@ -2612,22 +2411,453 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         </tr>
 	
 	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        HTMLCollection
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="hasAttribute">
+            
+                <span class="inherited"><a href="Node.html#hasAttribute">inherited</a></span>
+            
+            hasAttribute<span class="signature">(attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            Node.js, line 47
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        checks if attribute exists for node
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
 	
         <tr>
             
-                <td class="name"><code>important</code></td>
+                <td class="name"><code>attributeName</code></td>
             
             
             <td class="type">
             
                 
 <span class="param-type">String</span>
-|
 
-<span class="param-type">undefined</span>
-|
 
-<span class="param-type">false</span>
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        boolean
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="insertBefore">
+            
+                <span class="inherited"><a href="ParentNode.html#insertBefore">inherited</a></span>
+            
+            insertBefore<span class="signature">(child, existingChild)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Node.html">Node</a>}</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            ParentNode.js, line 163
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>child</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html">Node</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>existingChild</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html">Node</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Node.html">Node</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="removeAttribute">
+            
+                <span class="inherited"><a href="Node.html#removeAttribute">inherited</a></span>
+            
+            removeAttribute<span class="signature">(attributeName)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            Node.js, line 87
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+    <div class="description">
+        remove attribute
+    </div>
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>attributeName</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
 
 
             
@@ -2687,15 +2917,17 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="removeChild">
             
-            value<span class="signature">()</span>
+                <span class="inherited"><a href="ParentNode.html#removeChild">inherited</a></span>
+            
+            removeChild<span class="signature">(toRemoveChild)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Node.html">Node</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 75
+            ParentNode.js, line 145
         </div>
         
     </div>
@@ -2705,15 +2937,56 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
 <dd>
     
     
-    <div class="description">
-        Parse style
-    </div>
-    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>toRemoveChild</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html">Node</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -2751,6 +3024,35 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
     
     
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Node.html">Node</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
     
     
 </dd>
@@ -2758,15 +3060,183 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
             
 <dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
+    <div class="nameContainer inherited">
+        <h4 class="name" id="replaceChild">
             
-            value<span class="signature">(attributeName, attributeValue)</span>
+                <span class="inherited"><a href="ParentNode.html#replaceChild">inherited</a></span>
+            
+            replaceChild<span class="signature">(newChild, oldChild)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Node.html">Node</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 81
+            ParentNode.js, line 107
+        </div>
+        
+    </div>
+
+    
+</dt>
+<dd>
+    
+    
+
+    
+    
+    
+    
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>newChild</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html">Node</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>oldChild</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type"><a href="Node.html">Node</a></span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+
+    
+
+    
+    
+    
+    
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Node.html">Node</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
+    
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer inherited">
+        <h4 class="name" id="setAttribute">
+            
+                <span class="inherited"><a href="Node.html#setAttribute">inherited</a></span>
+            
+            setAttribute<span class="signature">(attributeName, attributeValue)</span>
+        </h4>
+    
+        
+        <div class="tag-source">
+            Node.js, line 60
         </div>
         
     </div>
@@ -2894,621 +3364,6 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
     
 </dd>
 
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            HTMLElement/ClassList.js, line 36
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(attributeName)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 104
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(eventType, listener, capturingPhase)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 121
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#addEventListener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(style)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Abstract/AbstractCSSStyleDeclaration.js, line 42
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Parse style
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>style</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="value">
-            
-            value<span class="signature">(index)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            HTMLElement/elements/HTMLSelectElement.js, line 49
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Gets an item from the options collection for this select element.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>index</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">Number</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                @ return {HTMLSelectElement}</td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
         </dl>
     
     
@@ -3526,7 +3381,7 @@ property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Sat Jul 11 2015 14:29:34 GMT+0000 (UTC)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.2</a> on Sat Jul 11 2015 14:29:35 GMT+0000 (UTC)
         </footer>
     </div>
 </div>
