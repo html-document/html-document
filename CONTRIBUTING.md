@@ -10,7 +10,7 @@ cd html-document
 npm install
 ```
 
-## springbokjs-library
+## [springbokjs-library](https://github.com/christophehurpeau/springbokjs-library#springbokjs-library-)
 
 A common library to manage all my packages, contains tasks and common config files. You can find there a [list of available tasks](https://github.com/christophehurpeau/springbokjs-library/blob/master/README.md#to-code)
 
