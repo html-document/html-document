@@ -102,6 +102,7 @@ export default class Node {
      * @param {boolean} capturingPhase
      */
     addEventListener(eventType, listener, capturingPhase) {
+        eventType = eventType.toLowerCase();
         const _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';
         if (!this[_eventsKey]) {
             this[_eventsKey] = new Map();
@@ -125,6 +126,7 @@ export default class Node {
      * @param {boolean} capturingPhase
      */
     removeEventListener(eventType, listener, capturingPhase) {
+        eventType = eventType.toLowerCase();
         const _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';
         if (this[_eventsKey] && this[_eventsKey].has(eventType)) {
             let callbacks = this[_eventsKey].get(eventType);
@@ -158,7 +160,7 @@ export default class Node {
             const callbacks = this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type);
             if (callbacks) {
                 callbacks.some(function(callback) {
-                    callback();
+                    callback(event);
                     return event.immediatePropagationStopped;
                 });
             }
@@ -172,7 +174,7 @@ export default class Node {
                 const callbacks = this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type);
                 if (callbacks) {
                     callbacks.some(function(callback) {
-                        callback();
+                        callback(event);
                         return event.immediatePropagationStopped;
                     });
                 }
