@@ -1,3 +1,8 @@
+### v0.8.1
+
+Update springbokjs-library
+
+
 ### v0.8.0
 
 ###### Breaking change: addEventListener and removeEventListener now lowercase the type of the event

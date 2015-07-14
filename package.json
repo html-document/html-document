@@ -10,7 +10,7 @@
     "parser",
     "springbokjs"
   ],
-  "version": "0.8.0",
+  "version": "0.8.1",
   "repository": "christophehurpeau/html-document",
   "homepage": "https://christophehurpeau.github.io/html-document/docs/",
   "license": "MIT",
@@ -18,7 +18,7 @@
   "main": "./lib/Document.js",
   "devDependencies": {
     "proclaim": "^3.3",
-    "springbokjs-library": "^7.0.5"
+    "springbokjs-library": "^7.0.6"
   },
   "dependencies": {
     "htmlparser2": "^3.8.3"
