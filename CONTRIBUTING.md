@@ -35,7 +35,7 @@ You can check the code by running the task `make lint`. With an editor, install 
 ## Documentation
 
 I use [jsdoc](http://usejsdoc.org/) to document the code and [generate the api](https://christophehurpeau.github.io/html-document/docs/).
-I also use `istambul` to [generate the coverage](https://christophehurpeau.github.io/html-document/coverage/lcov-report/).
+I also use `istanbul` to [generate the coverage](https://christophehurpeau.github.io/html-document/coverage/lcov-report/).
 You can generate the documentation with `make docs`, a shortcut for `make api tests-coverage`
 
 ## Tests
