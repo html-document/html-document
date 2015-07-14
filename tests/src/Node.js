@@ -23,7 +23,7 @@ test('Node events attach', () => {
     div.addEventListener('click', () => {}, true);
     assert.isTrue(div.hasOwnProperty('_eventsCapturingPhase'));
     assert.isTrue(div._eventsCapturingPhase.has('click'));
-    assert.strictEqual(div._eventsCapturingPhase.get('click').length,1);
+    assert.strictEqual(div._eventsCapturingPhase.get('click').length, 1);
 });
 
 test('Node events remove', () => {
@@ -35,11 +35,11 @@ test('Node events remove', () => {
     div.addEventListener('click', handler, true);
     assert.isTrue(div.hasOwnProperty('_eventsCapturingPhase'));
     assert.isTrue(div._eventsCapturingPhase.has('click'));
-    assert.strictEqual(div._eventsCapturingPhase.get('click').length,1);
+    assert.strictEqual(div._eventsCapturingPhase.get('click').length, 1);
     div.removeEventListener('click', handler, true);
     assert.isTrue(div.hasOwnProperty('_eventsCapturingPhase'));
     assert.isTrue(div._eventsCapturingPhase.has('click'));
-    assert.strictEqual(div._eventsCapturingPhase.get('click').length,0);
+    assert.strictEqual(div._eventsCapturingPhase.get('click').length, 0);
 });
 
 test('Node events type normalize', () => {
