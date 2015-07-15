@@ -10,7 +10,7 @@ export default class Event {
     /**
      * @param {String} type
      */
-    constructor(type: string) {
+    constructor(type) {
         /**
          * A boolean indicating whether the event bubbles up through the DOM or not.
          * @member {Boolean} Event#bubbles

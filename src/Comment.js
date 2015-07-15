@@ -13,7 +13,7 @@ export default class Comment extends Node {
      *
      * @param {String} comment
      */
-    constructor(comment: string) {
+    constructor(comment) {
         super();
         this._value = comment;
     }

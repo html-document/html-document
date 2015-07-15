@@ -7,6 +7,7 @@ import Text from './Text';
 // HTML Elements
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
 import HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';
+import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
@@ -35,7 +36,7 @@ export default class Document extends Node {
      * @param {String} data
      * @return {Comment}
     */
-    createComment(data: string) {
+    createComment(data) {
         let comment = new Comment(data);
         comment.ownerDocument = this;
         return comment;
@@ -64,7 +65,7 @@ export default class Document extends Node {
      * @param {String} name
      * @return {HTMLElement}
     */
-    createElement(name: string) {
+    createElement(name) {
         let element;
         switch (name.toLowerCase()) {
             case 'select':
@@ -72,6 +73,9 @@ export default class Document extends Node {
                 break;
             case 'option':
                 element = new HTMLOptionElement();
+                break;
+            case 'table':
+                element = new HTMLTableElement();
                 break;
             default:
                 element = new HTMLElement();

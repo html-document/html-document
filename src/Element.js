@@ -1,5 +1,6 @@
 import Node from './Node';
 import ParentNode from './ParentNode';
+import CssSelectorParser from 'css-selector-parser';
 
 /**
  * The Element interface represents an object within a DOM document.
@@ -135,6 +136,86 @@ export default class Element extends ParentNode {
             }
         });
         return _array;
+    }
+
+    /**
+     * Returns the first element that is a descendant of the element on which it is invoked that matches the
+     * specified group of selectors.
+     * @param {String} query CSS query for selecting element
+     * @return {Element} reference to an Element, or null if element was not found
+     */
+    querySelector(query) {
+        let parser = new CssSelectorParser.CssSelectorParser();
+        let rules = parser.parse(query);
+        var result = null;
+
+        /**
+         * Function process all selectors
+         * @param element
+         * @param selectors
+         * @returns {boolean}
+         */
+        var processSelectors = (element, selectors) => {
+            return selectors.every((selector) => {
+                processRule(element, selector.rule);
+            });
+        };
+
+        /**
+         * Function process one rule on element
+         * @param element
+         * @param rule
+         * @returns {boolean}
+         */
+        var processRule = (element, rule) => {
+
+            /**
+             * Function processes one element using current rule
+             * @param element
+             * @returns {boolean|false}
+             */
+            var processElement = (element) => {
+                var itsMe = true;
+
+                if (itsMe && rule.hasOwnProperty('tagName')) {
+                    itsMe &= element.tagName === rule.tagName;
+                }
+
+                if (itsMe && rule.hasOwnProperty('classNames')) {
+                    itsMe &= rule.classNames.some((name)=> {
+                        return element.classList.contains(name);
+                    });
+                }
+
+                if (itsMe && rule.hasOwnProperty('attrs')) {
+                    itsMe &= rule.attrs.some((attr)=> {
+                        return element.hasAttribute(attr.name) && element.getAttribute(attr.name) === attr.value;
+                    });
+                }
+
+                if (!itsMe) {
+                    return processRule(element, rule);
+                }
+
+                if (rule.hasOwnProperty('rule')) {
+                    return processRule(element, rule.rule);
+                } else {
+                    result = element;
+                }
+
+                return !true;
+            };
+
+            return element.children.every(processElement);
+        };
+
+        if (rules.type === 'selectors') {
+            processSelectors(this, rules.selectors);
+        } else if (rules.type === 'ruleSet') {
+            processRule(this, rules.rule);
+        }
+
+        return result;
     }
 }
 
