@@ -20,13 +20,13 @@ var lib = '../../../lib/';
 var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
 
 var MockCSSStyleDeclaration = (function (_AbstractCSSStyleDeclaration) {
+    _inherits(MockCSSStyleDeclaration, _AbstractCSSStyleDeclaration);
+
     function MockCSSStyleDeclaration() {
         _classCallCheck(this, MockCSSStyleDeclaration);
 
         _get(Object.getPrototypeOf(MockCSSStyleDeclaration.prototype), 'constructor', this).apply(this, arguments);
     }
-
-    _inherits(MockCSSStyleDeclaration, _AbstractCSSStyleDeclaration);
 
     return MockCSSStyleDeclaration;
 })(AbstractCSSStyleDeclaration);
