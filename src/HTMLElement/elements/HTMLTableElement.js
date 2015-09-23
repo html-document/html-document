@@ -13,7 +13,7 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Caption of element, returns HTMLElement <caption>
+     * Caption of element, returns HTMLElement &lt;caption&gt;
      * @member {HTMLElement} HTMLTableElement#caption
      * @return {HTMLElement}
      */
@@ -23,8 +23,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Sets caption of element
-     * @param {HTMLElement} element element with tagName caption
-     * @member {HTMLElement} HTMLTableElement#caption
+     * @param {HTMLElement} element - element with tagName caption
      */
     set caption(element) {
         if (element.tagName !== 'caption') {
