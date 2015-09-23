@@ -1,4 +1,5 @@
 import HTMLElement from '../../HTMLElement';
+import DOMException from '../../DOMException';
 
 /**
  * The HTMLTable interface represents table
