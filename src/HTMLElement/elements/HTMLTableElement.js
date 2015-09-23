@@ -24,16 +24,16 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Sets caption of element
      * @param {HTMLElement} element - element with tagName caption
+     * @ignore
      */
     set caption(element) {
         if (element.tagName !== 'caption') {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let caption = this.querySelector('caption');
+        let caption = this.caption;
         if (caption !== null) {
-            this.insertBefore(element, caption);
-            this.removeChild(caption);
+            this.replaceChild(element, caption);
         } else {
             if (this.firstChild) {
                 this.insertBefore(element, this.firstChild);
@@ -61,10 +61,9 @@ export default class HTMLTableElement extends HTMLElement {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let thead = this.querySelector('thead');
+        let thead = this.tHead;
         if (thead !== null) {
-            this.insertBefore(element, thead);
-            this.removeChild(thead);
+            this.replaceChild(element, thead);
         } else {
             if (this.children.every((child) => {
                 if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {
@@ -101,10 +100,9 @@ export default class HTMLTableElement extends HTMLElement {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let tfoot = this.querySelector('tfoot');
+        let tfoot = this.tFoot;
         if (tfoot !== null) {
-            this.insertBefore(element, thead);
-            this.removeChild(thead);
+            this.replaceChild(element, tfoot);
         } else {
             if (this.children.every((child) => {
                 if (child.tagName !== 'caption' && child.tagName !== 'colgroup' && child !== 'thead') {
@@ -165,7 +163,7 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method creates <thead> element for table and adds it in particular place
+     * Method creates &lt;thead&gt; element for table and adds it in particular place
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead
      * @returns {HTMLElement}
      */
@@ -175,15 +173,13 @@ export default class HTMLTableElement extends HTMLElement {
             return thead;
         }
 
-        thead = new HTMLElement();
-        thead.nodeName = 'thead';
-        thead._ownerDocument = this.ownerDocument;
+        thead = this.ownerDocument.createElement('thead');
         this.tHead = thead;
         return thead;
     }
 
     /**
-     * Method deletes first <thead> element found in table (if any)
+     * Method deletes first &lt;thead&gt; element found in table (if any)
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead
      */
     deleteTHead() {
@@ -194,7 +190,7 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method addes <caption> element to table
+     * Method addes &lt;caption&gt; element to table
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
      * @returns {HTMLElement}
      */
@@ -204,15 +200,13 @@ export default class HTMLTableElement extends HTMLElement {
             return caption;
         }
 
-        caption = new HTMLElement();
-        caption.nodeName = 'caption';
-        caption._ownerDocument = this.ownerDocument;
+        caption = this.ownerDocument.createElement('caption');
         this.caption = caption;
         return caption;
     }
 
     /**
-     * Method deletes first found <caption> element if any
+     * Method deletes first found &lt;caption&gt; element if any
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption
      */
     deleteCaption() {
@@ -223,7 +217,7 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method adds <tfoot> element to table
+     * Method adds &lt;tfoot&gt; element to table
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
      * @returns {HTMLElement}
      */
@@ -233,15 +227,13 @@ export default class HTMLTableElement extends HTMLElement {
             return tfoot;
         }
 
-        tfoot = new HTMLElement();
-        tfoot.nodeName = 'tfoot';
-        tfoot._ownerDocument = this.ownerDocument;
+        tfoot = this.ownerDocument.createElement('tfoot');
         this.tFoot = tfoot;
         return tfoot;
     }
 
     /**
-     * Method deletes first found <tfoot> element from table
+     * Method deletes first found &lt;tfoot&gt; element from table
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot
      */
     deleteTFoot() {
@@ -252,13 +244,11 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method creates <tbody> element and puts it in particular place
+     * Method creates &lt;tbody&gt; element and puts it in particular place
      * @private
      */
     _createTBody() {
-        let tbody = new HTMLElement();
-        tbody.nodeName = 'tbody';
-        tbody._ownerDocument = this.ownerDocument;
+        let tbody = this.ownerDocument.createElement('tbody');
         let tfoot = this.tFoot;
         if (tfoot) {
             this.insertBefore(tbody, tfoot);
@@ -270,17 +260,16 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method creates new <tr> element and adds it to table. If no <tbody> present in table
-     * creates it and adds <tr> to it, elsewhere adds row to last <tbody> element
-     * @param index
+     * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
+     * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
+     * @param {number} index
      * @return {HTMLElement}
      */
     insertRow(index = -1) {
-        let row = new HTMLElement();
+        let row = this.ownerDocument.createElement('tr');
         let tbody = null;
         let tbodies = this.tBodies;
-        row.nodeName = 'tr';
-        row._ownerDocument = this.ownerDocument;
+
         if (tbodies.length === 0) {
             tbody = this._createTBody();
         } else {
@@ -319,6 +308,6 @@ export default class HTMLTableElement extends HTMLElement {
 }
 
 /**
- * @constant {string} HTMLTableElement#nodeName option
+ * @constant {string} HTMLTableElement#nodeName table
  */
 Object.defineProperty(HTMLTableElement.prototype, 'nodeName', { value: 'table' });

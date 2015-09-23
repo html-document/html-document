@@ -38,7 +38,7 @@ export default class Document extends Node {
     */
     createComment(data) {
         let comment = new Comment(data);
-        comment.ownerDocument = this;
+        comment._ownerDocument = this;
         return comment;
     }
 

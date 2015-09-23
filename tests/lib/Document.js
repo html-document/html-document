@@ -1,38 +1,38 @@
 /* global test */
 'use strict';
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default').default;
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 
 var _proclaim2 = _interopRequireDefault(_proclaim);
 
-const expect = _proclaim2.default.strictEqual;
+var expect = _proclaim2['default'].strictEqual;
 
-const lib = '../../lib/';
+var lib = '../../lib/';
 
-const Document = require(lib + 'Document');
-const Doctype = require(lib + 'Doctype');
+var Document = require(lib + 'Document');
+var Doctype = require(lib + 'Doctype');
 
 test('create a Text Node', function () {
-    let document = new Document();
-    let textNode = document.createTextNode('Hello');
+    var document = new Document();
+    var textNode = document.createTextNode('Hello');
 
     expect(textNode.textContent, 'Hello');
 });
 
 test('create an HTMLElement', function () {
-    let document = new Document();
-    let h1 = document.createElement('h1');
+    var document = new Document();
+    var h1 = document.createElement('h1');
     expect(h1.outerHTML, '<h1></h1>');
     expect(h1.innerHTML, '');
     expect(h1.textContent, '');
 });
 
 test('create an element and add nodes inside', function () {
-    let document = new Document();
-    let textNode = document.createTextNode('Hello');
-    let h1 = document.createElement('h1');
+    var document = new Document();
+    var textNode = document.createTextNode('Hello');
+    var h1 = document.createElement('h1');
     h1.setAttribute('id', 'title');
 
     h1.appendChild(textNode);
@@ -40,7 +40,7 @@ test('create an element and add nodes inside', function () {
     expect(h1.innerHTML, 'Hello');
     expect(h1.textContent, 'Hello');
 
-    let span = document.createElement('span');
+    var span = document.createElement('span');
     h1.appendChild(span);
     expect(h1.outerHTML, '<h1 id="title">Hello<span></span></h1>');
     expect(h1.innerHTML, 'Hello<span></span>');
@@ -48,12 +48,12 @@ test('create an element and add nodes inside', function () {
 });
 
 test('create elements without content', function () {
-    let document = new Document();
-    let span = document.createElement('span');
-    let textNode1 = document.createTextNode('Hello1');
-    let textNode2 = document.createTextNode('Hello2');
-    let br1 = document.createElement('br');
-    let br2 = document.createElement('br');
+    var document = new Document();
+    var span = document.createElement('span');
+    var textNode1 = document.createTextNode('Hello1');
+    var textNode2 = document.createTextNode('Hello2');
+    var br1 = document.createElement('br');
+    var br2 = document.createElement('br');
     br2.setAttribute('class', 'test');
 
     span.appendChild(textNode1);
@@ -65,14 +65,14 @@ test('create elements without content', function () {
 });
 
 test('create a html layout', function () {
-    let document = new Document();
-    let fragment = document.createDocumentFragment();
+    var document = new Document();
+    var fragment = document.createDocumentFragment();
     fragment.appendChild(new Doctype());
-    let html = document.createElement('html');
+    var html = document.createElement('html');
     fragment.appendChild(html);
-    let head = document.createElement('head');
+    var head = document.createElement('head');
     html.appendChild(head);
-    let body = document.createElement('body');
+    var body = document.createElement('body');
     html.appendChild(body);
     expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></html>');
 });

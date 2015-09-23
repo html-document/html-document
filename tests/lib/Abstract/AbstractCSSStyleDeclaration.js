@@ -1,26 +1,26 @@
 /* global test */
 'use strict';
 
-var _get = require('babel-runtime/helpers/get').default;
+var _get = require('babel-runtime/helpers/get')['default'];
 
-var _inherits = require('babel-runtime/helpers/inherits').default;
+var _inherits = require('babel-runtime/helpers/inherits')['default'];
 
-var _classCallCheck = require('babel-runtime/helpers/class-call-check').default;
+var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
 
-var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default').default;
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 
 var _proclaim2 = _interopRequireDefault(_proclaim);
 
-const expect = _proclaim2.default.strictEqual;
+var expect = _proclaim2['default'].strictEqual;
 
-const lib = '../../../lib/';
+var lib = '../../../lib/';
 
-const AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
+var AbstractCSSStyleDeclaration = require(lib + 'Abstract/AbstractCSSStyleDeclaration');
 
 /** @class MockCSSStyleDeclaration */
-let MockCSSStyleDeclaration = (function (_AbstractCSSStyleDeclaration) {
+var MockCSSStyleDeclaration = (function (_AbstractCSSStyleDeclaration) {
     _inherits(MockCSSStyleDeclaration, _AbstractCSSStyleDeclaration);
 
     function MockCSSStyleDeclaration() {
@@ -33,19 +33,19 @@ let MockCSSStyleDeclaration = (function (_AbstractCSSStyleDeclaration) {
 })(AbstractCSSStyleDeclaration);
 
 test('CSSStyleDeclaration set and get cssText', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.cssText, 'color:white;background:#FFF!important;');
 });
 
 test('CSSStyleDeclaration _parse', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style._properties.length, 2);
-    _proclaim2.default.isNotNull(style._propertiesMap.color);
-    _proclaim2.default.isNotNull(style._propertiesMap.background);
+    _proclaim2['default'].isNotNull(style._propertiesMap.color);
+    _proclaim2['default'].isNotNull(style._propertiesMap.background);
     expect(style._propertiesMap.color.name, 'color');
     expect(style._propertiesMap.color.value, 'white');
     expect(style._propertiesMap.color.important, false);
@@ -55,7 +55,7 @@ test('CSSStyleDeclaration _parse', function () {
 });
 
 test('CSSStyleDeclaration _stringify', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     style._stringify();
@@ -63,7 +63,7 @@ test('CSSStyleDeclaration _stringify', function () {
 });
 
 test('CSSStyleDeclaration getPropertyPriority', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.getPropertyPriority('color'), false);
@@ -72,7 +72,7 @@ test('CSSStyleDeclaration getPropertyPriority', function () {
 });
 
 test('CSSStyleDeclaration getPropertyValue', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.getPropertyValue('color'), 'white');
@@ -81,7 +81,7 @@ test('CSSStyleDeclaration getPropertyValue', function () {
 });
 
 test('CSSStyleDeclaration item', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.item(0), 'color');
@@ -90,7 +90,7 @@ test('CSSStyleDeclaration item', function () {
 });
 
 test('CSSStyleDeclaration removeProperty', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white; background: #FFF !important';
     expect(style.removeProperty('color'), 'white');
@@ -99,7 +99,7 @@ test('CSSStyleDeclaration removeProperty', function () {
 });
 
 test('CSSStyleDeclaration setProperty', function () {
-    let style = new MockCSSStyleDeclaration();
+    var style = new MockCSSStyleDeclaration();
 
     style.cssText = 'color: white';
     expect(style.item(0), 'color');
