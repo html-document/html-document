@@ -16,7 +16,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Caption of element, returns HTMLElement &lt;caption&gt;
      * @member {HTMLElement} HTMLTableElement#caption
-     * @return {HTMLElement}
+     * @returns {HTMLElement}
      */
     get caption() {
         return this.querySelector('caption');
@@ -47,10 +47,10 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Table head
      * @member {HTMLElement} HTMLTableElement#tHead
-     * @return {HTMLElement}
+     * @returns {HTMLElement}
      */
     get tHead() {
-        return this.querySelector('thead');
+        return this._childNodeFind(child => child.tagName === 'thead');
     }
 
     /**
@@ -74,11 +74,7 @@ export default class HTMLTableElement extends HTMLElement {
 
                 return true;
             })) {
-                if (this.firstChild) {
-                    this.insertBefore(element, this.firstChild);
-                } else {
-                    this.appendChild(element);
-                }
+                this.appendChild(element);
             }
         }
     }
@@ -86,10 +82,10 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Returns tFoot element if any
      * @member {HTMLElement} HTMLTableElement#tFoot
-     * @return {HTMLElement}
+     * @returns {HTMLElement}
      */
     get tFoot() {
-        return this.querySelector('tfoot');
+        return this._childNodeFind(child => child.tagName === 'tfoot');
     }
 
     /**
@@ -160,7 +156,7 @@ export default class HTMLTableElement extends HTMLElement {
      * @readonly
      */
     get tBodies() {
-        return this.children.filter((element) => element.tagName === 'tbody');
+        return this.children.filter(element => element.tagName === 'tbody');
     }
 
     /**

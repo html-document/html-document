@@ -65,6 +65,30 @@ test('HTMLTableElement import HTML table', () => {
     expect(table.caption, null);
 });
 
+test('HTMLTableElement outerHTML property', () => {
+    const document = new Document();
+    let table = document.createElement('table');
+    let caption = table.createCaption();
+    caption.innerHTML = 'Test';
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    let cell = row.insertCell();
+    cell.innerHTML = 'Head cell';
+    expect(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
+});
+
+test('HTMLTableElement outerHTML property and right caption create', () => {
+    const document = new Document();
+    let table = document.createElement('table');
+    let thead = table.createTHead();
+    let row = thead.insertRow();
+    let cell = row.insertCell();
+    cell.innerHTML = 'Head cell';
+    let caption = table.createCaption();
+    caption.innerHTML = 'Test';
+    expect(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
+});
+
 test('HTMLTableElement throw when setting wrong caption', () => {
     let document = new Document();
     let elt = new HTMLTableElement();

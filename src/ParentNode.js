@@ -59,7 +59,16 @@ export default class ParentNode extends Node {
                 result.push(node);
             }
         });
+    }
 
+    _childNodeFind(callback) {
+        let result = null;
+        this._childNodes.some(node => {
+            if (callback(node)) {
+                result = node;
+                return true;
+            }
+        });
         return result;
     }
 

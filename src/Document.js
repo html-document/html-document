@@ -8,6 +8,8 @@ import Text from './Text';
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
 import HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';
 import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
+import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
+import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
@@ -76,6 +78,15 @@ export default class Document extends Node {
                 break;
             case 'table':
                 element = new HTMLTableElement();
+                break;
+            case 'thead':
+            case 'tfoot':
+            case 'tbody':
+                element = new HTMLTableSectionElement();
+                element.nodeName = name;
+                break;
+            case 'tr':
+                element = new HTMLTableRowElement();
                 break;
             default:
                 element = new HTMLElement();
