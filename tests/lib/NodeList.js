@@ -1,7 +1,9 @@
 /* global test */
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _getIterator = require('babel-runtime/core-js/get-iterator')['default'];
+
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 
@@ -43,32 +45,24 @@ test('NodeList iterator', function () {
     _proclaim2['default'].strictEqual(nodeList[1], div2);
 
     var index = 0;
-    var _iteratorNormalCompletion = true;
-    var _didIteratorError = false;
-    var _iteratorError = undefined;
+    for (var _iterator = nodeList, _isArray = Array.isArray(_iterator), _i = 0, _iterator = _isArray ? _iterator : _getIterator(_iterator);;) {
+        var _ref;
 
-    try {
-        for (var _iterator = nodeList[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var item = _step.value;
-
-            if (index++ == 0) {
-                _proclaim2['default'].strictEqual(item, div1);
-            } else {
-                _proclaim2['default'].strictEqual(item, div2);
-            }
+        if (_isArray) {
+            if (_i >= _iterator.length) break;
+            _ref = _iterator[_i++];
+        } else {
+            _i = _iterator.next();
+            if (_i.done) break;
+            _ref = _i.value;
         }
-    } catch (err) {
-        _didIteratorError = true;
-        _iteratorError = err;
-    } finally {
-        try {
-            if (!_iteratorNormalCompletion && _iterator['return']) {
-                _iterator['return']();
-            }
-        } finally {
-            if (_didIteratorError) {
-                throw _iteratorError;
-            }
+
+        var item = _ref;
+
+        if (index++ == 0) {
+            _proclaim2['default'].strictEqual(item, div1);
+        } else {
+            _proclaim2['default'].strictEqual(item, div2);
         }
     }
 

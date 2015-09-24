@@ -37,12 +37,13 @@ test('NodeList iterator', () => {
     assert.strictEqual(nodeList[1], div2);
 
     let index = 0;
-    for (var item of nodeList) {
+    for (let item of nodeList) {
         if (index++ == 0) {
             assert.strictEqual(item, div1);
         } else {
             assert.strictEqual(item, div2);
         }
     }
+
     assert.strictEqual(index, 2);
 });

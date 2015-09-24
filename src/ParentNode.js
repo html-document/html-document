@@ -16,6 +16,7 @@ export default class ParentNode extends Node {
 
     /**
      * TODO return {HTMLCollection}
+     *
      * @member {String} ParentNode#childNodes
      * @readonly
      */
@@ -155,7 +156,7 @@ export default class ParentNode extends Node {
                 newChildren.push(childNode);
             }
 
-            this._childNodes.splice.bind(this._childNodes, index, 1).apply(null, newChildren);
+            this._childNodes.splice(index, 1, ...newChildren);
         } else {
             newChild._parentNode = this;
             this._childNodes[index] = newChild;
@@ -207,7 +208,7 @@ export default class ParentNode extends Node {
                 children.push(childNode);
             }
 
-            this._childNodes.splice.bind(this._childNodes, index, 0).apply(null, children);
+            this._childNodes.splice(index, 0, ...children);
         } else {
             child._parentNode = this;
             this._childNodes.splice(index, 0, child);

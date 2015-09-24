@@ -1,7 +1,7 @@
 /* global test, document */
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 

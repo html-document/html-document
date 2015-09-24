@@ -1,7 +1,7 @@
 /* global test, document */
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 
@@ -91,7 +91,7 @@ test('replaceChild throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    _proclaim2['default'].throws(function () {
+    _proclaim2['default'].throws( /** @function */function () {
         parentNode.replaceChild(span2, span1);
     }, 'Node was not found');
 });
@@ -157,7 +157,7 @@ test('removeChild throws', function () {
     var parentNode = new ParentNode();
     var span1 = document.createElement('span');
 
-    _proclaim2['default'].throws(function () {
+    _proclaim2['default'].throws( /** @function */function () {
         parentNode.removeChild(span1);
     }, 'Node was not found');
 });
@@ -193,7 +193,7 @@ test('insertBefore throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    _proclaim2['default'].throws(function () {
+    _proclaim2['default'].throws( /** @function */function () {
         parentNode.insertBefore(span2, span1);
     }, 'Node was not found');
 });

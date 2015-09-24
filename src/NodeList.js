@@ -25,14 +25,14 @@ export default class NodeList {
     }
 
     _push() {
-        Array.prototype.push.apply(this, arguments);
+        Array.prototype.push.call(this, ...arguments);
     }
 
     [Symbol.iterator]() {
         let index = 0;
 
         return {
-            next: () => ({ value: this[index++], done: index > this.length })
+            next: () => ({ value: this[index++], done: index > this.length }),
         };
     }
 }

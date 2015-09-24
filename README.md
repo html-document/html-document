@@ -1,7 +1,9 @@
-html-document [![NPM version][npm-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Code Climate][code-climate-image]][code-climate-url] [![Coverage][coverage-image]][coverage-url]
+html-document [![NPM version][npm-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage][coverage-image]][coverage-url]
 ============================
 
 Partial implementation of the DOM, document for node.
+
+Note: `html-document` requires npm 3 or newer.
 
 ## Quick example
 
@@ -54,12 +56,9 @@ expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></htm
 ```
 
 
-
-[build-status-image]: https://circleci.com/gh/christophehurpeau/html-document.svg?style=svg
-[build-status-url]: https://circleci.com/gh/christophehurpeau/html-document
-[npm-image]: https://img.shields.io/npm/v/html-document.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/html-document.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/html-document
-[coverage-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/coverage.svg
+[build-status-image]: https://img.shields.io/circleci/project/christophehurpeau/html-document/master.svg?style=flat-square
+[build-status-url]: https://circleci.com/gh/christophehurpeau/html-document
+[coverage-image]: https://img.shields.io/coveralls/jekyll/jekyll/master.svg?style=flat-square
 [coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/
-[code-climate-image]: https://codeclimate.com/github/christophehurpeau/html-document/badges/gpa.svg
-[code-climate-url]: https://codeclimate.com/github/christophehurpeau/html-document

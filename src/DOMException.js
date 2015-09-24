@@ -19,7 +19,7 @@ const exceptions = {
     TimeoutError: { code: 23, message: 'The operation timed out.' },
     InvalidNodeTypeError: {
         code: 24,
-        message: 'The supplied node is incorrect or has an incorrect ancestor for this operation.'
+        message: 'The supplied node is incorrect or has an incorrect ancestor for this operation.',
     },
     DataCloneError: { code: 25, message: 'The object can not be cloned.' },
     EncodingError: { message: 'The encoding operation (either encoded or decoding) failed.' },

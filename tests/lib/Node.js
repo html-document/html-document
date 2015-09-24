@@ -1,7 +1,7 @@
 /* global test */
 'use strict';
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
 var _proclaim = require('proclaim');
 
@@ -36,7 +36,7 @@ test('Node events remove', function () {
     var document = new Document();
     var div = document.createElement('div');
 
-    function handler() {}
+    /** @function */function handler() {}
 
     div.addEventListener('click', handler, true);
     _proclaim2['default'].isTrue(div.hasOwnProperty('_eventsCapturingPhase'));
@@ -52,7 +52,7 @@ test('Node events type normalize', function () {
     var document = new Document();
     var div = document.createElement('div');
 
-    function handler() {}
+    /** @function */function handler() {}
 
     div.addEventListener('DOMLoadReady', handler, true);
     _proclaim2['default'].isTrue(div.hasOwnProperty('_eventsCapturingPhase'));
@@ -64,7 +64,8 @@ test('Node event dispatch', function () {
     var div = document.createElement('div');
     var event = new Event('DOMLoadReady');
 
-    function handler(e) {
+    /** @function 
+    * @param e */function handler(e) {
         _proclaim2['default'].equal(e.type, 'domloadready');
         _proclaim2['default'].equal(e.target, div);
     }

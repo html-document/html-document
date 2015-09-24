@@ -17,10 +17,13 @@
   "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
   "main": "./lib/Document.js",
   "devDependencies": {
+    "coveralls": "^2.11.4",
     "proclaim": "^3.3",
-    "springbokjs-library": "^7.0.6"
+    "springbokjs-library": "^10.2.0",
+    "xunit-file": "0.0.7"
   },
   "dependencies": {
+    "babel-runtime": "^5.8.25",
     "htmlparser2": "^3.8.3"
   },
   "scripts": {
