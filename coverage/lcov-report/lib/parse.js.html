@@ -15,9 +15,9 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">lib/parse.js</span></h1>
     <h2>
-        Statements: <span class="metric">95.45% <small>(21 / 22)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">66.67% <small>(4 / 6)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">87.5% <small>(7 / 8)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">95.24% <small>(20 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">50% <small>(1 / 2)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">85.71% <small>(6 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Lines: <span class="metric">95.24% <small>(20 / 21)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
@@ -79,7 +79,17 @@
 52
 53
 54
-55</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+55
+56
+57
+58
+59
+60
+61
+62
+63</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -90,7 +100,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -107,8 +117,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -116,12 +129,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -135,12 +151,12 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
+var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
+&nbsp;
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
 exports['default'] = parse;
-&nbsp;
-function _interopRequireDefault(obj) { return obj &amp;&amp; obj.__esModule ? <span class="branch-0 cbranch-no" title="branch not covered" >obj </span>: { 'default': obj }; }
 &nbsp;
 var _htmlparser2 = require('htmlparser2');
 &nbsp;
@@ -150,35 +166,43 @@ var _htmlparser22 = _interopRequireDefault(_htmlparser2);
  * @param {String} html
  * @param {Node} node
  */
-&nbsp;
+/** @function 
+* @param html 
+* @param node */
 function parse(html, node) {
     var stack = [node];
-    var last = function last() {
+    var last = /** @function */function last() {
         return stack.length === 0 ? <span class="branch-0 cbranch-no" title="branch not covered" >null </span>: stack[stack.length - 1];
     };
 &nbsp;
     var document = node.ownerDocument;
 &nbsp;
     var parser = new _htmlparser22['default'].Parser({
-        onopentagname: function onopentagname(name) {
+        onopentagname: /** @function 
+                       * @param name */function onopentagname(name) {
             var elt = document.createElement(name);
             stack.push(elt);
         },
 &nbsp;
-        onattribute: function onattribute(name, value) {
+        onattribute: /** @function 
+                     * @param name 
+                     * @param value */function onattribute(name, value) {
             last().setAttribute(name, value);
         },
 &nbsp;
-        ontext: function ontext(text) {
+        ontext: /** @function 
+                * @param text */function ontext(text) {
             last().appendChild(document.createTextNode(text));
         },
 &nbsp;
-        onclosetag: function onclosetag(name) {
+        onclosetag: /** @function 
+                    * @param name */function onclosetag(name) {
             var elt = stack.pop();
             last().appendChild(elt);
         },
 &nbsp;
-        oncomment: <span class="fstat-no" title="function not covered" >function oncomment(data) {</span>
+        oncomment: /** @function 
+                   * @param data */<span class="fstat-no" title="function not covered" >function oncomment(data) {</span>
 <span class="cstat-no" title="statement not covered" >            last().appendChild(document.createComment(data));</span>
         }
     }, { recognizeSelfClosing: true });
@@ -192,7 +216,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Jul 14 2015 14:33:06 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 24 2015 23:57:23 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>
