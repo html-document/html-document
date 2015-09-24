@@ -24,6 +24,20 @@ class QuerySelectorHelper {
         return this.result;
     }
 
+    parseAll(query) {
+        let parser = QuerySelectorHelper.cssSelectorParser;
+        let rules = parser.parse(query);
+        this.result = [];
+
+        if (rules.type === 'selectors') {
+            this.processSelectors(this.element, rules.selectors);
+        } else if (rules.type === 'ruleSet') {
+            this.processRule(this.element, rules.rule);
+        }
+
+        return this.result;
+    }
+
     static get cssSelectorParser() {
         if (QuerySelectorHelper.parser === null) {
             QuerySelectorHelper.parser = new CssSelectorParser();
@@ -88,10 +102,14 @@ class QuerySelectorHelper {
         if (rule.hasOwnProperty('rule')) {
             return this.processRule(element, rule.rule);
         } else {
-            this.result = element;
+            if (this.result === null) {
+                this.result = element;
+                return false;
+            } else {
+                this.result.push(element);
+                return this.processRule(element, rule);
+            }
         }
-
-        return false; // jscs:ignore jsDoc
     }
 }
 

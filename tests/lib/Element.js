@@ -29,4 +29,42 @@ test('Element querySelector', function () {
     _proclaim2['default'].deepEqual(span, document.body.querySelector('div span.css'));
     _proclaim2['default'].deepEqual(span2, document.body.querySelector('span[title=title]'));
 });
+
+test('Element querySelector on several selectors', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    var element = document.body.querySelector('.first, input');
+    _proclaim2['default'].equal(element.getAttribute('type'), 'text');
+});
+
+test('Element querySelectorAll', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    var elements = document.body.querySelectorAll('.first, input');
+    _proclaim2['default'].equal(elements.length, 2);
+    _proclaim2['default'].equal(elements[0].textContent, 'Text');
+    _proclaim2['default'].equal(elements[1].getAttribute('type'), 'text');
+});
+
+test('Element querySelectorAll for several elements', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div>1</div><div>2</div><div>3</div><span></span><div>4</div>';
+    var elements = document.body.querySelectorAll('div');
+    _proclaim2['default'].equal(elements.length, 4);
+    _proclaim2['default'].equal(elements[0].textContent, '1');
+    _proclaim2['default'].equal(elements[1].textContent, '2');
+    _proclaim2['default'].equal(elements[2].textContent, '3');
+    _proclaim2['default'].equal(elements[3].textContent, '4');
+});
+
+test('Element querySelectorAll deep several', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    var elements = document.body.querySelectorAll('div');
+    _proclaim2['default'].equal(elements.length, 4);
+    _proclaim2['default'].equal(elements[0].textContent, '1234');
+    _proclaim2['default'].equal(elements[1].textContent, '234');
+    _proclaim2['default'].equal(elements[2].textContent, '34');
+    _proclaim2['default'].equal(elements[3].textContent, '4');
+});
 //# sourceMappingURL=Element.js.map

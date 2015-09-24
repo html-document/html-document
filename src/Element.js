@@ -150,6 +150,19 @@ export default class Element extends ParentNode {
         let helper = new QuerySelectorHelper(this);
         return helper.parse(query);
     }
+
+    /**
+     * Returns a non-live NodeList of all elements descended from the element on which it is invoked that match the
+     * specified group of CSS selectors.
+     *
+     * @method Element#querySelectorAll
+     * @param {String} query
+     * @return {Array.<Element>}
+     */
+    querySelectorAll(query) {
+        let helper = new QuerySelectorHelper(this);
+        return helper.parseAll(query);
+    }
 }
 
 /**
