@@ -9,10 +9,6 @@ import DOMException from '../../DOMException';
  * @class HTMLTableElement
  */
 export default class HTMLTableElement extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     /**
      * Caption of element, returns HTMLElement &lt;caption&gt;
      * @member {HTMLElement} HTMLTableElement#caption
@@ -187,7 +183,8 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method addes &lt;caption&gt; element to table
+     * The HTMLTableElement.createCaption() method returns the caption for the table. If no caption element exists on
+     * the table, this method creates it, then returns it.
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
      * @returns {HTMLElement}
      */
@@ -259,7 +256,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
      * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
-     * @param {number} index
+     * @param {number} [index = -1]
      * @return {HTMLElement}
      */
     insertRow(index = -1) {

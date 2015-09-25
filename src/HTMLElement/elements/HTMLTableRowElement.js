@@ -20,6 +20,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
      * for French. This property was optional and was not very well supported.
      * @member {string} HTMLTableRowElement#ch
+     * @deprecated
      */
     get ch() {
         return '.';
@@ -30,6 +31,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
      * property was optional and was not very well supported.
      * @member {number} HTMLTableRowElement#chOff
+     * @deprecated
      */
     get chOff() {
         return 0;
@@ -51,6 +53,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom", or "baseline".
      * @member {string} HTMLTableRowElement#align
      * @returns {string}
+     * @deprecated
      */
     get vAlign() {
         return this.getAttribute('valign');
@@ -62,7 +65,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * @ignore
      */
     set align(value) {
-        if (['left', 'right', 'center'].indexOf(value)) {
+        if (['left', 'right', 'center'].indexOf(value) !== 1) {
             this.setAttribute('align', value);
         }
     }
@@ -72,6 +75,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * element's contents with respect to the surrounding context. The possible values are "left", "right", and "center".
      * @member {string} HTMLTableRowElement#align
      * @returns {string}
+     * @deprecated
      */
     get align() {
         return this.getAttribute('align');
@@ -140,7 +144,7 @@ export default class HTMLTableRowElement extends HTMLElement {
 
     /**
      * Method creates new &lt;td&gt; element and adds it to row.
-     * @param {number} index
+     * @param {number} [index = -1]
      * @return {HTMLElement}
      */
     insertCell(index = -1) {

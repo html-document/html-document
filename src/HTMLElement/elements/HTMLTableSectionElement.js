@@ -9,17 +9,13 @@ import DOMException from '../../DOMException';
  * @class HTMLTableSectionElement
  */
 export default class HTMLTableSectionElement extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     /**
      * Set align of element
      * @param {string} value
      * @ignore
      */
     set align(value) {
-        if (['left', 'right', 'center'].indexOf(value)) {
+        if (['left', 'right', 'center'].indexOf(value) !== -1) {
             this.setAttribute('align', value);
         }
     }
@@ -28,6 +24,7 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * Align of element content
      * @member {string} HTMLTableSectionElement#align
      * @returns {string}
+     * @deprecated
      */
     get align() {
         return this.getAttribute('align');
@@ -48,6 +45,7 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
      * for French. This property was optional and was not very well supported.
      * @member {string} HTMLTableSectionElement#ch
+     * @deprecated
      */
     get ch() {
         return '.';
@@ -69,7 +67,7 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * @ignore
      */
     set vAlign(value) {
-        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value)) {
+        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value) !== -1) {
             this.setAttribute('valign', value);
         }
     }
@@ -79,6 +77,7 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom", or "baseline".
      * @member {string} HTMLTableSectionElement#align
      * @returns {string}
+     * @deprecated
      */
     get vAlign() {
         return this.getAttribute('valign');
