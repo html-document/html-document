@@ -9,7 +9,7 @@ const Event = require(lib + 'Event');
 test('Node attributes', () => {
     const document = new Document();
     const div = document.createElement('div');
-    assert.isUndefined(div.getAttribute('id'));
+    assert.isNull(div.getAttribute('id'));
     assert.isFalse(div.hasAttribute('id'));
     div.setAttribute('id', 'testid');
     assert.strictEqual(div.getAttribute('id'), 'testid');

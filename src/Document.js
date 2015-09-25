@@ -51,7 +51,7 @@ export default class Document extends Node {
     */
     createDocumentFragment() {
         let fragment = new DocumentFragment();
-        fragment.ownerDocument = this;
+        fragment._ownerDocument = this;
         return fragment;
     }
 
@@ -77,7 +77,7 @@ export default class Document extends Node {
                 element = new HTMLElement();
                 element.nodeName = name;
         }
-        element.ownerDocument = this;
+        element._ownerDocument = this;
         return element;
     }
 
@@ -92,7 +92,7 @@ export default class Document extends Node {
     */
     createTextNode(textContent) {
         let text = new Text(textContent);
-        text.ownerDocument = this;
+        text._ownerDocument = this;
         return text;
     }
 

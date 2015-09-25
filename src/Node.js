@@ -3,14 +3,21 @@
  * and allows these various types to be treated (or tested) similarly.
  *
   * @see https://developer.mozilla.org/en/docs/Web/API/Node
-  * @class Node
  */
 export default class Node {
-    /*
-     * @constructs Node
-     */
     constructor() {
         this._attributes = {};
+    }
+
+    /**
+     * Returns the Document that this node belongs to.
+     * If no document is associated with it, returns null.
+     *
+     * @type {Document}
+     * @readonly
+     */
+    get ownerDocument() {
+        return this._ownerDocument || null;
     }
 
     /* ATTRIBUTES */
@@ -23,7 +30,7 @@ export default class Node {
      * @return {String}
      */
     getAttribute(attributeName) {
-        return this._attributes[attributeName];
+        return attributeName in this._attributes ? this._attributes[attributeName] : null;
     }
 
     /**
@@ -67,16 +74,18 @@ export default class Node {
      * @param {String} attributeName
      */
     removeAttribute(attributeName) {
-        delete this._attributes[attributeName];
-        this._updatedAttribute(attributeName);
+        if (this._attributes[attributeName] !== undefined) {
+            delete this._attributes[attributeName];
+            this._updatedAttribute(attributeName);
+        }
     }
 
     /**
      * @internal
      * @param {String} attributeName
+     * @param {String} [value]
      */
-    _updatedAttribute(attributeName) {
-
+    _updatedAttribute(attributeName, value) {
     }
 
     /* CONTENT */

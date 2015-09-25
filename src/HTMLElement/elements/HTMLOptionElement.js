@@ -8,10 +8,6 @@ import HTMLElement from '../../HTMLElement';
  * @class HTMLOptionElement
  */
 export default class HTMLOptionElement extends HTMLElement {
-    constructor() {
-        super();
-    }
-
     /**
      * Contains the initial value of the selected HTML attribute,
      * indicating whether the option is selected by default or not.

@@ -242,3 +242,13 @@ test('insertBefore fragment', () => {
     expect(parentNode.childNodes[2], span1);
     expect(parentNode.childNodes[3], span2);
 });
+
+test('ParentNode _closestParent', () => {
+    let span1 = document.createElement('span');
+    let span2 = document.createElement('span');
+    span1.appendChild(span2);
+
+    expect(span2._closestParent('span'), span1);
+    assert.isUndefined(span2._closestParent('test'));
+    assert.isUndefined(span1._closestParent('span'));
+});

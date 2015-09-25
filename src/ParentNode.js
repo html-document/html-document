@@ -51,6 +51,18 @@ export default class ParentNode extends Node {
         return result;
     }
 
+    _filterDescendantNodes(callback) {
+        let result = [];
+
+        this._childNodesRecursiveForEach(node => {
+            if (callback(node)) {
+                result.push(node);
+            }
+        });
+
+        return result;
+    }
+
     /**
      * @member {Node|null} ParentNode#parentNode
      * @readonly
@@ -58,6 +70,40 @@ export default class ParentNode extends Node {
     get parentNode() {
         return this._parentNode || null;
     }
+
+    /**
+     * @returns {Node|null}
+     * @private
+     */
+    _highestParent() {
+        let node = this._parentNode;
+
+        if (!node) {
+            return node;
+        }
+
+        while (node._parentNode != null) {
+            node = node._parentNode;
+        }
+
+        return node;
+    }
+
+    /**
+     * @param {String} nodeName
+     * @returns {Node|null}
+     * @private
+     */
+    _closestParent(nodeName) {
+        let node = this._parentNode;
+
+        while (node != null && node.nodeName !== nodeName) {
+            node = node._parentNode;
+        }
+
+        return node;
+    }
+
     /**
      * @member {Node|null} ParentNode#firstChild
      * @readonly

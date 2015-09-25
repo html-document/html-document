@@ -10,16 +10,42 @@ import HTMLElement from '../../HTMLElement';
  *
  */
 export default class HTMLSelectElement extends HTMLElement {
-    constructor() {
-        super();
-    }
-
+    /**
+     * Is a Boolean that reflects the autofocus HTML attribute,
+     * which indicates whether the control should have input focus when the page loads,
+     * unless the user overrides it, for example by typing in a different control.
+     * Only one form-associated element in a document can have this attribute specified
+     *
+     * @type {boolean}
+     */
     get autoFocus() {
-        throw new Error('Not implemented');
+        return this.hasAttribute('autofocus');
     }
 
     set autoFocus(value) {
-        throw new Error('Not implemented');
+        if (value) {
+            this.setAttribute('autofocus', '');
+        } else {
+            this.removeAttribute('autofocus');
+        }
+    }
+    /**
+     * Is a Boolean that reflects the disabled HTML attribute,
+     * which indicates whether the control is disabled.
+     * If it is disabled, it does not accept clicks.
+     *
+     * @type {boolean}
+     */
+    get disabled() {
+        return this.hasAttribute('disabled');
+    }
+
+    set disabled(value) {
+        if (value) {
+            this.setAttribute('disabled', 'disabled');
+        } else {
+            this.removeAttribute('disabled');
+        }
     }
 
     /**
@@ -29,46 +55,43 @@ export default class HTMLSelectElement extends HTMLElement {
      * The attribute can be the ID of any form element in the same document.
      *
      * @type {HTMLFormElement}
-     * @ignore Not implemented
+     * @readonly
      */
     get form() {
-        throw new Error('Not implemented');
+        return this._closestParent('form') || null;
     }
 
     set form(value) {
         throw new Error('form is read only');
     }
 
-    get labels() {
-        throw new Error('Not implemented');
-    }
-
     /**
-     * Reflects the disabled HTML attribute, which indicates whether the control is disabled.
-     * If it is disabled, it does not accept clicks.
+     * Returns a NodeList containing the list of label elements associated with this select element.
      *
-     * @member {Boolean} HTMLSelectElement#disabled
+     * @type {HTMLLabelElement[]}
+     * @readonly
      */
-    get disabled() {
-        return !!this.getAttribute('disabled');
-    }
-
-    /**
-     * @ignore
-     * @param {Boolean} disabled
-     */
-    set disabled(disabled) {
-        if (disabled) {
-            this.setAttribute('disabled', 'disabled');
-        } else {
-            this.removeAttribute('disabled');
+    get labels() {
+        if (!this.hasAttribute('id')) {
+            return [];
         }
+
+        const id = this.getAttribute('id');
+        const highestParent = this._highestParent();
+
+        if (!highestParent) {
+            return [];
+        }
+
+        return highestParent._filterDescendantNodes(node => {
+            return node.tagName === 'label' && node.getAttribute('for') === id;
+        });
     }
 
     /**
      * The number of option elements in this select element.
      *
-     * @member {Number} HTMLSelectElement#length
+     * @type {Number}
      * @readonly
      */
     get length() {
@@ -76,22 +99,18 @@ export default class HTMLSelectElement extends HTMLElement {
     }
 
     set length(value) {
-        throw new Error('Length is read only');
+        throw new Error('length is read only');
     }
 
     /**
-     * Reflects the multiple HTML attribute, whichindicates whether multiple items can be selected.
+     * Reflects the multiple HTML attribute, which indicates whether multiple items can be selected.
      *
-     * @member {Boolean} HTMLSelectElement#multiple
+     * @type {Boolean}
      */
     get multiple() {
-        return !!this.getAttribute('multiple');
+        return this.hasAttribute('multiple');
     }
 
-    /**
-     * @ignore
-     * @param {Boolean} multiple
-     */
     set multiple(multiple) {
         if (multiple) {
             this.setAttribute('multiple', 'multiple');
@@ -101,18 +120,15 @@ export default class HTMLSelectElement extends HTMLElement {
     }
 
     /**
-     * Reflects the name HTML attribute, containing the name of this control used by servers and DOM search functions.
+     * Reflects the name HTML attribute, containing the name of this control
+     * used by servers and DOM search functions.
      *
-     * @member {String} HTMLSelectElement#name
+     * @type {String}
      */
     get name() {
         return this.getAttribute('name');
     }
 
-    /**
-     * @ignore
-     * @param {String} name
-     */
     set name(name) {
         this.setAttribute('name', name);
     }
@@ -120,7 +136,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The set of option elements contained by this element.
      *
-     * @member {Array.<Element>} HTMLSelectElement#options
+     * @type {Array.<Element>}
      * @readonly
      */
     get options() {
@@ -135,16 +151,12 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the required HTML attribute, which indicates whether the user is required
      * to select a value before submitting the form
      *
-     * @member {Boolean} HTMLSelectElement#required
+     * @type {Boolean} HTMLSelectElement#required
      */
     get required() {
-        return !!this.getAttribute('required');
+        return this.hasAttribute('required');
     }
 
-    /**
-     * @ignore
-     * @param {Boolean} required
-     */
     set required(required) {
         if (required) {
             this.setAttribute('required', 'required');
@@ -154,12 +166,14 @@ export default class HTMLSelectElement extends HTMLElement {
     }
 
     /**
-     * The index of the first selected option element. The value -1 is returned if no element is selected.
+     * The index of the first selected option element.
+     * The value -1 is returned if no element is selected.
      *
-     * @member {Number} HTMLSelectElement#selectedIndex
+     * @type {Number}
      */
     get selectedIndex() {
         let index = -1;
+        let emptyIndex = -1;
         const options = this.options;
 
         if (!options.length) {
@@ -171,15 +185,14 @@ export default class HTMLSelectElement extends HTMLElement {
                 index = i;
                 return true;
             }
+
+            if (emptyIndex === -1 && option.value === '') {
+                emptyIndex = i;
+            }
         });
 
         if (index === -1 && !this.multiple) {
-            options.some(function(option, i) {
-                if (option.value === '') {
-                    index = i;
-                    return true;
-                }
-            });
+            index = emptyIndex;
 
             if (index === -1) {
                 return 0;
@@ -189,18 +202,15 @@ export default class HTMLSelectElement extends HTMLElement {
         return index;
     }
 
-    /**
-     * @ignore
-     * @param {Number} index
-     */
     set selectedIndex(index) {
-        throw new Error('Not implemented');
+        this.selectedOptions.forEach(option => option.selected = false);
+        this.options[index].selected = true;
     }
 
     /**
      * The set of options that are selected.
      *
-     * @member {Array.<Element>} HTMLSelectElement#selectedOptions
+     * @type {Array.<Element>}
      * @readonly
      */
     get selectedOptions() {
@@ -212,34 +222,29 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The first selected option.
      *
-     * @member {Array.<Element>} HTMLSelectElement#selectedOptions
+     * @type {HtmlOptionElement|null}
      * @readonly
      */
     get selectedOption() {
-        let selectedOption;
-        this.options.some(function(option) {
-            if (option.selected) {
-                selectedOption = option;
-                return true;
-            }
-        });
-        return selectedOption;
+        let selectedIndex = this.selectedIndex;
+
+        if (selectedIndex === -1) {
+            return null;
+        }
+
+        return this.options[selectedIndex];
     }
 
     /**
      * Reflects the size HTML attribute, which contains the number of visible items in the control.
      * The default is 1, unless multiple is true, in which case it is 4.
      *
-     * @member {Number} HTMLSelectElement#size
+     * @type {Number}
      */
     get size() {
         return Number(this.getAttribute('size')) || (this.multiple ? 4 : 1);
     }
 
-    /**
-     * @ignore
-     * @param {String} size
-     */
     set size(size) {
         this.setAttribute('size', size);
     }

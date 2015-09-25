@@ -15,7 +15,7 @@ var Event = require(lib + 'Event');
 test('Node attributes', function () {
     var document = new Document();
     var div = document.createElement('div');
-    _proclaim2['default'].isUndefined(div.getAttribute('id'));
+    _proclaim2['default'].isNull(div.getAttribute('id'));
     _proclaim2['default'].isFalse(div.hasAttribute('id'));
     div.setAttribute('id', 'testid');
     _proclaim2['default'].strictEqual(div.getAttribute('id'), 'testid');

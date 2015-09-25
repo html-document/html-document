@@ -249,4 +249,14 @@ test('insertBefore fragment', function () {
     expect(parentNode.childNodes[2], span1);
     expect(parentNode.childNodes[3], span2);
 });
+
+test('ParentNode _closestParent', function () {
+    var span1 = document.createElement('span');
+    var span2 = document.createElement('span');
+    span1.appendChild(span2);
+
+    expect(span2._closestParent('span'), span1);
+    _proclaim2['default'].isUndefined(span2._closestParent('test'));
+    _proclaim2['default'].isUndefined(span1._closestParent('span'));
+});
 //# sourceMappingURL=ParentNode.js.map
