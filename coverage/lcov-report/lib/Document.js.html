@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header high">
     <h1>Code coverage report for <span class="entity">lib/Document.js</span></h1>
     <h2>
-        Statements: <span class="metric">79.66% <small>(47 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">33.33% <small>(1 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">83.05% <small>(49 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">66.67% <small>(2 / 3)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">45.45% <small>(5 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">79.66% <small>(47 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">83.05% <small>(49 / 59)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; Document.js</div>
@@ -324,14 +324,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">16</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">14</span>
-<span class="cline-any cline-yes">14</span>
-<span class="cline-any cline-yes">14</span>
-<span class="cline-any cline-yes">14</span>
-<span class="cline-any cline-yes">14</span>
-<span class="cline-any cline-yes">14</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
+<span class="cline-any cline-yes">16</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -395,20 +395,20 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">94</span>
-<span class="cline-any cline-yes">94</span>
+<span class="cline-any cline-yes">110</span>
+<span class="cline-any cline-yes">110</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">109</span>
+<span class="cline-any cline-yes">109</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">94</span>
-<span class="cline-any cline-yes">94</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">94</span>
-<span class="cline-any cline-yes">94</span>
+<span class="cline-any cline-yes">110</span>
+<span class="cline-any cline-yes">110</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -614,7 +614,7 @@ var Document = (function (_Node) {
         key: 'createDocumentFragment',
         value: function createDocumentFragment() {
             var fragment = new _DocumentFragment2['default']();
-            fragment.ownerDocument = this;
+            fragment._ownerDocument = this;
             return fragment;
         }
 &nbsp;
@@ -636,9 +636,9 @@ var Document = (function (_Node) {
         value: function createElement(name) {
             var element = undefined;
             switch (name.toLowerCase()) {
-<span class="branch-0 cbranch-no" title="branch not covered" >                case 'select':</span>
-<span class="cstat-no" title="statement not covered" >                    element = new _HTMLElementElementsHTMLSelectElement2['default']();</span>
-<span class="cstat-no" title="statement not covered" >                    break;</span>
+                case 'select':
+                    element = new _HTMLElementElementsHTMLSelectElement2['default']();
+                    break;
 <span class="branch-1 cbranch-no" title="branch not covered" >                case 'option':</span>
 <span class="cstat-no" title="statement not covered" >                    element = new _HTMLElementElementsHTMLOptionElement2['default']();</span>
 <span class="cstat-no" title="statement not covered" >                    break;</span>
@@ -646,7 +646,7 @@ var Document = (function (_Node) {
                     element = new _HTMLElement2['default']();
                     element.nodeName = name;
             }
-            element.ownerDocument = this;
+            element._ownerDocument = this;
             return element;
         }
 &nbsp;
@@ -667,7 +667,7 @@ var Document = (function (_Node) {
         key: 'createTextNode',
         value: function createTextNode(textContent) {
             var text = new _Text2['default'](textContent);
-            text.ownerDocument = this;
+            text._ownerDocument = this;
             return text;
         }
 &nbsp;
@@ -747,7 +747,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Sep 24 2015 23:57:23 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Fri Sep 25 2015 01:54:43 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>
