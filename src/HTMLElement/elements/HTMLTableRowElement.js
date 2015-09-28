@@ -8,6 +8,7 @@ export default class HTMLTableRowElement extends HTMLElement {
     /**
      * Returns a live HTMLCollection containing the cells in the row. The HTMLCollection is live and is automatically
      * updated when rows are added or removed.
+     *
      * @todo Update array to HTMLCollection when it's implemented
      * @member {Array.<Element>} HTMLTableRowElement#cells
      */
@@ -19,6 +20,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Is a DOMString containing one single character. This character is the one to align all the cell of a column on.
      * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
      * for French. This property was optional and was not very well supported.
+     *
      * @member {string} HTMLTableRowElement#ch
      * @deprecated
      */
@@ -30,6 +32,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Is a DOMString containing a integer indicating how many characters must be left at the right (for left-to-right
      * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
      * property was optional and was not very well supported.
+     *
      * @member {number} HTMLTableRowElement#chOff
      * @deprecated
      */
@@ -39,6 +42,7 @@ export default class HTMLTableRowElement extends HTMLElement {
 
     /**
      * Set align of element
+     *
      * @param {string} value
      * @ignore
      */
@@ -49,8 +53,10 @@ export default class HTMLTableRowElement extends HTMLElement {
     }
 
     /**
-     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically aligned.
-     * It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom", or "baseline".
+     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically
+     * aligned. It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom",
+     * or "baseline".
+     *
      * @member {string} HTMLTableRowElement#align
      * @returns {string}
      * @deprecated
@@ -61,6 +67,7 @@ export default class HTMLTableRowElement extends HTMLElement {
 
     /**
      * Set align of element
+     *
      * @param {string} value
      * @ignore
      */
@@ -72,7 +79,9 @@ export default class HTMLTableRowElement extends HTMLElement {
 
     /**
      * Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the
-     * element's contents with respect to the surrounding context. The possible values are "left", "right", and "center".
+     * element's contents with respect to the surrounding context. The possible values are "left", "right", and
+     * "center".
+     *
      * @member {string} HTMLTableRowElement#align
      * @returns {string}
      * @deprecated
@@ -84,6 +93,7 @@ export default class HTMLTableRowElement extends HTMLElement {
     /**
      * Returns a long value which gives the logical position of the row within the table section it belongs to.
      * If the row is not part of a section, returns -1.
+     *
      * @returns {number}
      */
     get sectionRowIndex() {
@@ -97,6 +107,7 @@ export default class HTMLTableRowElement extends HTMLElement {
     /**
      * Returns a long value which gives the logical position of the row within the entire table. If the row is not part
      * of a table, returns -1.
+     *
      * @returns {number}
      */
     get rowIndex() {
@@ -144,6 +155,7 @@ export default class HTMLTableRowElement extends HTMLElement {
 
     /**
      * Method creates new &lt;td&gt; element and adds it to row.
+     *
      * @param {number} [index = -1]
      * @return {HTMLElement}
      */
@@ -164,6 +176,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Removes the cell at the given position in the section. If the given position is greater (or equal as it starts
      * at zero) than the amount of rows in the section, or is smaller than 0, it raises a DOMException with the
      * IndexSizeError value.
+     *
      * @param {number} index
      */
     deleteCell(index) {

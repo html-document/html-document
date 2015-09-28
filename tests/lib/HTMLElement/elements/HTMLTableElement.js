@@ -108,10 +108,10 @@ test('HTMLTableElement throw when setting wrong caption', function () {
 
 test('HTMLTableElement set tHead', function () {
     var document = new Document();
-    document.body.innerHTML = '<table><caption>Some caption</caption><tbody><tr><td>Some cell</td></tr></tbody></table>';
+    document.body.innerHTML = '<table><caption>Some caption</caption><tbody>' + '<tr><td>Some cell</td></tr></tbody></table>';
     var table = document.body.firstChild;
     var tHead = document.createElement('thead');
     table.tHead = tHead;
-    expect(table.outerHTML, '<table><caption>Some caption</caption><thead></thead><tbody><tr><td>Some cell</td></tr></tbody></table>');
+    expect(table.outerHTML, '<table><caption>Some caption</caption><thead></thead>' + '<tbody><tr><td>Some cell</td></tr></tbody></table>');
 });
 //# sourceMappingURL=HTMLTableElement.js.map

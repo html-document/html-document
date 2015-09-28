@@ -11,6 +11,7 @@ import DOMException from '../../DOMException';
 export default class HTMLTableElement extends HTMLElement {
     /**
      * Caption of element, returns HTMLElement &lt;caption&gt;
+     *
      * @member {HTMLElement} HTMLTableElement#caption
      * @returns {HTMLElement}
      */
@@ -20,6 +21,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Sets caption of element
+     *
      * @param {HTMLElement} element - element with tagName caption
      * @ignore
      */
@@ -42,6 +44,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Table head
+     *
      * @member {HTMLElement} HTMLTableElement#tHead
      * @returns {HTMLElement}
      */
@@ -77,6 +80,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Returns tFoot element if any
+     *
      * @member {HTMLElement} HTMLTableElement#tFoot
      * @returns {HTMLElement}
      */
@@ -112,6 +116,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Returns all tr elements from table
+     *
      * @member {HTMLElement} HTMLTableElement#rows
      * @readonly
      */
@@ -148,6 +153,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Returns all tbody elements from table
+     *
      * @member {HTMLElement[]} HTMLTableElement#tBodies
      * @readonly
      */
@@ -157,6 +163,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method creates &lt;thead&gt; element for table and adds it in particular place
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead
      * @returns {HTMLElement}
      */
@@ -173,6 +180,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method deletes first &lt;thead&gt; element found in table (if any)
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead
      */
     deleteTHead() {
@@ -185,6 +193,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * The HTMLTableElement.createCaption() method returns the caption for the table. If no caption element exists on
      * the table, this method creates it, then returns it.
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
      * @returns {HTMLElement}
      */
@@ -201,6 +210,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method deletes first found &lt;caption&gt; element if any
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption
      */
     deleteCaption() {
@@ -212,6 +222,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method adds &lt;tfoot&gt; element to table
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
      * @returns {HTMLElement}
      */
@@ -228,6 +239,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method deletes first found &lt;tfoot&gt; element from table
+     *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot
      */
     deleteTFoot() {
@@ -239,6 +251,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * Method creates &lt;tbody&gt; element and puts it in particular place
+     *
      * @private
      */
     _createTBody() {
@@ -256,6 +269,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
      * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
+     *
      * @param {number} [index = -1]
      * @return {HTMLElement}
      */

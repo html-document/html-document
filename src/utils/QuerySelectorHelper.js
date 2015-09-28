@@ -48,6 +48,7 @@ class QuerySelectorHelper {
 
     /**
      * Function process all selectors
+     *
      * @param element
      * @param selectors
      * @returns {boolean}
@@ -60,6 +61,7 @@ class QuerySelectorHelper {
 
     /**
      * Function process one rule on element
+     *
      * @param element
      * @param rule
      * @returns {boolean}
@@ -72,6 +74,7 @@ class QuerySelectorHelper {
 
     /**
      * Function processes one element using current rule
+     *
      * @param element
      * @param rule
      * @returns {boolean}
