@@ -59,6 +59,8 @@ export default class ParentNode extends Node {
                 result.push(node);
             }
         });
+
+        return result;
     }
 
     _childNodeFind(callback) {
