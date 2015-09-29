@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Class: Document</title>
+    <title>Class: HTMLTableElement</title>
     
     
     <script src="scripts/prettify/prettify.js"></script>
@@ -2140,7 +2140,7 @@
     </ul>
 </div>
     <div class="main">
-        <h1 class="page-title" data-filename="Document.html">Class: Document</h1>
+        <h1 class="page-title" data-filename="HTMLTableElement.html">Class: HTMLTableElement</h1>
         
 
 
@@ -2149,7 +2149,7 @@
     
 <header>
     <h2>
-    Document
+    HTMLTableElement
     </h2>
     
 </header>  
@@ -2162,14 +2162,14 @@
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="Document">
+        <h4 class="name" id="HTMLTableElement">
             
-            new Document<span class="signature">()</span>
+            new HTMLTableElement<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 59
+            HTMLElement/elements/HTMLTableElement.js, line 25
         </div>
         
     </div>
@@ -2178,6 +2178,11 @@
 </dt>
 <dd>
     
+    
+    <div class="description">
+        The HTMLTable interface represents table
+and inherits all classes and methods of the HTMLElement interface.
+    </div>
     
 
     
@@ -2210,7 +2215,7 @@
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en/docs/Web/API/Document">https://developer.mozilla.org/en/docs/Web/API/Document</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement">https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement</a></li>
         </ul>
     </dd>
     
@@ -2236,12 +2241,6 @@
     </div>
     
     
-        <h3 class="subsection-title">Extends</h3>
-        
-        <ul>
-            <li><a href="Node.html">Node</a></li>
-        </ul>
-    
     
     
     
@@ -2258,7 +2257,7 @@
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ownerDocument"><span class="type-signature ">readonly</span> ownerDocument<span class="type-signature type document"><a href="Document.html">Document</a></span> </h4>
+        <h4 class="name" id="caption">caption<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
     </div>
     
     
@@ -2266,8 +2265,7 @@
 <dd>
     
     <div class="description">
-        Returns the Document that this node belongs to.
-If no document is associated with it, returns null.
+        Caption of element, returns HTMLElement &lt;caption&gt;
     </div>
     
     
@@ -2304,62 +2302,245 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="textContent">textContent</h4>
+        <h4 class="name" id="nodeName"><span class="type-signature ">constant</span> nodeName<span class="type-signature type string">string</span> </h4>
     </div>
     
     
 </dt>
 <dd>
     
+    <div class="description">
+        table
+    </div>
+    
     
     
 <dl class="details">
     
         
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
+    
+    
+    
 
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#textContent</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
         
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="nodeName"><span class="type-signature ">constant</span> nodeName<span class="type-signature type string">string</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="rows"><span class="type-signature ">readonly</span> rows<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns all tr elements from table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tBodies"><span class="type-signature ">readonly</span> tBodies<span class="type-signature type array.<htmlelement>">Array.&lt;<a href="HTMLElement.html">HTMLElement</a>></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns all tbody elements from table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tFoot">tFoot<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns tFoot element if any
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tHead">tHead<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Table head
+    </div>
+    
+    
+    
+<dl class="details">
     
         
     
@@ -2396,263 +2577,15 @@ If no document is associated with it, returns null.
         <dl>
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_setAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="appendChild">
             
-                <span class="inherited"><a href="Node.html#_setAttribute">inherited</a></span>
-            
-            _setAttribute<span class="signature">(attributeName, attributeValue, attributeName, attributeValue)</span>
+            appendChild<span class="signature">(element)</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 97
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        set attribute's value
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_toHTML">
-            
-                <span class="inherited"><a href="Node.html#_toHTML">inherited</a></span>
-            
-            _toHTML<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 159
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_updatedAttribute">
-            
-                <span class="inherited"><a href="Node.html#_updatedAttribute">inherited</a></span>
-            
-            _updatedAttribute<span class="signature">(attributeName, <span class="optional">value</span>, attributeName, value)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 134
+            HTMLElement/elements/HTMLTableElement.js, line 224
         </div>
         
     </div>
@@ -2690,307 +2623,7 @@ If no document is associated with it, returns null.
 	
         <tr>
             
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="addEventListener">
-            
-                <span class="inherited"><a href="Node.html#addEventListener">inherited</a></span>
-            
-            addEventListener<span class="signature">(eventType, listener, capturingPhase, eventType, listener, capturingPhase)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 167
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
+                <td class="name"><code>element</code></td>
             
             
             <td class="type">
@@ -3011,52 +2644,6 @@ If no document is associated with it, returns null.
     
     
 <dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#addEventListener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
     
         
     
@@ -3098,14 +2685,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="createComment">
+        <h4 class="name" id="createCaption">
             
-            createComment<span class="signature">(data, data)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Comment.html">Comment</a>}</span>
+            createCaption<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 87
+            HTMLElement/elements/HTMLTableElement.js, line 86
         </div>
         
     </div>
@@ -3116,177 +2703,8 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Creates a new <a href="Comment.html">Comment</a>.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment">https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        <a href="Comment.html">Comment</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="createDocumentFragment">
-            
-            createDocumentFragment<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="DocumentFragment.html">DocumentFragment</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 109
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Creates a new empty <a href="DocumentFragment.html">DocumentFragment</a>.
+        The HTMLTableElement.createCaption() method returns the caption for the table. If no caption element exists on
+the table, this method creates it, then returns it.
     </div>
     
 
@@ -3320,177 +2738,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment">https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        <a href="DocumentFragment.html">DocumentFragment</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="createElement">
-            
-            createElement<span class="signature">(name, name)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 128
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Creates a new element with the given tag name.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement">https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption</a></li>
         </ul>
     </dd>
     
@@ -3545,14 +2793,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="createTextNode">
+        <h4 class="name" id="createTFoot">
             
-            createTextNode<span class="signature">(textContent, textContent)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Text.html">Text</a>}</span>
+            createTFoot<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 172
+            HTMLElement/elements/HTMLTableElement.js, line 126
         </div>
         
     </div>
@@ -3563,7 +2811,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Creates a text node.
+        Method adds &lt;tfoot&gt; element to table
     </div>
     
 
@@ -3571,69 +2819,6 @@ If no document is associated with it, returns null.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>textContent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>textContent</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -3660,7 +2845,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode">https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot</a></li>
         </ul>
     </dd>
     
@@ -3696,333 +2881,7 @@ If no document is associated with it, returns null.
             
             <td class="type">
             
-                        <a href="Text.html">Text</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="dispatchEvent">
-            
-                <span class="inherited"><a href="Node.html#dispatchEvent">inherited</a></span>
-            
-            dispatchEvent<span class="signature">(event, event)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 227
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Event.html">Event</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        boolean
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="getAttribute">
-            
-                <span class="inherited"><a href="Node.html#getAttribute">inherited</a></span>
-            
-            getAttribute<span class="signature">(attributeName, attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{String}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 46
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        get attribute's value
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        String
+                        <a href="HTMLElement.html">HTMLElement</a>
                         
                     
             </td>
@@ -4041,14 +2900,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="getElementById">
+        <h4 class="name" id="createTHead">
             
-            getElementById<span class="signature">(id, id)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Element.html">Element</a>}</span>
+            createTHead<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 193
+            HTMLElement/elements/HTMLTableElement.js, line 49
         </div>
         
     </div>
@@ -4059,7 +2918,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Returns a reference to the element by its ID.
+        Method creates &lt;thead&gt; element for table and adds it in particular place
     </div>
     
 
@@ -4067,69 +2926,6 @@ If no document is associated with it, returns null.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                case-sensitive string representing the unique ID of the element being sought</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4156,7 +2952,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById">https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead</a></li>
         </ul>
     </dd>
     
@@ -4192,11 +2988,11 @@ If no document is associated with it, returns null.
             
             <td class="type">
             
-                        <a href="Element.html">Element</a>
+                        <a href="HTMLElement.html">HTMLElement</a>
                         
                     
             </td>
-            <td class="description last">reference to an Element, or null if an element with the specified ID is not in the document.</td>
+            <td class="description last"></td>
         </tr>
     
     </tbody>
@@ -4211,121 +3007,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="getElementsByClassName">
+        <h4 class="name" id="deleteCaption">
             
-            getElementsByClassName<span class="signature">(className)</span>
+            deleteCaption<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 236
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>className</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="getElementsByTagName">
-            
-            getElementsByTagName<span class="signature">(tagName, tagName, _array)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{HTMLCollection}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 212
+            HTMLElement/elements/HTMLTableElement.js, line 109
         </div>
         
     </div>
@@ -4336,10 +3025,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Returns an HTMLCollection of elements with the given tag name.
-The complete document is searched, including the root node.
-The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
-with the DOM treewithout having to call document.getElementsByTagName() again.
+        Method deletes first found &lt;caption&gt; element if any
     </div>
     
 
@@ -4347,87 +3033,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>_array</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4454,7 +3059,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName">https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption</a></li>
         </ul>
     </dd>
     
@@ -4472,35 +3077,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        HTMLCollection
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
     
     
 </dd>
@@ -4508,17 +3084,15 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="hasAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="deleteTFoot">
             
-                <span class="inherited"><a href="Node.html#hasAttribute">inherited</a></span>
-            
-            hasAttribute<span class="signature">(attributeName, attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+            deleteTFoot<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 61
+            HTMLElement/elements/HTMLTableElement.js, line 148
         </div>
         
     </div>
@@ -4529,167 +3103,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        checks if attribute exists for node
+        Method deletes first found &lt;tfoot&gt; element from table
     </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        boolean
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="querySelector">
-            
-            querySelector<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 244
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
     
 
     
@@ -4718,6 +3133,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -4741,83 +3163,14 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="querySelectorAll">
+        <h4 class="name" id="deleteTHead">
             
-            querySelectorAll<span class="signature">()</span>
+            deleteTHead<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 251
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="removeAttribute">
-            
-                <span class="inherited"><a href="Node.html#removeAttribute">inherited</a></span>
-            
-            removeAttribute<span class="signature">(attributeName, attributeName)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 115
+            HTMLElement/elements/HTMLTableElement.js, line 69
         </div>
         
     </div>
@@ -4828,7 +3181,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        remove attribute
+        Method deletes first &lt;thead&gt; element found in table (if any)
     </div>
     
 
@@ -4836,69 +3189,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -4922,219 +3212,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="removeEventListener">
-            
-                <span class="inherited"><a href="Node.html#removeEventListener">inherited</a></span>
-            
-            removeEventListener<span class="signature">(eventType, listener, capturingPhase, eventType, listener, capturingPhase)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 199
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -5157,17 +3240,15 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="setAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="insertRow">
             
-                <span class="inherited"><a href="Node.html#setAttribute">inherited</a></span>
-            
-            setAttribute<span class="signature">(attributeName, attributeValue, attributeName, attributeValue)</span>
+            insertRow<span class="signature">(<span class="optional">index</span>, <span class="optional">index</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 78
+            HTMLElement/elements/HTMLTableElement.js, line 187
         </div>
         
     </div>
@@ -5178,7 +3259,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        set attribute's value
+        Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
+creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
     </div>
     
 
@@ -5199,6 +3281,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 		<th>Type</th>
 		
 		
+		<th>Default</th>
+		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -5209,21 +3293,34 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 	
         <tr>
             
-                <td class="name"><code>attributeName</code></td>
+                <td class="name"><code>index</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">number</span>
 
 
             
             </td>
             
             
+                <td class="default">
+                
+                    -1
+                
+                </td>
+            
             
             <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
                 
                 </td>
         </tr>
@@ -5232,57 +3329,27 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 	
         <tr>
             
-                <td class="name"><code>attributeValue</code></td>
+                <td class="name"><code>index</code></td>
             
             
             <td class="type">
             
-                
-<span class="param-type">String</span>
-
-
-            
             </td>
             
             
-            
-            <td class="description last">
+                <td class="default">
                 
                 </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
             
             
             <td class="description last">
                 
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
                 
                 </td>
         </tr>
@@ -5326,6 +3393,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="HTMLElement.html">HTMLElement</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     
@@ -5350,7 +3446,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
 <header>
     <h2>
-    Document
+    HTMLTableElement
     </h2>
     
 </header>  
@@ -5363,14 +3459,14 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="Document">
+        <h4 class="name" id="HTMLTableElement">
             
-            new Document<span class="signature">()</span>
+            new HTMLTableElement<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 64
+            HTMLElement/elements/HTMLTableElement.js, line 32
         </div>
         
     </div>
@@ -5446,7 +3542,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="ownerDocument"><span class="type-signature ">readonly</span> ownerDocument<span class="type-signature type document"><a href="Document.html">Document</a></span> </h4>
+        <h4 class="name" id="caption">caption<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
     </div>
     
     
@@ -5454,8 +3550,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 <dd>
     
     <div class="description">
-        Returns the Document that this node belongs to.
-If no document is associated with it, returns null.
+        Caption of element, returns HTMLElement &lt;caption&gt;
     </div>
     
     
@@ -5492,62 +3587,245 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="textContent">textContent</h4>
+        <h4 class="name" id="nodeName"><span class="type-signature ">constant</span> nodeName<span class="type-signature type string">string</span> </h4>
     </div>
     
     
 </dt>
 <dd>
     
+    <div class="description">
+        table
+    </div>
+    
     
     
 <dl class="details">
     
         
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
+    
+    
+    
 
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#textContent</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
         
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="nodeName"><span class="type-signature ">constant</span> nodeName<span class="type-signature type string">string</span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="rows"><span class="type-signature ">readonly</span> rows<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns all tr elements from table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tBodies"><span class="type-signature ">readonly</span> tBodies<span class="type-signature type array.<htmlelement>">Array.&lt;<a href="HTMLElement.html">HTMLElement</a>></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns all tbody elements from table
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tFoot">tFoot<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Returns tFoot element if any
+    </div>
+    
+    
+    
+<dl class="details">
+    
+        
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</dl>
+
+    
+    
+</dd>
+
+        
+            
+<dt>
+    <div class="nameContainer">
+        <h4 class="name" id="tHead">tHead<span class="type-signature type htmlelement"><a href="HTMLElement.html">HTMLElement</a></span> </h4>
+    </div>
+    
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Table head
+    </div>
+    
+    
+    
+<dl class="details">
     
         
     
@@ -5584,263 +3862,15 @@ If no document is associated with it, returns null.
         <dl>
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_setAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="appendChild">
             
-                <span class="inherited"><a href="Node.html#_setAttribute">inherited</a></span>
-            
-            _setAttribute<span class="signature">(attributeName, attributeValue, attributeName, attributeValue)</span>
+            appendChild<span class="signature">(element)</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 97
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        set attribute's value
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_toHTML">
-            
-                <span class="inherited"><a href="Node.html#_toHTML">inherited</a></span>
-            
-            _toHTML<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 159
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="_updatedAttribute">
-            
-                <span class="inherited"><a href="Node.html#_updatedAttribute">inherited</a></span>
-            
-            _updatedAttribute<span class="signature">(attributeName, <span class="optional">value</span>, attributeName, value)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 134
+            HTMLElement/elements/HTMLTableElement.js, line 224
         </div>
         
     </div>
@@ -5878,307 +3908,7 @@ If no document is associated with it, returns null.
 	
         <tr>
             
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                        <span class="optional">optional</span>
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>value</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                    
-                    
-                        
-                    
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="addEventListener">
-            
-                <span class="inherited"><a href="Node.html#addEventListener">inherited</a></span>
-            
-            addEventListener<span class="signature">(eventType, listener, capturingPhase, eventType, listener, capturingPhase)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 167
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
+                <td class="name"><code>element</code></td>
             
             
             <td class="type">
@@ -6199,52 +3929,6 @@ If no document is associated with it, returns null.
     
     
 <dl class="details">
-    
-        
-        <h5 class="subsection-title">Properties:</h5>
-        
-        <dl>
-
-<table class="props">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>Node#addEventListener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            
-            
-            <td class="description last"></td>
-        </tr>
-	
-	
-	</tbody>
-</table></dl>
-        
     
         
     
@@ -6286,14 +3970,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="createComment">
+        <h4 class="name" id="createCaption">
             
-            createComment<span class="signature">(data, data)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Comment.html">Comment</a>}</span>
+            createCaption<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 87
+            HTMLElement/elements/HTMLTableElement.js, line 86
         </div>
         
     </div>
@@ -6304,177 +3988,8 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Creates a new <a href="Comment.html">Comment</a>.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment">https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        <a href="Comment.html">Comment</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="createDocumentFragment">
-            
-            createDocumentFragment<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="DocumentFragment.html">DocumentFragment</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 109
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Creates a new empty <a href="DocumentFragment.html">DocumentFragment</a>.
+        The HTMLTableElement.createCaption() method returns the caption for the table. If no caption element exists on
+the table, this method creates it, then returns it.
     </div>
     
 
@@ -6508,177 +4023,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment">https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment</a></li>
-        </ul>
-    </dd>
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        <a href="DocumentFragment.html">DocumentFragment</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="createElement">
-            
-            createElement<span class="signature">(name, name)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 128
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        Creates a new element with the given tag name.
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>name</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement">https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption</a></li>
         </ul>
     </dd>
     
@@ -6733,14 +4078,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="createTextNode">
+        <h4 class="name" id="createTFoot">
             
-            createTextNode<span class="signature">(textContent, textContent)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Text.html">Text</a>}</span>
+            createTFoot<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 172
+            HTMLElement/elements/HTMLTableElement.js, line 126
         </div>
         
     </div>
@@ -6751,7 +4096,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Creates a text node.
+        Method adds &lt;tfoot&gt; element to table
     </div>
     
 
@@ -6759,69 +4104,6 @@ If no document is associated with it, returns null.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>textContent</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>textContent</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -6848,7 +4130,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode">https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot</a></li>
         </ul>
     </dd>
     
@@ -6884,333 +4166,7 @@ If no document is associated with it, returns null.
             
             <td class="type">
             
-                        <a href="Text.html">Text</a>
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="dispatchEvent">
-            
-                <span class="inherited"><a href="Node.html#dispatchEvent">inherited</a></span>
-            
-            dispatchEvent<span class="signature">(event, event)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 227
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type"><a href="Event.html">Event</a></span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>event</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        boolean
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="getAttribute">
-            
-                <span class="inherited"><a href="Node.html#getAttribute">inherited</a></span>
-            
-            getAttribute<span class="signature">(attributeName, attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{String}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 46
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-    <div class="description">
-        get attribute's value
-    </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        String
+                        <a href="HTMLElement.html">HTMLElement</a>
                         
                     
             </td>
@@ -7229,14 +4185,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="getElementById">
+        <h4 class="name" id="createTHead">
             
-            getElementById<span class="signature">(id, id)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Element.html">Element</a>}</span>
+            createTHead<span class="signature">()</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 193
+            HTMLElement/elements/HTMLTableElement.js, line 49
         </div>
         
     </div>
@@ -7247,7 +4203,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Returns a reference to the element by its ID.
+        Method creates &lt;thead&gt; element for table and adds it in particular place
     </div>
     
 
@@ -7255,69 +4211,6 @@ If no document is associated with it, returns null.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                case-sensitive string representing the unique ID of the element being sought</td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>id</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -7344,7 +4237,7 @@ If no document is associated with it, returns null.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById">https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead</a></li>
         </ul>
     </dd>
     
@@ -7380,11 +4273,11 @@ If no document is associated with it, returns null.
             
             <td class="type">
             
-                        <a href="Element.html">Element</a>
+                        <a href="HTMLElement.html">HTMLElement</a>
                         
                     
             </td>
-            <td class="description last">reference to an Element, or null if an element with the specified ID is not in the document.</td>
+            <td class="description last"></td>
         </tr>
     
     </tbody>
@@ -7399,121 +4292,14 @@ If no document is associated with it, returns null.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="getElementsByClassName">
+        <h4 class="name" id="deleteCaption">
             
-            getElementsByClassName<span class="signature">(className)</span>
+            deleteCaption<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 236
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>className</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="getElementsByTagName">
-            
-            getElementsByTagName<span class="signature">(tagName, tagName, _array)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{HTMLCollection}</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 212
+            HTMLElement/elements/HTMLTableElement.js, line 109
         </div>
         
     </div>
@@ -7524,10 +4310,7 @@ If no document is associated with it, returns null.
     
     
     <div class="description">
-        Returns an HTMLCollection of elements with the given tag name.
-The complete document is searched, including the root node.
-The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
-with the DOM treewithout having to call document.getElementsByTagName() again.
+        Method deletes first found &lt;caption&gt; element if any
     </div>
     
 
@@ -7535,87 +4318,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>tagName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>_array</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -7642,7 +4344,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <dt class="tag-see">See:</dt>
     <dd class="tag-see">
         <ul>
-            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName">https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName</a></li>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption</a></li>
         </ul>
     </dd>
     
@@ -7660,35 +4362,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        HTMLCollection
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
     
     
 </dd>
@@ -7696,17 +4369,15 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="hasAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="deleteTFoot">
             
-                <span class="inherited"><a href="Node.html#hasAttribute">inherited</a></span>
-            
-            hasAttribute<span class="signature">(attributeName, attributeName)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{boolean}</span>
+            deleteTFoot<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 61
+            HTMLElement/elements/HTMLTableElement.js, line 148
         </div>
         
     </div>
@@ -7717,167 +4388,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        checks if attribute exists for node
+        Method deletes first found &lt;tfoot&gt; element from table
     </div>
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    <h5>Returns:</h5>
-    
-
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Type</th>
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-    <tbody>
-    
-        <tr>
-            
-            <td class="type">
-            
-                        boolean
-                        
-                    
-            </td>
-            <td class="description last"></td>
-        </tr>
-    
-    </tbody>
-</table>
-
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer">
-        <h4 class="name" id="querySelector">
-            
-            querySelector<span class="signature">()</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Document.js, line 244
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
     
 
     
@@ -7906,6 +4418,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -7929,83 +4448,14 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
             
 <dt>
     <div class="nameContainer">
-        <h4 class="name" id="querySelectorAll">
+        <h4 class="name" id="deleteTHead">
             
-            querySelectorAll<span class="signature">()</span>
+            deleteTHead<span class="signature">()</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 251
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="removeAttribute">
-            
-                <span class="inherited"><a href="Node.html#removeAttribute">inherited</a></span>
-            
-            removeAttribute<span class="signature">(attributeName, attributeName)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 115
+            HTMLElement/elements/HTMLTableElement.js, line 69
         </div>
         
     </div>
@@ -8016,7 +4466,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        remove attribute
+        Method deletes first &lt;thead&gt; element found in table (if any)
     </div>
     
 
@@ -8024,69 +4474,6 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
     
     
     
@@ -8110,219 +4497,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
-    
-    
-</dl>
-
-    
-    
-
-    
-
-    
-    
-    
-    
-    
-    
-    
-</dd>
-
-        
-            
-<dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="removeEventListener">
-            
-                <span class="inherited"><a href="Node.html#removeEventListener">inherited</a></span>
-            
-            removeEventListener<span class="signature">(eventType, listener, capturingPhase, eventType, listener, capturingPhase)</span>
-        </h4>
-    
-        
-        <div class="tag-source">
-            Node.js, line 199
-        </div>
-        
-    </div>
-
-    
-</dt>
-<dd>
-    
-    
-
-    
-    
-    
-    
-    
-        
-
-<table class="params">
-    <thead>
-	<tr>
-		
-		<th>Name</th>
-		
-		
-		<th>Type</th>
-		
-		
-		
-		<th class="last">Description</th>
-	</tr>
-	</thead>
-	
-	<tbody>
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-                
-<span class="param-type">boolean</span>
-
-
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>eventType</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>listener</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>capturingPhase</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
-                
-                </td>
-        </tr>
-	
-	
-	</tbody>
-</table>
-    
-    
-    
-<dl class="details">
-    
-        
-    
-    
-    
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead">https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead</a></li>
+        </ul>
+    </dd>
     
     
     
@@ -8345,17 +4525,15 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
             
 <dt>
-    <div class="nameContainer inherited">
-        <h4 class="name" id="setAttribute">
+    <div class="nameContainer">
+        <h4 class="name" id="insertRow">
             
-                <span class="inherited"><a href="Node.html#setAttribute">inherited</a></span>
-            
-            setAttribute<span class="signature">(attributeName, attributeValue, attributeName, attributeValue)</span>
+            insertRow<span class="signature">(<span class="optional">index</span>, <span class="optional">index</span>)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="HTMLElement.html">HTMLElement</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Node.js, line 78
+            HTMLElement/elements/HTMLTableElement.js, line 187
         </div>
         
     </div>
@@ -8366,7 +4544,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     <div class="description">
-        set attribute's value
+        Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
+creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
     </div>
     
 
@@ -8387,6 +4566,8 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 		<th>Type</th>
 		
 		
+		<th>Default</th>
+		
 		
 		<th class="last">Description</th>
 	</tr>
@@ -8397,21 +4578,34 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 	
         <tr>
             
-                <td class="name"><code>attributeName</code></td>
+                <td class="name"><code>index</code></td>
             
             
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">number</span>
 
 
             
             </td>
             
             
+                <td class="default">
+                
+                    -1
+                
+                </td>
+            
             
             <td class="description last">
+                
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
                 
                 </td>
         </tr>
@@ -8420,57 +4614,27 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 	
         <tr>
             
-                <td class="name"><code>attributeValue</code></td>
+                <td class="name"><code>index</code></td>
             
             
             <td class="type">
             
-                
-<span class="param-type">String</span>
-
-
-            
             </td>
             
             
-            
-            <td class="description last">
+                <td class="default">
                 
                 </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeName</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
             
             
             <td class="description last">
                 
-                </td>
-        </tr>
-	
-	
-	
-        <tr>
-            
-                <td class="name"><code>attributeValue</code></td>
-            
-            
-            <td class="type">
-            
-            </td>
-            
-            
-            
-            <td class="description last">
+                    
+                        <span class="optional">optional</span>
+                    
+                    
+                        
+                    
                 
                 </td>
         </tr>
@@ -8514,6 +4678,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="HTMLElement.html">HTMLElement</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     

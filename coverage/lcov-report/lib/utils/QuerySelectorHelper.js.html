@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for lib/HTMLElement/ClassList.js</title>
+    <title>Code coverage report for lib/utils/QuerySelectorHelper.js</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../../prettify.css">
     <link rel="stylesheet" href="../../base.css">
@@ -13,15 +13,15 @@
 </head>
 <body>
 <div class="header high">
-    <h1>Code coverage report for <span class="entity">lib/HTMLElement/ClassList.js</span></h1>
+    <h1>Code coverage report for <span class="entity">lib/utils/QuerySelectorHelper.js</span></h1>
     <h2>
-        Statements: <span class="metric">100% <small>(39 / 39)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">93.75% <small>(15 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">100% <small>(11 / 11)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">100% <small>(39 / 39)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">100% <small>(57 / 57)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">93.33% <small>(28 / 30)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">100% <small>(12 / 12)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">100% <small>(57 / 57)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
-    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/HTMLElement/</a> &#187; ClassList.js</div>
+    <div class="path"><a href="../../index.html">All files</a> &#187; <a href="index.html">lib/utils/</a> &#187; QuerySelectorHelper.js</div>
 </div>
 <div class="body">
 <pre><table class="coverage">
@@ -198,40 +198,17 @@
 171
 172
 173
-174</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+174
+175
+176
+177
+178</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">252</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">252</span>
-<span class="cline-any cline-yes">252</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -244,8 +221,69 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">21</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-yes">17</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2</span>
 <span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -258,7 +296,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">65</span>
+<span class="cline-any cline-yes">50</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -274,81 +322,40 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
-<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-yes">40</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
 <span class="cline-any cline-yes">13</span>
 <span class="cline-any cline-yes">13</span>
-<span class="cline-any cline-yes">11</span>
-<span class="cline-any cline-yes">11</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-yes">2</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-yes">31</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">18</span>
+<span class="cline-any cline-yes">8</span>
 <span class="cline-any cline-yes">8</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10</span>
+<span class="cline-any cline-yes">10</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -358,11 +365,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">21</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3</span>
+<span class="cline-any cline-yes">21</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -370,15 +376,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// TODO : DOMTokenList, unit tests
-&nbsp;
-/**
- * @see https://developer.mozilla.org/fr/docs/Web/API/Element/classList
- * @class ClassList
- * @param {HTMLElement} element
- */
-'use strict';
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">'use strict';
 &nbsp;
 var _createClass = require('babel-runtime/helpers/create-class')['default'];
 &nbsp;
@@ -387,164 +388,175 @@ var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default
 Object.defineProperty(exports, '__esModule', {
     value: true
 });
-/** @class ClassList 
+&nbsp;
+var _cssSelectorParser = require('css-selector-parser');
+&nbsp;
+/**
+ * QuerySelectorHelper interface provides simple processing
+ * of Element.querySelector method.
+ 
+* @class QuerySelectorHelper 
 * @param element */
-var ClassList = (function () {
-    /**
-     * @param {HTMLElement} element
-     */
 &nbsp;
-    function ClassList(element) {
-        _classCallCheck(this, ClassList);
+var QuerySelectorHelper = (function () {
+    function QuerySelectorHelper(element) {
+        _classCallCheck(this, QuerySelectorHelper);
 &nbsp;
-        this._element = element;
-        this.tokens = [];
+        this.element = element;
+        this.result = null;
     }
 &nbsp;
-    /**
-     * @member {Number} ClassList#length
-     * @readonly
-     
-    * @memberof ClassList 
-    * @instance */
-&nbsp;
-    _createClass(ClassList, [{
-        key: '_parse',
-&nbsp;
-        /**
-         *
-         
-        * @memberof ClassList 
+    _createClass(QuerySelectorHelper, [{
+        key: 'parse',
+        /** @memberof QuerySelectorHelper 
         * @instance 
-        * @method _parse 
-        * @param tokens */
-        value: function _parse(tokens) {
-            this.tokens = tokens.split(' ');
+        * @method parse 
+        * @param query */value: function parse(query) {
+            var parser = QuerySelectorHelper.cssSelectorParser;
+            var rules = parser.parse(query);
+            this.result = null;
+&nbsp;
+            if (rules.type === 'selectors') {
+                this.processSelectors(this.element, rules.selectors);
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (rules.type === 'ruleSet') {
+                this.processRule(this.element, rules.rule);
+            }
+&nbsp;
+            return this.result;
         }
-&nbsp;
-        /**
-         *
-         
-        * @memberof ClassList 
-        * @instance 
-        * @method _stringify */
     }, {
-        key: '_stringify',
-        value: function _stringify() {
-            this._element._setAttribute('class', this.tokens.join(' '));
+        key: 'parseAll',
+        /** @memberof QuerySelectorHelper 
+        * @instance 
+        * @method parseAll 
+        * @param query */value: function parseAll(query) {
+            var parser = QuerySelectorHelper.cssSelectorParser;
+            var rules = parser.parse(query);
+            this.result = [];
+&nbsp;
+            if (rules.type === 'selectors') {
+                this.processSelectors(this.element, rules.selectors);
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (rules.type === 'ruleSet') {
+                this.processRule(this.element, rules.rule);
+            }
+&nbsp;
+            return this.result;
         }
+    }, {
+        key: 'processSelectors',
 &nbsp;
         /**
-         * Adds a class to an element's list of classes
+         * Function process all selectors
          *
-         * @method ClassList#add
-         * @param {...string} className
-         *
+         * @param element
+         * @param selectors
+         * @returns {boolean}
          
-        * @memberof ClassList 
+        * @memberof QuerySelectorHelper 
         * @instance 
-        * @method add */
-    }, {
-        key: 'add',
-        value: function add() {
+        * @method processSelectors 
+        * @param element 
+        * @param selectors */
+        value: function processSelectors(element, selectors) {
             var _this = this;
 &nbsp;
-            var updated = false;
-            Array.prototype.forEach.call(arguments, function (token) {
-                token = String(token);
-                if (_this.tokens.indexOf(token) === -1) {
-                    _this.tokens.push(token);
-                    updated = true;
-                }
-            });
-            if (updated) {
-                this._stringify();
-            }
+            return selectors.every(function (selector) {
+                return _this.processRule(element, selector.rule);
+            }, this);
         }
 &nbsp;
         /**
-         * Removes a class from an element's list of classes
+         * Function process one rule on element
          *
-         * @method ClassList#remove
-         * @param {...string} token
+         * @param element
+         * @param rule
+         * @returns {boolean}
          
-        * @memberof ClassList 
+        * @memberof QuerySelectorHelper 
         * @instance 
-        * @method remove */
+        * @method processRule 
+        * @param element 
+        * @param rule */
     }, {
-        key: 'remove',
-        value: function remove() {
+        key: 'processRule',
+        value: function processRule(element, rule) {
             var _this2 = this;
 &nbsp;
-            var updated = false;
-            Array.prototype.forEach.call(arguments, function (token) {
-                var index = _this2.tokens.indexOf(token);
-                if (index !== -1) {
-                    _this2.tokens.splice(index, 1);
-                    updated = true;
+            return element.children.every(function (child) {
+                return _this2.processElement(child, rule);
+            }, this);
+        }
+&nbsp;
+        /**
+         * Function processes one element using current rule
+         *
+         * @param element
+         * @param rule
+         * @returns {boolean}
+         
+        * @memberof QuerySelectorHelper 
+        * @instance 
+        * @method processElement 
+        * @param element 
+        * @param rule */
+    }, {
+        key: 'processElement',
+        value: function processElement(element, rule) {
+            var itsMe = true;
+&nbsp;
+            if (itsMe &amp;&amp; rule.hasOwnProperty('tagName')) {
+                itsMe &amp;= element.tagName === rule.tagName;
+            }
+&nbsp;
+            if (itsMe &amp;&amp; rule.hasOwnProperty('classNames')) {
+                itsMe &amp;= rule.classNames.some(function (name) {
+                    return element.classList.contains(name);
+                });
+            }
+&nbsp;
+            if (itsMe &amp;&amp; rule.hasOwnProperty('attrs')) {
+                itsMe &amp;= rule.attrs.some(function (attr) {
+                    return element.hasAttribute(attr.name) &amp;&amp; element.getAttribute(attr.name) === attr.value;
+                });
+            }
+&nbsp;
+            if (!itsMe) {
+                return this.processRule(element, rule);
+            }
+&nbsp;
+            if (rule.hasOwnProperty('rule')) {
+                return this.processRule(element, rule.rule);
+            } else {
+                if (this.result === null) {
+                    this.result = element;
+                    return false;
+                } else {
+                    this.result.push(element);
+                    return this.processRule(element, rule);
                 }
-            });
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (updated) {
-                this._stringify();
             }
         }
-&nbsp;
-        /**
-         * Toggles the existence of a class in an element's list of classes
-         *
-         * @method ClassList#toggle
-         * @param {String} token
-         * @param {Boolean} force
-         * @return {Boolean} if the token was added
-         *
-         
-        * @memberof ClassList 
-        * @instance 
-        * @method toggle 
-        * @param token 
-        * @param force */
-    }, {
-        key: 'toggle',
-        value: function toggle(token, force) {
-            var result = this.contains(token);
-            var method = result ? force !== true &amp;&amp; 'remove' : force !== false &amp;&amp; 'add';
-&nbsp;
-            if (method) {
-                this[method](token);
+    }], [{
+        key: 'cssSelectorParser',
+        /** @memberof QuerySelectorHelper 
+        * @static 
+        * @member cssSelectorParser */get: function get() {
+            if (QuerySelectorHelper.parser === null) {
+                QuerySelectorHelper.parser = new _cssSelectorParser.CssSelectorParser();
             }
 &nbsp;
-            return !result;
-        }
-&nbsp;
-        /**
-         * Checks if an element's list of classes contains a specific class
-         *
-         * @method ClassList#contains
-         * @param {String} token
-         * @return {Boolean} if the token is present
-         
-        * @memberof ClassList 
-        * @instance 
-        * @method contains 
-        * @param token */
-    }, {
-        key: 'contains',
-        value: function contains(token) {
-            return this.tokens.indexOf(token) !== -1;
-        }
-    }, {
-        key: 'length',
-        get: function get() {
-            return this.tokens.length;
+            return QuerySelectorHelper.parser;
         }
     }]);
 &nbsp;
-    return ClassList;
+    return QuerySelectorHelper;
 })();
 &nbsp;
-exports['default'] = ClassList;
+QuerySelectorHelper.parser = null;
+&nbsp;
+exports['default'] = QuerySelectorHelper;
 module.exports = exports['default'];
-//# sourceMappingURL=ClassList.js.map</pre></td></tr>
+//# sourceMappingURL=QuerySelectorHelper.js.map</pre></td></tr>
 </table></pre>
 
 </div>
