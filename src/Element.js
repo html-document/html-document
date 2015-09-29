@@ -1,5 +1,6 @@
 import Node from './Node';
 import ParentNode from './ParentNode';
+import QuerySelectorHelper from './utils/QuerySelectorHelper';
 
 /**
  * The Element interface represents an object within a DOM document.
@@ -135,6 +136,32 @@ export default class Element extends ParentNode {
             }
         });
         return _array;
+    }
+
+    /**
+     * Returns the first element that is a descendant of the element on which it is invoked that matches the
+     * specified group of selectors.
+     *
+     * @method Element#querySelector
+     * @param {String} query CSS query for selecting element
+     * @return {Element|null}
+     */
+    querySelector(query) {
+        let helper = new QuerySelectorHelper(this);
+        return helper.parse(query);
+    }
+
+    /**
+     * Returns a non-live NodeList of all elements descended from the element on which it is invoked that match the
+     * specified group of CSS selectors.
+     *
+     * @method Element#querySelectorAll
+     * @param {String} query
+     * @return {Array.<Element>}
+     */
+    querySelectorAll(query) {
+        let helper = new QuerySelectorHelper(this);
+        return helper.parseAll(query);
     }
 }
 

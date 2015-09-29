@@ -1,5 +1,5 @@
 class CSSStyleRule {
-    constructor(propertyName: string, value: string, important: boolean) {
+    constructor(propertyName, value, important) {
         this.name = propertyName;
         this.value = value;
         this.important = important;
