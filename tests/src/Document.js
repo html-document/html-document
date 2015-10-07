@@ -69,3 +69,19 @@ test('create a html layout', () => {
     html.appendChild(body);
     expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></html>');
 });
+
+test('process query selector', () => {
+    let document = new Document();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    let element = document.querySelector('.first, input');
+    assert.equal(element.getAttribute('type'), 'text');
+});
+
+test('process query selector all', () => {
+    let document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    let elements = document.querySelectorAll('.first, input');
+    assert.equal(elements.length, 2);
+    assert.equal(elements[0].textContent, 'Text');
+    assert.equal(elements[1].getAttribute('type'), 'text');
+});

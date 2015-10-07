@@ -76,4 +76,20 @@ test('create a html layout', function () {
     html.appendChild(body);
     expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></html>');
 });
+
+test('process query selector', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    var element = document.querySelector('.first, input');
+    _proclaim2['default'].equal(element.getAttribute('type'), 'text');
+});
+
+test('process query selector all', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    var elements = document.querySelectorAll('.first, input');
+    _proclaim2['default'].equal(elements.length, 2);
+    _proclaim2['default'].equal(elements[0].textContent, 'Text');
+    _proclaim2['default'].equal(elements[1].getAttribute('type'), 'text');
+});
 //# sourceMappingURL=Document.js.map

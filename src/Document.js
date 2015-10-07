@@ -144,12 +144,33 @@ export default class Document extends Node {
         throw new Error('Not implemented');
     }
 
-    querySelector() {
-        throw new Error('Not implemented');
+    /**
+     * Returns the first element within the document (using depth-first pre-order traversal of the document's nodes|by
+     * first element in document markup and iterating through sequential nodes by order of amount of child nodes)
+     * that matches the specified group of selectors.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+     *
+     * @method Document#querySelector
+     * @param {string} selector
+     * @returns {Element}
+     */
+    querySelector(selector) {
+        return this.documentElement.querySelector(selector);
     }
 
-    querySelectorAll() {
-        throw new Error('Not implemented');
+    /**
+     * Returns a list of the elements within the document (using depth-first pre-order traversal of the document's
+     * nodes) that match the specified group of selectors. The object returned is a NodeList.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+     *
+     * @method Document#querySelectorAll
+     * @param {string} selector
+     * @returns {NodeList}
+     */
+    querySelectorAll(selector) {
+        return this.documentElement.querySelectorAll(selector);
     }
 }
 
