@@ -31,6 +31,7 @@ export default class Element extends ParentNode {
      * The id of the element.
      *
      * @member {String} Element#id
+     * @returns {String}
      */
     get id() {
         return this.getAttribute('id');
