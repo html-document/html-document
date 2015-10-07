@@ -4676,12 +4676,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <div class="nameContainer">
         <h4 class="name" id="querySelector">
             
-            querySelector<span class="signature">()</span>
+            querySelector<span class="signature">(selector, selector)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Element.html">Element</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 244
+            Document.js, line 243
         </div>
         
     </div>
@@ -4691,11 +4691,80 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 <dd>
     
     
+    <div class="description">
+        Returns the first element within the document (using depth-first pre-order traversal of the document's nodes|by
+first element in document markup and iterating through sequential nodes by order of amount of child nodes)
+that matches the specified group of selectors.
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -4719,6 +4788,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector</a></li>
+        </ul>
+    </dd>
+    
     
     
 </dl>
@@ -4732,6 +4808,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Element.html">Element</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     
@@ -4743,12 +4848,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <div class="nameContainer">
         <h4 class="name" id="querySelectorAll">
             
-            querySelectorAll<span class="signature">()</span>
+            querySelectorAll<span class="signature">(selector, selector)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="NodeList.html">NodeList</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 251
+            Document.js, line 264
         </div>
         
     </div>
@@ -4758,11 +4863,79 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 <dd>
     
     
+    <div class="description">
+        Returns a list of the elements within the document (using depth-first pre-order traversal of the document's
+nodes) that match the specified group of selectors. The object returned is a NodeList.
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -4786,6 +4959,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a></li>
+        </ul>
+    </dd>
+    
     
     
 </dl>
@@ -4799,6 +4979,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="NodeList.html">NodeList</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     
@@ -7864,12 +8073,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <div class="nameContainer">
         <h4 class="name" id="querySelector">
             
-            querySelector<span class="signature">()</span>
+            querySelector<span class="signature">(selector, selector)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="Element.html">Element</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 244
+            Document.js, line 243
         </div>
         
     </div>
@@ -7879,11 +8088,80 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 <dd>
     
     
+    <div class="description">
+        Returns the first element within the document (using depth-first pre-order traversal of the document's nodes|by
+first element in document markup and iterating through sequential nodes by order of amount of child nodes)
+that matches the specified group of selectors.
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -7907,6 +8185,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector">https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector</a></li>
+        </ul>
+    </dd>
+    
     
     
 </dl>
@@ -7920,6 +8205,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="Element.html">Element</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     
@@ -7931,12 +8245,12 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     <div class="nameContainer">
         <h4 class="name" id="querySelectorAll">
             
-            querySelectorAll<span class="signature">()</span>
+            querySelectorAll<span class="signature">(selector, selector)</span><span class="glyphicon glyphicon-circle-arrow-right"></span><span class="type-signature returnType">{<a href="NodeList.html">NodeList</a>}</span>
         </h4>
     
         
         <div class="tag-source">
-            Document.js, line 251
+            Document.js, line 264
         </div>
         
     </div>
@@ -7946,11 +8260,79 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
 <dd>
     
     
+    <div class="description">
+        Returns a list of the elements within the document (using depth-first pre-order traversal of the document's
+nodes) that match the specified group of selectors. The object returned is a NodeList.
+    </div>
+    
 
     
     
     
     
+    
+        
+
+<table class="params">
+    <thead>
+	<tr>
+		
+		<th>Name</th>
+		
+		
+		<th>Type</th>
+		
+		
+		
+		<th class="last">Description</th>
+	</tr>
+	</thead>
+	
+	<tbody>
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	
+        <tr>
+            
+                <td class="name"><code>selector</code></td>
+            
+            
+            <td class="type">
+            
+            </td>
+            
+            
+            
+            <td class="description last">
+                
+                </td>
+        </tr>
+	
+	
+	</tbody>
+</table>
     
     
     
@@ -7974,6 +8356,13 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll">https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll</a></li>
+        </ul>
+    </dd>
+    
     
     
 </dl>
@@ -7987,6 +8376,35 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
     
     
     
+    
+    <h5>Returns:</h5>
+    
+
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Type</th>
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    
+        <tr>
+            
+            <td class="type">
+            
+                        <a href="NodeList.html">NodeList</a>
+                        
+                    
+            </td>
+            <td class="description last"></td>
+        </tr>
+    
+    </tbody>
+</table>
+
     
     
     
@@ -8536,7 +8954,7 @@ with the DOM treewithout having to call document.getElementsByTagName() again.
         
 
         <footer>
-            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a> on Tue Sep 29 2015 09:25:00 GMT+0000 (UTC)
+            Documentation generated by <a target="_blank" href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.3</a> on Wed Oct 07 2015 12:41:54 GMT+0000 (UTC)
         </footer>
     </div>
 </div>
