@@ -1,6 +1,6 @@
 import Node from './Node';
 import ParentNode from './ParentNode';
-import QuerySelectorHelper from './utils/QuerySelectorHelper';
+import { querySelector as _querySelector, querySelectorAll as _querySelectorAll } from './utils/querySelectorHelper';
 
 /**
  * The Element interface represents an object within a DOM document.
@@ -148,8 +148,7 @@ export default class Element extends ParentNode {
      * @return {Element|null}
      */
     querySelector(query) {
-        let helper = new QuerySelectorHelper(this);
-        return helper.parse(query);
+        return _querySelector(this, query);
     }
 
     /**
@@ -161,8 +160,7 @@ export default class Element extends ParentNode {
      * @return {Array.<Element>}
      */
     querySelectorAll(query) {
-        let helper = new QuerySelectorHelper(this);
-        return helper.parseAll(query);
+        return _querySelectorAll(this, query);
     }
 }
 

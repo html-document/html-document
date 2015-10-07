@@ -1,121 +1,142 @@
-import {CssSelectorParser} from 'css-selector-parser';
+import { CssSelectorParser } from 'css-selector-parser';
+const cssParser  = new CssSelectorParser();
 
 /**
- * QuerySelectorHelper interface provides simple processing
+ * querySelectorHelper interface provides simple processing
  * of Element.querySelector method.
  */
-class QuerySelectorHelper {
-    constructor(element) {
-        this.element = element;
-        this.result = null;
+
+/**
+ *
+ * @param {Element} element
+ * @param {string} query
+ * @returns {Element|null}
+ */
+export function querySelector(element, query) {
+    let rules = cssParser.parse(query);
+
+    const iterator = processElement(element, rules);
+    const next = iterator.next();
+
+    if (next && next.value) {
+        return next.value;
     }
 
-    parse(query) {
-        let parser = QuerySelectorHelper.cssSelectorParser;
-        let rules = parser.parse(query);
-        this.result = null;
+    return null;
+};
 
-        if (rules.type === 'selectors') {
-            this.processSelectors(this.element, rules.selectors);
-        } else if (rules.type === 'ruleSet') {
-            this.processRule(this.element, rules.rule);
-        }
+/**
+  *
+  * @param {Element} element
+  * @param {string} query
+  * @returns {Element[]}
+  */
+export function querySelectorAll(element, query) {
+    let rules = cssParser.parse(query);
 
-        return this.result;
+    const result = [];
+    for (let element of processElement(element, rules)) {
+        result.push(element);
     }
 
-    parseAll(query) {
-        let parser = QuerySelectorHelper.cssSelectorParser;
-        let rules = parser.parse(query);
-        this.result = [];
+    return result;
+}
 
-        if (rules.type === 'selectors') {
-            this.processSelectors(this.element, rules.selectors);
-        } else if (rules.type === 'ruleSet') {
-            this.processRule(this.element, rules.rule);
+/**
+ * Function processes one element using current rule
+ *
+ * @param element
+ * @param rules
+ * @returns {boolean}
+ */
+function* processElement(element, rules) {
+    for (let child of element.children) {
+        for (let matchElement of processRules(child, rules)) {
+            yield matchElement;
         }
 
-        return this.result;
-    }
-
-    static get cssSelectorParser() {
-        if (QuerySelectorHelper.parser === null) {
-            QuerySelectorHelper.parser = new CssSelectorParser();
-        }
-
-        return QuerySelectorHelper.parser;
-    }
-
-    /**
-     * Function process all selectors
-     *
-     * @param element
-     * @param selectors
-     * @returns {boolean}
-     */
-    processSelectors(element, selectors) {
-        return selectors.every((selector) => {
-            return this.processRule(element, selector.rule);
-        }, this);
-    }
-
-    /**
-     * Function process one rule on element
-     *
-     * @param element
-     * @param rule
-     * @returns {boolean}
-     */
-    processRule(element, rule) {
-        return element.children.every((child) => {
-            return this.processElement(child, rule);
-        }, this);
-    }
-
-    /**
-     * Function processes one element using current rule
-     *
-     * @param element
-     * @param rule
-     * @returns {boolean}
-     */
-    processElement(element, rule) {
-        let itsMe = true;
-
-        if (itsMe && rule.hasOwnProperty('tagName')) {
-            itsMe &= element.tagName === rule.tagName;
-        }
-
-        if (itsMe && rule.hasOwnProperty('classNames')) {
-            itsMe &= rule.classNames.some((name)=> {
-                return element.classList.contains(name);
-            });
-        }
-
-        if (itsMe && rule.hasOwnProperty('attrs')) {
-            itsMe &= rule.attrs.some((attr)=> {
-                return element.hasAttribute(attr.name) && element.getAttribute(attr.name) === attr.value;
-            });
-        }
-
-        if (!itsMe) {
-            return this.processRule(element, rule);
-        }
-
-        if (rule.hasOwnProperty('rule')) {
-            return this.processRule(element, rule.rule);
-        } else {
-            if (this.result === null) {
-                this.result = element;
-                return false;
-            } else {
-                this.result.push(element);
-                return this.processRule(element, rule);
-            }
+        for (let matchElement of processElement(child, rules)) {
+            yield matchElement;
         }
     }
 }
 
-QuerySelectorHelper.parser = null;
+/**
+ * @param {Element} element
+ * @param rules
+ * @returns {boolean}
+ */
+function processRules(element, rules) {
+    if (rules.type === 'selectors') {
+        return processSelectors(element, rules.selectors);
+    } else if (rules.type === 'ruleSet') {
+        return processRule(element, rules.rule);
+    }
+}
 
-export default QuerySelectorHelper;
+/**
+ * @param {Element} element
+ * @param rule
+ * @returns {boolean}
+ */
+function processRule(element, rule) {
+    return processSelectors(element, [{ rule }]);
+}
+
+
+/**
+ * @param {Element} element
+ * @param selectors
+ * @returns {boolean}
+ */
+function* processSelectors(element, selectors) {
+    for (let selector of selectors) {
+        const rule = selector.rule;
+
+
+        if (!matchRule(element, rule)) {
+            continue;
+        }
+
+        if (!rule.hasOwnProperty('rule')) {
+            yield element;
+            return;
+        }
+
+        for (let childMatch of processElement(element, { type: 'ruleSet', rule: rule.rule })) {
+            yield childMatch;
+        }
+
+        return;
+    }
+}
+
+
+function matchRule(element, rule) {
+    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {
+        return false;
+    }
+
+    if (rule.hasOwnProperty('classNames')) {
+        if (!rule.classNames.every(name => element.classList.contains(name))) {
+            return false;
+        }
+    }
+
+    if (rule.hasOwnProperty('attrs')) {
+        if (!rule.attrs.every(attr => {
+                switch (attr.operator) {
+                    case undefined:
+                        return element.hasAttribute(attr.name);
+                    case '=':
+                        return element.getAttribute(attr.name) === attr.value;
+                    default:
+                        throw new Error('Unsupported attribute operator ' + attr.operator);
+                }
+            })) {
+            return false;
+        }
+    }
+
+    return true;
+}

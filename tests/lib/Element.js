@@ -1,11 +1,14 @@
-/* global test */
 'use strict';
 
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 
+/* global test */
+
 var _proclaim = require('proclaim');
 
 var _proclaim2 = _interopRequireDefault(_proclaim);
+
+'';
 
 var lib = '../../lib/';
 
@@ -22,12 +25,14 @@ test('Element querySelector', function () {
     div.appendChild(span);
     document.body.appendChild(div);
     document.body.appendChild(span2);
-    _proclaim2['default'].equal(span.className, 'css class');
-    _proclaim2['default'].deepEqual(span, document.body.querySelector('.css'));
-    _proclaim2['default'].deepEqual(span, document.body.querySelector('span.css'));
-    _proclaim2['default'].equal(null, document.body.querySelector('div.css'));
-    _proclaim2['default'].deepEqual(span, document.body.querySelector('div span.css'));
-    _proclaim2['default'].deepEqual(span2, document.body.querySelector('span[title=title]'));
+
+    _proclaim2['default'].strictEqual(document.body.querySelector('.css'), span);
+    _proclaim2['default'].strictEqual(span, document.body.querySelector('span.css'), span);
+    _proclaim2['default'].equal(document.body.querySelector('div.css'), null);
+    console.log(document.body.querySelector('div span.css').outerHTML);
+    _proclaim2['default'].strictEqual(document.body.querySelector('div span.css'), span);
+    console.log(document.body.querySelector('span[title=title]').outerHTML);
+    _proclaim2['default'].strictEqual(document.body.querySelector('span[title=title]'), span2);
 });
 
 test('Element querySelector on several selectors', function () {

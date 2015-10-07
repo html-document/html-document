@@ -1,4 +1,4 @@
-/* global test */
+``/* global test */
 import assert from 'proclaim';
 
 const lib = '../../lib/';
@@ -16,12 +16,14 @@ test('Element querySelector', () => {
     div.appendChild(span);
     document.body.appendChild(div);
     document.body.appendChild(span2);
-    assert.equal(span.className, 'css class');
-    assert.deepEqual(span, document.body.querySelector('.css'));
-    assert.deepEqual(span, document.body.querySelector('span.css'));
-    assert.equal(null, document.body.querySelector('div.css'));
-    assert.deepEqual(span, document.body.querySelector('div span.css'));
-    assert.deepEqual(span2, document.body.querySelector('span[title=title]'));
+
+    assert.strictEqual(document.body.querySelector('.css'), span);
+    assert.strictEqual(span, document.body.querySelector('span.css'), span);
+    assert.equal(document.body.querySelector('div.css'), null);
+    console.log(document.body.querySelector('div span.css').outerHTML);
+    assert.strictEqual(document.body.querySelector('div span.css'), span);
+    console.log(document.body.querySelector('span[title=title]').outerHTML);
+    assert.strictEqual(document.body.querySelector('span[title=title]'), span2);
 });
 
 test('Element querySelector on several selectors', () => {

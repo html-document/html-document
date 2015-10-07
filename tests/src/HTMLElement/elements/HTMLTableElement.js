@@ -1,6 +1,5 @@
 /* global test */
-import assert from 'proclaim';
-const expect = assert.strictEqual;
+import { strictEqual, isNull } from 'proclaim';
 
 const lib = '../../../../lib/';
 
@@ -11,47 +10,47 @@ const DOMException = require(lib + 'DOMException');
 test('HTMLTableElement should have the nodeName == table ', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = new Document();
-    expect(elt.nodeName, 'table');
+    strictEqual(elt.nodeName, 'table');
 });
 
 test('HTMLTableElement caption property', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = new Document();
-    expect(elt.caption, null);
+    isNull(elt.caption);
     let caption = elt.createCaption();
-    expect(elt.caption, caption);
+    strictEqual(elt.caption, caption);
     elt.deleteCaption();
-    expect(elt.caption, null);
+    isNull(elt.caption);
 });
 
 test('HTMLTableElement tHead property', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = new Document();
-    expect(elt.tHead, null);
+    isNull(elt.tHead);
     let head = elt.createTHead();
-    expect(elt.tHead, head);
+    strictEqual(elt.tHead, head);
     elt.deleteTHead();
-    expect(elt.tHead, null);
+    isNull(elt.tHead);
 });
 
 test('HTMLTableElement tFoot property', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = new Document();
-    expect(elt.tFoot, null);
+    isNull(elt.tFoot);
     let head = elt.createTFoot();
-    expect(elt.tFoot, head);
+    strictEqual(elt.tFoot, head);
     elt.deleteTFoot();
-    expect(elt.tFoot, null);
+    isNull(elt.tFoot);
 });
 
 test('HTMLTableElement rows property', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = new Document();
-    expect(elt.rows.length, 0);
+    strictEqual(elt.rows.length, 0);
     let row = elt.insertRow();
-    expect(elt.rows.length, 1);
-    expect(elt.tBodies.length, 1);
-    expect(elt.rows[0], row);
+    strictEqual(elt.rows.length, 1);
+    strictEqual(elt.tBodies.length, 1);
+    strictEqual(elt.rows[0], row);
 });
 
 test('HTMLTableElement import HTML table', () => {
@@ -59,10 +58,10 @@ test('HTMLTableElement import HTML table', () => {
     let div = document.createElement('div');
     div.innerHTML = '<table><tr><td>Some value</td></tr></table>';
     let table = div.querySelector('table');
-    expect(table.tagName, 'table');
-    expect(table.rows.length, 1);
-    expect(table.tBodies.length, 1);
-    expect(table.caption, null);
+    strictEqual(table.tagName, 'table');
+    strictEqual(table.rows.length, 1);
+    strictEqual(table.tBodies.length, 1);
+    isNull(table.caption);
 });
 
 test('HTMLTableElement outerHTML property', () => {
@@ -74,7 +73,7 @@ test('HTMLTableElement outerHTML property', () => {
     let row = thead.insertRow();
     let cell = row.insertCell();
     cell.innerHTML = 'Head cell';
-    expect(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
+    strictEqual(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
 });
 
 test('HTMLTableElement outerHTML property and right caption create', () => {
@@ -86,7 +85,7 @@ test('HTMLTableElement outerHTML property and right caption create', () => {
     cell.innerHTML = 'Head cell';
     let caption = table.createCaption();
     caption.innerHTML = 'Test';
-    expect(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
+    strictEqual(table.outerHTML, '<table><caption>Test</caption><thead><tr><td>Head cell</td></tr></thead></table>');
 });
 
 test('HTMLTableElement throw when setting wrong caption', () => {
@@ -106,6 +105,6 @@ test('HTMLTableElement set tHead', () => {
     let table = document.body.firstChild;
     let tHead = document.createElement('thead');
     table.tHead = tHead;
-    expect(table.outerHTML, '<table><caption>Some caption</caption><thead></thead>' +
+    strictEqual(table.outerHTML, '<table><caption>Some caption</caption><thead></thead>' +
         '<tbody><tr><td>Some cell</td></tr></tbody></table>');
 });
