@@ -10,7 +10,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * updated when rows are added or removed.
      *
      * @todo Update array to HTMLCollection when it's implemented
-     * @member {Array.<Element>} HTMLTableRowElement#cells
+     * @type {Element[]} HTMLTableRowElement#cells
      */
     get cells() {
         return this._childNodeFind(child => child.tagName === 'td');
@@ -21,7 +21,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
      * for French. This property was optional and was not very well supported.
      *
-     * @member {string} HTMLTableRowElement#ch
+     * @type {string}
      * @deprecated
      */
     get ch() {
@@ -33,7 +33,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
      * property was optional and was not very well supported.
      *
-     * @member {number} HTMLTableRowElement#chOff
+     * @type {number}
      * @deprecated
      */
     get chOff() {
@@ -44,7 +44,6 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Set align of element
      *
      * @param {string} value
-     * @ignore
      */
     set vAlign(value) {
         if (['top', 'middle', 'bottom', 'baseline'].indexOf(value)) {
@@ -57,8 +56,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * aligned. It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom",
      * or "baseline".
      *
-     * @member {string} HTMLTableRowElement#align
-     * @returns {string}
+     * @type {string}
      * @deprecated
      */
     get vAlign() {
@@ -69,7 +67,6 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Set align of element
      *
      * @param {string} value
-     * @ignore
      */
     set align(value) {
         if (['left', 'right', 'center'].indexOf(value) !== 1) {
@@ -82,8 +79,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * element's contents with respect to the surrounding context. The possible values are "left", "right", and
      * "center".
      *
-     * @member {string} HTMLTableRowElement#align
-     * @returns {string}
+     * @type {string}
      * @deprecated
      */
     get align() {
@@ -94,7 +90,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Returns a long value which gives the logical position of the row within the table section it belongs to.
      * If the row is not part of a section, returns -1.
      *
-     * @returns {number}
+     * @return {number}
      */
     get sectionRowIndex() {
         if (this.parentNode === null) {
@@ -108,7 +104,7 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Returns a long value which gives the logical position of the row within the entire table. If the row is not part
      * of a table, returns -1.
      *
-     * @returns {number}
+     * @type {number}
      */
     get rowIndex() {
         if (this.parentNode === null) {
@@ -156,7 +152,7 @@ export default class HTMLTableRowElement extends HTMLElement {
     /**
      * Method creates new &lt;td&gt; element and adds it to row.
      *
-     * @param {number} [index = -1]
+     * @param {number} index
      * @return {HTMLElement}
      */
     insertCell(index = -1) {

@@ -6,8 +6,6 @@ import ParentNode from './ParentNode';
  * a light-weight version of Document to store well-formed or potentially non-well-formed fragments of XML.
  *
   * @see https://developer.mozilla.org/en/docs/Web/API/DocumentFragment
-  * @class DocumentFragment
-  * @extends ParentNode
  */
 export default class DocumentFragment extends ParentNode {
     /**

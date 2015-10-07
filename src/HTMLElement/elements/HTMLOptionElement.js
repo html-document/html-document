@@ -5,14 +5,13 @@ import HTMLElement from '../../HTMLElement';
  * and inherits all classes and methods of the HTMLElement interface.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLOptionElement
- * @class HTMLOptionElement
  */
 export default class HTMLOptionElement extends HTMLElement {
     /**
      * Contains the initial value of the selected HTML attribute,
      * indicating whether the option is selected by default or not.
      *
-     * @member {Boolean} HTMLOptionElement#defaultSelected
+     * @type {boolean}
      * @ignore Unsuported
      */
     get defaultSelected() {
@@ -21,7 +20,7 @@ export default class HTMLOptionElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {Boolean} selected
+     * @param {boolean} selected
      */
     set defaultSelected(selected) {
         throw new Error('Unsuported');
@@ -31,7 +30,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * Reflects the value of the disabled HTML attribute, which indicates that the option is unavailable to be selected.
      * An option can also be disabled if it is a child of an optgroup element that is disabled.
      *
-     * @member {Boolean} HTMLOptionElement#disabled
+     * @type {boolean}
      */
     get disabled() {
         return !!this.getAttribute('disabled') &&
@@ -40,7 +39,7 @@ export default class HTMLOptionElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {Boolean} disabled
+     * @param {boolean} disabled
      */
     set disabled(disabled) {
         if (disabled) {
@@ -54,7 +53,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * If the option is a descendent of a select element, then this property has the same value as
      * the form property of the corresponding HTMLSelectElement object; otherwise, it is null.
      *
-     * @member {HTMLFormElement} HTMLOptionElement#form
+     * @type {HTMLFormElement}
      * @readonly
      */
     get form() {
@@ -72,7 +71,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * The position of the option within the list of options it belongs to, in tree-order.
      * If the option is not part of a list of options, like when it is part of the datalist element, the value is 0.
      *
-     * @member {Number} HTMLOptionElement#index
+     * @type {number}
      * @readonly
      * @ignore Unsuported
      */
@@ -82,7 +81,7 @@ export default class HTMLOptionElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {Number} value
+     * @param {number} value
      */
     set index(value) {
         throw new Error('index is read only');
@@ -92,8 +91,8 @@ export default class HTMLOptionElement extends HTMLElement {
      * Reflects the value of the label HTML attribute, which provides a label for the option.
      * If this attribute isn't specifically set, reading it returns the element's text content.
      *
-     * @member {String} HTMLOptionElement#label
-     * @ignore Not implemented
+     * @type {string}
+     * @ignore
      */
     get label() {
         throw new Error('Not implemented');
@@ -101,7 +100,7 @@ export default class HTMLOptionElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {String} label
+     * @param {string} label
      */
     set label(label) {
         throw new Error('Not implemented');
@@ -125,7 +124,7 @@ export default class HTMLOptionElement extends HTMLElement {
     /**
      * Indicates whether the option is currently selected.
      *
-     * @member {Boolean} HTMLOptionElement#selected
+     * @member {boolean}
      */
     get selected() {
         return !!this.getAttribute('selected');
@@ -133,7 +132,7 @@ export default class HTMLOptionElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {Boolean} selected
+     * @param {boolean} selected
      */
     set selected(selected) {
         if (selected) {
@@ -154,14 +153,14 @@ export default class HTMLOptionElement extends HTMLElement {
     /**
      * Contains the text content of the element.
      *
-     * @member {String} HTMLOptionElement#text
+     * @type {string}
      */
     get text() {
         return this.textContent;
     }
 
     /**
-     * @ignore
+     * @param {string} text
      */
     set text(text) {
         while (this.firstChild) {
@@ -175,7 +174,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * Reflects the value of the value HTML attribute, if it exists;
      * otherwise reflects value of the Node.textContent property.
      *
-     * @member {String} HTMLOptionElement#value
+     * @type {string}
      */
     get value() {
         const value = this.getAttribute('value');
@@ -183,8 +182,7 @@ export default class HTMLOptionElement extends HTMLElement {
     }
 
     /**
-     * @ignore
-     * @param {String} value
+     * @param {string} value
      */
     set value(value) {
         if (value) {

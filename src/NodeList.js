@@ -3,20 +3,16 @@
  * such as those returned by Node.childNodes and the document.querySelectorAll method..
  *
   * @see https://developer.mozilla.org/en/docs/Web/API/NodeList
-  * @class NodeList
  */
 export default class NodeList {
     constructor() {
         /**
-         * @property {number} length of the list
-         * @memberof NodeList
-
+         * @property {number} length length of the list
          */
         this.length = 0;
     }
 
     /**
-     * @method NodeList#item
      * @param {number} index
      * @return {Node|null}
      */

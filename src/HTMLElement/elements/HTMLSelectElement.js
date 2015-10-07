@@ -6,7 +6,6 @@ import HTMLElement from '../../HTMLElement';
  * They also have the specialized interface HTMLSelectElement.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLSelectElement
- * @class HTMLSelectElement
  *
  */
 export default class HTMLSelectElement extends HTMLElement {
@@ -22,6 +21,9 @@ export default class HTMLSelectElement extends HTMLElement {
         return this.hasAttribute('autofocus');
     }
 
+    /**
+     * @param {boolean} value
+     */
     set autoFocus(value) {
         if (value) {
             this.setAttribute('autofocus', '');
@@ -29,6 +31,7 @@ export default class HTMLSelectElement extends HTMLElement {
             this.removeAttribute('autofocus');
         }
     }
+
     /**
      * Is a Boolean that reflects the disabled HTML attribute,
      * which indicates whether the control is disabled.
@@ -40,6 +43,9 @@ export default class HTMLSelectElement extends HTMLElement {
         return this.hasAttribute('disabled');
     }
 
+    /**
+     * @param {boolean} value
+     */
     set disabled(value) {
         if (value) {
             this.setAttribute('disabled', 'disabled');
@@ -91,7 +97,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The number of option elements in this select element.
      *
-     * @type {Number}
+     * @type {number}
      * @readonly
      */
     get length() {
@@ -105,12 +111,15 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * Reflects the multiple HTML attribute, which indicates whether multiple items can be selected.
      *
-     * @type {Boolean}
+     * @type {boolean}
      */
     get multiple() {
         return this.hasAttribute('multiple');
     }
 
+    /**
+     * @param {boolean} multiple
+     */
     set multiple(multiple) {
         if (multiple) {
             this.setAttribute('multiple', 'multiple');
@@ -123,12 +132,15 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the name HTML attribute, containing the name of this control
      * used by servers and DOM search functions.
      *
-     * @type {String}
+     * @type {string}
      */
     get name() {
         return this.getAttribute('name');
     }
 
+    /**
+     * @param {string} name
+     */
     set name(name) {
         this.setAttribute('name', name);
     }
@@ -151,7 +163,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the required HTML attribute, which indicates whether the user is required
      * to select a value before submitting the form
      *
-     * @type {Boolean} HTMLSelectElement#required
+     * @type {boolean}
      */
     get required() {
         return this.hasAttribute('required');
@@ -169,7 +181,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * The index of the first selected option element.
      * The value -1 is returned if no element is selected.
      *
-     * @type {Number}
+     * @type {number}
      */
     get selectedIndex() {
         let index = -1;
@@ -202,6 +214,9 @@ export default class HTMLSelectElement extends HTMLElement {
         return index;
     }
 
+    /**
+     * @param {number} index
+     */
     set selectedIndex(index) {
         this.selectedOptions.forEach(option => option.selected = false);
         this.options[index].selected = true;
@@ -210,7 +225,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The set of options that are selected.
      *
-     * @type {Array.<Element>}
+     * @type {Element[]}
      * @readonly
      */
     get selectedOptions() {
@@ -239,12 +254,15 @@ export default class HTMLSelectElement extends HTMLElement {
      * Reflects the size HTML attribute, which contains the number of visible items in the control.
      * The default is 1, unless multiple is true, in which case it is 4.
      *
-     * @type {Number}
+     * @type {number}
      */
     get size() {
         return Number(this.getAttribute('size')) || (this.multiple ? 4 : 1);
     }
 
+    /**
+     * @param {number} size
+     */
     set size(size) {
         this.setAttribute('size', size);
     }
@@ -257,7 +275,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * The form control's type. When multiple is true, it returns select-multiple; otherwise, it returns select-one.
      * Read only.
      *
-     * @member {Number} HTMLSelectElement#size
+     * @type {string}
      * @readonly
      */
     get type() {
@@ -287,7 +305,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * The value of this form control, that is, of the first selected option.
      *
-     * @member {String} HTMLSelectElement#value
+     * @type {string}
      */
     get value() {
         return this.selectedOption && this.selectedOption.value;
@@ -295,7 +313,7 @@ export default class HTMLSelectElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {String} value
+     * @param {string} value
      */
     set value(value) {
         this.selectedOption.value = value;
@@ -313,7 +331,7 @@ export default class HTMLSelectElement extends HTMLElement {
     /**
      * Gets an item from the options collection for this select element.
      *
-     * @param {Number} index
+     * @param {number} index
      * @ return {HTMLSelectElement}
      */
     item(index) {
@@ -325,8 +343,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * The name string can match either the id or the name attribute of an option node
      *
      * @ignore Not implemented
-     * @method HTMLSelectElement#namedItem
-     * @param {String} name
+     * @param {string} name
      * @ return {HTMLSelectElement}
      */
     namedItem(name) {
@@ -337,8 +354,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * Removes the element at the specified index from the options collection for this select element.
      *
      * @ignore Not implemented
-     * @method HTMLSelectElement#remove
-     * @param {Number} index
+     * @param {number} index
      */
     remove(index) {
         throw new Error('Not implemented');

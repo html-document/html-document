@@ -9,21 +9,19 @@ const voidElements = 'area base br col embed hr img input keygen link meta param
  * The HTMLElement interface represents any HTML element.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement
- * @class HTMLElement
- * @extends Element
  */
 export default class HTMLElement extends Element {
     constructor() {
         super();
         /**
          * returns a token list of the class attribute of the element
-         * @member {CSSStyleDeclaration} HTMLElement#style
+         * @type {CSSStyleDeclaration} style
          * @readonly
          */
         this.style = new CSSStyleDeclaration(this);
         /**
          * returns a token list of the class attribute of the element
-         * @member {ClassList} HTMLElement#classList
+         * @type {ClassList} classList
          * @readonly
          */
         this.classList = new ClassList(this);
@@ -32,15 +30,14 @@ export default class HTMLElement extends Element {
     /**
      * The class of the element.
      *
-     * @member {String} HTMLElement#className
+     * @type {string}
      */
     get className() {
         return this.getAttribute('class');
     }
 
     /**
-     * @ignore
-     * @param {String} className
+     * @param {string} className
      */
     set className(className) {
         this.setAttribute('class', className);
@@ -58,7 +55,7 @@ export default class HTMLElement extends Element {
 
     /**
      * @ignore
-     * @return {String}
+     * @return {string}
      */
     get outerHTML() {
         return '<' + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) => {
