@@ -1,5 +1,5 @@
 import { CssSelectorParser } from 'css-selector-parser';
-const cssParser  = new CssSelectorParser();
+const cssParser = new CssSelectorParser();
 
 /**
  * querySelectorHelper interface provides simple processing
@@ -23,7 +23,7 @@ export function querySelector(element, query) {
     }
 
     return null;
-};
+}
 
 /**
   *
@@ -63,7 +63,7 @@ function* processElement(element, rules) {
 
 /**
  * @param {Element} element
- * @param rules
+ * @param {Object} rules
  * @returns {boolean}
  */
 function processRules(element, rules) {
@@ -76,23 +76,21 @@ function processRules(element, rules) {
 
 /**
  * @param {Element} element
- * @param rule
+ * @param {Object} rule
  * @returns {boolean}
  */
 function processRule(element, rule) {
     return processSelectors(element, [{ rule }]);
 }
 
-
 /**
  * @param {Element} element
- * @param selectors
+ * @param {Object[]} selectors
  * @returns {boolean}
  */
 function* processSelectors(element, selectors) {
     for (let selector of selectors) {
         const rule = selector.rule;
-
 
         if (!matchRule(element, rule)) {
             continue;
@@ -111,7 +109,6 @@ function* processSelectors(element, selectors) {
     }
 }
 
-
 function matchRule(element, rule) {
     if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {
         return false;
@@ -125,15 +122,15 @@ function matchRule(element, rule) {
 
     if (rule.hasOwnProperty('attrs')) {
         if (!rule.attrs.every(attr => {
-                switch (attr.operator) {
-                    case undefined:
-                        return element.hasAttribute(attr.name);
-                    case '=':
-                        return element.getAttribute(attr.name) === attr.value;
-                    default:
-                        throw new Error('Unsupported attribute operator ' + attr.operator);
-                }
-            })) {
+            switch (attr.operator) {
+                case undefined:
+                    return element.hasAttribute(attr.name);
+                case '=':
+                    return element.getAttribute(attr.name) === attr.value;
+                default:
+                    throw new Error('Unsupported attribute operator ' + attr.operator);
+            }
+        })) {
             return false;
         }
     }

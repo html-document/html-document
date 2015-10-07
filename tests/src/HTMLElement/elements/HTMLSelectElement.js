@@ -1,5 +1,5 @@
 /* global test */
-import { strictEqual, equal, isFalse, isTrue, isNull, throws } from 'proclaim';
+import { strictEqual, isFalse, isTrue, isNull, throws } from 'proclaim';
 
 const lib = '../../../../lib/';
 

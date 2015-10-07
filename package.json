@@ -19,8 +19,8 @@
   "devDependencies": {
     "coveralls": "^2.11.4",
     "proclaim": "^3.3",
-    "springbokjs-library": "^10.2.0",
-    "xunit-file": "0.0.7"
+    "springbokjs-library": "^10.2.4",
+    "xunit-file": "0.0.8"
   },
   "dependencies": {
     "babel-runtime": "^5.8.25",
@@ -34,6 +34,7 @@
     "postpublish": "make post-publish",
     "test": "make tests",
     "build": "make build",
-    "watch": "make watch"
+    "watch": "make watch",
+    "lint": "make lint"
   }
 }

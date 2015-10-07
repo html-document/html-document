@@ -66,8 +66,8 @@ export default class AbstractCSSStyleDeclaration {
      */
     _stringify() {
         let stylified = '';
-        this._properties.forEach((s) => {
-            stylified += s.name + ':' + s.value + (s.important && '!important' || '') + ';';
+        this._properties.forEach(prop => {
+            stylified += prop.name + ':' + prop.value + (prop.important && '!important' || '') + ';';
         });
         this._value = stylified;
     }

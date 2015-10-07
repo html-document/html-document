@@ -58,9 +58,9 @@ test('Node event dispatch', () => {
     const div = document.createElement('div');
     const event = new Event('DOMLoadReady');
 
-    function handler(e) {
-        assert.equal(e.type, 'domloadready');
-        assert.equal(e.target, div);
+    function handler(event) {
+        assert.equal(event.type, 'domloadready');
+        assert.equal(event.target, div);
     }
 
     div.addEventListener('DOMLoadReady', handler, true);

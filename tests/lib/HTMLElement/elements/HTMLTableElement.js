@@ -95,9 +95,9 @@ test('HTMLTableElement throw when setting wrong caption', function () {
     var elt = new HTMLTableElement();
     elt._ownerDocument = document;
     var span = document.createElement('span');
-    /*assert.throws(function() {
-        elt.caption = span;
-    }, DOMException);*/
+    (0, _proclaim.throws)(function () {
+        return elt.caption = span;
+    }, DOMException);
 });
 
 test('HTMLTableElement set tHead', function () {

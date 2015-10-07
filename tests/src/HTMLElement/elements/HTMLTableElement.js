@@ -1,5 +1,5 @@
 /* global test */
-import { strictEqual, isNull } from 'proclaim';
+import { strictEqual, isNull, throws } from 'proclaim';
 
 const lib = '../../../../lib/';
 
@@ -93,9 +93,7 @@ test('HTMLTableElement throw when setting wrong caption', () => {
     let elt = new HTMLTableElement();
     elt._ownerDocument = document;
     let span = document.createElement('span');
-    /*assert.throws(function() {
-        elt.caption = span;
-    }, DOMException);*/
+    throws(() => elt.caption = span, DOMException);
 });
 
 test('HTMLTableElement set tHead', () => {

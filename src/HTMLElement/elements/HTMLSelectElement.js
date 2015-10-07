@@ -180,14 +180,14 @@ export default class HTMLSelectElement extends HTMLElement {
             return index;
         }
 
-        options.some(function(option, i) {
+        options.some(function(option, idx) {
             if (option.selected) {
-                index = i;
+                index = idx;
                 return true;
             }
 
             if (emptyIndex === -1 && option.value === '') {
-                emptyIndex = i;
+                emptyIndex = idx;
             }
         });
 
