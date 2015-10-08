@@ -65,9 +65,9 @@ test('Node event dispatch', function () {
     var event = new Event('DOMLoadReady');
 
     /** @function 
-    * @param e */function handler(e) {
-        _proclaim2['default'].equal(e.type, 'domloadready');
-        _proclaim2['default'].equal(e.target, div);
+    * @param event */function handler(event) {
+        _proclaim2['default'].equal(event.type, 'domloadready');
+        _proclaim2['default'].equal(event.target, div);
     }
 
     div.addEventListener('DOMLoadReady', handler, true);

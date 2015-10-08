@@ -1,0 +1,127 @@
+/* global test */
+import { strictEqual, deepEqual, isNull } from 'proclaim';
+import Document from '../../../lib/Document';
+
+const document = new Document();
+
+test('querySelector', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span/><span class="a b c" data-test="test">content<span></span></span>';
+    const span1 = div.children[0];
+
+    strictEqual(div.querySelector('span'), span1);
+});
+
+test('querySelectorAll', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span/><span class="a b c" data-test="test">content<span></span></span>';
+    const span1 = div.children[0];
+    const spanAbc = div.children[1];
+    const innerSpan = div.children[1].children[0];
+
+    deepEqual(div.querySelectorAll('span'), [span1, spanAbc, innerSpan]);
+});
+
+test('querySelector class', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span class="a"/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanA = div.children[0];
+
+    strictEqual(div.querySelector('span.a'), spanA);
+});
+
+test('querySelectorAll class', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span class="a"/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanA = div.children[0];
+    const spanAbc = div.children[1];
+
+    deepEqual(div.querySelectorAll('span.a'), [spanA, spanAbc]);
+});
+
+test('querySelector classes', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span class="a"/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanAbc = div.children[1];
+
+    strictEqual(div.querySelector('span.a.b'), spanAbc);
+    strictEqual(div.querySelector('span.a.b.c'), spanAbc);
+});
+
+test('querySelectorAll classes', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span class="a"/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanAbc = div.children[1];
+
+    deepEqual(div.querySelectorAll('span.a.b'), [spanAbc]);
+    deepEqual(div.querySelectorAll('span.a.b.c'), [spanAbc]);
+});
+
+test('querySelector has attribute', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanAbc = div.children[1];
+
+    strictEqual(div.querySelector('span[class]'), spanAbc);
+});
+
+test('querySelectorAll has attribute', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanAbc = div.children[1];
+
+    deepEqual(div.querySelectorAll('span[class]'), [spanAbc]);
+
+    div.innerHTML = '<span class="a"/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanA = div.children[0];
+    const spanAbc2 = div.children[1];
+
+    deepEqual(div.querySelectorAll('span[class]'), [spanA, spanAbc2]);
+});
+
+test('querySelectorAll = attribute', () => {
+    const div = document.createElement('div');
+    div.innerHTML = '<span/><span class="a b c" data-test="test">content<span></span></span>';
+    const spanAbc = div.children[1];
+
+    isNull(div.querySelector('span[class="a"]'));
+    deepEqual(div.querySelectorAll('span[class="a b c"]'), [spanAbc]);
+});
+
+test('querySelector on several selectors', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    let element = document.body.querySelector('.first, input');
+    strictEqual(element.getAttribute('type'), 'text');
+});
+
+test('querySelectorAll', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    let elements = document.body.querySelectorAll('.first, input');
+    strictEqual(elements.length, 2);
+    strictEqual(elements[0].textContent, 'Text');
+    strictEqual(elements[1].getAttribute('type'), 'text');
+});
+
+test('querySelectorAll for several elements', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1</div><div>2</div><div>3</div><span></span><div>4</div>';
+    let elements = document.body.querySelectorAll('div');
+    strictEqual(elements.length, 4);
+    strictEqual(elements[0].textContent, '1');
+    strictEqual(elements[1].textContent, '2');
+    strictEqual(elements[2].textContent, '3');
+    strictEqual(elements[3].textContent, '4');
+});
+
+test('querySelectorAll deep several', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    let elements = document.body.querySelectorAll('div');
+    strictEqual(elements.length, 4);
+    strictEqual(elements[0].textContent, '1234');
+    strictEqual(elements[1].textContent, '234');
+    strictEqual(elements[2].textContent, '34');
+    strictEqual(elements[3].textContent, '4');
+});

@@ -10,10 +10,9 @@ import DOMException from '../../DOMException';
  */
 export default class HTMLTableElement extends HTMLElement {
     /**
-     * Caption of element, returns HTMLElement &lt;caption&gt;
+     * Caption of element, HTMLElement &lt;caption&gt;
      *
-     * @member {HTMLElement} HTMLTableElement#caption
-     * @returns {HTMLElement}
+     * @type {HTMLElement|null}
      */
     get caption() {
         return this.querySelector('caption');
@@ -22,7 +21,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Sets caption of element
      *
-     * @param {HTMLElement} element - element with tagName caption
+     * @param {HTMLElement|null} element - element with tagName caption
      * @ignore
      */
     set caption(element) {
@@ -45,8 +44,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Table head
      *
-     * @member {HTMLElement} HTMLTableElement#tHead
-     * @returns {HTMLElement}
+     * @type {HTMLElement|null}
      */
     get tHead() {
         return this._childNodeFind(child => child.tagName === 'thead');
@@ -54,16 +52,17 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {HTMLElement} element
+     * @param {HTMLElement|null} element
      */
     set tHead(element) {
         if (element.tagName !== 'thead') {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let thead = this.tHead;
-        if (thead !== null) {
-            this.replaceChild(element, thead);
+        let tHead = this.tHead;
+
+        if (tHead !== null) {
+            this.replaceChild(element, tHead);
         } else {
             if (this.children.every((child) => {
                 if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {
@@ -79,10 +78,9 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Returns tFoot element if any
+     * tFoot element if any
      *
-     * @member {HTMLElement} HTMLTableElement#tFoot
-     * @returns {HTMLElement}
+     * @type {HTMLElement|null}
      */
     get tFoot() {
         return this._childNodeFind(child => child.tagName === 'tfoot');
@@ -90,7 +88,7 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {HTMLElement} element
+     * @param {HTMLElement|null} element
      */
     set tFoot(element) {
         if (element.tagName !== 'tfoot') {
@@ -115,9 +113,9 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Returns all tr elements from table
+     * All tr elements from table
      *
-     * @member {HTMLElement} HTMLTableElement#rows
+     * @type {HTMLElement[]}
      * @readonly
      */
     get rows() {
@@ -154,7 +152,7 @@ export default class HTMLTableElement extends HTMLElement {
     /**
      * Returns all tbody elements from table
      *
-     * @member {HTMLElement[]} HTMLTableElement#tBodies
+     * @type {HTMLElement[]}
      * @readonly
      */
     get tBodies() {
@@ -168,14 +166,14 @@ export default class HTMLTableElement extends HTMLElement {
      * @returns {HTMLElement}
      */
     createTHead() {
-        let thead = this.tHead;
-        if (thead !== null) {
-            return thead;
+        let tHead = this.tHead;
+        if (tHead !== null) {
+            return tHead;
         }
 
-        thead = this.ownerDocument.createElement('thead');
-        this.tHead = thead;
-        return thead;
+        tHead = this.ownerDocument.createElement('thead');
+        this.tHead = tHead;
+        return tHead;
     }
 
     /**
@@ -191,14 +189,15 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * The HTMLTableElement.createCaption() method returns the caption for the table. If no caption element exists on
-     * the table, this method creates it, then returns it.
+     * The HTMLTableElement.createCaption() method returns the caption for the table.
+     * If no caption element exists on the table, this method creates it, then returns it.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
      * @returns {HTMLElement}
      */
     createCaption() {
         let caption = this.caption;
+
         if (caption !== null) {
             return caption;
         }
@@ -215,6 +214,7 @@ export default class HTMLTableElement extends HTMLElement {
      */
     deleteCaption() {
         let caption = this.caption;
+
         if (caption !== null) {
             this.removeChild(caption);
         }
@@ -228,6 +228,7 @@ export default class HTMLTableElement extends HTMLElement {
      */
     createTFoot() {
         let tfoot = this.tFoot;
+
         if (tfoot !== null) {
             return tfoot;
         }
@@ -270,7 +271,6 @@ export default class HTMLTableElement extends HTMLElement {
      * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
      * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
      *
-     * @param {number} [index = -1]
      * @return {HTMLElement}
      */
     insertRow(index = -1) {

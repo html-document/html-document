@@ -1,6 +1,6 @@
 import Node from './Node';
 import ParentNode from './ParentNode';
-import QuerySelectorHelper from './utils/QuerySelectorHelper';
+import { querySelector as _querySelector, querySelectorAll as _querySelectorAll } from './utils/querySelectorHelper';
 
 /**
  * The Element interface represents an object within a DOM document.
@@ -67,7 +67,7 @@ export default class Element extends ParentNode {
      * @readonly
      */
     get children() {
-        return this._childNodes.filter((n) => n instanceof Element);
+        return this._childNodes.filter(node => node instanceof Element);
     }
 
     /**
@@ -108,8 +108,8 @@ export default class Element extends ParentNode {
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
-        return this._childNodesRecursiveFind(e => {
-            return e instanceof Element && e.getAttribute('id') === id;
+        return this._childNodesRecursiveFind(node => {
+            return node instanceof Element && node.getAttribute('id') === id;
         }) || null;
     }
 
@@ -131,9 +131,9 @@ export default class Element extends ParentNode {
 
         _array = _array || [];
         tagName = tagName.toLowerCase();
-        this.children.forEach((e) => {
-            if (e.nodeName.toLowerCase() === tagName) {
-                _array.push(e);
+        this.children.forEach(child => {
+            if (child.nodeName.toLowerCase() === tagName) {
+                _array.push(child);
             }
         });
         return _array;
@@ -148,8 +148,7 @@ export default class Element extends ParentNode {
      * @return {Element|null}
      */
     querySelector(query) {
-        let helper = new QuerySelectorHelper(this);
-        return helper.parse(query);
+        return _querySelector(this, query);
     }
 
     /**
@@ -161,8 +160,7 @@ export default class Element extends ParentNode {
      * @return {Array.<Element>}
      */
     querySelectorAll(query) {
-        let helper = new QuerySelectorHelper(this);
-        return helper.parseAll(query);
+        return _querySelectorAll(this, query);
     }
 }
 

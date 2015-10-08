@@ -139,12 +139,12 @@ export default class Node {
         const _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';
         if (this[_eventsKey] && this[_eventsKey].has(eventType)) {
             let callbacks = this[_eventsKey].get(eventType);
-            let i = callbacks.indexOf(listener);
-            if (i === -1) {
+            let index = callbacks.indexOf(listener);
+            if (index === -1) {
                 return false;
             }
 
-            callbacks.splice(i, 1);
+            callbacks.splice(index, 1);
         }
     }
 
