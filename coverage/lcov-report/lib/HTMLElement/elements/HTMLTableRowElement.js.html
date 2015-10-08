@@ -301,7 +301,8 @@
 274
 275
 276
-277</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+277
+278</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -345,6 +346,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -414,39 +416,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -464,6 +436,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -616,10 +618,11 @@ var HTMLTableRowElement = (function (_HTMLElement) {
      * updated when rows are added or removed.
      *
      * @todo Update array to HTMLCollection when it's implemented
-     * @member {Array.&lt;Element&gt;} HTMLTableRowElement#cells
+     * @type {Element[]} HTMLTableRowElement#cells
      
     * @memberof HTMLTableRowElement 
-    * @instance */
+    * @instance 
+    * @member cells */
 &nbsp;
     _createClass(HTMLTableRowElement, [{
         key: 'insertCell',
@@ -627,7 +630,7 @@ var HTMLTableRowElement = (function (_HTMLElement) {
         /**
          * Method creates new &amp;lt;td&amp;gt; element and adds it to row.
          *
-         * @param {number} [index = -1]
+         * @param {number} index
          * @return {HTMLElement}
          
         * @memberof HTMLTableRowElement 
@@ -682,11 +685,12 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
          * for French. This property was optional and was not very well supported.
          *
-         * @member {string} HTMLTableRowElement#ch
+         * @type {string}
          * @deprecated
          
         * @memberof HTMLTableRowElement 
-        * @instance */
+        * @instance 
+        * @member ch */
     }, {
         key: 'ch',
         get: <span class="fstat-no" title="function not covered" >function get() {</span>
@@ -698,11 +702,12 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
          * property was optional and was not very well supported.
          *
-         * @member {number} HTMLTableRowElement#chOff
+         * @type {number}
          * @deprecated
          
         * @memberof HTMLTableRowElement 
-        * @instance */
+        * @instance 
+        * @member chOff */
     }, {
         key: 'chOff',
         get: <span class="fstat-no" title="function not covered" >function get() {</span>
@@ -713,7 +718,6 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * Set align of element
          *
          * @param {string} value
-         * @ignore
          
         * @memberof HTMLTableRowElement 
         * @instance 
@@ -731,12 +735,12 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * aligned. It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom",
          * or "baseline".
          *
-         * @member {string} HTMLTableRowElement#align
-         * @returns {string}
+         * @type {string}
          * @deprecated
          
         * @memberof HTMLTableRowElement 
-        * @instance */
+        * @instance 
+        * @member vAlign */
         get: <span class="fstat-no" title="function not covered" >function get() {</span>
 <span class="cstat-no" title="statement not covered" >            return this.getAttribute('valign');</span>
         }
@@ -745,7 +749,6 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * Set align of element
          *
          * @param {string} value
-         * @ignore
          
         * @memberof HTMLTableRowElement 
         * @instance 
@@ -763,12 +766,12 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * element's contents with respect to the surrounding context. The possible values are "left", "right", and
          * "center".
          *
-         * @member {string} HTMLTableRowElement#align
-         * @returns {string}
+         * @type {string}
          * @deprecated
          
         * @memberof HTMLTableRowElement 
-        * @instance */
+        * @instance 
+        * @member align */
         get: <span class="fstat-no" title="function not covered" >function get() {</span>
 <span class="cstat-no" title="statement not covered" >            return this.getAttribute('align');</span>
         }
@@ -777,7 +780,7 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * Returns a long value which gives the logical position of the row within the table section it belongs to.
          * If the row is not part of a section, returns -1.
          *
-         * @returns {number}
+         * @return {number}
          
         * @memberof HTMLTableRowElement 
         * @instance 
@@ -796,7 +799,7 @@ var HTMLTableRowElement = (function (_HTMLElement) {
          * Returns a long value which gives the logical position of the row within the entire table. If the row is not part
          * of a table, returns -1.
          *
-         * @returns {number}
+         * @type {number}
          
         * @memberof HTMLTableRowElement 
         * @instance 
@@ -858,7 +861,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 07 2015 12:41:55 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 13:11:38 GMT+0000 (UTC)</div>
 </div>
 <script src="../../../prettify.js"></script>
 <script>

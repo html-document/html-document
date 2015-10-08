@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/DOMException.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+</head>
+<body class="layout-container">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/christophehurpeau/html-document" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DOMException.js~DOMException.html">DOMException</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Doctype.js~Doctype.html">Doctype</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Document.js~Document.html">Document</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DocumentFragment.js~DocumentFragment.html">DocumentFragment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Node.js~Node.html">Node</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/NodeList.js~NodeList.html">NodeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html">ParentNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/DOMException.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const exceptions = {
+    IndexSizeError: { code: 1, message: &apos;The index is not in the allowed range.&apos; },
+    HierarchyRequestError: { code: 3, message: &apos;The operation would yield an incorrect node tree.&apos; },
+    WrongDocumentError: { code: 4, message: &apos;The object is in the wrong document.&apos; },
+    InvalidCharacterError: { code: 5, message: &apos;The string contains invalid characters.&apos; },
+    NoModificationAllowedError: { code: 7, message: &apos;The object can not be modified.&apos; },
+    NotFoundError: { code: 8, message: &apos;The object can not be found here.&apos; },
+    NotSupportedError: { code: 9, message: &apos;The operation is not supported.&apos; },
+    InvalidStateError: { code: 11, message: &apos;The object is in an invalid state.&apos; },
+    SyntaxError: { code: 12, message: &apos;The string did not match the expected pattern.&apos; },
+    InvalidModificationError: { code: 13, message: &apos;The object can not be modified in this way.&apos; },
+    NamespaceError: { code: 14, message: &apos;The operation is not allowed by Namespaces in XML.&apos; },
+    InvalidAccessError: { code: 15, message: &apos;The object does not support the operation or argument.&apos; },
+    SecurityError: { code: 18, message: &apos;The operation is insecure.&apos; },
+    NetworkError: { code: 19, message: &apos;A network error occurred.&apos; },
+    AbortError: { code: 20, message: &apos;The operation was aborted.&apos; },
+    URLMismatchError: { code: 21, message: &apos;The given URL does not match another URL.&apos; },
+    QuotaExceededError: { code: 22, message: &apos;The quota has been exceeded.&apos; },
+    TimeoutError: { code: 23, message: &apos;The operation timed out.&apos; },
+    InvalidNodeTypeError: {
+        code: 24,
+        message: &apos;The supplied node is incorrect or has an incorrect ancestor for this operation.&apos;,
+    },
+    DataCloneError: { code: 25, message: &apos;The object can not be cloned.&apos; },
+    EncodingError: { message: &apos;The encoding operation (either encoded or decoding) failed.&apos; },
+    NotReadableError: { message: &apos;The I/O read operation failed.&apos; },
+};
+
+/**
+ * @see https://developer.mozilla.org/en/docs/Web/API/DOMException
+ * @see https://www.w3.org/TR/domcore/#exception-domexception
+ * @param {number} code
+ */
+export default class DOMException {
+    /**
+     * @see https://heycam.github.io/webidl/#es-DOMException-constructor-object
+     *
+     * @param {string} name
+     */
+    constructor(name) {
+        this._name = name;
+        Error.captureStackTrace(this, DOMException);
+    }
+
+    /**
+     * @type {number}
+     * @readonly
+     */
+    get code() {
+        return exceptions[this._name].code || 0;
+    }
+
+    /**
+     * @type {string}
+     * @readonly
+     */
+    get name() {
+        return this._name;
+    }
+
+    /**
+     * @type {string}
+     * @readonly
+     */
+    get message() {
+        return exceptions[this._name].message;
+    }
+}
+
+/**
+ * @constant {number} DOMException.INDEX_SIZE_ERR
+ */
+Object.defineProperty(DOMException, &apos;INDEX_SIZE_ERR&apos;, { enumerable: true, configurable: false, value: 1 });
+
+/**
+ * @constant {number} DOMException.DOMSTRING_SIZE_ERR
+ */
+Object.defineProperty(DOMException, &apos;DOMSTRING_SIZE_ERR&apos;, { enumerable: true, configurable: false, value: 2 });
+
+/**
+ * @constant {number} DOMException.HIERARCHY_REQUEST_ERR
+ */
+Object.defineProperty(DOMException, &apos;HIERARCHY_REQUEST_ERR&apos;, { enumerable: true, configurable: false, value: 3 });
+
+/**
+ * @constant {number} DOMException.WRONG_DOCUMENT_ERR
+ */
+Object.defineProperty(DOMException, &apos;WRONG_DOCUMENT_ERR&apos;, { enumerable: true, configurable: false, value: 4 });
+
+/**
+ * @constant {number} DOMException.INVALID_CHARACTER_ERR
+ */
+Object.defineProperty(DOMException, &apos;INVALID_CHARACTER_ERR&apos;, { enumerable: true, configurable: false, value: 5 });
+
+/**
+ * @constant {number} DOMException.NO_DATA_ALLOWED_ERR
+ */
+Object.defineProperty(DOMException, &apos;NO_DATA_ALLOWED_ERR&apos;, { enumerable: true, configurable: false, value: 6 });
+
+/**
+ * @constant {number} DOMException.NO_MODIFICATION_ALLOWED_ERR
+ */
+Object.defineProperty(DOMException, &apos;NO_MODIFICATION_ALLOWED_ERR&apos;, { enumerable: true, configurable: false, value: 7 });
+
+/**
+ * @constant {number} DOMException.NOT_FOUND_ERR
+ */
+Object.defineProperty(DOMException, &apos;NOT_FOUND_ERR&apos;, { enumerable: true, configurable: false, value: 8 });
+
+/**
+ * @constant {number} DOMException.NOT_SUPPORTED_ERR
+ */
+Object.defineProperty(DOMException, &apos;NOT_SUPPORTED_ERR&apos;, { enumerable: true, configurable: false, value: 9 });
+
+/**
+ * @constant {number} DOMException.INUSE_ATTRIBUTE_ERR
+ */
+Object.defineProperty(DOMException, &apos;INUSE_ATTRIBUTE_ERR&apos;, { enumerable: true, configurable: false, value: 10 });
+
+/**
+ * @constant {number} DOMException.INVALID_STATE_ERR
+ */
+Object.defineProperty(DOMException, &apos;INVALID_STATE_ERR&apos;, { enumerable: true, configurable: false, value: 11 });
+
+/**
+ * @constant {number} DOMException.SYNTAX_ERR
+ */
+Object.defineProperty(DOMException, &apos;SYNTAX_ERR&apos;, { enumerable: true, configurable: false, value: 12 });
+
+/**
+ * @constant {number} DOMException.INVALID_MODIFICATION_ERR
+ */
+Object.defineProperty(DOMException, &apos;INVALID_MODIFICATION_ERR&apos;, { enumerable: true, configurable: false, value: 13 });
+
+/**
+ * @constant {number} DOMException.NAMESPACE_ERR
+ */
+Object.defineProperty(DOMException, &apos;NAMESPACE_ERR&apos;, { enumerable: true, configurable: false, value: 14 });
+
+/**
+ * @constant {number} DOMException.INVALID_ACCESS_ERR
+ */
+Object.defineProperty(DOMException, &apos;INVALID_ACCESS_ERR&apos;, { enumerable: true, configurable: false, value: 15 });
+
+/**
+ * @constant {number} DOMException.VALIDATION_ERR
+ */
+Object.defineProperty(DOMException, &apos;VALIDATION_ERR&apos;, { enumerable: true, configurable: false, value: 16 });
+
+/**
+ * @constant {number} DOMException.TYPE_MISMATCH_ERR
+ */
+Object.defineProperty(DOMException, &apos;TYPE_MISMATCH_ERR&apos;, { enumerable: true, configurable: false, value: 17 });
+
+/**
+ * @constant {number} DOMException.SECURITY_ERR
+ */
+Object.defineProperty(DOMException, &apos;SECURITY_ERR&apos;, { enumerable: true, configurable: false, value: 18 });
+
+/**
+ * @constant {number} DOMException.NETWORK_ERR
+ */
+Object.defineProperty(DOMException, &apos;NETWORK_ERR&apos;, { enumerable: true, configurable: false, value: 19 });
+
+/**
+ * @constant {number} DOMException.ABORT_ERR
+ */
+Object.defineProperty(DOMException, &apos;ABORT_ERR&apos;, { enumerable: true, configurable: false, value: 20 });
+
+/**
+ * @constant {number} DOMException.URL_MISMATCH_ERR
+ */
+Object.defineProperty(DOMException, &apos;URL_MISMATCH_ERR&apos;, { enumerable: true, configurable: false, value: 21 });
+
+/**
+ * @constant {number} DOMException.QUOTA_EXCEEDED_ERR
+ */
+Object.defineProperty(DOMException, &apos;QUOTA_EXCEEDED_ERR&apos;, { enumerable: true, configurable: false, value: 22 });
+
+/**
+ * @constant {number} DOMException.TIMEOUT_ERR
+ */
+Object.defineProperty(DOMException, &apos;TIMEOUT_ERR&apos;, { enumerable: true, configurable: false, value: 23 });
+
+/**
+ * @constant {number} DOMException.INVALID_NODE_TYPE_ERR
+ */
+Object.defineProperty(DOMException, &apos;INVALID_NODE_TYPE_ERR&apos;, { enumerable: true, configurable: false, value: 24 });
+
+/**
+ * @constant {number} DOMException.DATA_CLONE_ERR
+ */
+Object.defineProperty(DOMException, &apos;DATA_CLONE_ERR&apos;, { enumerable: true, configurable: false, value: 25 });
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

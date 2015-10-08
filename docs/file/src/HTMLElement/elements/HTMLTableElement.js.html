@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/HTMLElement/elements/HTMLTableElement.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+</head>
+<body class="layout-container">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/christophehurpeau/html-document" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DOMException.js~DOMException.html">DOMException</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Doctype.js~Doctype.html">Doctype</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Document.js~Document.html">Document</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DocumentFragment.js~DocumentFragment.html">DocumentFragment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Node.js~Node.html">Node</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/NodeList.js~NodeList.html">NodeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html">ParentNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLTableElement.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HTMLElement from &apos;../../HTMLElement&apos;;
+import DOMException from &apos;../../DOMException&apos;;
+
+/**
+ * The HTMLTable interface represents table
+ * and inherits all classes and methods of the HTMLElement interface.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement
+ */
+export default class HTMLTableElement extends HTMLElement {
+    /**
+     * Caption of element, HTMLElement &amp;lt;caption&amp;gt;
+     *
+     * @type {HTMLElement|null}
+     */
+    get caption() {
+        return this.querySelector(&apos;caption&apos;);
+    }
+
+    /**
+     * Sets caption of element
+     *
+     * @param {HTMLElement|null} element - element with tagName caption
+     * @ignore
+     */
+    set caption(element) {
+        if (element.tagName !== &apos;caption&apos;) {
+            throw new DOMException(&apos;HierarchyRequestError&apos;);
+        }
+
+        let caption = this.caption;
+        if (caption !== null) {
+            this.replaceChild(element, caption);
+        } else {
+            if (this.firstChild) {
+                this.insertBefore(element, this.firstChild);
+            } else {
+                this.appendChild(element);
+            }
+        }
+    }
+
+    /**
+     * Table head
+     *
+     * @type {HTMLElement|null}
+     */
+    get tHead() {
+        return this._childNodeFind(child =&gt; child.tagName === &apos;thead&apos;);
+    }
+
+    /**
+     * @ignore
+     * @param {HTMLElement|null} element
+     */
+    set tHead(element) {
+        if (element.tagName !== &apos;thead&apos;) {
+            throw new DOMException(&apos;HierarchyRequestError&apos;);
+        }
+
+        let tHead = this.tHead;
+
+        if (tHead !== null) {
+            this.replaceChild(element, tHead);
+        } else {
+            if (this.children.every((child) =&gt; {
+                if (child.tagName !== &apos;caption&apos; &amp;&amp; child.tagName !== &apos;colgroup&apos;) {
+                    this.insertBefore(element, child);
+                    return false;
+                }
+
+                return true;
+            })) {
+                this.appendChild(element);
+            }
+        }
+    }
+
+    /**
+     * tFoot element if any
+     *
+     * @type {HTMLElement|null}
+     */
+    get tFoot() {
+        return this._childNodeFind(child =&gt; child.tagName === &apos;tfoot&apos;);
+    }
+
+    /**
+     * @ignore
+     * @param {HTMLElement|null} element
+     */
+    set tFoot(element) {
+        if (element.tagName !== &apos;tfoot&apos;) {
+            throw new DOMException(&apos;HierarchyRequestError&apos;);
+        }
+
+        let tfoot = this.tFoot;
+        if (tfoot !== null) {
+            this.replaceChild(element, tfoot);
+        } else {
+            if (this.children.every((child) =&gt; {
+                if (child.tagName !== &apos;caption&apos; &amp;&amp; child.tagName !== &apos;colgroup&apos; &amp;&amp; child !== &apos;thead&apos;) {
+                    this.insertBefore(element, child);
+                    return false;
+                }
+
+                return true;
+            })) {
+                this.appendChild(element);
+            }
+        }
+    }
+
+    /**
+     * All tr elements from table
+     *
+     * @type {HTMLElement[]}
+     * @readonly
+     */
+    get rows() {
+        let result = [];
+        if (this.tHead !== null) {
+            this.tHead.children.forEach((element) =&gt; {
+                if (element.tagName === &apos;tr&apos;) {
+                    result.push(element);
+                }
+            });
+        }
+
+        if (this.tBodies.length &gt; 0) {
+            this.tBodies.forEach((body) =&gt; {
+                body.children.forEach((element) =&gt; {
+                    if (element.tagName === &apos;tr&apos;) {
+                        result.push(element);
+                    }
+                });
+            });
+        }
+
+        if (this.tFoot !== null) {
+            this.tFoot.children.forEach((element) =&gt; {
+                if (element.tagName === &apos;tr&apos;) {
+                    result.push(element);
+                }
+            });
+        }
+
+        return result;
+    }
+
+    /**
+     * Returns all tbody elements from table
+     *
+     * @type {HTMLElement[]}
+     * @readonly
+     */
+    get tBodies() {
+        return this.children.filter(element =&gt; element.tagName === &apos;tbody&apos;);
+    }
+
+    /**
+     * Method creates &amp;lt;thead&amp;gt; element for table and adds it in particular place
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead
+     * @return {HTMLElement}
+     */
+    createTHead() {
+        let tHead = this.tHead;
+        if (tHead !== null) {
+            return tHead;
+        }
+
+        tHead = this.ownerDocument.createElement(&apos;thead&apos;);
+        this.tHead = tHead;
+        return tHead;
+    }
+
+    /**
+     * Method deletes first &amp;lt;thead&amp;gt; element found in table (if any)
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead
+     */
+    deleteTHead() {
+        let thead = this.tHead;
+        if (thead !== null) {
+            this.removeChild(thead);
+        }
+    }
+
+    /**
+     * The HTMLTableElement.createCaption() method returns the caption for the table.
+     * If no caption element exists on the table, this method creates it, then returns it.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
+     * @return {HTMLElement}
+     */
+    createCaption() {
+        let caption = this.caption;
+
+        if (caption !== null) {
+            return caption;
+        }
+
+        caption = this.ownerDocument.createElement(&apos;caption&apos;);
+        this.caption = caption;
+        return caption;
+    }
+
+    /**
+     * Method deletes first found &amp;lt;caption&amp;gt; element if any
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption
+     */
+    deleteCaption() {
+        let caption = this.caption;
+
+        if (caption !== null) {
+            this.removeChild(caption);
+        }
+    }
+
+    /**
+     * Method adds &amp;lt;tfoot&amp;gt; element to table
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
+     * @return {HTMLElement}
+     */
+    createTFoot() {
+        let tfoot = this.tFoot;
+
+        if (tfoot !== null) {
+            return tfoot;
+        }
+
+        tfoot = this.ownerDocument.createElement(&apos;tfoot&apos;);
+        this.tFoot = tfoot;
+        return tfoot;
+    }
+
+    /**
+     * Method deletes first found &amp;lt;tfoot&amp;gt; element from table
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot
+     */
+    deleteTFoot() {
+        let tfoot = this.tFoot;
+        if (tfoot !== null) {
+            this.removeChild(tfoot);
+        }
+    }
+
+    /**
+     * Method creates &amp;lt;tbody&amp;gt; element and puts it in particular place
+     *
+     * @private
+     */
+    _createTBody() {
+        let tbody = this.ownerDocument.createElement(&apos;tbody&apos;);
+        let tfoot = this.tFoot;
+        if (tfoot) {
+            this.insertBefore(tbody, tfoot);
+        } else {
+            this.appendChild(tbody);
+        }
+
+        return tbody;
+    }
+
+    /**
+     * Method creates new &amp;lt;tr&amp;gt; element and adds it to table. If no &amp;lt;tbody&amp;gt; present in table
+     * creates it and adds &amp;lt;tr&amp;gt; to it, elsewhere adds row to last &amp;lt;tbody&amp;gt; element
+     *
+     * @return {HTMLElement}
+     */
+    insertRow(index = -1) {
+        let row = this.ownerDocument.createElement(&apos;tr&apos;);
+        let tbody = null;
+        let tbodies = this.tBodies;
+
+        if (tbodies.length === 0) {
+            tbody = this._createTBody();
+        } else {
+            tbody = tbodies[tbodies.length - 1];
+        }
+
+        if (index === -1 || index === tbody.length) {
+            tbody.appendChild(row);
+        } else if (index &lt; tbody.length - 1) {
+            tbody.insertBefore(row, tbody.children[index]);
+        } else {
+            throw new DOMException(&apos;IndexSizeError&apos;);
+        }
+
+        return row;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    appendChild(element) {
+        if (element.tagName === &apos;tr&apos;) {
+            let tbodies = this.tBodies;
+            let tbody = null;
+            if (tbodies.length === 0) {
+                tbody = this._createTBody();
+            } else {
+                tbody = tbodies[tbodies.length - 1];
+            }
+
+            return tbody.appendChild(element);
+        }
+
+        return super.appendChild(element);
+    }
+}
+
+/**
+ * @constant {string} HTMLTableElement#nodeName table
+ */
+Object.defineProperty(HTMLTableElement.prototype, &apos;nodeName&apos;, { value: &apos;table&apos; });
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

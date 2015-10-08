@@ -169,13 +169,7 @@
 142
 143
 144
-145
-146
-147
-148
-149
-150</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+145</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -264,7 +258,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -287,7 +280,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -300,9 +292,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -329,7 +319,6 @@
  * Specific behaviors are described in interfaces which inherit from Element but add additional functionality.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/Event
- * @class Event
  */
 "use strict";
 &nbsp;
@@ -344,7 +333,7 @@ Object.defineProperty(exports, "__esModule", {
 * @param type */
 var Event = (function () {
   /**
-   * @param {String} type
+   * @param {string} type
    */
 &nbsp;
   function Event(type) {
@@ -352,56 +341,56 @@ var Event = (function () {
 &nbsp;
     /**
      * A boolean indicating whether the event bubbles up through the DOM or not.
-     * @member {Boolean} Event#bubbles
+     * @type {boolean}
      * @readonly
      */
     this.bubbles = false;
 &nbsp;
     /**
      * A boolean indicating whether the event is cancelable.
-     * @member {Boolean} Event#cancelable
+     * @type {boolean}
      * @readonly
      */
     this.cancelable = false;
 &nbsp;
     /**
      * A reference to the currently registered target for the event.
-     * @member {HTMLElement} Event#currentTarget
+     * @type {HTMLElement}
      * @readonly
      */
     this.currentTarget = false;
 &nbsp;
     /**
      * Indicates whether or not event.preventDefault() has been called on the event.
-     * @member {Boolean} Event#defaultPrevented
+     * @type {boolean}
      * @readonly
      */
     this.defaultPrevented = false;
 &nbsp;
     /**
      * Indicates which phase of the event flow is being processed.
-     * @member {Number} Event#eventPhase
+     * @type {number}
      * @readonly
      */
     this.eventPhase = 0;
 &nbsp;
     /**
      * A reference to the target to which the event was originally dispatched.
-     * @member {HTMLElement} Event#target
+     * @type {HTMLElement}
      * @readonly
      */
     this.target = null;
 &nbsp;
     /**
      * The time that the event was created.
-     * @member {Number} Event#timeStamp
+     * @type {number}
      * @readonly
      */
     this.timeStamp = Date.now() * 1000;
 &nbsp;
     /**
      * The name of the event (case-insensitive).
-     * @member {String} Event#type
+     * @type {string}
      * @readonly
      */
     this.type = type.toLowerCase();
@@ -409,14 +398,13 @@ var Event = (function () {
     /**
      * Indicates whether or not the event was initiated by the browser (after a user click for instance)
      * or by a script (using an event creation method)
-     * @member {Boolean} Event#isTrusted
+     * @type {boolean}
      * @readonly
      */
     this.isTrusted = false;
   }
 &nbsp;
   /**
-   * @method Event#preventDefault
    
   * @memberof Event 
   * @instance 
@@ -429,7 +417,6 @@ var Event = (function () {
     }
 &nbsp;
     /**
-     * @method Event#stopImmediatePropagation
      
     * @memberof Event 
     * @instance 
@@ -442,7 +429,6 @@ var Event = (function () {
     }
 &nbsp;
     /**
-     * @method Event#stopPropagation
      
     * @memberof Event 
     * @instance 
@@ -454,8 +440,7 @@ var Event = (function () {
     }
 &nbsp;
     /**
-     * @method Event#isImmediatePropagationStopped
-     * @return {Boolean}
+     * @return {boolean}
      
     * @memberof Event 
     * @instance 
@@ -477,7 +462,7 @@ module.exports = exports["default"];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 07 2015 12:41:55 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 13:11:38 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

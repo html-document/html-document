@@ -104,7 +104,17 @@
 77
 78
 79
-80</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -133,18 +143,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-yes">39</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">29</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">29</span>
-<span class="cline-any cline-yes">29</span>
+<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">39</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -163,7 +173,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,7 +216,7 @@ var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 &nbsp;
 Object.defineProperty(exports, '__esModule', {
-    value: true
+  value: true
 });
 &nbsp;
 var _utilsEscapeHTML = require('./utils/escapeHTML');
@@ -209,49 +229,59 @@ var _Node3 = _interopRequireDefault(_Node2);
 &nbsp;
 /**
 * @see https://developer.mozilla.org/en/docs/Web/API/Text
-* @class Text
-* @extends Node
-* @param {String} textContent
-* @property {String} textContent
 */
 /** @class Text 
 * @param textContent */
 var Text = (function (_Node) {
-    _inherits(Text, _Node);
+  _inherits(Text, _Node);
 &nbsp;
-    function Text(textContent) {
-        _classCallCheck(this, Text);
+  /**
+   * @param {string} textContent
+   */
 &nbsp;
-        _get(Object.getPrototypeOf(Text.prototype), 'constructor', this).call(this);
-        this.value = textContent;
+  function Text(textContent) {
+    _classCallCheck(this, Text);
+&nbsp;
+    _get(Object.getPrototypeOf(Text.prototype), 'constructor', this).call(this);
+    this.value = textContent;
+  }
+&nbsp;
+  /**
+   * @constant {number} Comment#nodeType
+   */
+&nbsp;
+  _createClass(Text, [{
+    key: '_toHTML',
+    /** @memberof Text 
+    * @instance 
+    * @method _toHTML */value: function _toHTML() {
+      return (0, _utilsEscapeHTML2['default'])(this.value);
     }
 &nbsp;
     /**
-     * @constant {number} Comment#nodeType
-     */
+     * @return {string}
+     
+    * @memberof Text 
+    * @instance 
+    * @member textContent */
+  }, {
+    key: 'textContent',
+    get: function get() {
+      return this.value;
+    },
 &nbsp;
-    _createClass(Text, [{
-        key: '_toHTML',
-        /** @memberof Text 
-        * @instance 
-        * @method _toHTML */value: function _toHTML() {
-            return (0, _utilsEscapeHTML2['default'])(this.value);
-        }
-    }, {
-        key: 'textContent',
-        /** @memberof Text 
-        * @instance 
-        * @member textContent */get: function get() {
-            return this.value;
-        },
-        /** @memberof Text 
-        * @instance 
-        * @param textContent */set: <span class="fstat-no" title="function not covered" >function set(textContent) {</span>
-<span class="cstat-no" title="statement not covered" >            this.value = textContent;</span>
-        }
-    }]);
+    /**
+     * @param {string} textContent
+     
+    * @memberof Text 
+    * @instance 
+    * @param textContent */
+    set: <span class="fstat-no" title="function not covered" >function set(textContent) {</span>
+<span class="cstat-no" title="statement not covered" >      this.value = textContent;</span>
+    }
+  }]);
 &nbsp;
-    return Text;
+  return Text;
 })(_Node3['default']);
 &nbsp;
 exports['default'] = Text;
@@ -267,7 +297,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Wed Oct 07 2015 12:41:55 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 13:11:38 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

@@ -1,0 +1,40 @@
+{
+  "name": "html-document",
+  "description": "Partial implementation of document, HTMLElement for node",
+  "keywords": [
+    "DOM",
+    "HTMLElement",
+    "document",
+    "element",
+    "html",
+    "parser",
+    "springbokjs"
+  ],
+  "version": "0.8.1",
+  "repository": "christophehurpeau/html-document",
+  "homepage": "https://christophehurpeau.github.io/html-document/docs/",
+  "license": "MIT",
+  "author": "Christophe Hurpeau <christophe@hurpeau.com> (http://christophe.hurpeau.com/)",
+  "main": "./lib/Document.js",
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "proclaim": "^3.3",
+    "springbokjs-library": "^11.0.0",
+    "xunit-file": "0.0.8"
+  },
+  "dependencies": {
+    "babel-runtime": "^5.8.25",
+    "css-selector-parser": "^1.1.0",
+    "htmlparser2": "^3.8.3"
+  },
+  "scripts": {
+    "preversion": "make pre-version",
+    "version": "make version",
+    "prepublish": "make pre-publish",
+    "postpublish": "make post-publish",
+    "test": "make tests",
+    "build": "make build",
+    "watch": "make watch",
+    "lint": "make lint"
+  }
+}

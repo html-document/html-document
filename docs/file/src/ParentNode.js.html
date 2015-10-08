@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/ParentNode.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+</head>
+<body class="layout-container">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/christophehurpeau/html-document" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DOMException.js~DOMException.html">DOMException</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Doctype.js~Doctype.html">Doctype</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Document.js~Document.html">Document</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DocumentFragment.js~DocumentFragment.html">DocumentFragment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Node.js~Node.html">Node</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/NodeList.js~NodeList.html">NodeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html">ParentNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/ParentNode.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Node from &apos;./Node&apos;;
+import parse from &apos;./parse&apos;;
+
+/**
+ * The ParentNode interface contains methods that are particular to Node objects that can have children.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/ParentNode
+ */
+export default class ParentNode extends Node {
+    constructor() {
+        super();
+        this._childNodes = [];
+    }
+
+    /**
+     * TODO return {HTMLCollection}
+     *
+     * @type {Node[]}
+     * @readonly
+     */
+    get childNodes() {
+        return this._childNodes;
+    }
+
+    /**
+     * @param callback
+     * @private
+     */
+    _childNodesRecursiveForEach(callback) {
+        this._childNodes.forEach(function(node) {
+            callback(node);
+            if (node instanceof ParentNode) {
+                node._childNodesRecursiveForEach(callback);
+            }
+        });
+    }
+
+    /**
+     * @param callback
+     * @private
+     */
+    _childNodesRecursiveFind(callback) {
+        let result;
+        this._childNodes.some(function(node) {
+            if (callback(node)) {
+                result = node;
+                return true;
+            }
+
+            if (node instanceof ParentNode) {
+                result = node._childNodesRecursiveFind(callback);
+                if (result !== undefined) {
+                    return true;
+                }
+            }
+        });
+        return result;
+    }
+
+    /**
+     * @param callback
+     * @private
+     */
+    _filterDescendantNodes(callback) {
+        let result = [];
+
+        this._childNodesRecursiveForEach(node =&gt; {
+            if (callback(node)) {
+                result.push(node);
+            }
+        });
+
+        return result;
+    }
+
+    /**
+     * @param callback
+     * @private
+     */
+    _childNodeFind(callback) {
+        let result = null;
+        this._childNodes.some(node =&gt; {
+            if (callback(node)) {
+                result = node;
+                return true;
+            }
+        });
+        return result;
+    }
+
+    /**
+     * @type {Node|null}
+     * @readonly
+     */
+    get parentNode() {
+        return this._parentNode || null;
+    }
+
+    /**
+     * @return {Node|null}
+     * @private
+     */
+    _highestParent() {
+        let node = this._parentNode;
+
+        if (!node) {
+            return node;
+        }
+
+        while (node._parentNode != null) {
+            node = node._parentNode;
+        }
+
+        return node;
+    }
+
+    /**
+     * @param {string} nodeName
+     * @return {Node|null}
+     * @private
+     */
+    _closestParent(nodeName) {
+        let node = this._parentNode;
+
+        while (node != null &amp;&amp; node.nodeName !== nodeName) {
+            node = node._parentNode;
+        }
+
+        return node;
+    }
+
+    /**
+     * @type {Node|null}
+     * @readonly
+     */
+    get firstChild() {
+        return this._childNodes[0] || null;
+    }
+
+    /**
+     * @type {Node|null}
+     * @readonly
+     */
+    get lastChild() {
+        return this._childNodes[this._childNodes.length - 1] || null;
+    }
+
+    /**
+     * @type {Node|null}
+     * @readonly
+     */
+    get previousSibling() {
+        const indexInParent = this.parentNode._childNodes.indexOf(this);
+        if (indexInParent === -1) {
+            throw new Error(&apos;Unexpected state: this node is not in the parent&apos;);
+        }
+
+        return indexInParent !== 0 &amp;&amp; this.parentNode._childNodes[indexInParent - 1] || null;
+    }
+
+    /**
+     * @type {Node|null}
+     * @readonly
+     */
+    get nextSibling() {
+        const indexInParent = this.parentNode._childNodes.indexOf(this);
+        if (indexInParent === -1) {
+            throw new Error(&apos;Unexpected state: this node is not in the parent&apos;);
+        }
+
+        return this.parentNode._childNodes[indexInParent + 1] || null;
+    }
+
+    /**
+     * @param {Node} child
+     * @return {Node}
+     */
+    appendChild(child) {
+        if (!(child instanceof Node)) {
+            throw new Error(&apos;Trying to add non node element&apos;);
+        }
+
+        if (child._parentNode) {
+            child._parentNode.removeChild(child);
+        }
+
+        if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+            let childNode;
+
+            while (childNode = child.firstChild) {
+                child.removeChild(childNode);
+                this.appendChild(childNode);
+            }
+
+            return child;
+        }
+
+        child._parentNode = this;
+        this._childNodes.push(child);
+        return child;
+    }
+
+    /**
+     * @param {Node} newChild
+     * @param {Node} oldChild
+     * @return {Node}
+     */
+    replaceChild(newChild, oldChild) {
+        const index = this._childNodes.indexOf(oldChild);
+        if (index === -1) {
+            throw new Error(&apos;Node was not found&apos;);
+        }
+
+        if (newChild._parentNode) {
+            newChild._parentNode.removeChild(newChild);
+        }
+
+        if (newChild.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+            const newChildren = [];
+            let childNode;
+
+            while (childNode = newChild.firstChild) {
+                newChild.removeChild(childNode);
+                childNode._parentNode = this;
+                newChildren.push(childNode);
+            }
+
+            this._childNodes.splice(index, 1, ...newChildren);
+        } else {
+            newChild._parentNode = this;
+            this._childNodes[index] = newChild;
+        }
+
+        delete oldChild._parentNode;
+        return oldChild;
+    }
+
+    /**
+     * @param {Node} toRemoveChild
+     * @return {Node}
+     */
+    removeChild(toRemoveChild) {
+        const index = this._childNodes.indexOf(toRemoveChild);
+        if (index === -1) {
+            throw new Error(&apos;Node was not found&apos;);
+        }
+
+        this._childNodes.splice(index, 1);
+        delete toRemoveChild._parentNode;
+        return toRemoveChild;
+    }
+
+    /**
+     * @param {Node} child
+     * @param {Node} existingChild
+     * @return {Node}
+     */
+    insertBefore(child, existingChild) {
+        const index = this._childNodes.indexOf(existingChild);
+        if (index === -1) {
+            throw new Error(&apos;Node was not found&apos;);
+        }
+
+        if (child._parentNode) {
+            child._parentNode.removeChild(child);
+        }
+
+        if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {
+            const children = [];
+            let childNode;
+
+            while (childNode = child.firstChild) {
+                child.removeChild(childNode);
+                childNode._parentNode = this;
+                children.push(childNode);
+            }
+
+            this._childNodes.splice(index, 0, ...children);
+        } else {
+            child._parentNode = this;
+            this._childNodes.splice(index, 0, child);
+        }
+
+        return child;
+    }
+
+    /**
+     * @ignore
+     * @return {string}
+     */
+    get innerHTML() {
+        return this._childNodes.reduce(function(value, node) {
+            return value + node._toHTML();
+        }, &apos;&apos;);
+    }
+
+    /**
+     * @ignore
+     * @param {string} html
+     */
+    set innerHTML(html) {
+        this._childNodes = [];
+        parse(html, this);
+    }
+
+    /**
+     * @ignore
+     * @return {string}
+     */
+    get textContent() {
+        return this._childNodes.reduce(function(value, node) {
+            return value + node.textContent;
+        }, &apos;&apos;);
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

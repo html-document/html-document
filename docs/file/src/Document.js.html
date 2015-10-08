@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/Document.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+</head>
+<body class="layout-container">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/christophehurpeau/html-document" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DOMException.js~DOMException.html">DOMException</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Doctype.js~Doctype.html">Doctype</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Document.js~Document.html">Document</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DocumentFragment.js~DocumentFragment.html">DocumentFragment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Node.js~Node.html">Node</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/NodeList.js~NodeList.html">NodeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html">ParentNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/Document.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Node from &apos;./Node&apos;;
+import Comment from &apos;./Comment&apos;;
+import DocumentFragment from &apos;./DocumentFragment&apos;;
+import HTMLElement from &apos;./HTMLElement&apos;;
+import Text from &apos;./Text&apos;;
+
+// HTML Elements
+import HTMLOptionElement from &apos;./HTMLElement/elements/HTMLOptionElement&apos;;
+import HTMLSelectElement from &apos;./HTMLElement/elements/HTMLSelectElement&apos;;
+import HTMLTableElement from &apos;./HTMLElement/elements/HTMLTableElement&apos;;
+import HTMLTableSectionElement from &apos;./HTMLElement/elements/HTMLTableSectionElement&apos;;
+import HTMLTableRowElement from &apos;./HTMLElement/elements/HTMLTableRowElement&apos;;
+
+/**
+ * @see https://developer.mozilla.org/en/docs/Web/API/Document
+ */
+export default class Document extends Node {
+    constructor() {
+        super();
+        /**
+         * @type {HTMLElement}
+         */
+        this.documentElement = this.createElement(&apos;html&apos;);
+
+        /**
+         * @type {HTMLElement}
+         */
+        this.head = this.createElement(&apos;head&apos;);
+        this.documentElement.appendChild(this.head);
+
+        /**
+         * @type {HTMLElement}
+         */
+        this.body = this.createElement(&apos;body&apos;);
+        this.documentElement.appendChild(this.body);
+    }
+
+    /**
+     * Creates a new {@link Comment}.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment
+     *
+     * @param {string} data
+     * @return {Comment}
+    */
+    createComment(data) {
+        let comment = new Comment(data);
+        comment._ownerDocument = this;
+        return comment;
+    }
+
+    /**
+     * Creates a new empty {@link DocumentFragment}.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment
+     *
+     * @return {DocumentFragment}
+    */
+    createDocumentFragment() {
+        let fragment = new DocumentFragment();
+        fragment._ownerDocument = this;
+        return fragment;
+    }
+
+    /**
+     * Creates a new element with the given tag name.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement
+     *
+     * @param {string} name
+     * @return {HTMLElement}
+    */
+    createElement(name) {
+        let element;
+        switch (name.toLowerCase()) {
+            case &apos;select&apos;:
+                element = new HTMLSelectElement();
+                break;
+            case &apos;option&apos;:
+                element = new HTMLOptionElement();
+                break;
+            case &apos;table&apos;:
+                element = new HTMLTableElement();
+                break;
+            case &apos;thead&apos;:
+            case &apos;tfoot&apos;:
+            case &apos;tbody&apos;:
+                element = new HTMLTableSectionElement();
+                element.nodeName = name;
+                break;
+            case &apos;tr&apos;:
+                element = new HTMLTableRowElement();
+                break;
+            default:
+                element = new HTMLElement();
+                element.nodeName = name;
+        }
+        element._ownerDocument = this;
+        return element;
+    }
+
+    /**
+     * Creates a text node.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode
+     *
+     * @param {string} textContent
+     * @return {Text}
+    */
+    createTextNode(textContent) {
+        let text = new Text(textContent);
+        text._ownerDocument = this;
+        return text;
+    }
+
+    /**
+     * Returns a reference to the element by its ID.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById
+     *
+     * @param {string} id case-sensitive string representing the unique ID of the element being sought
+     * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
+     */
+    getElementById(id) {
+        return this.documentElement.getElementById(id);
+    }
+
+    /**
+     * Returns an HTMLCollection of elements with the given tag name.
+     * The complete document is searched, including the root node.
+     * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
+     * with the DOM treewithout having to call document.getElementsByTagName() again.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName
+     *
+     * @param {string} tagName
+     * @return {HTMLCollection}
+     */
+    getElementsByTagName(tagName, _array) {
+        return this.documentElement.getElementsByTagName(tagName, _array);
+    }
+
+    getElementsByClassName(className) {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    /**
+     * Returns the first element within the document (using depth-first pre-order traversal of the document&apos;s nodes|by
+     * first element in document markup and iterating through sequential nodes by order of amount of child nodes)
+     * that matches the specified group of selectors.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+     *
+     * @param {string} selector
+     * @return {Element}
+     */
+    querySelector(selector) {
+        return this.documentElement.querySelector(selector);
+    }
+
+    /**
+     * Returns a list of the elements within the document (using depth-first pre-order traversal of the document&apos;s
+     * nodes) that match the specified group of selectors. The object returned is a NodeList.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+     *
+     * @param {string} selector
+     * @return {NodeList}
+     */
+    querySelectorAll(selector) {
+        return this.documentElement.querySelectorAll(selector);
+    }
+}
+
+/**
+ * @constant {number} Comment#nodeType
+ */
+Object.defineProperty(Document.prototype, &apos;nodeType&apos;, { value: Node.DOCUMENT_NODE });
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

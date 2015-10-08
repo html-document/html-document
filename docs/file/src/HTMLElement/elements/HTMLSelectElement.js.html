@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/HTMLElement/elements/HTMLSelectElement.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+</head>
+<body class="layout-container">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/christophehurpeau/html-document" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Comment.js~Comment.html">Comment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DOMException.js~DOMException.html">DOMException</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Doctype.js~Doctype.html">Doctype</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Document.js~Document.html">Document</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/DocumentFragment.js~DocumentFragment.html">DocumentFragment</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Element.js~Element.html">Element</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Event.js~Event.html">Event</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Node.js~Node.html">Node</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/NodeList.js~NodeList.html">NodeList</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html">ParentNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Text.js~Text.html">Text</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-parse">parse</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLSelectElement.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HTMLElement from &apos;../../HTMLElement&apos;;
+
+/**
+ * HTML select elements share all of the properties and methods
+ * of other HTML elements described in the element section.
+ * They also have the specialized interface HTMLSelectElement.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/HTMLSelectElement
+ *
+ */
+export default class HTMLSelectElement extends HTMLElement {
+    /**
+     * Is a Boolean that reflects the autofocus HTML attribute,
+     * which indicates whether the control should have input focus when the page loads,
+     * unless the user overrides it, for example by typing in a different control.
+     * Only one form-associated element in a document can have this attribute specified
+     *
+     * @type {boolean}
+     */
+    get autoFocus() {
+        return this.hasAttribute(&apos;autofocus&apos;);
+    }
+
+    /**
+     * @param {boolean} value
+     */
+    set autoFocus(value) {
+        if (value) {
+            this.setAttribute(&apos;autofocus&apos;, &apos;&apos;);
+        } else {
+            this.removeAttribute(&apos;autofocus&apos;);
+        }
+    }
+
+    /**
+     * Is a Boolean that reflects the disabled HTML attribute,
+     * which indicates whether the control is disabled.
+     * If it is disabled, it does not accept clicks.
+     *
+     * @type {boolean}
+     */
+    get disabled() {
+        return this.hasAttribute(&apos;disabled&apos;);
+    }
+
+    /**
+     * @param {boolean} value
+     */
+    set disabled(value) {
+        if (value) {
+            this.setAttribute(&apos;disabled&apos;, &apos;disabled&apos;);
+        } else {
+            this.removeAttribute(&apos;disabled&apos;);
+        }
+    }
+
+    /**
+     * The form that this element is associated with. If this element is a descendant of a form element,
+     * then this attribute is the ID of that form element.
+     * If the element is not a descendant of a form element, then:
+     * The attribute can be the ID of any form element in the same document.
+     *
+     * @type {HTMLFormElement}
+     * @readonly
+     */
+    get form() {
+        return this._closestParent(&apos;form&apos;) || null;
+    }
+
+    set form(value) {
+        throw new Error(&apos;form is read only&apos;);
+    }
+
+    /**
+     * Returns a NodeList containing the list of label elements associated with this select element.
+     *
+     * @type {HTMLLabelElement[]}
+     * @readonly
+     */
+    get labels() {
+        if (!this.hasAttribute(&apos;id&apos;)) {
+            return [];
+        }
+
+        const id = this.getAttribute(&apos;id&apos;);
+        const highestParent = this._highestParent();
+
+        if (!highestParent) {
+            return [];
+        }
+
+        return highestParent._filterDescendantNodes(node =&gt; {
+            return node.tagName === &apos;label&apos; &amp;&amp; node.getAttribute(&apos;for&apos;) === id;
+        });
+    }
+
+    /**
+     * The number of option elements in this select element.
+     *
+     * @type {number}
+     * @readonly
+     */
+    get length() {
+        return this.options.length;
+    }
+
+    set length(value) {
+        throw new Error(&apos;length is read only&apos;);
+    }
+
+    /**
+     * Reflects the multiple HTML attribute, which indicates whether multiple items can be selected.
+     *
+     * @type {boolean}
+     */
+    get multiple() {
+        return this.hasAttribute(&apos;multiple&apos;);
+    }
+
+    /**
+     * @param {boolean} multiple
+     */
+    set multiple(multiple) {
+        if (multiple) {
+            this.setAttribute(&apos;multiple&apos;, &apos;multiple&apos;);
+        } else {
+            this.removeAttribute(&apos;multiple&apos;);
+        }
+    }
+
+    /**
+     * Reflects the name HTML attribute, containing the name of this control
+     * used by servers and DOM search functions.
+     *
+     * @type {string}
+     */
+    get name() {
+        return this.getAttribute(&apos;name&apos;);
+    }
+
+    /**
+     * @param {string} name
+     */
+    set name(name) {
+        this.setAttribute(&apos;name&apos;, name);
+    }
+
+    /**
+     * The set of option elements contained by this element.
+     *
+     * @type {Array.&lt;Element&gt;}
+     * @readonly
+     */
+    get options() {
+        return this.getElementsByTagName(&apos;option&apos;);
+    }
+
+    set options(value) {
+        throw new Error(&apos;options is read only&apos;);
+    }
+
+    /**
+     * Reflects the required HTML attribute, which indicates whether the user is required
+     * to select a value before submitting the form
+     *
+     * @type {boolean}
+     */
+    get required() {
+        return this.hasAttribute(&apos;required&apos;);
+    }
+
+    set required(required) {
+        if (required) {
+            this.setAttribute(&apos;required&apos;, &apos;required&apos;);
+        } else {
+            this.removeAttribute(&apos;required&apos;);
+        }
+    }
+
+    /**
+     * The index of the first selected option element.
+     * The value -1 is returned if no element is selected.
+     *
+     * @type {number}
+     */
+    get selectedIndex() {
+        let index = -1;
+        let emptyIndex = -1;
+        const options = this.options;
+
+        if (!options.length) {
+            return index;
+        }
+
+        options.some(function(option, idx) {
+            if (option.selected) {
+                index = idx;
+                return true;
+            }
+
+            if (emptyIndex === -1 &amp;&amp; option.value === &apos;&apos;) {
+                emptyIndex = idx;
+            }
+        });
+
+        if (index === -1 &amp;&amp; !this.multiple) {
+            index = emptyIndex;
+
+            if (index === -1) {
+                return 0;
+            }
+        }
+
+        return index;
+    }
+
+    /**
+     * @param {number} index
+     */
+    set selectedIndex(index) {
+        this.selectedOptions.forEach(option =&gt; option.selected = false);
+        this.options[index].selected = true;
+    }
+
+    /**
+     * The set of options that are selected.
+     *
+     * @type {Element[]}
+     * @readonly
+     */
+    get selectedOptions() {
+        return this.options.filter(function(option) {
+            return option.selected;
+        });
+    }
+
+    /**
+     * The first selected option.
+     *
+     * @type {HtmlOptionElement|null}
+     * @readonly
+     */
+    get selectedOption() {
+        let selectedIndex = this.selectedIndex;
+
+        if (selectedIndex === -1) {
+            return null;
+        }
+
+        return this.options[selectedIndex];
+    }
+
+    /**
+     * Reflects the size HTML attribute, which contains the number of visible items in the control.
+     * The default is 1, unless multiple is true, in which case it is 4.
+     *
+     * @type {number}
+     */
+    get size() {
+        return Number(this.getAttribute(&apos;size&apos;)) || (this.multiple ? 4 : 1);
+    }
+
+    /**
+     * @param {number} size
+     */
+    set size(size) {
+        this.setAttribute(&apos;size&apos;, size);
+    }
+
+    get tabIndex() {
+        throw new Error(&apos;Obsolete since HTML5&apos;);
+    }
+
+    /**
+     * The form control&apos;s type. When multiple is true, it returns select-multiple; otherwise, it returns select-one.
+     * Read only.
+     *
+     * @type {string}
+     * @readonly
+     */
+    get type() {
+        return this.multiple ? &apos;select-multiple&apos; : &apos;select-one&apos;;
+    }
+
+    set type(value) {
+        throw new Error(&apos;type is read only&apos;);
+    }
+
+    get validationMessage() {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    set validationMessage(value) {
+        throw new Error(&apos;validationMessage is read only&apos;);
+    }
+
+    get validity() {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    set validity(value) {
+        throw new Error(&apos;validity is read only&apos;);
+    }
+
+    /**
+     * The value of this form control, that is, of the first selected option.
+     *
+     * @type {string}
+     */
+    get value() {
+        return this.selectedOption &amp;&amp; this.selectedOption.value;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set value(value) {
+        this.selectedOption.value = value;
+        return value;
+    }
+
+    get willValidate() {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    set willValidate(value) {
+        throw new Error(&apos;willValidate is read only&apos;);
+    }
+
+    /**
+     * Gets an item from the options collection for this select element.
+     *
+     * @param {number} index
+     * @ return {HTMLSelectElement}
+     */
+    item(index) {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    /**
+     * Gets the item in the options collection with the specified name.
+     * The name string can match either the id or the name attribute of an option node
+     *
+     * @ignore Not implemented
+     * @param {string} name
+     * @ return {HTMLSelectElement}
+     */
+    namedItem(name) {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+
+    /**
+     * Removes the element at the specified index from the options collection for this select element.
+     *
+     * @ignore Not implemented
+     * @param {number} index
+     */
+    remove(index) {
+        throw new Error(&apos;Not implemented&apos;);
+    }
+}
+
+/**
+ * @constant {string} HTMLSelectElement#nodeName option
+ */
+Object.defineProperty(HTMLSelectElement.prototype, &apos;nodeName&apos;, { value: &apos;select&apos; });
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

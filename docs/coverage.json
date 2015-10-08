@@ -1,0 +1,168 @@
+{
+  "coverage": "85.85%",
+  "expectCount": 198,
+  "actualCount": 170,
+  "files": {
+    "src/Abstract/AbstractCSSStyleDeclaration.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/HTMLElement/CSSStyleDeclaration.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/HTMLElement/ClassList.js": {
+      "expectCount": 8,
+      "actualCount": 7,
+      "undocumentLines": [
+        12
+      ]
+    },
+    "src/Comment.js": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/DOMException.js": {
+      "expectCount": 5,
+      "actualCount": 5,
+      "undocumentLines": []
+    },
+    "src/Doctype.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/Document.js": {
+      "expectCount": 14,
+      "actualCount": 12,
+      "undocumentLines": [
+        18,
+        143
+      ]
+    },
+    "src/DocumentFragment.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    },
+    "src/Element.js": {
+      "expectCount": 12,
+      "actualCount": 12,
+      "undocumentLines": []
+    },
+    "src/Event.js": {
+      "expectCount": 17,
+      "actualCount": 15,
+      "undocumentLines": [
+        87,
+        94
+      ]
+    },
+    "src/HTMLElement.js": {
+      "expectCount": 6,
+      "actualCount": 5,
+      "undocumentLines": [
+        14
+      ]
+    },
+    "src/HTMLElement/elements/HTMLOptionElement.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "src/HTMLElement/elements/HTMLSelectElement.js": {
+      "expectCount": 35,
+      "actualCount": 23,
+      "undocumentLines": [
+        70,
+        107,
+        158,
+        172,
+        270,
+        285,
+        293,
+        289,
+        297,
+        301,
+        323,
+        327
+      ]
+    },
+    "src/HTMLElement/elements/HTMLTableElement.js": {
+      "expectCount": 14,
+      "actualCount": 14,
+      "undocumentLines": []
+    },
+    "src/HTMLElement/elements/HTMLTableRowElement.js": {
+      "expectCount": 13,
+      "actualCount": 11,
+      "undocumentLines": [
+        3,
+        4
+      ]
+    },
+    "src/HTMLElement/elements/HTMLTableSectionElement.js": {
+      "expectCount": 9,
+      "actualCount": 9,
+      "undocumentLines": []
+    },
+    "src/Node.js": {
+      "expectCount": 11,
+      "actualCount": 10,
+      "undocumentLines": [
+        8
+      ]
+    },
+    "src/NodeList.js": {
+      "expectCount": 5,
+      "actualCount": 3,
+      "undocumentLines": [
+        27,
+        8
+      ]
+    },
+    "src/ParentNode.js": {
+      "expectCount": 12,
+      "actualCount": 11,
+      "undocumentLines": [
+        10
+      ]
+    },
+    "src/Text.js": {
+      "expectCount": 5,
+      "actualCount": 4,
+      "undocumentLines": [
+        13
+      ]
+    },
+    "src/utils/escapeAttribute.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        3
+      ]
+    },
+    "src/utils/escapeHTML.js": {
+      "expectCount": 1,
+      "actualCount": 0,
+      "undocumentLines": [
+        1
+      ]
+    },
+    "src/parse.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/utils/querySelectorHelper.js": {
+      "expectCount": 2,
+      "actualCount": 2,
+      "undocumentLines": []
+    }
+  }
+}
