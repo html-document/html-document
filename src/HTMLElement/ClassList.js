@@ -2,8 +2,6 @@
 
 /**
  * @see https://developer.mozilla.org/fr/docs/Web/API/Element/classList
- * @class ClassList
- * @param {HTMLElement} element
  */
 export default class ClassList {
     /**
@@ -15,7 +13,7 @@ export default class ClassList {
     }
 
     /**
-     * @member {Number} ClassList#length
+     * @type {number}
      * @readonly
      */
     get length() {
@@ -39,19 +37,20 @@ export default class ClassList {
     /**
      * Adds a class to an element's list of classes
      *
-     * @method ClassList#add
-     * @param {...string} className
+     * @param {...string} tokens
      *
      */
-    add() {
+    add(...tokens) {
         let updated = false;
-        Array.prototype.forEach.call(arguments, (token) => {
+
+        tokens.forEach(token => {
             token = String(token);
             if (this.tokens.indexOf(token) === -1) {
                 this.tokens.push(token);
                 updated = true;
             }
         });
+
         if (updated) {
             this._stringify();
         }
@@ -60,18 +59,19 @@ export default class ClassList {
     /**
      * Removes a class from an element's list of classes
      *
-     * @method ClassList#remove
-     * @param {...string} token
+     * @param {...string} tokens
      */
-    remove() {
+    remove(...tokens) {
         let updated = false;
-        Array.prototype.forEach.call(arguments, (token) => {
+
+        tokens.forEach(token => {
             const index = this.tokens.indexOf(token);
             if (index !== -1) {
                 this.tokens.splice(index, 1);
                 updated = true;
             }
         });
+
         if (updated) {
             this._stringify();
         }
@@ -80,10 +80,9 @@ export default class ClassList {
     /**
      * Toggles the existence of a class in an element's list of classes
      *
-     * @method ClassList#toggle
-     * @param {String} token
-     * @param {Boolean} force
-     * @return {Boolean} if the token was added
+     * @param {string} token
+     * @param {boolean} force
+     * @return {boolean} if the token was added
      *
      */
     toggle(token, force) {
@@ -101,9 +100,8 @@ export default class ClassList {
     /**
      * Checks if an element's list of classes contains a specific class
      *
-     * @method ClassList#contains
-     * @param {String} token
-     * @return {Boolean} if the token is present
+     * @param {string} token
+     * @return {boolean} if the token is present
      */
     contains(token) {
         return this.tokens.indexOf(token) !== -1;

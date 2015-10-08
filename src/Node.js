@@ -25,9 +25,8 @@ export default class Node {
     /**
      * get attribute's value
      *
-     * @method Node#getAttribute
-     * @param {String} attributeName
-     * @return {String}
+     * @param {string} attributeName
+     * @return {string}
      */
     getAttribute(attributeName) {
         return attributeName in this._attributes ? this._attributes[attributeName] : null;
@@ -37,8 +36,8 @@ export default class Node {
      * checks if attribute exists for node
      *
      * @method Node#hasAttribute
-     * @param {String} attributeName
-     * @returns {boolean}
+     * @param {string} attributeName
+     * @return {boolean}
      */
     hasAttribute(attributeName) {
         return attributeName in this._attributes;
@@ -48,8 +47,8 @@ export default class Node {
      * set attribute's value
      *
      * @method Node#setAttribute
-     * @param {String} attributeName
-     * @param {String} attributeValue
+     * @param {string} attributeName
+     * @param {string} attributeValue
      */
     setAttribute(attributeName, attributeValue) {
         this._setAttribute(attributeName, attributeValue);
@@ -60,8 +59,8 @@ export default class Node {
      * set attribute's value
      *
      * @internal
-     * @param {String} attributeName
-     * @param {String} attributeValue
+     * @param {string} attributeName
+     * @param {string} attributeValue
      */
     _setAttribute(attributeName, attributeValue) {
         this._attributes[attributeName] = String(attributeValue);
@@ -70,8 +69,7 @@ export default class Node {
     /**
      * remove attribute
      *
-     * @method Node#removeAttribute
-     * @param {String} attributeName
+     * @param {string} attributeName
      */
     removeAttribute(attributeName) {
         if (this._attributes[attributeName] !== undefined) {
@@ -82,8 +80,8 @@ export default class Node {
 
     /**
      * @internal
-     * @param {String} attributeName
-     * @param {String} [value]
+     * @param {string} attributeName
+     * @param {string} [value]
      */
     _updatedAttribute(attributeName, value) {
     }
@@ -91,8 +89,7 @@ export default class Node {
     /* CONTENT */
 
     /**
-     * @property Node#textContent
-     * @return {String}
+     * @type {string}
      */
     get textContent() {
         return '';
@@ -105,7 +102,6 @@ export default class Node {
     /* EVENTS */
 
     /**
-     * @property Node#addEventListener
      * @param {string} eventType
      * @param {function} listener
      * @param {boolean} capturingPhase
@@ -129,7 +125,6 @@ export default class Node {
     }
 
     /**
-     * @method Node#addEventListener
      * @param {string} eventType
      * @param {function} listener
      * @param {boolean} capturingPhase
@@ -149,7 +144,6 @@ export default class Node {
     }
 
     /**
-     * @method Node#dispatchEvent
      * @param {Event} event
      * @return {boolean}
      */

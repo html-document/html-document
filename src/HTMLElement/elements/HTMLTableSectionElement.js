@@ -6,14 +6,22 @@ import DOMException from '../../DOMException';
  * and inherits all classes and methods of the HTMLElement interface.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableSectionElement
- * @class HTMLTableSectionElement
  */
 export default class HTMLTableSectionElement extends HTMLElement {
+    /**
+     * Align of element content
+     *
+     * @type {string}
+     * @deprecated
+     */
+    get align() {
+        return this.getAttribute('align');
+    }
+
     /**
      * Set align of element
      *
      * @param {string} value
-     * @ignore
      */
     set align(value) {
         if (['left', 'right', 'center'].indexOf(value) !== -1) {
@@ -22,22 +30,11 @@ export default class HTMLTableSectionElement extends HTMLElement {
     }
 
     /**
-     * Align of element content
-     *
-     * @member {string} HTMLTableSectionElement#align
-     * @returns {string}
-     * @deprecated
-     */
-    get align() {
-        return this.getAttribute('align');
-    }
-
-    /**
      * Returns a live HTMLCollection containing the rows in the section. The HTMLCollection is live and is automatically
      * updated when rows are added or removed.
      *
      * @todo Update array to HTMLCollection when it's implemented
-     * @member {Array.<Element>} HTMLTableSectionElement#rows
+     * @type {Element[]}
      */
     get rows() {
         return this._childNodeFind(child => child.tagName === 'tr');
@@ -48,7 +45,7 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','
      * for French. This property was optional and was not very well supported.
      *
-     * @member {string} HTMLTableSectionElement#ch
+     * @type {string}
      * @deprecated
      */
     get ch() {
@@ -60,10 +57,22 @@ export default class HTMLTableSectionElement extends HTMLElement {
      * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
      * property was optional and was not very well supported.
      *
-     * @member {number} HTMLTableSectionElement#chOff
+     * @type {number}
      */
     get chOff() {
         return 0;
+    }
+
+    /**
+     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically
+     * aligned. It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom",
+     * or "baseline".
+     *
+     * @type {string}
+     * @deprecated
+     */
+    get vAlign() {
+        return this.getAttribute('valign');
     }
 
     /**
@@ -76,19 +85,6 @@ export default class HTMLTableSectionElement extends HTMLElement {
         if (['top', 'middle', 'bottom', 'baseline'].indexOf(value) !== -1) {
             this.setAttribute('valign', value);
         }
-    }
-
-    /**
-     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically
-     * aligned. It reflects the valign attribute and can have one of the following values: "top", "middle", "bottom",
-     * or "baseline".
-     *
-     * @member {string} HTMLTableSectionElement#align
-     * @returns {string}
-     * @deprecated
-     */
-    get vAlign() {
-        return this.getAttribute('valign');
     }
 
     /**

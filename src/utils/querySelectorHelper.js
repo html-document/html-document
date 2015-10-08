@@ -10,7 +10,7 @@ const cssParser = new CssSelectorParser();
  *
  * @param {Element} element
  * @param {string} query
- * @returns {Element|null}
+ * @return {Element|null}
  */
 export function querySelector(element, query) {
     let rules = cssParser.parse(query);
@@ -29,7 +29,7 @@ export function querySelector(element, query) {
   *
   * @param {Element} element
   * @param {string} query
-  * @returns {Element[]}
+  * @return {Element[]}
   */
 export function querySelectorAll(element, query) {
     let rules = cssParser.parse(query);
@@ -47,7 +47,7 @@ export function querySelectorAll(element, query) {
  *
  * @param element
  * @param rules
- * @returns {boolean}
+ * @return {boolean}
  */
 function* processElement(element, rules) {
     for (let child of element.children) {
@@ -64,7 +64,7 @@ function* processElement(element, rules) {
 /**
  * @param {Element} element
  * @param {Object} rules
- * @returns {boolean}
+ * @return {boolean}
  */
 function processRules(element, rules) {
     if (rules.type === 'selectors') {
@@ -77,7 +77,7 @@ function processRules(element, rules) {
 /**
  * @param {Element} element
  * @param {Object} rule
- * @returns {boolean}
+ * @return {boolean}
  */
 function processRule(element, rule) {
     return processSelectors(element, [{ rule }]);
@@ -86,7 +86,7 @@ function processRule(element, rule) {
 /**
  * @param {Element} element
  * @param {Object[]} selectors
- * @returns {boolean}
+ * @return {boolean}
  */
 function* processSelectors(element, selectors) {
     for (let selector of selectors) {

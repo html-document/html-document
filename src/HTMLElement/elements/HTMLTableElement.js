@@ -6,7 +6,6 @@ import DOMException from '../../DOMException';
  * and inherits all classes and methods of the HTMLElement interface.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement
- * @class HTMLTableElement
  */
 export default class HTMLTableElement extends HTMLElement {
     /**
@@ -163,7 +162,7 @@ export default class HTMLTableElement extends HTMLElement {
      * Method creates &lt;thead&gt; element for table and adds it in particular place
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead
-     * @returns {HTMLElement}
+     * @return {HTMLElement}
      */
     createTHead() {
         let tHead = this.tHead;
@@ -193,7 +192,7 @@ export default class HTMLTableElement extends HTMLElement {
      * If no caption element exists on the table, this method creates it, then returns it.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
-     * @returns {HTMLElement}
+     * @return {HTMLElement}
      */
     createCaption() {
         let caption = this.caption;
@@ -224,7 +223,7 @@ export default class HTMLTableElement extends HTMLElement {
      * Method adds &lt;tfoot&gt; element to table
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
-     * @returns {HTMLElement}
+     * @return {HTMLElement}
      */
     createTFoot() {
         let tfoot = this.tFoot;

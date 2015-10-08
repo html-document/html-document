@@ -1,7 +1,7 @@
 import htmlparser from 'htmlparser2';
 
 /**
- * @param {String} html
+ * @param {string} html
  * @param {Node} node
  */
 export default function parse(html, node) {

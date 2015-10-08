@@ -29,26 +29,39 @@ const exceptions = {
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/DOMException
  * @see https://www.w3.org/TR/domcore/#exception-domexception
- * @class DOMException
  * @param {number} code
  */
 export default class DOMException {
-    /*
+    /**
      * @see https://heycam.github.io/webidl/#es-DOMException-constructor-object
+     *
+     * @param {string} name
      */
     constructor(name) {
         this._name = name;
         Error.captureStackTrace(this, DOMException);
     }
 
+    /**
+     * @type {number}
+     * @readonly
+     */
     get code() {
         return exceptions[this._name].code || 0;
     }
 
+    /**
+     * @type {string}
+     * @readonly
+     */
     get name() {
         return this._name;
     }
 
+    /**
+     * @type {string}
+     * @readonly
+     */
     get message() {
         return exceptions[this._name].message;
     }

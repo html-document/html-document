@@ -3,15 +3,10 @@ import Node from './Node';
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Comment
- * @class Comment
- * @extends Node
- * @param {String} comment
  */
 export default class Comment extends Node {
-    /*
-     * @constructs Comment
-     *
-     * @param {String} comment
+    /**
+     * @param {string} comment
      */
     constructor(comment) {
         super();
@@ -19,7 +14,6 @@ export default class Comment extends Node {
     }
 
     /**
-     * @property Comment#innerHTML
      * @inheritdoc
      */
     get innerHTML() {
@@ -34,18 +28,16 @@ export default class Comment extends Node {
     }
 
     /**
-     * Returns comment's value
+     * Comment's value
      *
-     * @type {String}
+     * @type {string}
      */
     get data() {
         return this._value;
     }
 
     /**
-     * Set comment's value
-     *
-     * @param {String} data
+     * @param {string} data
      */
     set data(data) {
         this._value = data;

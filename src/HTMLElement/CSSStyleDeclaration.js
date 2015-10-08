@@ -2,8 +2,6 @@ import AbstractCSSStyleDeclaration from '../Abstract/AbstractCSSStyleDeclaration
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/CSSStyleDeclaration
- * @class CSSStyleDeclaration
- * @param {HTMLElement} element
  */
 export default class CSSStyleDeclaration extends AbstractCSSStyleDeclaration {
     /**

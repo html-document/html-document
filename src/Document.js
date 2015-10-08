@@ -13,18 +13,24 @@ import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
- * @class Document
- * @extends Node
  */
 export default class Document extends Node {
-    /*
-     * @constructs Document
-     */
     constructor() {
         super();
+        /**
+         * @type {HTMLElement}
+         */
         this.documentElement = this.createElement('html');
+
+        /**
+         * @type {HTMLElement}
+         */
         this.head = this.createElement('head');
         this.documentElement.appendChild(this.head);
+
+        /**
+         * @type {HTMLElement}
+         */
         this.body = this.createElement('body');
         this.documentElement.appendChild(this.body);
     }
@@ -34,8 +40,7 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment
      *
-     * @method Document#createComment
-     * @param {String} data
+     * @param {string} data
      * @return {Comment}
     */
     createComment(data) {
@@ -49,7 +54,6 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment
      *
-     * @method Document#createDocumentFragment
      * @return {DocumentFragment}
     */
     createDocumentFragment() {
@@ -63,8 +67,7 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement
      *
-     * @method Document#createElement
-     * @param {String} name
+     * @param {string} name
      * @return {HTMLElement}
     */
     createElement(name) {
@@ -101,8 +104,7 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode
      *
-     * @method Document#createTextNode
-     * @param {String} textContent
+     * @param {string} textContent
      * @return {Text}
     */
     createTextNode(textContent) {
@@ -116,8 +118,7 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById
      *
-     * @method Document#getElementById
-     * @param {String} id case-sensitive string representing the unique ID of the element being sought
+     * @param {string} id case-sensitive string representing the unique ID of the element being sought
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
@@ -132,8 +133,7 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName
      *
-     * @method Document#getElementsByTagName
-     * @param {String} tagName
+     * @param {string} tagName
      * @return {HTMLCollection}
      */
     getElementsByTagName(tagName, _array) {
@@ -151,9 +151,8 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
      *
-     * @method Document#querySelector
      * @param {string} selector
-     * @returns {Element}
+     * @return {Element}
      */
     querySelector(selector) {
         return this.documentElement.querySelector(selector);
@@ -165,9 +164,8 @@ export default class Document extends Node {
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
      *
-     * @method Document#querySelectorAll
      * @param {string} selector
-     * @returns {NodeList}
+     * @return {NodeList}
      */
     querySelectorAll(selector) {
         return this.documentElement.querySelectorAll(selector);

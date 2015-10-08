@@ -3,12 +3,11 @@ import Node from './Node';
 
 /**
 * @see https://developer.mozilla.org/en/docs/Web/API/Text
-* @class Text
-* @extends Node
-* @param {String} textContent
-* @property {String} textContent
 */
 export default class Text extends Node {
+    /**
+     * @param {string} textContent
+     */
     constructor(textContent) {
         super();
         this.value = textContent;
@@ -18,10 +17,16 @@ export default class Text extends Node {
         return escapeHTML(this.value);
     }
 
+    /**
+     * @return {string}
+     */
     get textContent() {
         return this.value;
     }
 
+    /**
+     * @param {string} textContent
+     */
     set textContent(textContent) {
         this.value = textContent;
     }

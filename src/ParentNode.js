@@ -5,8 +5,6 @@ import parse from './parse';
  * The ParentNode interface contains methods that are particular to Node objects that can have children.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/ParentNode
- * @class ParentNode
- * @extends Node
  */
 export default class ParentNode extends Node {
     constructor() {
@@ -17,13 +15,17 @@ export default class ParentNode extends Node {
     /**
      * TODO return {HTMLCollection}
      *
-     * @member {String} ParentNode#childNodes
+     * @type {Node[]}
      * @readonly
      */
     get childNodes() {
         return this._childNodes;
     }
 
+    /**
+     * @param callback
+     * @private
+     */
     _childNodesRecursiveForEach(callback) {
         this._childNodes.forEach(function(node) {
             callback(node);
@@ -33,6 +35,10 @@ export default class ParentNode extends Node {
         });
     }
 
+    /**
+     * @param callback
+     * @private
+     */
     _childNodesRecursiveFind(callback) {
         let result;
         this._childNodes.some(function(node) {
@@ -51,6 +57,10 @@ export default class ParentNode extends Node {
         return result;
     }
 
+    /**
+     * @param callback
+     * @private
+     */
     _filterDescendantNodes(callback) {
         let result = [];
 
@@ -63,6 +73,10 @@ export default class ParentNode extends Node {
         return result;
     }
 
+    /**
+     * @param callback
+     * @private
+     */
     _childNodeFind(callback) {
         let result = null;
         this._childNodes.some(node => {
@@ -75,7 +89,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @member {Node|null} ParentNode#parentNode
+     * @type {Node|null}
      * @readonly
      */
     get parentNode() {
@@ -83,7 +97,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @returns {Node|null}
+     * @return {Node|null}
      * @private
      */
     _highestParent() {
@@ -101,8 +115,8 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @param {String} nodeName
-     * @returns {Node|null}
+     * @param {string} nodeName
+     * @return {Node|null}
      * @private
      */
     _closestParent(nodeName) {
@@ -116,7 +130,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @member {Node|null} ParentNode#firstChild
+     * @type {Node|null}
      * @readonly
      */
     get firstChild() {
@@ -124,7 +138,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @member {Node|null} ParentNode#lastChild
+     * @type {Node|null}
      * @readonly
      */
     get lastChild() {
@@ -132,7 +146,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @member {Node|null} ParentNode#previousSibling
+     * @type {Node|null}
      * @readonly
      */
     get previousSibling() {
@@ -145,7 +159,7 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @member {Node|null} ParentNode#nextSibling
+     * @type {Node|null}
      * @readonly
      */
     get nextSibling() {
@@ -158,7 +172,6 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @method ParentNode#appendChild
      * @param {Node} child
      * @return {Node}
      */
@@ -188,7 +201,6 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @method ParentNode#replaceChild
      * @param {Node} newChild
      * @param {Node} oldChild
      * @return {Node}
@@ -224,7 +236,6 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @method ParentNode#removeChild
      * @param {Node} toRemoveChild
      * @return {Node}
      */
@@ -240,7 +251,6 @@ export default class ParentNode extends Node {
     }
 
     /**
-     * @method ParentNode#insertBefore
      * @param {Node} child
      * @param {Node} existingChild
      * @return {Node}
@@ -276,7 +286,7 @@ export default class ParentNode extends Node {
 
     /**
      * @ignore
-     * @return {String}
+     * @return {string}
      */
     get innerHTML() {
         return this._childNodes.reduce(function(value, node) {
@@ -286,7 +296,7 @@ export default class ParentNode extends Node {
 
     /**
      * @ignore
-     * @param {String} html
+     * @param {string} html
      */
     set innerHTML(html) {
         this._childNodes = [];
@@ -295,7 +305,7 @@ export default class ParentNode extends Node {
 
     /**
      * @ignore
-     * @return {String}
+     * @return {string}
      */
     get textContent() {
         return this._childNodes.reduce(function(value, node) {

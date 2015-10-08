@@ -8,14 +8,12 @@ import { querySelector as _querySelector, querySelectorAll as _querySelectorAll 
  * Specific behaviors are described in interfaces which inherit from Element but add additional functionality.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/Element
- * @class Element
- * @extends ParentNode
  */
 /**
  * The Element.innerHTML property sets or gets the HTML syntax describing the element's descendants.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML
- * @member {String} Element#innerHTML
+ * @member {string} Element#innerHTML
  */
 /**
  * The outerHTML attribute of the element DOM interface gets the serialized HTML fragment
@@ -23,23 +21,21 @@ import { querySelector as _querySelector, querySelectorAll as _querySelectorAll 
  * It can be set to replace the element with nodes parsed from the given string.
  *
  * @see https://developer.mozilla.org/en-US/docs/Web/API/Element/outerHTML
- * @member {String} Element#outerHTML
+ * @member {string} Element#outerHTML
  */
 
 export default class Element extends ParentNode {
     /**
      * The id of the element.
      *
-     * @member {String} Element#id
-     * @returns {String}
+     * @type {string}
      */
     get id() {
         return this.getAttribute('id');
     }
 
     /**
-     * @ignore
-     * @param {String} id
+     * @param {string} id
      */
     set id(id) {
         this.setAttribute('id', id);
@@ -48,7 +44,7 @@ export default class Element extends ParentNode {
     /**
      * The tag name of the element.
      *
-     * @member {String} Element#tagName
+     * @type {string}
      * @readonly
      */
     get tagName() {
@@ -63,7 +59,7 @@ export default class Element extends ParentNode {
      *
      * later type {HTMLCollection}
      *
-     * @member {Array.<Element>} Element#children
+     * @type {Element[]}
      * @readonly
      */
     get children() {
@@ -73,7 +69,7 @@ export default class Element extends ParentNode {
     /**
      * Returns the {@link Element} that is the first child of this ParentNode, or null if there is none.
      *
-     * @member {Element} Element#firstElementChild
+     * @type {Element}
      * @readonly
      */
     get firstElementChild() {
@@ -83,7 +79,7 @@ export default class Element extends ParentNode {
     /**
      * Returns the {@link Element} that is the first child of this ParentNode, or null if there is none.
      *
-     * @member {Element} Element#lastElementChild
+     * @type {Element}
      * @readonly
      */
     get lastElementChild() {
@@ -93,7 +89,7 @@ export default class Element extends ParentNode {
     /**
      * Returns an unsigned long giving the amount of children that the object has.
      *
-     * @member {Number} Element#childElementCount
+     * @type {number}
      * @readonly
      */
     get childElementCount() {
@@ -103,8 +99,7 @@ export default class Element extends ParentNode {
     /**
      * Returns a reference to the element by its ID.
      *
-     * @method Element#getElementById
-     * @param {String} id case-sensitive string representing the unique ID of the element being sought
+     * @param {string} id case-sensitive string representing the unique ID of the element being sought
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
@@ -119,14 +114,12 @@ export default class Element extends ParentNode {
      * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync
      * with the DOM treewithout having to call document.getElementsByTagName() again.
      *
-     * @method Element#getElementsByTagName
-     * @param {String} tagName
+     * @param {string} tagName
      * @return {HTMLCollection}
      */
     getElementsByTagName(tagName, _array) {
         if (!tagName) {
-            return !_array ? this.children.slice()
-                         : _array.push.apply(_array, this.children);
+            return !_array ? this.children.slice() : _array.push(...this.children);
         }
 
         _array = _array || [];
@@ -143,8 +136,7 @@ export default class Element extends ParentNode {
      * Returns the first element that is a descendant of the element on which it is invoked that matches the
      * specified group of selectors.
      *
-     * @method Element#querySelector
-     * @param {String} query CSS query for selecting element
+     * @param {string} query CSS query for selecting element
      * @return {Element|null}
      */
     querySelector(query) {
@@ -155,9 +147,8 @@ export default class Element extends ParentNode {
      * Returns a non-live NodeList of all elements descended from the element on which it is invoked that match the
      * specified group of CSS selectors.
      *
-     * @method Element#querySelectorAll
-     * @param {String} query
-     * @return {Array.<Element>}
+     * @param {string} query
+     * @return {Element[]}
      */
     querySelectorAll(query) {
         return _querySelectorAll(this, query);
