@@ -13,6 +13,18 @@ import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
 import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
 import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
 
+const elementClasses = new Map([
+    ['meta', HTMLMetaElement]
+    ['select', HTMLSelectElement],
+    ['option', HTMLOptionElement],
+    ['select', HTMLSelectElement],
+    ['table', HTMLTableElement],
+    ['thead', HTMLTableSectionElement],
+    ['tfoot', HTMLTableSectionElement],
+    ['tfoot', HTMLTableSectionElement],
+    ['tr', HTMLTableRowElement],
+]);
+
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
  */
@@ -75,34 +87,15 @@ export default class Document extends Node {
      * @return {HTMLElement}
     */
     createElement(name) {
-        let element;
-        switch (name.toLowerCase()) {
-            case 'select':
-                element = new HTMLSelectElement();
-                break;
-            case 'option':
-                element = new HTMLOptionElement();
-                break;
-            case 'meta':
-                element = new HTMLMetaElement();
-                break;
-            case 'table':
-                element = new HTMLTableElement();
-                break;
-            case 'thead':
-            case 'tfoot':
-            case 'tbody':
-                element = new HTMLTableSectionElement();
-                element.nodeName = name;
-                break;
-            case 'tr':
-                element = new HTMLTableRowElement();
-                break;
-            default:
-                element = new HTMLElement();
-                element.nodeName = name;
-        }
+        name = name.toLowerCase();
+        const ElementClass = elementClasses.get(name) || HTMLElement;
+        let element = new ElementClass();
         element._ownerDocument = this;
+
+        if (!element.nodeName) {
+            element.nodeName = name;
+        }
+
         return element;
     }
 

@@ -127,8 +127,9 @@ export default class HTMLTableElement extends HTMLElement {
             });
         }
 
-        if (this.tBodies.length > 0) {
-            this.tBodies.forEach((body) => {
+        const tBodies = this.tBodies;
+        if (tBodies.length !== 0) {
+            tBodies.forEach((body) => {
                 body.children.forEach((element) => {
                     if (element.tagName === 'tr') {
                         result.push(element);
@@ -270,6 +271,7 @@ export default class HTMLTableElement extends HTMLElement {
      * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
      * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
      *
+     * @param {number} [index=-1]
      * @return {HTMLElement}
      */
     insertRow(index = -1) {

@@ -1,4 +1,9 @@
 class CSSStyleRule {
+    /**
+     * @param {string} propertyName
+     * @param {string} value
+     * @param {boolean} important
+     */
     constructor(propertyName, value, important) {
         this.name = propertyName;
         this.value = value;

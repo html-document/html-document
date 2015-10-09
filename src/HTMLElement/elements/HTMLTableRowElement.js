@@ -127,7 +127,8 @@ export default class HTMLTableRowElement extends HTMLElement {
             index += table.tHead.rows.length;
         }
 
-        if (table.tBodies.length > 0) {
+        const tBodies = table.tBodies;
+        if (tBodies.length !== 0) {
             let found = false;
             table.tBodies.every((tbody) => {
                 if (tbody === section) {
