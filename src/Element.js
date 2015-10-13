@@ -153,6 +153,10 @@ export default class Element extends ParentNode {
     querySelectorAll(query) {
         return _querySelectorAll(this, query);
     }
+
+    get attributes() {
+        return this._attributes;
+    }
 }
 
 /**
