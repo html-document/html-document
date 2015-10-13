@@ -173,3 +173,17 @@ test('Element querySelectorAll for several selectors', () => {
     strictEqual(elements[0].textContent, 'Text');
     strictEqual(elements[1].getAttribute('type'), 'text');
 });
+
+test('Element querySelectorAll returns nothing if not found', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    let elements = document.body.querySelectorAll('i');
+    strictEqual(elements.length, 0);
+});
+
+test('Elemeent querySelector with ID', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    let elements = document.body.querySelectorAll('#element');
+    strictEqual(elements.length, 0);
+});

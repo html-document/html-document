@@ -115,6 +115,10 @@ function matchRule(element, rule) {
         return false;
     }
 
+    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {
+        return false;
+    }
+
     if (rule.hasOwnProperty('classNames')) {
         if (!rule.classNames.every(name => element.classList.contains(name))) {
             return false;

@@ -176,4 +176,18 @@ test('Element querySelectorAll for several selectors', function () {
     (0, _proclaim.strictEqual)(elements[0].textContent, 'Text');
     (0, _proclaim.strictEqual)(elements[1].getAttribute('type'), 'text');
 });
+
+test('Element querySelectorAll returns nothing if not found', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    var elements = document.body.querySelectorAll('i');
+    (0, _proclaim.strictEqual)(elements.length, 0);
+});
+
+test('Elemeent querySelector with ID', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    var elements = document.body.querySelectorAll('#element');
+    (0, _proclaim.strictEqual)(elements.length, 0);
+});
 //# sourceMappingURL=querySelectorHelper.js.map
