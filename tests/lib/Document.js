@@ -98,4 +98,10 @@ test('process textContent', function () {
     document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
     _proclaim2['default'].isNull(document.textContent);
 });
+
+test('Check document.location process', function () {
+    var document = new Document();
+    document.location = 'http://some.url/page';
+    expect(document.location.hostname, 'some.url');
+});
 //# sourceMappingURL=Document.js.map

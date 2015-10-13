@@ -91,3 +91,9 @@ test('process textContent', () => {
     document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
     assert.isNull(document.textContent);
 });
+
+test('Check document.location process', () => {
+    let document = new Document();
+    document.location = 'http://some.url/page';
+    expect(document.location.hostname, 'some.url');
+});
