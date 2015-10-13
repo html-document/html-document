@@ -7,6 +7,7 @@ import Text from './Text';
 // HTML Elements
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
 import HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';
+import HTMLMetaElement from './HTMLElement/elements/HTMLMetaElement';
 import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
 import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
 import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
@@ -78,6 +79,9 @@ export default class Document extends Node {
                 break;
             case 'option':
                 element = new HTMLOptionElement();
+                break;
+            case 'meta':
+                element = new HTMLMetaElement();
                 break;
             case 'table':
                 element = new HTMLTableElement();
