@@ -127,6 +127,8 @@ export default class Element extends ParentNode {
         this.children.forEach(child => {
             if (child.nodeName.toLowerCase() === tagName) {
                 _array.push(child);
+            } else if (child.childElementCount > 0) {
+                child.getElementsByTagName(tagName, _array);
             }
         });
         return _array;
