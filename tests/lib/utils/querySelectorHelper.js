@@ -132,4 +132,48 @@ test('querySelectorAll deep several', function () {
     (0, _proclaim.strictEqual)(elements[2].textContent, '34');
     (0, _proclaim.strictEqual)(elements[3].textContent, '4');
 });
+
+test('querySelector complex rules', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' + '<i data-attr="1">Skip me</i><input type="text"/><i data-attr="some words"></i>' + '<i data-attr="some-words"></i>';
+    var elements = document.body.querySelectorAll('[data-attr^=1]');
+    (0, _proclaim.strictEqual)(elements.length, 2);
+    elements = document.body.querySelectorAll('[data-attr$=3]');
+    (0, _proclaim.strictEqual)(elements.length, 1);
+    elements = document.body.querySelectorAll('[data-attr~="some"]');
+    (0, _proclaim.strictEqual)(elements.length, 1);
+    elements = document.body.querySelectorAll('[data-attr*="om"]');
+    (0, _proclaim.strictEqual)(elements.length, 2);
+});
+
+test('querySelector attribute rules', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' + '<i data-attr="1">Skip me</i><input type="text"/><i data-attr="some words"></i>' + '<i data-attr="some-words"></i>';
+    var elements = document.body.querySelectorAll('[data-attr]');
+    (0, _proclaim.strictEqual)(elements.length, 4);
+});
+
+test('querySelector for nested elements', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div><span class="css class"></span></div><span title="title"></span>';
+
+    var span = document.body.querySelector('div span.css');
+    (0, _proclaim.strictEqual)(span.getAttribute('class'), 'css class');
+});
+
+test('Element querySelector on several selectors', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    var element = document.body.querySelector('.first, input');
+    (0, _proclaim.strictEqual)(element.getAttribute('type'), 'text');
+});
+
+test('Element querySelectorAll for several selectors', function () {
+    var document = new _libDocument2['default']();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    var elements = document.body.querySelectorAll('.first, input');
+    (0, _proclaim.strictEqual)(elements.length, 2);
+    (0, _proclaim.strictEqual)(elements[0].textContent, 'Text');
+    (0, _proclaim.strictEqual)(elements[1].getAttribute('type'), 'text');
+});
 //# sourceMappingURL=querySelectorHelper.js.map

@@ -14,7 +14,7 @@ test('Element querySelector', () => {
     assert.strictEqual(div.querySelector('span'), span);
 });
 
-test('Element querySelector', () => {
+test('Element querySelectorAll', () => {
     const document = new Document();
     const div = document.createElement('div');
     const span = document.createElement('span');
