@@ -129,13 +129,13 @@ function matchRule(element, rule) {
         if (!rule.attrs.some(attr => {
             if (!element.hasAttribute(attr.name)) {
                 return false;
+            } else if (attr.operator === undefined) {
+                return true;
             }
 
             let value = element.getAttribute(attr.name);
 
             switch (attr.operator) {
-                case undefined:
-                    return element.hasAttribute(attr.name);
                 case '=':
                     return value === attr.value;
                 case '^=':
@@ -144,9 +144,7 @@ function matchRule(element, rule) {
                     return value.indexOf(attr.value) === value.length - attr.value.length;
                 case '~=':
                     let words = value.split(' ');
-                    return words.some((word) => {
-                        return word === attr.value;
-                    });
+                    return words.some(word => word === attr.value);
                 case '*=':
                     return value.indexOf(attr.value) !== -1;
                 default:
