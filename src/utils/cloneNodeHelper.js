@@ -15,7 +15,7 @@ function cloneElementNode(element, deep) {
 
     if (deep) {
         element.childNodes.every((child) => {
-            clone.appendChild(cloneNode(child, deep));
+            clone.appendChild(cloneAnyNode(child, deep));
             return true;
         });
     }
@@ -30,11 +30,11 @@ function cloneTextNode(element) {
 /**
  * Function return copy of element and if request deep copy of element
  *
- * @param {Node} element
+ * @param {ParentNode|Node} element
  * @param {boolean} deep
  * @ignore
  */
-function cloneNode(element, deep) {
+function cloneAnyNode(element, deep) {
     switch (element.nodeType) {
         case Node.ELEMENT_NODE:
             return cloneElementNode(element, deep);
@@ -45,4 +45,8 @@ function cloneNode(element, deep) {
     }
 }
 
-export default cloneNode;
+export {
+    cloneAnyNode,
+    cloneElementNode,
+    cloneTextNode,
+};

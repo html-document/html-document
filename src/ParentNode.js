@@ -1,6 +1,6 @@
 import Node from './Node';
 import parse from './parse';
-import cloneNodeHelper from './utils/cloneNodeHelper';
+import {cloneAnyNode} from './utils/cloneNodeHelper';
 
 /**
  * The ParentNode interface contains methods that are particular to Node objects that can have children.
@@ -323,8 +323,13 @@ export default class ParentNode extends Node {
         }, '');
     }
 
-    cloneNode(deep) {
-        deep = deep || false;
-        return cloneNodeHelper(this, deep);
+    /**
+     * Clone a Node, and optionally, all of its contents. By default, it clones the content of the node.
+     *
+     * @param {boolean} deep
+     * @returns {Node}
+     */
+    cloneNode(deep = false) {
+        return cloneAnyNode(this, deep);
     }
 }
