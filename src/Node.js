@@ -2,7 +2,7 @@
  * A Node is an interface from which a number of DOM types inherit,
  * and allows these various types to be treated (or tested) similarly.
  *
-  * @see https://developer.mozilla.org/en/docs/Web/API/Node
+ * @see https://developer.mozilla.org/en/docs/Web/API/Node
  */
 export default class Node {
     constructor() {
@@ -191,6 +191,20 @@ export default class Node {
         }
 
         return !event.defaultPrevented;
+    }
+
+    /**
+     * @property Node#nodeValue
+     * @returns {string|null}
+     */
+    get nodeValue() {
+        return null;
+    }
+
+    /**
+     * @param {*} value
+     */
+    set nodeValue(value) {
     }
 }
 
