@@ -60,5 +60,5 @@ expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></htm
 [npm-url]: https://npmjs.org/package/html-document
 [build-status-image]: https://img.shields.io/circleci/project/christophehurpeau/html-document/master.svg?style=flat-square
 [build-status-url]: https://circleci.com/gh/christophehurpeau/html-document
-[coverage-image]: https://img.shields.io/coveralls/jekyll/jekyll/master.svg?style=flat-square
+[coverage-image]: https://img.shields.io/coveralls/christophehurpeau/html-document/master.svg?style=flat-square
 [coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/
