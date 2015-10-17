@@ -52,7 +52,9 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cloneElementNode">cloneElementNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cloneTextNode">cloneTextNode</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelector">querySelector</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-querySelectorAll">querySelectorAll</a></span></span></li>
@@ -63,6 +65,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/ParentNode.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Node from &apos;./Node&apos;;
 import parse from &apos;./parse&apos;;
+import {cloneAnyNode} from &apos;./utils/cloneNodeHelper&apos;;
 
 /**
  * The ParentNode interface contains methods that are particular to Node objects that can have children.
@@ -190,6 +193,15 @@ export default class ParentNode extends Node {
         }
 
         return node;
+    }
+
+    /**
+     * Method returns true if node has child nodes.
+     *
+     * @returns {boolean}
+     */
+    hasChildNodes() {
+        return this._childNodes &amp;&amp; this._childNodes.length &gt; 0;
     }
 
     /**
@@ -374,6 +386,16 @@ export default class ParentNode extends Node {
         return this._childNodes.reduce(function(value, node) {
             return value + node.textContent;
         }, &apos;&apos;);
+    }
+
+    /**
+     * Clone a Node, and optionally, all of its contents. By default, it clones the content of the node.
+     *
+     * @param {boolean} deep
+     * @returns {Node}
+     */
+    cloneNode(deep = false) {
+        return cloneAnyNode(this, deep);
     }
 }
 </code></pre>

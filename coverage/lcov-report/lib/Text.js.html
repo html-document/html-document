@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">lib/Text.js</span></h1>
     <h2>
-        Statements: <span class="metric">96% <small>(24 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">88.89% <small>(24 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Branches: <span class="metric">100% <small>(0 / 0)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">80% <small>(4 / 5)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">96% <small>(24 / 25)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">57.14% <small>(4 / 7)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">88.89% <small>(24 / 27)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; Text.js</div>
@@ -114,7 +114,19 @@
 87
 88
 89
-90</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,10 +163,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">41</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">39</span>
-<span class="cline-any cline-yes">39</span>
+<span class="cline-any cline-yes">41</span>
+<span class="cline-any cline-yes">41</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -178,12 +190,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19</span>
+<span class="cline-any cline-yes">20</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -216,7 +240,7 @@ var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 &nbsp;
 Object.defineProperty(exports, '__esModule', {
-  value: true
+    value: true
 });
 &nbsp;
 var _utilsEscapeHTML = require('./utils/escapeHTML');
@@ -233,55 +257,67 @@ var _Node3 = _interopRequireDefault(_Node2);
 /** @class Text 
 * @param textContent */
 var Text = (function (_Node) {
-  _inherits(Text, _Node);
-&nbsp;
-  /**
-   * @param {string} textContent
-   */
-&nbsp;
-  function Text(textContent) {
-    _classCallCheck(this, Text);
-&nbsp;
-    _get(Object.getPrototypeOf(Text.prototype), 'constructor', this).call(this);
-    this.value = textContent;
-  }
-&nbsp;
-  /**
-   * @constant {number} Comment#nodeType
-   */
-&nbsp;
-  _createClass(Text, [{
-    key: '_toHTML',
-    /** @memberof Text 
-    * @instance 
-    * @method _toHTML */value: function _toHTML() {
-      return (0, _utilsEscapeHTML2['default'])(this.value);
-    }
-&nbsp;
-    /**
-     * @return {string}
-     
-    * @memberof Text 
-    * @instance 
-    * @member textContent */
-  }, {
-    key: 'textContent',
-    get: function get() {
-      return this.value;
-    },
+    _inherits(Text, _Node);
 &nbsp;
     /**
      * @param {string} textContent
-     
-    * @memberof Text 
-    * @instance 
-    * @param textContent */
-    set: <span class="fstat-no" title="function not covered" >function set(textContent) {</span>
-<span class="cstat-no" title="statement not covered" >      this.value = textContent;</span>
-    }
-  }]);
+     */
 &nbsp;
-  return Text;
+    function Text(textContent) {
+        _classCallCheck(this, Text);
+&nbsp;
+        _get(Object.getPrototypeOf(Text.prototype), 'constructor', this).call(this);
+        this.value = textContent;
+    }
+&nbsp;
+    /**
+     * @constant {number} Comment#nodeType
+     */
+&nbsp;
+    _createClass(Text, [{
+        key: '_toHTML',
+        /** @memberof Text 
+        * @instance 
+        * @method _toHTML */value: function _toHTML() {
+            return (0, _utilsEscapeHTML2['default'])(this.value);
+        }
+&nbsp;
+        /**
+         * @return {string}
+         
+        * @memberof Text 
+        * @instance 
+        * @member textContent */
+    }, {
+        key: 'textContent',
+        get: function get() {
+            return this.value;
+        },
+&nbsp;
+        /**
+         * @param {string} textContent
+         
+        * @memberof Text 
+        * @instance 
+        * @param textContent */
+        set: <span class="fstat-no" title="function not covered" >function set(textContent) {</span>
+<span class="cstat-no" title="statement not covered" >            this.value = textContent;</span>
+        }
+    }, {
+        key: 'nodeValue',
+        /** @memberof Text 
+        * @instance 
+        * @member nodeValue */get: <span class="fstat-no" title="function not covered" >function get() {</span>
+<span class="cstat-no" title="statement not covered" >            return this.textContent;</span>
+        },
+        /** @memberof Text 
+        * @instance 
+        * @param value */set: <span class="fstat-no" title="function not covered" >function set(value) {</span>
+<span class="cstat-no" title="statement not covered" >            this.textContent = value;</span>
+        }
+    }]);
+&nbsp;
+    return Text;
 })(_Node3['default']);
 &nbsp;
 exports['default'] = Text;
@@ -297,7 +333,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Thu Oct 08 2015 13:11:38 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 17 2015 12:48:42 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

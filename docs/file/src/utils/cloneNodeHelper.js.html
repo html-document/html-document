@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/utils/querySelectorHelper.js | API Document</title>
+  <title data-ice="title">src/utils/cloneNodeHelper.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -62,146 +62,59 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/utils/querySelectorHelper.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { CssSelectorParser } from &apos;css-selector-parser&apos;;
-const cssParser = new CssSelectorParser();
+<div class="content" data-ice="content"><h1 data-ice="title">src/utils/cloneNodeHelper.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Node from &apos;../Node&apos;;
+import Text from &apos;../Text&apos;;
+import DOMException from &apos;../DOMException&apos;;
+
+function cloneElementNode(element, deep) {
+    let clone = element.ownerDocument.createElement(element.nodeName);
+    clone._ownerDocument = null;
+    clone._parentNode = null;
+    let attributes = element.attributes;
+    for (let key in attributes) {
+        if (attributes.hasOwnProperty(key)) {
+            clone.setAttribute(key, element.getAttribute(key));
+        }
+    }
+
+    if (deep) {
+        element.childNodes.every((child) =&gt; {
+            clone.appendChild(cloneAnyNode(child, deep));
+            return true;
+        });
+    }
+
+    return clone;
+}
+
+function cloneTextNode(element) {
+    return new Text(element.value);
+}
 
 /**
- * querySelectorHelper interface provides simple processing
- * of Element.querySelector method.
- */
-
-/**
+ * Function return copy of element and if request deep copy of element
  *
- * @param {Element} element
- * @param {string} query
- * @return {Element|null}
+ * @param {ParentNode|Node} element
+ * @param {boolean} deep
+ * @ignore
  */
-export function querySelector(element, query) {
-    let rules = cssParser.parse(query);
-
-    const iterator = processElement(element, rules);
-    const next = iterator.next();
-
-    if (next &amp;&amp; next.value) {
-        return next.value;
-    }
-
-    return null;
-}
-
-/**
-  *
-  * @param {Element} element
-  * @param {string} query
-  * @return {Element[]}
-  */
-export function querySelectorAll(element, query) {
-    let rules = cssParser.parse(query);
-
-    const result = [];
-    for (let element of processElement(element, rules)) {
-        result.push(element);
-    }
-
-    return result;
-}
-
-/**
- * Function processes one element using current rule
- *
- * @param element
- * @param rules
- * @return {boolean}
- */
-function* processElement(element, rules) {
-    for (let child of element.children) {
-        for (let matchElement of processRules(child, rules)) {
-            yield matchElement;
-        }
-
-        for (let matchElement of processElement(child, rules)) {
-            yield matchElement;
-        }
+function cloneAnyNode(element, deep) {
+    switch (element.nodeType) {
+        case Node.ELEMENT_NODE:
+            return cloneElementNode(element, deep);
+        case Node.TEXT_NODE:
+            return cloneTextNode(element);
+        default:
+            throw new DOMException(DOMException.DATA_CLONE_ERR);
     }
 }
 
-/**
- * @param {Element} element
- * @param {Object} rules
- * @return {boolean}
- */
-function processRules(element, rules) {
-    if (rules.type === &apos;selectors&apos;) {
-        return processSelectors(element, rules.selectors);
-    } else if (rules.type === &apos;ruleSet&apos;) {
-        return processRule(element, rules.rule);
-    }
-}
-
-/**
- * @param {Element} element
- * @param {Object} rule
- * @return {boolean}
- */
-function processRule(element, rule) {
-    return processSelectors(element, [{ rule }]);
-}
-
-/**
- * @param {Element} element
- * @param {Object[]} selectors
- * @return {boolean}
- */
-function* processSelectors(element, selectors) {
-    for (let selector of selectors) {
-        const rule = selector.rule;
-
-        if (!matchRule(element, rule)) {
-            continue;
-        }
-
-        if (!rule.hasOwnProperty(&apos;rule&apos;)) {
-            yield element;
-            return;
-        }
-
-        for (let childMatch of processElement(element, { type: &apos;ruleSet&apos;, rule: rule.rule })) {
-            yield childMatch;
-        }
-
-        return;
-    }
-}
-
-function matchRule(element, rule) {
-    if (rule.hasOwnProperty(&apos;tagName&apos;) &amp;&amp; element.tagName !== rule.tagName) {
-        return false;
-    }
-
-    if (rule.hasOwnProperty(&apos;classNames&apos;)) {
-        if (!rule.classNames.every(name =&gt; element.classList.contains(name))) {
-            return false;
-        }
-    }
-
-    if (rule.hasOwnProperty(&apos;attrs&apos;)) {
-        if (!rule.attrs.every(attr =&gt; {
-            switch (attr.operator) {
-                case undefined:
-                    return element.hasAttribute(attr.name);
-                case &apos;=&apos;:
-                    return element.getAttribute(attr.name) === attr.value;
-                default:
-                    throw new Error(&apos;Unsupported attribute operator &apos; + attr.operator);
-            }
-        })) {
-            return false;
-        }
-    }
-
-    return true;
-}
+export {
+    cloneAnyNode,
+    cloneElementNode,
+    cloneTextNode,
+};
 </code></pre>
 
 </div>

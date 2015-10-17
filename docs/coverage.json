@@ -1,7 +1,7 @@
 {
-  "coverage": "85.85%",
-  "expectCount": 198,
-  "actualCount": 170,
+  "coverage": "84.05%",
+  "expectCount": 207,
+  "actualCount": 174,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -51,9 +51,11 @@
       "undocumentLines": []
     },
     "src/Element.js": {
-      "expectCount": 12,
+      "expectCount": 13,
       "actualCount": 12,
-      "undocumentLines": []
+      "undocumentLines": [
+        157
+      ]
     },
     "src/Event.js": {
       "expectCount": 17,
@@ -85,12 +87,12 @@
         172,
         270,
         285,
-        293,
         289,
+        293,
         297,
         301,
-        323,
-        327
+        327,
+        323
       ]
     },
     "src/HTMLElement/elements/HTMLTableElement.js": {
@@ -112,8 +114,8 @@
       "undocumentLines": []
     },
     "src/Node.js": {
-      "expectCount": 11,
-      "actualCount": 10,
+      "expectCount": 13,
+      "actualCount": 12,
       "undocumentLines": [
         8
       ]
@@ -127,17 +129,27 @@
       ]
     },
     "src/ParentNode.js": {
-      "expectCount": 12,
-      "actualCount": 11,
+      "expectCount": 14,
+      "actualCount": 13,
       "undocumentLines": [
-        10
+        11
       ]
     },
     "src/Text.js": {
-      "expectCount": 5,
+      "expectCount": 7,
       "actualCount": 4,
       "undocumentLines": [
+        34,
+        38,
         13
+      ]
+    },
+    "src/utils/cloneNodeHelper.js": {
+      "expectCount": 2,
+      "actualCount": 0,
+      "undocumentLines": [
+        5,
+        26
       ]
     },
     "src/utils/escapeAttribute.js": {
