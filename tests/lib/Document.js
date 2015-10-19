@@ -92,4 +92,10 @@ test('process query selector all', function () {
     _proclaim2['default'].equal(elements[0].textContent, 'Text');
     _proclaim2['default'].equal(elements[1].getAttribute('type'), 'text');
 });
+
+test('process textContent', function () {
+    var document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    _proclaim2['default'].isNull(document.textContent);
+});
 //# sourceMappingURL=Document.js.map
