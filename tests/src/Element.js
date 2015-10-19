@@ -22,3 +22,11 @@ test('Element querySelector', () => {
 
     assert.deepEqual(div.querySelectorAll('span'), [span]);
 });
+
+test('Element getElementsByTagName should search elements everywhere', () => {
+    const document = new Document();
+    document.documentElement.innerHTML = '<html><head><meta name="keywords"/></head><body><meta name="other"/>' +
+        '<div><meta name="other"/></div></body>';
+    let metas = document.getElementsByTagName('meta');
+    assert.equal(metas.length, 3);
+});

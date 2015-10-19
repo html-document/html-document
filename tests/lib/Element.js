@@ -28,4 +28,11 @@ test('Element querySelector', function () {
 
     _proclaim2['default'].deepEqual(div.querySelectorAll('span'), [span]);
 });
+
+test('Element getElementsByTagName should search elements everywhere', function () {
+    var document = new Document();
+    document.documentElement.innerHTML = '<html><head><meta name="keywords"/></head><body><meta name="other"/>' + '<div><meta name="other"/></div></body>';
+    var metas = document.getElementsByTagName('meta');
+    _proclaim2['default'].equal(metas.length, 3);
+});
 //# sourceMappingURL=Element.js.map
