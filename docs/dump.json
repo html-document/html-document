@@ -7442,7 +7442,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { CssSelectorParser } from 'css-selector-parser';\nconst cssParser = new CssSelectorParser();\n\n/**\n * querySelectorHelper interface provides simple processing\n * of Element.querySelector method.\n */\n\n/**\n *\n * @param {Element} element\n * @param {string} query\n * @return {Element|null}\n */\nexport function querySelector(element, query) {\n    let rules = cssParser.parse(query);\n\n    const iterator = processElement(element, rules);\n    const next = iterator.next();\n\n    if (next && next.value) {\n        return next.value;\n    }\n\n    return null;\n}\n\n/**\n  *\n  * @param {Element} element\n  * @param {string} query\n  * @return {Element[]}\n  */\nexport function querySelectorAll(element, query) {\n    let rules = cssParser.parse(query);\n\n    const result = [];\n    for (let element of processElement(element, rules)) {\n        result.push(element);\n    }\n\n    return result;\n}\n\n/**\n * Function processes one element using current rule\n *\n * @param element\n * @param rules\n * @return {boolean}\n */\nfunction* processElement(element, rules) {\n    for (let child of element.children) {\n        for (let matchElement of processRules(child, rules)) {\n            yield matchElement;\n        }\n\n        for (let matchElement of processElement(child, rules)) {\n            yield matchElement;\n        }\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rules\n * @return {boolean}\n */\nfunction processRules(element, rules) {\n    if (rules.type === 'selectors') {\n        return processSelectors(element, rules.selectors);\n    } else if (rules.type === 'ruleSet') {\n        return processRule(element, rules.rule);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rule\n * @return {boolean}\n */\nfunction processRule(element, rule) {\n    return processSelectors(element, [{ rule }]);\n}\n\n/**\n * @param {Element} element\n * @param {Object[]} selectors\n * @return {boolean}\n */\nfunction* processSelectors(element, selectors) {\n    for (let selector of selectors) {\n        const rule = selector.rule;\n\n        if (!matchRule(element, rule)) {\n            continue;\n        }\n\n        if (!rule.hasOwnProperty('rule')) {\n            yield element;\n            return;\n        }\n\n        for (let childMatch of processElement(element, { type: 'ruleSet', rule: rule.rule })) {\n            yield childMatch;\n        }\n\n        return;\n    }\n}\n\nfunction matchRule(element, rule) {\n    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('classNames')) {\n        if (!rule.classNames.every(name => element.classList.contains(name))) {\n            return false;\n        }\n    }\n\n    if (rule.hasOwnProperty('attrs')) {\n        if (!rule.attrs.every(attr => {\n            switch (attr.operator) {\n                case undefined:\n                    return element.hasAttribute(attr.name);\n                case '=':\n                    return element.getAttribute(attr.name) === attr.value;\n                default:\n                    throw new Error('Unsupported attribute operator ' + attr.operator);\n            }\n        })) {\n            return false;\n        }\n    }\n\n    return true;\n}\n"
+    "content": "import { CssSelectorParser } from 'css-selector-parser';\nconst cssParser = new CssSelectorParser();\ncssParser.registerAttrEqualityMods('^', '$', '*', '~', '|');\n\n/**\n * querySelectorHelper interface provides simple processing\n * of Element.querySelector method.\n */\n\n/**\n *\n * @param {Element} element\n * @param {string} query\n * @return {Element|null}\n */\nexport function querySelector(element, query) {\n    let rules = cssParser.parse(query);\n\n    const iterator = processElement(element, rules);\n    const next = iterator.next();\n\n    if (next && next.value) {\n        return next.value;\n    }\n\n    return null;\n}\n\n/**\n  *\n  * @param {Element} element\n  * @param {string} query\n  * @return {Element[]}\n  */\nexport function querySelectorAll(element, query) {\n    let rules = cssParser.parse(query);\n\n    const result = [];\n    for (let element of processElement(element, rules)) {\n        result.push(element);\n    }\n\n    return result;\n}\n\n/**\n * Function processes one element using current rule\n *\n * @param element\n * @param rules\n * @return {boolean}\n */\nfunction* processElement(element, rules) {\n    for (let child of element.children) {\n        for (let matchElement of processRules(child, rules)) {\n            yield matchElement;\n        }\n\n        for (let matchElement of processElement(child, rules)) {\n            yield matchElement;\n        }\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rules\n * @return {boolean}\n */\nfunction processRules(element, rules) {\n    if (rules.type === 'selectors') {\n        return processSelectors(element, rules.selectors);\n    } else if (rules.type === 'ruleSet') {\n        return processRule(element, rules.rule);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rule\n * @return {boolean}\n */\nfunction processRule(element, rule) {\n    return processSelectors(element, [{ rule }]);\n}\n\n/**\n * @param {Element} element\n * @param {Object[]} selectors\n * @return {boolean}\n */\nfunction* processSelectors(element, selectors) {\n    for (let selector of selectors) {\n        const rule = selector.rule;\n\n        if (!matchRule(element, rule)) {\n            continue;\n        }\n\n        if (!rule.hasOwnProperty('rule')) {\n            yield element;\n            return;\n        }\n\n        for (let childMatch of processElement(element, { type: 'ruleSet', rule: rule.rule })) {\n            yield childMatch;\n        }\n\n        return;\n    }\n}\n\nfunction matchRule(element, rule) {\n    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('classNames')) {\n        if (!rule.classNames.every(name => element.classList.contains(name))) {\n            return false;\n        }\n    }\n\n    if (rule.hasOwnProperty('attrs')) {\n        if (!rule.attrs.some(attr => {\n            if (!element.hasAttribute(attr.name)) {\n                return false;\n            } else if (attr.operator === undefined) {\n                return true;\n            }\n\n            let value = element.getAttribute(attr.name);\n\n            switch (attr.operator) {\n                case '=':\n                    return value === attr.value;\n                case '^=':\n                    return value.startsWith(attr.value);\n                case '$=':\n                    return value.endsWith(attr.value);\n                case '~=':\n                    let words = value.split(' ');\n                    return words.some(word => word === attr.value);\n                case '*=':\n                    return value.indexOf(attr.value) !== -1;\n                case '|=':\n                    return value === attr.value || value.startsWith(attr.value + '-');\n                default:\n                    throw new Error('Unsupported attribute operator ' + attr.operator);\n            }\n        })) {\n            return false;\n        }\n    }\n\n    return true;\n}\n"
   },
   {
     "__docId__": 306,
@@ -7478,7 +7478,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": "{querySelector}",
     "description": "",
-    "lineNumber": 15,
+    "lineNumber": 16,
     "params": [
       {
         "nullable": null,
@@ -7525,7 +7525,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": "{querySelectorAll}",
     "description": "",
-    "lineNumber": 34,
+    "lineNumber": 35,
     "params": [
       {
         "nullable": null,
@@ -7571,7 +7571,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": "Function processes one element using current rule",
-    "lineNumber": 52,
+    "lineNumber": 53,
     "params": [
       {
         "nullable": null,
@@ -7617,7 +7617,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 69,
+    "lineNumber": 70,
     "params": [
       {
         "nullable": null,
@@ -7663,7 +7663,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 82,
+    "lineNumber": 83,
     "params": [
       {
         "nullable": null,
@@ -7709,7 +7709,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 91,
+    "lineNumber": 92,
     "params": [
       {
         "nullable": null,
@@ -7755,7 +7755,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 112,
+    "lineNumber": 113,
     "undocument": true,
     "params": [
       {

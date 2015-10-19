@@ -67,6 +67,7 @@
 <div class="content" data-ice="content"><h1 data-ice="title">src/utils/querySelectorHelper.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { CssSelectorParser } from &apos;css-selector-parser&apos;;
 const cssParser = new CssSelectorParser();
+cssParser.registerAttrEqualityMods(&apos;^&apos;, &apos;$&apos;, &apos;*&apos;, &apos;~&apos;, &apos;|&apos;);
 
 /**
  * querySelectorHelper interface provides simple processing
@@ -181,6 +182,10 @@ function matchRule(element, rule) {
         return false;
     }
 
+    if (rule.hasOwnProperty(&apos;id&apos;) &amp;&amp; element.getAttribute(&apos;id&apos;) !== rule.id) {
+        return false;
+    }
+
     if (rule.hasOwnProperty(&apos;classNames&apos;)) {
         if (!rule.classNames.every(name =&gt; element.classList.contains(name))) {
             return false;
@@ -188,12 +193,29 @@ function matchRule(element, rule) {
     }
 
     if (rule.hasOwnProperty(&apos;attrs&apos;)) {
-        if (!rule.attrs.every(attr =&gt; {
+        if (!rule.attrs.some(attr =&gt; {
+            if (!element.hasAttribute(attr.name)) {
+                return false;
+            } else if (attr.operator === undefined) {
+                return true;
+            }
+
+            let value = element.getAttribute(attr.name);
+
             switch (attr.operator) {
-                case undefined:
-                    return element.hasAttribute(attr.name);
                 case &apos;=&apos;:
-                    return element.getAttribute(attr.name) === attr.value;
+                    return value === attr.value;
+                case &apos;^=&apos;:
+                    return value.startsWith(attr.value);
+                case &apos;$=&apos;:
+                    return value.endsWith(attr.value);
+                case &apos;~=&apos;:
+                    let words = value.split(&apos; &apos;);
+                    return words.some(word =&gt; word === attr.value);
+                case &apos;*=&apos;:
+                    return value.indexOf(attr.value) !== -1;
+                case &apos;|=&apos;:
+                    return value === attr.value || value.startsWith(attr.value + &apos;-&apos;);
                 default:
                     throw new Error(&apos;Unsupported attribute operator &apos; + attr.operator);
             }
