@@ -125,3 +125,74 @@ test('querySelectorAll deep several', () => {
     strictEqual(elements[2].textContent, '34');
     strictEqual(elements[3].textContent, '4');
 });
+
+test('querySelector complex rules', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' +
+        '<i data-attr="1">Skip me</i><input type="text"/><i data-attr="some words"></i>' +
+        '<i data-attr="some-words"></i>';
+    let elements = document.body.querySelectorAll('[data-attr^=1]');
+    strictEqual(elements.length, 2);
+    elements = document.body.querySelectorAll('[data-attr$=3]');
+    strictEqual(elements.length, 1);
+    elements = document.body.querySelectorAll('[data-attr~="some"]');
+    strictEqual(elements.length, 1);
+    elements = document.body.querySelectorAll('[data-attr*="om"]');
+    strictEqual(elements.length, 2);
+});
+
+test('querySelector attribute rules', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' +
+        '<i data-attr="1">Skip me</i><input type="text"/><i data-attr="some words"></i>' +
+        '<i data-attr="some-words"></i>';
+    let elements = document.body.querySelectorAll('[data-attr]');
+    strictEqual(elements.length, 4);
+});
+
+test('querySelector for nested elements', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="css class"></span></div><span title="title"></span>';
+
+    let span = document.body.querySelector('div span.css');
+    strictEqual(span.getAttribute('class'), 'css class');
+});
+
+test('Element querySelector on several selectors', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="second">Text</span></div><i>Skip me</i><input type="text"/>';
+    let element = document.body.querySelector('.first, input');
+    strictEqual(element.getAttribute('type'), 'text');
+});
+
+test('Element querySelectorAll for several selectors', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    let elements = document.body.querySelectorAll('.first, input');
+    strictEqual(elements.length, 2);
+    strictEqual(elements[0].textContent, 'Text');
+    strictEqual(elements[1].getAttribute('type'), 'text');
+});
+
+test('Element querySelectorAll returns nothing if not found', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    let elements = document.body.querySelectorAll('i');
+    strictEqual(elements.length, 0);
+});
+
+test('Element querySelector with ID', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
+    let elements = document.body.querySelectorAll('#element');
+    strictEqual(elements.length, 0);
+});
+
+test('Element name equal or starts with "|="', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' +
+        '<i data-attr="123-other">Skip me</i><input type="text"/><i data-attr="123other"></i>' +
+        '<i data-attr="other123-"></i>';
+    let elements = document.body.querySelectorAll('[data-attr|=123]');
+    strictEqual(elements.length, 2);
+});

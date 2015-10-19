@@ -20,7 +20,7 @@ test('Element querySelector', function () {
     _proclaim2['default'].strictEqual(div.querySelector('span'), span);
 });
 
-test('Element querySelector', function () {
+test('Element querySelectorAll', function () {
     var document = new Document();
     var div = document.createElement('div');
     var span = document.createElement('span');

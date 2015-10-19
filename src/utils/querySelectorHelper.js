@@ -1,5 +1,6 @@
 import { CssSelectorParser } from 'css-selector-parser';
 const cssParser = new CssSelectorParser();
+cssParser.registerAttrEqualityMods('^', '$', '*', '~', '|');
 
 /**
  * querySelectorHelper interface provides simple processing
@@ -114,6 +115,10 @@ function matchRule(element, rule) {
         return false;
     }
 
+    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {
+        return false;
+    }
+
     if (rule.hasOwnProperty('classNames')) {
         if (!rule.classNames.every(name => element.classList.contains(name))) {
             return false;
@@ -121,12 +126,29 @@ function matchRule(element, rule) {
     }
 
     if (rule.hasOwnProperty('attrs')) {
-        if (!rule.attrs.every(attr => {
+        if (!rule.attrs.some(attr => {
+            if (!element.hasAttribute(attr.name)) {
+                return false;
+            } else if (attr.operator === undefined) {
+                return true;
+            }
+
+            let value = element.getAttribute(attr.name);
+
             switch (attr.operator) {
-                case undefined:
-                    return element.hasAttribute(attr.name);
                 case '=':
-                    return element.getAttribute(attr.name) === attr.value;
+                    return value === attr.value;
+                case '^=':
+                    return value.startsWith(attr.value);
+                case '$=':
+                    return value.endsWith(attr.value);
+                case '~=':
+                    let words = value.split(' ');
+                    return words.some(word => word === attr.value);
+                case '*=':
+                    return value.indexOf(attr.value) !== -1;
+                case '|=':
+                    return value === attr.value || value.startsWith(attr.value + '-');
                 default:
                     throw new Error('Unsupported attribute operator ' + attr.operator);
             }
