@@ -3,7 +3,7 @@ import Comment from './Comment';
 import DocumentFragment from './DocumentFragment';
 import HTMLElement from './HTMLElement';
 import Text from './Text';
-import URIUtils from 'urlutils';
+import Url from './utils/Url';
 
 // HTML Elements
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
@@ -36,7 +36,7 @@ export default class Document extends Node {
         this.body = this.createElement('body');
         this.documentElement.appendChild(this.body);
 
-        this._location = new URIUtils('about:blank');
+        this._location = new Url('about:blank');
     }
 
     /**
