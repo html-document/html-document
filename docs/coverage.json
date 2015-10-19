@@ -1,7 +1,7 @@
 {
-  "coverage": "84.36%",
-  "expectCount": 211,
-  "actualCount": 178,
+  "coverage": "84.43%",
+  "expectCount": 212,
+  "actualCount": 179,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -38,8 +38,8 @@
       ]
     },
     "src/Document.js": {
-      "expectCount": 14,
-      "actualCount": 12,
+      "expectCount": 15,
+      "actualCount": 13,
       "undocumentLines": [
         19,
         147
@@ -94,10 +94,10 @@
         285,
         289,
         293,
-        297,
         301,
-        327,
-        323
+        297,
+        323,
+        327
       ]
     },
     "src/HTMLElement/elements/HTMLTableElement.js": {

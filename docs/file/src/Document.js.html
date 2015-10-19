@@ -241,6 +241,15 @@ export default class Document extends Node {
     querySelectorAll(selector) {
         return this.documentElement.querySelectorAll(selector);
     }
+
+    /**
+     * textContent returns null if the element is a document, a document type, or a notation.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+     */
+    get textContent() {
+        return null;
+    }
 }
 
 /**

@@ -6192,12 +6192,166 @@
                   }
                 }
               ],
+              "trailingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * textContent returns null if the element is a document, a document type, or a notation.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\n     ",
+                  "range": [
+                    5725,
+                    5915
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 178,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 182,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
+              "static": false
+            },
+            {
+              "type": "MethodDefinition",
+              "key": {
+                "type": "Identifier",
+                "name": "textContent",
+                "range": [
+                  5924,
+                  5935
+                ],
+                "loc": {
+                  "start": {
+                    "line": 183,
+                    "column": 8
+                  },
+                  "end": {
+                    "line": 183,
+                    "column": 19
+                  }
+                }
+              },
+              "value": {
+                "type": "FunctionExpression",
+                "id": null,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "argument": {
+                        "type": "Literal",
+                        "value": null,
+                        "raw": "null",
+                        "range": [
+                          5955,
+                          5959
+                        ],
+                        "loc": {
+                          "start": {
+                            "line": 184,
+                            "column": 15
+                          },
+                          "end": {
+                            "line": 184,
+                            "column": 19
+                          }
+                        }
+                      },
+                      "range": [
+                        5948,
+                        5960
+                      ],
+                      "loc": {
+                        "start": {
+                          "line": 184,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 184,
+                          "column": 20
+                        }
+                      }
+                    }
+                  ],
+                  "range": [
+                    5938,
+                    5966
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 183,
+                      "column": 22
+                    },
+                    "end": {
+                      "line": 185,
+                      "column": 5
+                    }
+                  }
+                },
+                "generator": false,
+                "expression": false,
+                "range": [
+                  5935,
+                  5966
+                ],
+                "loc": {
+                  "start": {
+                    "line": 183,
+                    "column": 19
+                  },
+                  "end": {
+                    "line": 185,
+                    "column": 5
+                  }
+                }
+              },
+              "kind": "get",
+              "computed": false,
+              "range": [
+                5920,
+                5966
+              ],
+              "loc": {
+                "start": {
+                  "line": 183,
+                  "column": 4
+                },
+                "end": {
+                  "line": 185,
+                  "column": 5
+                }
+              },
+              "leadingComments": [
+                {
+                  "type": "Block",
+                  "value": "*\n     * textContent returns null if the element is a document, a document type, or a notation.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\n     ",
+                  "range": [
+                    5725,
+                    5915
+                  ],
+                  "loc": {
+                    "start": {
+                      "line": 178,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 182,
+                      "column": 7
+                    }
+                  }
+                }
+              ],
               "static": false
             }
           ],
           "range": [
             766,
-            5721
+            5968
           ],
           "loc": {
             "start": {
@@ -6205,14 +6359,14 @@
               "column": 43
             },
             "end": {
-              "line": 177,
+              "line": 186,
               "column": 1
             }
           }
         },
         "range": [
           738,
-          5721
+          5968
         ],
         "loc": {
           "start": {
@@ -6220,7 +6374,7 @@
             "column": 15
           },
           "end": {
-            "line": 177,
+            "line": 186,
             "column": 1
           }
         },
@@ -6249,16 +6403,16 @@
             "type": "Block",
             "value": "*\n * @constant {number} Comment#nodeType\n ",
             "range": [
-              5723,
-              5769
+              5970,
+              6016
             ],
             "loc": {
               "start": {
-                "line": 179,
+                "line": 188,
                 "column": 0
               },
               "end": {
-                "line": 181,
+                "line": 190,
                 "column": 3
               }
             }
@@ -6267,7 +6421,7 @@
       },
       "range": [
         723,
-        5721
+        5968
       ],
       "loc": {
         "start": {
@@ -6275,7 +6429,7 @@
           "column": 0
         },
         "end": {
-          "line": 177,
+          "line": 186,
           "column": 1
         }
       },
@@ -6304,16 +6458,16 @@
           "type": "Block",
           "value": "*\n * @constant {number} Comment#nodeType\n ",
           "range": [
-            5723,
-            5769
+            5970,
+            6016
           ],
           "loc": {
             "start": {
-              "line": 179,
+              "line": 188,
               "column": 0
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 3
             }
           }
@@ -6331,16 +6485,16 @@
             "type": "Identifier",
             "name": "Object",
             "range": [
-              5770,
-              5776
+              6017,
+              6023
             ],
             "loc": {
               "start": {
-                "line": 182,
+                "line": 191,
                 "column": 0
               },
               "end": {
-                "line": 182,
+                "line": 191,
                 "column": 6
               }
             }
@@ -6349,31 +6503,31 @@
             "type": "Identifier",
             "name": "defineProperty",
             "range": [
-              5777,
-              5791
+              6024,
+              6038
             ],
             "loc": {
               "start": {
-                "line": 182,
+                "line": 191,
                 "column": 7
               },
               "end": {
-                "line": 182,
+                "line": 191,
                 "column": 21
               }
             }
           },
           "range": [
-            5770,
-            5791
+            6017,
+            6038
           ],
           "loc": {
             "start": {
-              "line": 182,
+              "line": 191,
               "column": 0
             },
             "end": {
-              "line": 182,
+              "line": 191,
               "column": 21
             }
           }
@@ -6386,16 +6540,16 @@
               "type": "Identifier",
               "name": "Document",
               "range": [
-                5792,
-                5800
+                6039,
+                6047
               ],
               "loc": {
                 "start": {
-                  "line": 182,
+                  "line": 191,
                   "column": 22
                 },
                 "end": {
-                  "line": 182,
+                  "line": 191,
                   "column": 30
                 }
               }
@@ -6404,31 +6558,31 @@
               "type": "Identifier",
               "name": "prototype",
               "range": [
-                5801,
-                5810
+                6048,
+                6057
               ],
               "loc": {
                 "start": {
-                  "line": 182,
+                  "line": 191,
                   "column": 31
                 },
                 "end": {
-                  "line": 182,
+                  "line": 191,
                   "column": 40
                 }
               }
             },
             "range": [
-              5792,
-              5810
+              6039,
+              6057
             ],
             "loc": {
               "start": {
-                "line": 182,
+                "line": 191,
                 "column": 22
               },
               "end": {
-                "line": 182,
+                "line": 191,
                 "column": 40
               }
             }
@@ -6438,16 +6592,16 @@
             "value": "nodeType",
             "raw": "'nodeType'",
             "range": [
-              5812,
-              5822
+              6059,
+              6069
             ],
             "loc": {
               "start": {
-                "line": 182,
+                "line": 191,
                 "column": 42
               },
               "end": {
-                "line": 182,
+                "line": 191,
                 "column": 52
               }
             }
@@ -6461,16 +6615,16 @@
                   "type": "Identifier",
                   "name": "value",
                   "range": [
-                    5826,
-                    5831
+                    6073,
+                    6078
                   ],
                   "loc": {
                     "start": {
-                      "line": 182,
+                      "line": 191,
                       "column": 56
                     },
                     "end": {
-                      "line": 182,
+                      "line": 191,
                       "column": 61
                     }
                   }
@@ -6482,16 +6636,16 @@
                     "type": "Identifier",
                     "name": "Node",
                     "range": [
-                      5833,
-                      5837
+                      6080,
+                      6084
                     ],
                     "loc": {
                       "start": {
-                        "line": 182,
+                        "line": 191,
                         "column": 63
                       },
                       "end": {
-                        "line": 182,
+                        "line": 191,
                         "column": 67
                       }
                     }
@@ -6500,31 +6654,31 @@
                     "type": "Identifier",
                     "name": "DOCUMENT_NODE",
                     "range": [
-                      5838,
-                      5851
+                      6085,
+                      6098
                     ],
                     "loc": {
                       "start": {
-                        "line": 182,
+                        "line": 191,
                         "column": 68
                       },
                       "end": {
-                        "line": 182,
+                        "line": 191,
                         "column": 81
                       }
                     }
                   },
                   "range": [
-                    5833,
-                    5851
+                    6080,
+                    6098
                   ],
                   "loc": {
                     "start": {
-                      "line": 182,
+                      "line": 191,
                       "column": 63
                     },
                     "end": {
-                      "line": 182,
+                      "line": 191,
                       "column": 81
                     }
                   }
@@ -6534,63 +6688,63 @@
                 "shorthand": false,
                 "computed": false,
                 "range": [
-                  5826,
-                  5851
+                  6073,
+                  6098
                 ],
                 "loc": {
                   "start": {
-                    "line": 182,
+                    "line": 191,
                     "column": 56
                   },
                   "end": {
-                    "line": 182,
+                    "line": 191,
                     "column": 81
                   }
                 }
               }
             ],
             "range": [
-              5824,
-              5853
+              6071,
+              6100
             ],
             "loc": {
               "start": {
-                "line": 182,
+                "line": 191,
                 "column": 54
               },
               "end": {
-                "line": 182,
+                "line": 191,
                 "column": 83
               }
             }
           }
         ],
         "range": [
-          5770,
-          5854
+          6017,
+          6101
         ],
         "loc": {
           "start": {
-            "line": 182,
+            "line": 191,
             "column": 0
           },
           "end": {
-            "line": 182,
+            "line": 191,
             "column": 84
           }
         }
       },
       "range": [
-        5770,
-        5855
+        6017,
+        6102
       ],
       "loc": {
         "start": {
-          "line": 182,
+          "line": 191,
           "column": 0
         },
         "end": {
-          "line": 182,
+          "line": 191,
           "column": 85
         }
       },
@@ -6599,16 +6753,16 @@
           "type": "Block",
           "value": "*\n * @constant {number} Comment#nodeType\n ",
           "range": [
-            5723,
-            5769
+            5970,
+            6016
           ],
           "loc": {
             "start": {
-              "line": 179,
+              "line": 188,
               "column": 0
             },
             "end": {
-              "line": 181,
+              "line": 190,
               "column": 3
             }
           }
@@ -6619,7 +6773,7 @@
   "sourceType": "module",
   "range": [
     0,
-    5855
+    6102
   ],
   "loc": {
     "start": {
@@ -6627,7 +6781,7 @@
       "column": 0
     },
     "end": {
-      "line": 182,
+      "line": 191,
       "column": 85
     }
   },
@@ -6868,18 +7022,36 @@
     },
     {
       "type": "Block",
-      "value": "*\n * @constant {number} Comment#nodeType\n ",
+      "value": "*\n     * textContent returns null if the element is a document, a document type, or a notation.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\n     ",
       "range": [
-        5723,
-        5769
+        5725,
+        5915
       ],
       "loc": {
         "start": {
-          "line": 179,
+          "line": 178,
+          "column": 4
+        },
+        "end": {
+          "line": 182,
+          "column": 7
+        }
+      }
+    },
+    {
+      "type": "Block",
+      "value": "*\n * @constant {number} Comment#nodeType\n ",
+      "range": [
+        5970,
+        6016
+      ],
+      "loc": {
+        "start": {
+          "line": 188,
           "column": 0
         },
         "end": {
-          "line": 181,
+          "line": 190,
           "column": 3
         }
       }
