@@ -181,9 +181,18 @@ test('Element querySelectorAll returns nothing if not found', () => {
     strictEqual(elements.length, 0);
 });
 
-test('Elemeent querySelector with ID', () => {
+test('Element querySelector with ID', () => {
     const document = new Document();
     document.body.innerHTML = '<div>1<div>2<div>3<span></span><div>4</div></div></div></div>';
     let elements = document.body.querySelectorAll('#element');
     strictEqual(elements.length, 0);
+});
+
+test('Element name equal or starts with "|="', () => {
+    const document = new Document();
+    document.body.innerHTML = '<div><span class="first" data-attr="123">Text</span></div>' +
+        '<i data-attr="123-other">Skip me</i><input type="text"/><i data-attr="123other"></i>' +
+        '<i data-attr="other123-"></i>';
+    let elements = document.body.querySelectorAll('[data-attr|=123]');
+    strictEqual(elements.length, 2);
 });
