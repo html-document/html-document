@@ -9,8 +9,9 @@
   <script src="script/prettify/prettify.js"></script>
   
   
+  <script src="script/manual.js"></script>
 </head>
-<body class="layout-container">
+<body class="layout-container" data-ice="rootContainer">
 
 <header>
   <a href="./">Home</a>
@@ -47,7 +48,8 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
@@ -158,7 +160,8 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">A boolean indicating whether the event bubbles up through the DOM or not.</div>
+        <div data-ice="description"><p>A boolean indicating whether the event bubbles up through the DOM or not.</p>
+</div>
       </div>
     </td>
     <td>
@@ -183,7 +186,8 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">A boolean indicating whether the event is cancelable.</div>
+        <div data-ice="description"><p>A boolean indicating whether the event is cancelable.</p>
+</div>
       </div>
     </td>
     <td>
@@ -208,7 +212,8 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">A reference to the currently registered target for the event.</div>
+        <div data-ice="description"><p>A reference to the currently registered target for the event.</p>
+</div>
       </div>
     </td>
     <td>
@@ -233,7 +238,8 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">Indicates whether or not event.preventDefault() has been called on the event.</div>
+        <div data-ice="description"><p>Indicates whether or not event.preventDefault() has been called on the event.</p>
+</div>
       </div>
     </td>
     <td>
@@ -258,7 +264,8 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">Indicates which phase of the event flow is being processed.</div>
+        <div data-ice="description"><p>Indicates which phase of the event flow is being processed.</p>
+</div>
       </div>
     </td>
     <td>
@@ -308,8 +315,9 @@ Specific behaviors are described in interfaces which inherit from Element but ad
       <div>
         
         
-        <div data-ice="description">Indicates whether or not the event was initiated by the browser (after a user click for instance)
-or by a script (using an event creation method)</div>
+        <div data-ice="description"><p>Indicates whether or not the event was initiated by the browser (after a user click for instance)
+or by a script (using an event creation method)</p>
+</div>
       </div>
     </td>
     <td>
@@ -359,7 +367,8 @@ or by a script (using an event creation method)</div>
       <div>
         
         
-        <div data-ice="description">A reference to the target to which the event was originally dispatched.</div>
+        <div data-ice="description"><p>A reference to the target to which the event was originally dispatched.</p>
+</div>
       </div>
     </td>
     <td>
@@ -384,7 +393,8 @@ or by a script (using an event creation method)</div>
       <div>
         
         
-        <div data-ice="description">The time that the event was created.</div>
+        <div data-ice="description"><p>The time that the event was created.</p>
+</div>
       </div>
     </td>
     <td>
@@ -409,7 +419,8 @@ or by a script (using an event creation method)</div>
       <div>
         
         
-        <div data-ice="description">The name of the event (case-insensitive).</div>
+        <div data-ice="description"><p>The name of the event (case-insensitive).</p>
+</div>
       </div>
     </td>
     <td>
@@ -1220,7 +1231,7 @@ or by a script (using an event creation method)</p>
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.0)</span></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.1)</span></a>
 </footer>
 
 <script src="script/search_index.js"></script>

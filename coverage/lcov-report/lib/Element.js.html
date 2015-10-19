@@ -12,13 +12,13 @@
     </style>
 </head>
 <body>
-<div class="header medium">
+<div class="header high">
     <h1>Code coverage report for <span class="entity">lib/Element.js</span></h1>
     <h2>
-        Statements: <span class="metric">79.07% <small>(34 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">25% <small>(4 / 16)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Functions: <span class="metric">58.82% <small>(10 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">79.07% <small>(34 / 43)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">82.22% <small>(37 / 45)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">33.33% <small>(6 / 18)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Functions: <span class="metric">64.71% <small>(11 / 17)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">82.22% <small>(37 / 45)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; Element.js</div>
@@ -293,7 +293,9 @@
 266
 267
 268
-269</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+269
+270
+271</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -346,9 +348,9 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">328</span>
+<span class="cline-any cline-yes">366</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">328</span>
+<span class="cline-any cline-yes">366</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -391,20 +393,22 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32</span>
-<span class="cline-any cline-yes">32</span>
-<span class="cline-any cline-yes">32</span>
-<span class="cline-any cline-yes">50</span>
-<span class="cline-any cline-yes">50</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">37</span>
+<span class="cline-any cline-yes">57</span>
+<span class="cline-any cline-yes">53</span>
+<span class="cline-any cline-yes">4</span>
+<span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">32</span>
+<span class="cline-any cline-yes">37</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -497,8 +501,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">166</span>
-<span class="cline-any cline-yes">201</span>
+<span class="cline-any cline-yes">171</span>
+<span class="cline-any cline-yes">208</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -544,7 +548,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -668,8 +672,10 @@ var Element = (function (_ParentNode) {
             _array = _array || [];
             tagName = tagName.toLowerCase();
             this.children.forEach(function (child) {
-                <span class="missing-if-branch" title="else path not taken" >E</span>if (child.nodeName.toLowerCase() === tagName) {
+                if (child.nodeName.toLowerCase() === tagName) {
                     _array.push(child);
+                } else <span class="missing-if-branch" title="else path not taken" >E</span>if (child.childElementCount &gt; 0) {
+                    child.getElementsByTagName(tagName, _array);
                 }
             });
             return _array;
@@ -811,8 +817,8 @@ var Element = (function (_ParentNode) {
         * @member childElementCount */
     }, {
         key: 'childElementCount',
-        get: <span class="fstat-no" title="function not covered" >function get() {</span>
-<span class="cstat-no" title="statement not covered" >            return this._childNodes.length;</span>
+        get: function get() {
+            return this._childNodes.length;
         }
     }, {
         key: 'attributes',
@@ -834,7 +840,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 17 2015 23:24:56 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Mon Oct 19 2015 07:59:31 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/HTMLElement.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">HTMLMetaElement | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -64,74 +64,267 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Element from &apos;./Element&apos;;
-import CSSStyleDeclaration from &apos;./HTMLElement/CSSStyleDeclaration&apos;;
-import ClassList from &apos;./HTMLElement/ClassList&apos;;
-import escapeAttribute from &apos;./utils/escapeAttribute&apos;;
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import HTMLMetaElement from &apos;<span><a href="file/src/HTMLElement/elements/HTMLMetaElement.js.html#lineNumber9">html-document/src/HTMLElement/elements/HTMLMetaElement.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/HTMLElement/elements/HTMLMetaElement.js.html#lineNumber9">source</a></span></span>
+</div>
 
-const voidElements = &apos;area base br col embed hr img input keygen link meta param source track wbr&apos;.split(&apos; &apos;);
+<div class="self-detail detail">
+  <h1 data-ice="name">HTMLMetaElement</h1>
 
-/**
- * The HTMLElement interface represents any HTML element.
- *
- * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement
- */
-export default class HTMLElement extends Element {
-    constructor() {
-        super();
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {CSSStyleDeclaration} style
-         * @readonly
-         */
-        this.style = new CSSStyleDeclaration(this);
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {ClassList} classList
-         * @readonly
-         */
-        this.classList = new ClassList(this);
-    }
+  
 
-    /**
-     * The class of the element.
-     *
-     * @type {string}
-     */
-    get className() {
-        return this.getAttribute(&apos;class&apos;);
-    }
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span>src/HTMLElement~HTMLElement</span> &#x2192; HTMLMetaElement</div></div>
+  
+  
+  
+  
+  
+  
 
-    /**
-     * @param {string} className
-     */
-    set className(className) {
-        this.setAttribute(&apos;class&apos;, className);
-    }
+  
+  
+  <div class="description" data-ice="description"><p>The HTMLMetaElement interface contains descriptive metadata about a document. It inherits all of the properties
+and methods described in the HTMLElement interface.</p>
+</div>
 
-    _updatedAttribute(attributeName, value) {
-        if (attributeName === &apos;style&apos;) {
-            this.style.cssText = value || &apos;&apos;;
-        }
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement">https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement</a></span></li></ul></div>
 
-        if (attributeName === &apos;class&apos;) {
-            this.classList._parse(value || &apos;&apos;);
-        }
-    }
+  
 
-    /**
-     * @ignore
-     * @return {string}
-     */
-    get outerHTML() {
-        return &apos;&lt;&apos; + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) =&gt; {
-            return value + &apos; &apos; + attributeName + &apos;=&quot;&apos; + escapeAttribute(this._attributes[attributeName]) + &apos;&quot;&apos;;
-        }, &apos;&apos;) + &apos;&gt;&apos; + (voidElements.indexOf(this.nodeName) !== -1 ? &apos;&apos; : this.innerHTML + &apos;&lt;/&apos; + this.nodeName + &apos;&gt;&apos;);
-    }
+  
 
-}
-</code></pre>
+  
+</div>
+
+
+
+
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html#instance-get-content">content</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Gets or sets the value of meta-data property.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html#instance-get-httpEquiv">httpEquiv</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Gets or sets the name of an HTTP response header to define for a document.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html#instance-get-name">name</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Gets or sets the name of a meta-data property to define for a document.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-content">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    <span data-ice="name">content</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLMetaElement.js.html#lineNumber15">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Gets or sets the value of meta-data property.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-httpEquiv">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    <span data-ice="name">httpEquiv</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLMetaElement.js.html#lineNumber36">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Gets or sets the name of an HTTP response header to define for a document.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-get-name">
+    <span class="access" data-ice="access">public</span>
+    
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    <span data-ice="name">name</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLMetaElement.js.html#lineNumber57">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Gets or sets the name of a meta-data property to define for a document.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
 
 </div>
 

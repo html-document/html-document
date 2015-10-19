@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/HTMLElement.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/HTMLElement/elements/HTMLMetaElement.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -64,73 +64,85 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Element from &apos;./Element&apos;;
-import CSSStyleDeclaration from &apos;./HTMLElement/CSSStyleDeclaration&apos;;
-import ClassList from &apos;./HTMLElement/ClassList&apos;;
-import escapeAttribute from &apos;./utils/escapeAttribute&apos;;
-
-const voidElements = &apos;area base br col embed hr img input keygen link meta param source track wbr&apos;.split(&apos; &apos;);
+<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLMetaElement.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HTMLElement from &apos;../../HTMLElement&apos;;
 
 /**
- * The HTMLElement interface represents any HTML element.
+ * The HTMLMetaElement interface contains descriptive metadata about a document. It inherits all of the properties
+ * and methods described in the HTMLElement interface.
  *
- * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement
  */
-export default class HTMLElement extends Element {
-    constructor() {
-        super();
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {CSSStyleDeclaration} style
-         * @readonly
-         */
-        this.style = new CSSStyleDeclaration(this);
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {ClassList} classList
-         * @readonly
-         */
-        this.classList = new ClassList(this);
-    }
-
+export default class HTMLMetaElement extends HTMLElement {
     /**
-     * The class of the element.
+     * Gets or sets the value of meta-data property.
      *
      * @type {string}
      */
-    get className() {
-        return this.getAttribute(&apos;class&apos;);
-    }
-
-    /**
-     * @param {string} className
-     */
-    set className(className) {
-        this.setAttribute(&apos;class&apos;, className);
-    }
-
-    _updatedAttribute(attributeName, value) {
-        if (attributeName === &apos;style&apos;) {
-            this.style.cssText = value || &apos;&apos;;
+    get content() {
+        if (this.hasAttribute(&apos;content&apos;)) {
+            return this.getAttribute(&apos;content&apos;);
         }
 
-        if (attributeName === &apos;class&apos;) {
-            this.classList._parse(value || &apos;&apos;);
-        }
+        return &apos;&apos;;
     }
 
     /**
      * @ignore
-     * @return {string}
+     * @param {string} value
      */
-    get outerHTML() {
-        return &apos;&lt;&apos; + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) =&gt; {
-            return value + &apos; &apos; + attributeName + &apos;=&quot;&apos; + escapeAttribute(this._attributes[attributeName]) + &apos;&quot;&apos;;
-        }, &apos;&apos;) + &apos;&gt;&apos; + (voidElements.indexOf(this.nodeName) !== -1 ? &apos;&apos; : this.innerHTML + &apos;&lt;/&apos; + this.nodeName + &apos;&gt;&apos;);
+    set content(value) {
+        this.setAttribute(&apos;content&apos;, value);
     }
 
+    /**
+     * Gets or sets the name of an HTTP response header to define for a document.
+     *
+     * @type {string}
+     */
+    get httpEquiv() {
+        if (this.hasAttribute(&apos;http-equiv&apos;)) {
+            return this.getAttribute(&apos;http-equiv&apos;);
+        }
+
+        return &apos;&apos;;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set httpEquiv(value) {
+        this.setAttribute(&apos;http-equiv&apos;, value);
+    }
+
+    /**
+     * Gets or sets the name of a meta-data property to define for a document.
+     *
+     * @type {string}
+     */
+    get name() {
+        if (this.hasAttribute(&apos;name&apos;)) {
+            return this.getAttribute(&apos;name&apos;);
+        }
+
+        return &apos;&apos;;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set name(value) {
+        this.setAttribute(&apos;name&apos;, value);
+    }
 }
+
+/**
+ * @constant {string} HTMLMetaElement#nodeName meta
+ */
+Object.defineProperty(HTMLMetaElement.prototype, &apos;nodeName&apos;, { value: &apos;meta&apos; });
+
 </code></pre>
 
 </div>
