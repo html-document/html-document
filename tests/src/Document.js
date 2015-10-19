@@ -85,3 +85,9 @@ test('process query selector all', () => {
     assert.equal(elements[0].textContent, 'Text');
     assert.equal(elements[1].getAttribute('type'), 'text');
 });
+
+test('process textContent', () => {
+    let document = new Document();
+    document.body.innerHTML = '<div><span class="first">Text</span></div><i>Skip me</i><input type="text"/>';
+    assert.isNull(document.textContent);
+});

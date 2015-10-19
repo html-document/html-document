@@ -262,3 +262,16 @@ test('hasChildNodes', () => {
     parentNode.appendChild(span2);
     expect(parentNode.hasChildNodes(), true);
 });
+
+test('Node.textContent', () => {
+    let span1 = document.createElement('span');
+    let span2 = document.createElement('span');
+    span1.appendChild(span2);
+    span2.appendChild(document.createTextNode('value'));
+    expect(span2.textContent, 'value');
+
+    span1.textContent = 'hello world';
+
+    expect(span1.childNodes.length, 1);
+    expect(span1.childNodes[0].value, 'hello world');
+});

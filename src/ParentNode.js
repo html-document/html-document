@@ -332,4 +332,13 @@ export default class ParentNode extends Node {
     cloneNode(deep = false) {
         return cloneAnyNode(this, deep);
     }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set textContent(value) {
+        this._childNodes = [];
+        this.appendChild(this._ownerDocument.createTextNode(value));
+    }
 }
