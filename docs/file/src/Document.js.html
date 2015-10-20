@@ -54,7 +54,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cloneElementNode">cloneElementNode</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Url.js~Url.html">Url</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cloneElementNode">cloneElementNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-cloneTextNode">cloneTextNode</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeHTML">escapeHTML</a></span></span></li>
@@ -70,6 +71,7 @@ import Comment from &apos;./Comment&apos;;
 import DocumentFragment from &apos;./DocumentFragment&apos;;
 import HTMLElement from &apos;./HTMLElement&apos;;
 import Text from &apos;./Text&apos;;
+import Url from &apos;./utils/Url&apos;;
 
 // HTML Elements
 import HTMLOptionElement from &apos;./HTMLElement/elements/HTMLOptionElement&apos;;
@@ -101,6 +103,8 @@ export default class Document extends Node {
          */
         this.body = this.createElement(&apos;body&apos;);
         this.documentElement.appendChild(this.body);
+
+        this._location = new Url(&apos;about:blank&apos;);
     }
 
     /**
@@ -249,6 +253,14 @@ export default class Document extends Node {
      */
     get textContent() {
         return null;
+    }
+
+    get location() {
+        return this._location;
+    }
+
+    set location(value) {
+        this._location.href = value;
     }
 }
 

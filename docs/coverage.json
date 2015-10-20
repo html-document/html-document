@@ -1,7 +1,7 @@
 {
-  "coverage": "84.43%",
-  "expectCount": 212,
-  "actualCount": 179,
+  "coverage": "84.71%",
+  "expectCount": 229,
+  "actualCount": 194,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -38,11 +38,13 @@
       ]
     },
     "src/Document.js": {
-      "expectCount": 15,
+      "expectCount": 17,
       "actualCount": 13,
       "undocumentLines": [
-        19,
-        147
+        20,
+        150,
+        190,
+        194
       ]
     },
     "src/DocumentFragment.js": {
@@ -92,10 +94,10 @@
         172,
         270,
         285,
-        289,
         293,
-        301,
+        289,
         297,
+        301,
         323,
         327
       ]
@@ -144,10 +146,15 @@
       "expectCount": 7,
       "actualCount": 4,
       "undocumentLines": [
-        38,
         34,
+        38,
         13
       ]
+    },
+    "src/utils/Url.js": {
+      "expectCount": 15,
+      "actualCount": 15,
+      "undocumentLines": []
     },
     "src/utils/cloneNodeHelper.js": {
       "expectCount": 2,

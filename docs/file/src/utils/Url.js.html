@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/Abstract/AbstractCSSStyleDeclaration.js | API Document</title>
+  <title data-ice="title">src/utils/Url.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -65,159 +65,296 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/Abstract/AbstractCSSStyleDeclaration.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class CSSStyleRule {
-    constructor(propertyName, value, important) {
-        this.name = propertyName;
-        this.value = value;
-        this.important = important;
-    }
-}
+<div class="content" data-ice="content"><h1 data-ice="title">src/utils/Url.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {parse as urlParse, format as urlFormat} from &apos;url&apos;;
 
 /**
- * CSSStyleDeclaration represents a collection of CSS property-value pairs. It is used in a few APIs
+ * Helper class providing URLUtils object implementation. Used in document.location, HTMLAnchorElement etc.
  *
- * - HTMLElement.style - to manipulate the style of a single element (&lt;elem style=&quot;...&quot;&gt;);
- * - (TODO: reword) is an interface to the declaration block returned by the style
- * property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
- * - CSSStyleDeclaration is also a read-only interface to the result of window.getComputedStyle().
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/URLUtils
  */
-export default class AbstractCSSStyleDeclaration {
+export default class Url {
     /**
+     * Creates object using given value as start url.
+     *
+     * @param {string} url - url to parse.
+     */
+    constructor(url) {
+        url = url || &apos;about:blank&apos;;
+        this._data = urlParse(url);
+    }
+
+    /**
+     * @returns {string} - string representation of Url (Full URI)
+     */
+    toString() {
+        return urlFormat(this._data);
+    }
+
+    /**
+     * Is a DOMString containing the whole URL.
+     *
      * @type {string}
      */
-    get cssText() {
-        return this._value;
+    get href() {
+        return this.toString();
     }
 
     /**
-     * @param {string} style
-     */
-    set cssText(style) {
-        this._parse(style);
-    }
-
-    /**
-     * Parse style
-     *
-     * @internal
-     * @param {string} style
-     */
-    _parse(style) {
-        this._properties = [];
-        this._propertiesMap = {};
-        style.split(&apos;;&apos;).forEach((part) =&gt; {
-            part = part.trim();
-            if (!part) {
-                return;
-            }
-
-            const important = !!part.match(/!important$/);
-            if (important) {
-                part = part.slice(0, -&apos;!important&apos;.length);
-            }
-
-            const splitPoint = part.indexOf(&apos;:&apos;);
-            if (splitPoint) {
-                const key = part.slice(0, splitPoint).trim();
-                const value = part.slice(splitPoint + 1).trim();
-                this._setProperty(key, value, important &amp;&amp; &apos;important&apos;);
-            }
-        });
-        this._stringify();
-    }
-
-    /**
-     * Parse style
-     *
-     * @internal
-     */
-    _stringify() {
-        let stylified = &apos;&apos;;
-        this._properties.forEach(prop =&gt; {
-            stylified += prop.name + &apos;:&apos; + prop.value + (prop.important &amp;&amp; &apos;!important&apos; || &apos;&apos;) + &apos;;&apos;;
-        });
-        this._value = stylified;
-    }
-
-    /**
-     * Returns the optional priority, &quot;important&quot;. Example: priString= styleObj.getPropertyPriority(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @param {String|undefined|false} important
-     */
-    getPropertyPriority(propertyName) {
-        return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].important &amp;&amp; &apos;important&apos;;
-    }
-
-    /**
-     * Returns the optional priority, &quot;important&quot;. Example: priString= styleObj.getPropertyPriority(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @return {*} propertyValue
-     */
-    getPropertyValue(propertyName) {
-        return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].value;
-    }
-
-    /**
-     * Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
-     *
-     * @param {number} index
-     * @return {string} propertyName
-     */
-    item(index) {
-        return this._properties[index] &amp;&amp; this._properties[index].name;
-    }
-
-    /**
-     * Returns the value deleted. Example: valString= styleObj.removeProperty(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @return {*} propertyValue
-     */
-    removeProperty(propertyName) {
-        if (this._propertiesMap[propertyName]) {
-            const value = this._propertiesMap[propertyName];
-            this._properties.splice(this._properties.indexOf(value), 1);
-            delete this._propertiesMap[propertyName];
-            this._stringify();
-            return value.value;
-        }
-    }
-
-    /**
-     * No return. Example: styleObj.setProperty(&apos;color&apos;, &apos;red&apos;, &apos;important&apos;)
-     *
-     * @param {string} propertyName
+     * @ignore
      * @param {string} value
-     * @param {string} important
      */
-    setProperty(propertyName, value, important) {
-        this._setProperty(propertyName, value, important);
-        this._stringify();
+    set href(value) {
+        value = value || &apos;about:blank&apos;;
+        this._data = urlParse(value);
     }
 
     /**
-     * No return. Example: styleObj.setProperty(&apos;color&apos;, &apos;red&apos;, &apos;important&apos;)
+     * Is a DOMString containing the protocol scheme of the URL, including the final &apos;:&apos;.
      *
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {string} important
+     * @type {string}
      */
-    _setProperty(propertyName, value, important) {
-        if (!propertyName.match(/^[a-z\-]+$/)) {
-            throw new Error(&apos;Not valid property name: &apos; + propertyName);
+    get protocol() {
+        return this._data.protocol;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set protocol(value) {
+        if (!value.endsWith(&apos;:&apos;)) {
+            value += &apos;:&apos;;
         }
 
-        const cssRule = new CSSStyleRule(propertyName, value, important === &apos;important&apos;);
-        if (this._propertiesMap[propertyName]) {
-            this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);
+        this._data.protocol = value;
+    }
+
+    /**
+     * Is a DOMString containing the host, that is the hostname, and then, if the port of the URL is not empty
+     * (which can happen because it was not specified or because it was specified to be the default port of the
+     * URL&apos;s scheme), a &apos;:&apos;, and the port of the URL.
+     *
+     * @type {string}
+     */
+    get host() {
+        return this._data.host;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set host(value) {
+        let tmpUrl = urlParse(&apos;//&apos; + value, false, true);
+        this._data.host = tmpUrl.host;
+        this._data.hostname = tmpUrl.hostname;
+        this._data.port = tmpUrl.port;
+    }
+
+    /**
+     * The authentication information portion of a URL.
+     *
+     * @type {string}
+     */
+    get auth() {
+        if (this._data.auth === null || this._data.auth === undefined) {
+            return &apos;&apos;;
+        }
+
+        return this._data.auth;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set auth(value) {
+        this._data.auth = value;
+    }
+
+    /**
+     * Is a DOMString containing the domain of the URL.
+     *
+     * @type {string}
+     */
+    get hostname() {
+        return this._data.hostname;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set hostname(value) {
+        this._data.hostname = value;
+    }
+
+    /**
+     * Is a DOMString containing the port number of the URL.
+     *
+     * @returns {string}
+     */
+    get port() {
+        if (this._data.port === null || this._data.port === undefined) {
+            switch (this._data.protocol) {
+                case &apos;http:&apos;:
+                    return &apos;80&apos;;
+                case &apos;https:&apos;:
+                    return &apos;443&apos;;
+                case &apos;ftp:&apos;:
+                    return &apos;21&apos;;
+            }
+            return &apos;&apos;;
+        }
+
+        return this._data.port;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set port(value) {
+        value = parseInt(value, 10);
+        if (isNaN(value)) {
+            value = &apos;&apos;;
+        }
+
+        this._data.port = value;
+        delete this._data.host;
+        this.href = urlFormat(this._data);
+    }
+
+    /**
+     * Is a DOMString containing an initial &apos;/&apos; followed by the path of the URL.
+     *
+     * @returns {string}
+     */
+    get pathname() {
+        return this._data.pathname;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set pathname(value) {
+        this._data.pathname = value;
+    }
+
+    /**
+     * Is a DOMString containing a &apos;?&apos; followed by the parameters of the URL.
+     *
+     * @returns {string}
+     */
+    get search() {
+        if (this._data.search === null) {
+            return &apos;&apos;;
+        }
+
+        return this._data.search;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set search(value) {
+        this._data.search = value;
+    }
+
+    /**
+     * Is a DOMString containing a &apos;#&apos; followed by the fragment identifier of the URL.
+     *
+     * @type {string}
+     */
+    get hash() {
+        if (this._data.hash === null) {
+            return &apos;#&apos;;
+        }
+
+        return this._data.hash;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set hash(value) {
+        if (!value.startsWith(&apos;#&apos;)) {
+            value = &apos;#&apos; + value;
+        }
+
+        this._data.hash = value;
+    }
+
+    /**
+     * Is a DOMString containing the username specified before the domain name.
+     *
+     * @type {string}
+     */
+    get username() {
+        if (this.auth !== &apos;&apos;) {
+            if (this.auth.indexOf(&apos;:&apos;) !== -1) {
+                let [name, password] = this.auth.split(&apos;:&apos;);
+                return name;
+            } else {
+                return this.auth;
+            }
+        }
+
+        return &apos;&apos;;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set username(value) {
+        if (this.auth !== &apos;&apos;) {
+            let [name, password] = this.auth.split(&apos;:&apos;);
+            this.auth = value + &apos;:&apos; + password;
         } else {
-            this._properties.push(cssRule);
+            this.auth = value;
+        }
+    }
+
+    /**
+     * Is a DOMString containing the password specified before the domain name.
+     *
+     * @type {string}
+     */
+    get password() {
+        if (this.auth !== &apos;&apos; &amp;&amp; this.auth.indexOf(&apos;:&apos;) !== -1) {
+            let [name, password] = this.auth.split(&apos;:&apos;);
+            return password;
         }
 
-        this._propertiesMap[propertyName] = cssRule;
+        return &apos;&apos;;
+    }
+
+    /**
+     * @ignore
+     * @param {string} value
+     */
+    set password(value) {
+        if (this.auth !== &apos;&apos;) {
+            let [name, password] = this.auth.split(&apos;:&apos;);
+            this.auth = name + &apos;:&apos; + value;
+        } else {
+            this.auth = &apos;:&apos; + value;
+        }
+    }
+
+    /**
+     * Return &apos;params&apos; part of href as object.
+     *
+     * @type {Object}
+     */
+    get searchParams() {
+        let tempUrl = urlParse(this.href, true);
+        return tempUrl.query;
     }
 }
 </code></pre>
