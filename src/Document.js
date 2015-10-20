@@ -3,6 +3,7 @@ import Comment from './Comment';
 import DocumentFragment from './DocumentFragment';
 import HTMLElement from './HTMLElement';
 import Text from './Text';
+import Url from './utils/Url';
 
 // HTML Elements
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
@@ -34,6 +35,8 @@ export default class Document extends Node {
          */
         this.body = this.createElement('body');
         this.documentElement.appendChild(this.body);
+
+        this._location = new Url('about:blank');
     }
 
     /**
@@ -182,6 +185,14 @@ export default class Document extends Node {
      */
     get textContent() {
         return null;
+    }
+
+    get location() {
+        return this._location;
+    }
+
+    set location(value) {
+        this._location.href = value;
     }
 }
 
