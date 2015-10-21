@@ -13,6 +13,7 @@ import HTMLMetaElement from './HTMLElement/elements/HTMLMetaElement';
 import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
 import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
 import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
+import HTMLAnchorElement from './HTMLElement/elements/HTMLAnchorElement';
 
 const elementClasses = new Map([
     ['caption', HTMLTableCaptionElement],
@@ -91,6 +92,7 @@ export default class Document extends Node {
         name = name.toLowerCase();
         const ElementClass = elementClasses.get(name) || HTMLElement;
         let element = new ElementClass();
+
         element._ownerDocument = this;
 
         if (!element.nodeName) {

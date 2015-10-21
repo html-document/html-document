@@ -47,6 +47,10 @@ export default class Url {
      * @type {string}
      */
     get protocol() {
+        if (this._data.protocol === null) {
+            return '';
+        }
+
         return this._data.protocol;
     }
 
@@ -70,6 +74,10 @@ export default class Url {
      * @type {string}
      */
     get host() {
+        if (this._data.host === null) {
+            return '';
+        }
+
         return this._data.host;
     }
 
@@ -111,6 +119,10 @@ export default class Url {
      * @type {string}
      */
     get hostname() {
+        if (this._data.hostname === null) {
+            return '';
+        }
+
         return this._data.hostname;
     }
 
@@ -120,6 +132,8 @@ export default class Url {
      */
     set hostname(value) {
         this._data.hostname = value;
+        delete this._data.host;
+        this.href = urlFormat(this._data);
     }
 
     /**
