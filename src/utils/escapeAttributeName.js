@@ -4,7 +4,7 @@
  * @param {string} name
  * @returns {string}
  */
-function attributeNameToProperty(name) {
+export function attributeNameToProperty(name) {
     let result = name.replace(/^data-/i, '');
     return result.replace(/-(\w)/g, (match, letter) => letter.toUpperCase());
 }
@@ -15,12 +15,7 @@ function attributeNameToProperty(name) {
  * @param {string} name
  * @returns {string}
  */
-function propertyNameToAttribute(name) {
+export function propertyNameToAttribute(name) {
     let result = name.replace(/([A-Z])/g, (match, letter) => '-' + letter.toLowerCase());
     return 'data-' + result;
 }
-
-export {
-    attributeNameToProperty,
-    propertyNameToAttribute
-};
