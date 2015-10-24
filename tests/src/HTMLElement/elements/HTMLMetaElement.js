@@ -1,11 +1,10 @@
 /* global test */
-import { strictEqual, isNull, throws, ok } from 'proclaim';
+import { strictEqual, ok } from 'proclaim';
 
 const lib = '../../../../lib/';
 
 const HTMLMetaElement = require(lib + 'HTMLElement/elements/HTMLMetaElement');
 const Document = require(lib + 'Document');
-const DOMException = require(lib + 'DOMException');
 
 test('HTMLMetaElement should have the nodeName == meta ', () => {
     let elt = new HTMLMetaElement();

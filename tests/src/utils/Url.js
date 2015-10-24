@@ -1,5 +1,5 @@
 /* global test */
-import { equal, strictEqual, deepEqual, isNull } from 'proclaim';
+import { equal, strictEqual, deepEqual } from 'proclaim';
 import Url from '../../../lib/utils/Url';
 
 test('Url constructor processing', () => {

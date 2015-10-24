@@ -1,4 +1,4 @@
-import {parse as urlParse, format as urlFormat} from 'url';
+import { parse as urlParse, format as urlFormat } from 'url';
 
 /**
  * Helper class providing URLUtils object implementation. Used in document.location, HTMLAnchorElement etc.
@@ -229,8 +229,7 @@ export default class Url {
     get username() {
         if (this.auth !== '') {
             if (this.auth.indexOf(':') !== -1) {
-                let [name, password] = this.auth.split(':');
-                return name;
+                return this.auth.split(':')[0];
             } else {
                 return this.auth;
             }
@@ -245,7 +244,7 @@ export default class Url {
      */
     set username(value) {
         if (this.auth !== '') {
-            let [name, password] = this.auth.split(':');
+            let password = this.auth.split(':')[1];
             this.auth = value + ':' + password;
         } else {
             this.auth = value;
@@ -259,8 +258,7 @@ export default class Url {
      */
     get password() {
         if (this.auth !== '' && this.auth.indexOf(':') !== -1) {
-            let [name, password] = this.auth.split(':');
-            return password;
+            return this.auth.split(':')[1];
         }
 
         return '';
@@ -272,7 +270,7 @@ export default class Url {
      */
     set password(value) {
         if (this.auth !== '') {
-            let [name, password] = this.auth.split(':');
+            let name = this.auth.split(':')[0];
             this.auth = name + ':' + value;
         } else {
             this.auth = ':' + value;
