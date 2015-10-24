@@ -44,6 +44,7 @@ deployment:
       - git config user.name "CircleCi"
       - mv coverage coverage-tmp
       - mv docs docs-tmp
+      - git fetch
       - git checkout -f gh-pages
       - rm -Rf docs coverage
       - mv docs-tmp docs
@@ -51,4 +52,4 @@ deployment:
       - date > date.txt
       - git add -f docs coverage
       - git commit -m"auto commit from circleci"
-      - git push origin gh-pages
+      - git push -f origin gh-pages
