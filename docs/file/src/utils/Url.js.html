@@ -67,7 +67,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/utils/Url.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import {parse as urlParse, format as urlFormat} from &apos;url&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { parse as urlParse, format as urlFormat } from &apos;url&apos;;
 
 /**
  * Helper class providing URLUtils object implementation. Used in document.location, HTMLAnchorElement etc.
@@ -298,8 +298,7 @@ export default class Url {
     get username() {
         if (this.auth !== &apos;&apos;) {
             if (this.auth.indexOf(&apos;:&apos;) !== -1) {
-                let [name, password] = this.auth.split(&apos;:&apos;);
-                return name;
+                return this.auth.split(&apos;:&apos;)[0];
             } else {
                 return this.auth;
             }
@@ -314,7 +313,7 @@ export default class Url {
      */
     set username(value) {
         if (this.auth !== &apos;&apos;) {
-            let [name, password] = this.auth.split(&apos;:&apos;);
+            let password = this.auth.split(&apos;:&apos;)[1];
             this.auth = value + &apos;:&apos; + password;
         } else {
             this.auth = value;
@@ -328,8 +327,7 @@ export default class Url {
      */
     get password() {
         if (this.auth !== &apos;&apos; &amp;&amp; this.auth.indexOf(&apos;:&apos;) !== -1) {
-            let [name, password] = this.auth.split(&apos;:&apos;);
-            return password;
+            return this.auth.split(&apos;:&apos;)[1];
         }
 
         return &apos;&apos;;
@@ -341,7 +339,7 @@ export default class Url {
      */
     set password(value) {
         if (this.auth !== &apos;&apos;) {
-            let [name, password] = this.auth.split(&apos;:&apos;);
+            let name = this.auth.split(&apos;:&apos;)[0];
             this.auth = name + &apos;:&apos; + value;
         } else {
             this.auth = &apos;:&apos; + value;
