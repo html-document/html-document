@@ -35,7 +35,11 @@ export default class HTMLTableElement extends HTMLElement {
             this.removeChild(previousCaption);
         }
 
-        this.insertBefore(element, this.firstChild);
+        if (this.firstChild) {
+            this.insertBefore(element, this.firstChild);
+        } else {
+            this.appendChild(element);
+        }
     }
 
     /**
@@ -67,7 +71,7 @@ export default class HTMLTableElement extends HTMLElement {
             this.removeChild(previousTHead);
         }
 
-        if (this.children.some((child) => {
+        if (!this.children.some((child) => {
             if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {
                 this.insertBefore(element, child);
                 return true;
@@ -109,7 +113,7 @@ export default class HTMLTableElement extends HTMLElement {
             this.removeChild(previousTFoot);
         }
 
-        if (this.children.some((child) => {
+        if (!this.children.some((child) => {
             if (child.tagName !== 'caption' && child.tagName !== 'colgroup' && child.tagName !== 'thead') {
                 this.insertBefore(element, child);
                 return true;
@@ -279,9 +283,16 @@ export default class HTMLTableElement extends HTMLElement {
      * @private
      */
     _createTBody() {
-        let tbody = this.ownerDocument.createElement('tbody');
-        this.insertBefore(tbody, this.tFoot);
-        return tbody;
+        let tBody = this.ownerDocument.createElement('tbody');
+        let tFoot = this.tFoot;
+
+        if (tFoot) {
+            this.insertBefore(tBody, tFoot);
+        } else {
+            this.appendChild(tBody);
+        }
+
+        return tBody;
     }
 
     /**
