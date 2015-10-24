@@ -19,7 +19,8 @@ test:
   pre:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
   override:
-    - make lint
+    - node_modules/.bin/jscs -c .jscsrc src/ tests/src/
+    - node_modules/.bin/eslint -c .eslintrc src/ tests/src/
     - make build
     - XUNIT_FILE=$CIRCLE_TEST_REPORTS/junit/xunit.xml node_modules/.bin/mocha --harmony --recursive --reporter xunit-file -u tdd tests/lib
     - make docs
