@@ -51,6 +51,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
@@ -76,10 +77,23 @@ import Url from &apos;./utils/Url&apos;;
 // HTML Elements
 import HTMLOptionElement from &apos;./HTMLElement/elements/HTMLOptionElement&apos;;
 import HTMLSelectElement from &apos;./HTMLElement/elements/HTMLSelectElement&apos;;
+import HTMLTableCaptionElement from &apos;./HTMLElement/elements/HTMLTableCaptionElement&apos;;
 import HTMLMetaElement from &apos;./HTMLElement/elements/HTMLMetaElement&apos;;
 import HTMLTableElement from &apos;./HTMLElement/elements/HTMLTableElement&apos;;
-import HTMLTableSectionElement from &apos;./HTMLElement/elements/HTMLTableSectionElement&apos;;
 import HTMLTableRowElement from &apos;./HTMLElement/elements/HTMLTableRowElement&apos;;
+import HTMLTableSectionElement from &apos;./HTMLElement/elements/HTMLTableSectionElement&apos;;
+
+const elementClasses = new Map([
+    [&apos;caption&apos;, HTMLTableCaptionElement],
+    [&apos;meta&apos;, HTMLMetaElement],
+    [&apos;option&apos;, HTMLOptionElement],
+    [&apos;table&apos;, HTMLTableElement],
+    [&apos;thead&apos;, HTMLTableSectionElement],
+    [&apos;tfoot&apos;, HTMLTableSectionElement],
+    [&apos;tfoot&apos;, HTMLTableSectionElement],
+    [&apos;tr&apos;, HTMLTableRowElement],
+    [&apos;select&apos;, HTMLSelectElement],
+]);
 
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
@@ -143,34 +157,15 @@ export default class Document extends Node {
      * @return {HTMLElement}
     */
     createElement(name) {
-        let element;
-        switch (name.toLowerCase()) {
-            case &apos;select&apos;:
-                element = new HTMLSelectElement();
-                break;
-            case &apos;option&apos;:
-                element = new HTMLOptionElement();
-                break;
-            case &apos;meta&apos;:
-                element = new HTMLMetaElement();
-                break;
-            case &apos;table&apos;:
-                element = new HTMLTableElement();
-                break;
-            case &apos;thead&apos;:
-            case &apos;tfoot&apos;:
-            case &apos;tbody&apos;:
-                element = new HTMLTableSectionElement();
-                element.nodeName = name;
-                break;
-            case &apos;tr&apos;:
-                element = new HTMLTableRowElement();
-                break;
-            default:
-                element = new HTMLElement();
-                element.nodeName = name;
-        }
+        name = name.toLowerCase();
+        const ElementClass = elementClasses.get(name) || HTMLElement;
+        let element = new ElementClass();
         element._ownerDocument = this;
+
+        if (!element.nodeName) {
+            element.nodeName = name;
+        }
+
         return element;
     }
 

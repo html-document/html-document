@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <base data-ice="baseUrl" href="../../../../">
-  <title data-ice="title">src/HTMLElement/elements/HTMLTableRowElement.js | API Document</title>
+  <title data-ice="title">src/HTMLElement/elements/HTMLTableCaptionElement.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -66,199 +66,19 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLTableRowElement.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLTableCaptionElement.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HTMLElement from &apos;../../HTMLElement&apos;;
 
-export default class HTMLTableRowElement extends HTMLElement {
-    constructor() {
-        super();
-    }
-
-    /**
-     * Returns a live HTMLCollection containing the cells in the row. The HTMLCollection is live and is automatically
-     * updated when rows are added or removed.
-     *
-     * @todo Update array to HTMLCollection when it&apos;s implemented
-     * @type {Element[]} HTMLTableRowElement#cells
-     */
-    get cells() {
-        return this._childNodeFind(child =&gt; child.tagName === &apos;td&apos;);
-    }
-
-    /**
-     * Is a DOMString containing one single character. This character is the one to align all the cell of a column on.
-     * It reflects the char and default to the decimal points associated with the language, e.g. &apos;.&apos; for English, or &apos;,&apos;
-     * for French. This property was optional and was not very well supported.
-     *
-     * @type {string}
-     * @deprecated
-     */
-    get ch() {
-        return &apos;.&apos;;
-    }
-
-    /**
-     * Is a DOMString containing a integer indicating how many characters must be left at the right (for left-to-right
-     * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This
-     * property was optional and was not very well supported.
-     *
-     * @type {number}
-     * @deprecated
-     */
-    get chOff() {
-        return 0;
-    }
-
-    /**
-     * Set align of element
-     *
-     * @param {string} value
-     * @deprecated
-     */
-    set vAlign(value) {
-        if ([&apos;top&apos;, &apos;middle&apos;, &apos;bottom&apos;, &apos;baseline&apos;].indexOf(value) !== -1) {
-            this.setAttribute(&apos;valign&apos;, value);
-        }
-    }
-
-    /**
-     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically
-     * aligned. It reflects the valign attribute and can have one of the following values: &quot;top&quot;, &quot;middle&quot;, &quot;bottom&quot;,
-     * or &quot;baseline&quot;.
-     *
-     * @type {string}
-     * @deprecated
-     */
-    get vAlign() {
-        return this.getAttribute(&apos;valign&apos;);
-    }
-
-    /**
-     * Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the
-     * element&apos;s contents with respect to the surrounding context. The possible values are &quot;left&quot;, &quot;right&quot;, and
-     * &quot;center&quot;.
-     *
-     * @type {string}
-     * @deprecated
-     */
-    get align() {
-        return this.getAttribute(&apos;align&apos;);
-    }
-
-    /**
-     * Set align of element
-     *
-     * @param {string} value
-     */
-    set align(value) {
-        if ([&apos;left&apos;, &apos;right&apos;, &apos;center&apos;].indexOf(value) !== 1) {
-            this.setAttribute(&apos;align&apos;, value);
-        }
-    }
-
-    /**
-     * Returns a long value which gives the logical position of the row within the table section it belongs to.
-     * If the row is not part of a section, returns -1.
-     *
-     * @return {number}
-     */
-    get sectionRowIndex() {
-        if (this.parentNode === null) {
-            return -1;
-        }
-
-        return this.parentNode.rows.indexOf(this);
-    }
-
-    /**
-     * Returns a long value which gives the logical position of the row within the entire table. If the row is not part
-     * of a table, returns -1.
-     *
-     * @type {number}
-     */
-    get rowIndex() {
-        if (this.parentNode === null) {
-            return -1;
-        }
-
-        if (this.parentNode.parentNode === null) {
-            return -1;
-        }
-
-        let inSection = this.sectionRowIndex;
-        let section = this.parentNode;
-        let table = this.parentNode.parentNode;
-        let index = 0;
-        if (section.nodeName === &apos;thead&apos;) {
-            return inSection;
-        }
-
-        if (table.tHead !== null) {
-            index += table.tHead.rows.length;
-        }
-
-        const tBodies = table.tBodies;
-        if (tBodies.length !== 0) {
-            let found = false;
-            table.tBodies.every((tbody) =&gt; {
-                if (tbody === section) {
-                    found = true;
-                    return false;
-                }
-
-                index += tbody.rows.length;
-            });
-            if (found) {
-                return index + inSection;
-            }
-        }
-
-        if (section.nodeName === &apos;tfoot&apos;) {
-            return index + inSection;
-        }
-
-        return -1;
-    }
-
-    /**
-     * Method creates new &amp;lt;td&amp;gt; element and adds it to row.
-     *
-     * @param {number} index
-     * @return {HTMLElement}
-     */
-    insertCell(index = -1) {
-        let row = this.ownerDocument.createElement(&apos;td&apos;);
-        if (index === -1 || index === this.children.length) {
-            this.appendChild(row);
-        } else if (index &lt; this.children.length - 1) {
-            this.insertBefore(row, this.children[index]);
-        } else {
-            throw new DOMException(&apos;IndexSizeError&apos;);
-        }
-
-        return row;
-    }
-
-    /**
-     * Removes the cell at the given position in the section. If the given position is greater (or equal as it starts
-     * at zero) than the amount of rows in the section, or is smaller than 0, it raises a DOMException with the
-     * IndexSizeError value.
-     *
-     * @param {number} index
-     */
-    deleteCell(index) {
-        if (index &gt;= this.children.length || index &lt; 0) {
-            throw new DOMException(&apos;IndexSizeError&apos;);
-        }
-
-        this.removeChild(this.children[index]);
-    }
+/**
+ * &amp;lt;caption&amp;gt; element.
+ */
+export default class HTMLTableCaptionElement extends HTMLElement {
 }
 
 /**
- * @constant {string} HTMLTableElement#nodeName table
+ * @constant {string} HTMLTableCaptionElement#nodeName option
  */
-Object.defineProperty(HTMLTableRowElement.prototype, &apos;nodeName&apos;, { value: &apos;tr&apos; });
+Object.defineProperty(HTMLTableCaptionElement.prototype, &apos;nodeName&apos;, { value: &apos;caption&apos; });
 </code></pre>
 
 </div>

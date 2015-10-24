@@ -51,6 +51,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
@@ -145,32 +146,6 @@
     <td>
       <span class="access" data-ice="access">public</span>
       
-      <span class="kind" data-ice="kind">set</span>
-      
-      <span class="override" data-ice="override"></span>
-    </td>
-    <td>
-      <div>
-        <p>
-           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-align">align</a></span></span><span data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
-        </p>
-      </div>
-      <div>
-        
-        
-        <div data-ice="description"><p>Set align of element</p>
-</div>
-      </div>
-    </td>
-    <td>
-      
-      
-    </td>
-  </tr>
-<tr data-ice="target">
-    <td>
-      <span class="access" data-ice="access">public</span>
-      
       <span class="kind" data-ice="kind">get</span>
       
       <span class="override" data-ice="override"></span>
@@ -185,6 +160,32 @@
         <div class="deprecated" data-ice="deprecated">this get was deprecated.</div>
         
         <div data-ice="description"><p>Is a DOMString containing an enumerated value reflecting the align attribute.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      <span class="kind" data-ice="kind">set</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-align">align</a></span></span><span data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Set align of element</p>
 </div>
       </div>
     </td>
@@ -339,7 +340,7 @@ scripts; or at the left for right-to-left scripts) of the character defined by H
         </p>
       </div>
       <div>
-        
+        <div class="deprecated" data-ice="deprecated">this set was deprecated.</div>
         
         <div data-ice="description"><p>Set align of element</p>
 </div>
@@ -490,24 +491,26 @@ aligned.</p>
 <div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
 
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-set-align">
+  <h3 data-ice="anchor" id="instance-get-align">
     <span class="access" data-ice="access">public</span>
     
-    <span class="kind" data-ice="kind">set</span>
+    <span class="kind" data-ice="kind">get</span>
     
     
-    <span data-ice="name">align</span><span data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
+    <span data-ice="name">align</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber71">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber75">source</a></span></span>
     </span>
   </h3>
 
   
+  <div class="deprecated" data-ice="deprecated">this get was deprecated.</div>
   
-  
-  <div data-ice="description"><p>Set align of element</p>
+  <div data-ice="description"><p>Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the
+element&apos;s contents with respect to the surrounding context. The possible values are &quot;left&quot;, &quot;right&quot;, and
+&quot;center&quot;.</p>
 </div>
 
   
@@ -531,26 +534,24 @@ aligned.</p>
   
 </div>
 <div class="detail" data-ice="detail">
-  <h3 data-ice="anchor" id="instance-get-align">
+  <h3 data-ice="anchor" id="instance-set-align">
     <span class="access" data-ice="access">public</span>
     
-    <span class="kind" data-ice="kind">get</span>
+    <span class="kind" data-ice="kind">set</span>
     
     
-    <span data-ice="name">align</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span data-ice="name">align</span><span data-ice="signature">(value: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>*</span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber85">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber84">source</a></span></span>
     </span>
   </h3>
 
   
-  <div class="deprecated" data-ice="deprecated">this get was deprecated.</div>
   
-  <div data-ice="description"><p>Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the
-element&apos;s contents with respect to the surrounding context. The possible values are &quot;left&quot;, &quot;right&quot;, and
-&quot;center&quot;.</p>
+  
+  <div data-ice="description"><p>Set align of element</p>
 </div>
 
   
@@ -712,7 +713,7 @@ property was optional and was not very well supported.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber109">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber110">source</a></span></span>
     </span>
   </h3>
 
@@ -754,7 +755,7 @@ of a table, returns -1.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber95">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber96">source</a></span></span>
     </span>
   </h3>
 
@@ -806,12 +807,12 @@ If the row is not part of a section, returns -1.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber49">source</a></span></span>
     </span>
   </h3>
 
   
-  
+  <div class="deprecated" data-ice="deprecated">this set was deprecated.</div>
   
   <div data-ice="description"><p>Set align of element</p>
 </div>
@@ -847,7 +848,7 @@ If the row is not part of a section, returns -1.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 
@@ -893,7 +894,7 @@ or &quot;baseline&quot;.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber178">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber180">source</a></span></span>
     </span>
   </h3>
 
@@ -952,7 +953,7 @@ IndexSizeError value.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber158">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableRowElement.js.html#lineNumber160">source</a></span></span>
     </span>
   </h3>
 

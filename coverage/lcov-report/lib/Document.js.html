@@ -15,10 +15,10 @@
 <div class="header high">
     <h1>Code coverage report for <span class="entity">lib/Document.js</span></h1>
     <h2>
-        Statements: <span class="metric">91.46% <small>(75 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Branches: <span class="metric">88.89% <small>(8 / 9)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Statements: <span class="metric">93.24% <small>(69 / 74)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Branches: <span class="metric">100% <small>(4 / 4)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Functions: <span class="metric">78.57% <small>(11 / 14)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
-        Lines: <span class="metric">91.46% <small>(75 / 82)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
+        Lines: <span class="metric">93.24% <small>(69 / 74)</small></span> &nbsp;&nbsp;&nbsp;&nbsp;
         Ignored: <span class="metric"><span class="ignore-none">none</span></span> &nbsp;&nbsp;&nbsp;&nbsp;
     </h2>
     <div class="path"><a href="../index.html">All files</a> &#187; <a href="index.html">lib/</a> &#187; Document.js</div>
@@ -340,18 +340,9 @@
 313
 314
 315
-316
-317
-318
-319
-320
-321
-322
-323
-324
-325
-326
-327</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+316</td><td class="line-coverage"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -392,6 +383,12 @@
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -508,32 +505,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">387</span>
 <span class="cline-any cline-yes">387</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-yes">1</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-yes">4</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-yes">8</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-yes">5</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">364</span>
-<span class="cline-any cline-yes">364</span>
+<span class="cline-any cline-yes">387</span>
+<span class="cline-any cline-yes">387</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">387</span>
+<span class="cline-any cline-yes">368</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">387</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -687,6 +665,8 @@ var _createClass = require('babel-runtime/helpers/create-class')['default'];
 &nbsp;
 var _classCallCheck = require('babel-runtime/helpers/class-call-check')['default'];
 &nbsp;
+var _Map = require('babel-runtime/core-js/map')['default'];
+&nbsp;
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
 &nbsp;
 Object.defineProperty(exports, '__esModule', {
@@ -727,6 +707,10 @@ var _HTMLElementElementsHTMLSelectElement = require('./HTMLElement/elements/HTML
 &nbsp;
 var _HTMLElementElementsHTMLSelectElement2 = _interopRequireDefault(_HTMLElementElementsHTMLSelectElement);
 &nbsp;
+var _HTMLElementElementsHTMLTableCaptionElement = require('./HTMLElement/elements/HTMLTableCaptionElement');
+&nbsp;
+var _HTMLElementElementsHTMLTableCaptionElement2 = _interopRequireDefault(_HTMLElementElementsHTMLTableCaptionElement);
+&nbsp;
 var _HTMLElementElementsHTMLMetaElement = require('./HTMLElement/elements/HTMLMetaElement');
 &nbsp;
 var _HTMLElementElementsHTMLMetaElement2 = _interopRequireDefault(_HTMLElementElementsHTMLMetaElement);
@@ -735,13 +719,15 @@ var _HTMLElementElementsHTMLTableElement = require('./HTMLElement/elements/HTMLT
 &nbsp;
 var _HTMLElementElementsHTMLTableElement2 = _interopRequireDefault(_HTMLElementElementsHTMLTableElement);
 &nbsp;
+var _HTMLElementElementsHTMLTableRowElement = require('./HTMLElement/elements/HTMLTableRowElement');
+&nbsp;
+var _HTMLElementElementsHTMLTableRowElement2 = _interopRequireDefault(_HTMLElementElementsHTMLTableRowElement);
+&nbsp;
 var _HTMLElementElementsHTMLTableSectionElement = require('./HTMLElement/elements/HTMLTableSectionElement');
 &nbsp;
 var _HTMLElementElementsHTMLTableSectionElement2 = _interopRequireDefault(_HTMLElementElementsHTMLTableSectionElement);
 &nbsp;
-var _HTMLElementElementsHTMLTableRowElement = require('./HTMLElement/elements/HTMLTableRowElement');
-&nbsp;
-var _HTMLElementElementsHTMLTableRowElement2 = _interopRequireDefault(_HTMLElementElementsHTMLTableRowElement);
+var elementClasses = new _Map([['caption', _HTMLElementElementsHTMLTableCaptionElement2['default']], ['meta', _HTMLElementElementsHTMLMetaElement2['default']], ['option', _HTMLElementElementsHTMLOptionElement2['default']], ['table', _HTMLElementElementsHTMLTableElement2['default']], ['thead', _HTMLElementElementsHTMLTableSectionElement2['default']], ['tfoot', _HTMLElementElementsHTMLTableSectionElement2['default']], ['tfoot', _HTMLElementElementsHTMLTableSectionElement2['default']], ['tr', _HTMLElementElementsHTMLTableRowElement2['default']], ['select', _HTMLElementElementsHTMLSelectElement2['default']]]);
 &nbsp;
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
@@ -832,34 +818,15 @@ var Document = (function (_Node) {
     }, {
         key: 'createElement',
         value: function createElement(name) {
-            var element = undefined;
-            switch (name.toLowerCase()) {
-                case 'select':
-                    element = new _HTMLElementElementsHTMLSelectElement2['default']();
-                    break;
-<span class="branch-1 cbranch-no" title="branch not covered" >                case 'option':</span>
-<span class="cstat-no" title="statement not covered" >                    element = new _HTMLElementElementsHTMLOptionElement2['default']();</span>
-<span class="cstat-no" title="statement not covered" >                    break;</span>
-                case 'meta':
-                    element = new _HTMLElementElementsHTMLMetaElement2['default']();
-                    break;
-                case 'table':
-                    element = new _HTMLElementElementsHTMLTableElement2['default']();
-                    break;
-                case 'thead':
-                case 'tfoot':
-                case 'tbody':
-                    element = new _HTMLElementElementsHTMLTableSectionElement2['default']();
-                    element.nodeName = name;
-                    break;
-                case 'tr':
-                    element = new _HTMLElementElementsHTMLTableRowElement2['default']();
-                    break;
-                default:
-                    element = new _HTMLElement2['default']();
-                    element.nodeName = name;
-            }
+            name = name.toLowerCase();
+            var ElementClass = elementClasses.get(name) || _HTMLElement2['default'];
+            var element = new ElementClass();
             element._ownerDocument = this;
+&nbsp;
+            if (!element.nodeName) {
+                element.nodeName = name;
+            }
+&nbsp;
             return element;
         }
 &nbsp;
@@ -1008,7 +975,7 @@ module.exports = exports['default'];
 
 </div>
 <div class="footer">
-    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Tue Oct 20 2015 16:57:38 GMT+0000 (UTC)</div>
+    <div class="meta">Generated by <a href="http://istanbul-js.org/" target="_blank">istanbul</a> at Sat Oct 24 2015 16:35:09 GMT+0000 (UTC)</div>
 </div>
 <script src="../prettify.js"></script>
 <script>

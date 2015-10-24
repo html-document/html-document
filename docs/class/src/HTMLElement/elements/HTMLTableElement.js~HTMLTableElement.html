@@ -51,6 +51,7 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
@@ -66,13 +67,13 @@
 </nav>
 
 <div class="content" data-ice="content"><div class="header-notice">
-  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import HTMLTableElement from &apos;<span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber10">html-document/src/HTMLElement/elements/HTMLTableElement.js</a></span>&apos;</code></pre></div>
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import HTMLTableElement from &apos;<span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber9">html-document/src/HTMLElement/elements/HTMLTableElement.js</a></span>&apos;</code></pre></div>
   <span data-ice="access">public</span>
   <span data-ice="kind">class</span>
   
   
   
-  <span data-ice="source">| <span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber10">source</a></span></span>
+  <span data-ice="source">| <span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber9">source</a></span></span>
 </div>
 
 <div class="self-detail detail">
@@ -92,8 +93,7 @@
 
   
   
-  <div class="description" data-ice="description"><p>The HTMLTable interface represents table
-and inherits all classes and methods of the HTMLElement interface.</p>
+  <div class="description" data-ice="description"><p>&lt;table&gt; element.</p>
 </div>
 
   <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement">https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement</a></span></li></ul></div>
@@ -123,13 +123,14 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-get-caption">caption</a></span></span><span data-ice="signature">: <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-get-caption">caption</a></span></span><span data-ice="signature">: <span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Caption of element, HTMLElement &lt;caption&gt;</p>
+        <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html&quot;&gt;HTMLTableCaptionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;caption&gt; that is a child of the element,
+or null if none is found.</p>
 </div>
       </div>
     </td>
@@ -155,7 +156,9 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>All tr elements from table</p>
+        <div data-ice="description"><p>Returns a live &lt;span&gt;HTMLCollection&lt;/span&gt; containing all the rows of the element,
+that is all &lt;tr&gt; that are a child of the element,
+or a child or one of its &lt;thead&gt;, &lt;tbody&gt; and &lt;tfoot&gt; children.</p>
 </div>
       </div>
     </td>
@@ -181,7 +184,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Returns all tbody elements from table</p>
+        <div data-ice="description"><p>Returns a live HTMLCollection containing all the &lt;tbody&gt; of the element.</p>
 </div>
       </div>
     </td>
@@ -207,7 +210,8 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>tFoot element if any</p>
+        <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html&quot;&gt;HTMLTableSectionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;tfoot&gt; that is a child of the element,
+or null if none is found.</p>
 </div>
       </div>
     </td>
@@ -227,13 +231,14 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-get-tHead">tHead</a></span></span><span data-ice="signature">: <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-get-tHead">tHead</a></span></span><span data-ice="signature">: <span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Table head</p>
+        <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html&quot;&gt;HTMLTableSectionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;thead&gt; that is a child of the element,
+or null if none is found.</p>
 </div>
       </div>
     </td>
@@ -291,7 +296,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>The HTMLTableElement.createCaption() method returns the caption for the table.</p>
+        <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;caption&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -317,7 +322,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Method adds &lt;tfoot&gt; element to table</p>
+        <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;tfoot&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -343,7 +348,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Method creates &lt;thead&gt; element for table and adds it in particular place</p>
+        <div data-ice="description"><p>Returns an HTMLElement representing the first &lt;thead&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -369,7 +374,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Method deletes first found &lt;caption&gt; element if any</p>
+        <div data-ice="description"><p>Removes the first &lt;caption&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -395,7 +400,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Method deletes first found &lt;tfoot&gt; element from table</p>
+        <div data-ice="description"><p>Removes the first &lt;tfoot&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -421,7 +426,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Method deletes first &lt;thead&gt; element found in table (if any)</p>
+        <div data-ice="description"><p>Removes the first &lt;thead&gt; that is a child of the element.</p>
 </div>
       </div>
     </td>
@@ -441,13 +446,13 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-method-insertRow">insertRow</a></span></span><span data-ice="signature">(index: <span>*</span>): <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span>
+           <span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html#instance-method-insertRow">insertRow</a></span></span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span>
         </p>
       </div>
       <div>
         
         
-        <div data-ice="description"><p>Method creates new &lt;tr&gt; element and adds it to table.</p>
+        <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing a new row of the table.</p>
 </div>
       </div>
     </td>
@@ -474,18 +479,23 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="kind" data-ice="kind">get</span>
     
     
-    <span data-ice="name">caption</span><span data-ice="signature">: <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+    <span data-ice="name">caption</span><span data-ice="signature">: <span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber16">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber20">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Caption of element, HTMLElement &lt;caption&gt;</p>
+  <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html&quot;&gt;HTMLTableCaptionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;caption&gt; that is a child of the element,
+or null if none is found.
+When set, if the object doesn&apos;t represent a &lt;caption&gt;,
+a &lt;span&gt;&lt;a href=&quot;class/src/DOMException.js~DOMException.html&quot;&gt;DOMException&lt;/a&gt;&lt;/span&gt; with the HierarchyRequestError name is thrown.
+If a correct object is given, it is inserted in the tree as the first child of this element
+and the first &lt;caption&gt; that is a child of this element is removed from the tree, if any.</p>
 </div>
 
   
@@ -519,14 +529,18 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber120">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber138">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>All tr elements from table</p>
+  <div data-ice="description"><p>Returns a live &lt;span&gt;HTMLCollection&lt;/span&gt; containing all the rows of the element,
+that is all &lt;tr&gt; that are a child of the element,
+or a child or one of its &lt;thead&gt;, &lt;tbody&gt; and &lt;tfoot&gt; children.
+The rows members of a &lt;thead&gt; appear first, in tree order, and those members of a &lt;tbody&gt; last,
+also in tree order. The HTMLCollection is live and is automatically updated when the HTMLTableElement changes.</p>
 </div>
 
   
@@ -560,14 +574,15 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber157">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber177">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Returns all tbody elements from table</p>
+  <div data-ice="description"><p>Returns a live HTMLCollection containing all the &lt;tbody&gt; of the element. The HTMLCollection is live
+and is automatically updated when the HTMLTableElement changes.</p>
 </div>
 
   
@@ -601,14 +616,21 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber84">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber98">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>tFoot element if any</p>
+  <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html&quot;&gt;HTMLTableSectionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;tfoot&gt; that is a child of the element,
+or null if none is found.
+When set, if the object doesn&apos;t represent a &lt;tfoot&gt;,
+a &lt;span&gt;&lt;a href=&quot;class/src/DOMException.js~DOMException.html&quot;&gt;DOMException&lt;/a&gt;&lt;/span&gt; with the HierarchyRequestError name is thrown.
+If a correct object is given, it is inserted in the tree immediately before the first element
+that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child
+if there is no such element, and the first &lt;tfoot&gt; that is a child of this element is removed
+from the tree, if any.</p>
 </div>
 
   
@@ -638,18 +660,24 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="kind" data-ice="kind">get</span>
     
     
-    <span data-ice="name">tHead</span><span data-ice="signature">: <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
+    <span data-ice="name">tHead</span><span data-ice="signature">: <span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span> | <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null">null</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber48">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber56">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Table head</p>
+  <div data-ice="description"><p>Is an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html&quot;&gt;HTMLTableSectionElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;thead&gt; that is a child of the element,
+or null if none is found.
+When set, if the object doesn&apos;t represent a &lt;thead&gt;,
+a &lt;span&gt;&lt;a href=&quot;class/src/DOMException.js~DOMException.html&quot;&gt;DOMException&lt;/a&gt;&lt;/span&gt; with the HierarchyRequestError name is thrown.
+If a correct object is given, it is inserted in the tree immediately before the first element
+that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element,
+and the first &lt;thead&gt; that is a child of this element is removed from the tree, if any.</p>
 </div>
 
   
@@ -686,7 +714,7 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber300">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber333">source</a></span></span>
     </span>
   </h3>
 
@@ -752,15 +780,15 @@ and inherits all classes and methods of the HTMLElement interface.</p>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber197">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber255">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>The HTMLTableElement.createCaption() method returns the caption for the table.
-If no caption element exists on the table, this method creates it, then returns it.</p>
+  <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;caption&gt; that is a child of the element.
+If none is found, a new one is created and inserted in the tree as the first child of the &lt;table&gt; element.</p>
 </div>
 
   
@@ -804,14 +832,17 @@ If no caption element exists on the table, this method creates it, then returns 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber228">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber223">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method adds &lt;tfoot&gt; element to table</p>
+  <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing the first &lt;tfoot&gt; that is a child of the element.
+If none is found, a new one is created and inserted in the tree immediately before the first element
+that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child
+if there is no such element.</p>
 </div>
 
   
@@ -855,14 +886,16 @@ If no caption element exists on the table, this method creates it, then returns 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber167">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber189">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method creates &lt;thead&gt; element for table and adds it in particular place</p>
+  <div data-ice="description"><p>Returns an HTMLElement representing the first &lt;thead&gt; that is a child of the element.
+If none is found, a new one is created and inserted in the tree immediately before the first element
+that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element.</p>
 </div>
 
   
@@ -906,14 +939,14 @@ If no caption element exists on the table, this method creates it, then returns 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber214">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber272">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method deletes first found &lt;caption&gt; element if any</p>
+  <div data-ice="description"><p>Removes the first &lt;caption&gt; that is a child of the element.</p>
 </div>
 
   
@@ -947,14 +980,14 @@ If no caption element exists on the table, this method creates it, then returns 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber245">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber240">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method deletes first found &lt;tfoot&gt; element from table</p>
+  <div data-ice="description"><p>Removes the first &lt;tfoot&gt; that is a child of the element.</p>
 </div>
 
   
@@ -988,14 +1021,14 @@ If no caption element exists on the table, this method creates it, then returns 
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber183">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber206">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method deletes first &lt;thead&gt; element found in table (if any)</p>
+  <div data-ice="description"><p>Removes the first &lt;thead&gt; that is a child of the element.</p>
 </div>
 
   
@@ -1025,19 +1058,21 @@ If no caption element exists on the table, this method creates it, then returns 
     
     
     
-    <span data-ice="name">insertRow</span><span data-ice="signature">(index: <span>*</span>): <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span>
+    <span data-ice="name">insertRow</span><span data-ice="signature">(index: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span>): <span><a href="class/src/HTMLElement.js~HTMLElement.html">HTMLElement</a></span></span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber275">source</a></span></span>
+      <span data-ice="source"><span><a href="file/src/HTMLElement/elements/HTMLTableElement.js.html#lineNumber308">source</a></span></span>
     </span>
   </h3>
 
   
   
   
-  <div data-ice="description"><p>Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
-creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element</p>
+  <div data-ice="description"><p>Returns an &lt;span&gt;&lt;a href=&quot;class/src/HTMLElement.js~HTMLElement.html&quot;&gt;HTMLElement&lt;/a&gt;&lt;/span&gt; representing a new row of the table. It inserts it in the rows collection
+immediately before the &lt;tr&gt; element at the given index position. If necessary a &lt;tbody&gt; is created.
+If the index is -1, the new row is appended to the collection. If the index is smaller than -1 or greater than
+the number of rows in the collection, a &lt;span&gt;&lt;a href=&quot;class/src/DOMException.js~DOMException.html&quot;&gt;DOMException&lt;/a&gt;&lt;/span&gt; with the value IndexSizeError is raised.</p>
 </div>
 
   
@@ -1052,8 +1087,9 @@ creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; e
     
     <tr data-ice="property" data-depth="0">
       <td data-ice="name" data-depth="0">index</td>
-      <td data-ice="type"><span>*</span></td>
-      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li>
+<li>default: -1</li></ul></td>
       <td data-ice="description"></td>
     </tr>
 </tbody>
