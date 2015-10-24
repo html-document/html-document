@@ -8,21 +8,22 @@ import Url from './utils/Url';
 // HTML Elements
 import HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';
 import HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';
+import HTMLTableCaptionElement from './HTMLElement/elements/HTMLTableCaptionElement';
 import HTMLMetaElement from './HTMLElement/elements/HTMLMetaElement';
 import HTMLTableElement from './HTMLElement/elements/HTMLTableElement';
-import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
 import HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';
+import HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';
 
 const elementClasses = new Map([
-    ['meta', HTMLMetaElement]
-    ['select', HTMLSelectElement],
+    ['caption', HTMLTableCaptionElement],
+    ['meta', HTMLMetaElement],
     ['option', HTMLOptionElement],
-    ['select', HTMLSelectElement],
     ['table', HTMLTableElement],
     ['thead', HTMLTableSectionElement],
     ['tfoot', HTMLTableSectionElement],
     ['tfoot', HTMLTableSectionElement],
     ['tr', HTMLTableRowElement],
+    ['select', HTMLSelectElement],
 ]);
 
 /**

@@ -44,9 +44,10 @@ export default class HTMLTableRowElement extends HTMLElement {
      * Set align of element
      *
      * @param {string} value
+     * @deprecated
      */
     set vAlign(value) {
-        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value)) {
+        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value) !== -1) {
             this.setAttribute('valign', value);
         }
     }
@@ -64,17 +65,6 @@ export default class HTMLTableRowElement extends HTMLElement {
     }
 
     /**
-     * Set align of element
-     *
-     * @param {string} value
-     */
-    set align(value) {
-        if (['left', 'right', 'center'].indexOf(value) !== 1) {
-            this.setAttribute('align', value);
-        }
-    }
-
-    /**
      * Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the
      * element's contents with respect to the surrounding context. The possible values are "left", "right", and
      * "center".
@@ -84,6 +74,17 @@ export default class HTMLTableRowElement extends HTMLElement {
      */
     get align() {
         return this.getAttribute('align');
+    }
+
+    /**
+     * Set align of element
+     *
+     * @param {string} value
+     */
+    set align(value) {
+        if (['left', 'right', 'center'].indexOf(value) !== 1) {
+            this.setAttribute('align', value);
+        }
     }
 
     /**

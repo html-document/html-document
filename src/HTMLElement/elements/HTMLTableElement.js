@@ -2,25 +2,27 @@ import HTMLElement from '../../HTMLElement';
 import DOMException from '../../DOMException';
 
 /**
- * The HTMLTable interface represents table
- * and inherits all classes and methods of the HTMLElement interface.
+ * &lt;table&gt; element.
  *
  * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement
  */
 export default class HTMLTableElement extends HTMLElement {
     /**
-     * Caption of element, HTMLElement &lt;caption&gt;
+     * Is an {@link HTMLTableCaptionElement} representing the first &lt;caption&gt; that is a child of the element,
+     * or null if none is found.
+     * When set, if the object doesn't represent a &lt;caption&gt;,
+     * a {@link DOMException} with the HierarchyRequestError name is thrown.
+     * If a correct object is given, it is inserted in the tree as the first child of this element
+     * and the first &lt;caption&gt; that is a child of this element is removed from the tree, if any.
      *
-     * @type {HTMLElement|null}
+     * @type {HTMLTableCaptionElement|null}
      */
     get caption() {
-        return this.querySelector('caption');
+        return this._childNodeFind(child => child.tagName === 'caption');
     }
 
     /**
-     * Sets caption of element
-     *
-     * @param {HTMLElement|null} element - element with tagName caption
+     * @param {HTMLTableCaptionElement|null} element
      * @ignore
      */
     set caption(element) {
@@ -28,22 +30,24 @@ export default class HTMLTableElement extends HTMLElement {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let caption = this.caption;
-        if (caption !== null) {
-            this.replaceChild(element, caption);
-        } else {
-            if (this.firstChild) {
-                this.insertBefore(element, this.firstChild);
-            } else {
-                this.appendChild(element);
-            }
+        let previousCaption = this.caption;
+        if (previousCaption) {
+            this.removeChild(previousCaption);
         }
+
+        this.insertBefore(element, this.firstChild);
     }
 
     /**
-     * Table head
+     * Is an {@link HTMLTableSectionElement} representing the first &lt;thead&gt; that is a child of the element,
+     * or null if none is found.
+     * When set, if the object doesn't represent a &lt;thead&gt;,
+     * a {@link DOMException} with the HierarchyRequestError name is thrown.
+     * If a correct object is given, it is inserted in the tree immediately before the first element
+     * that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element,
+     * and the first &lt;thead&gt; that is a child of this element is removed from the tree, if any.
      *
-     * @type {HTMLElement|null}
+     * @type {HTMLTableSectionElement|null}
      */
     get tHead() {
         return this._childNodeFind(child => child.tagName === 'thead');
@@ -51,33 +55,39 @@ export default class HTMLTableElement extends HTMLElement {
 
     /**
      * @ignore
-     * @param {HTMLElement|null} element
+     * @param {HTMLTableSectionElement|null} element
      */
     set tHead(element) {
         if (element.tagName !== 'thead') {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let tHead = this.tHead;
+        const previousTHead = this.tHead;
+        if (previousTHead) {
+            this.removeChild(previousTHead);
+        }
 
-        if (tHead !== null) {
-            this.replaceChild(element, tHead);
-        } else {
-            if (this.children.every((child) => {
-                if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {
-                    this.insertBefore(element, child);
-                    return false;
-                }
-
+        if (this.children.some((child) => {
+            if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {
+                this.insertBefore(element, child);
                 return true;
-            })) {
-                this.appendChild(element);
             }
+
+            return false;
+        })) {
+            this.appendChild(element);
         }
     }
 
     /**
-     * tFoot element if any
+     * Is an {@link HTMLTableSectionElement} representing the first &lt;tfoot&gt; that is a child of the element,
+     * or null if none is found.
+     * When set, if the object doesn't represent a &lt;tfoot&gt;,
+     * a {@link DOMException} with the HierarchyRequestError name is thrown.
+     * If a correct object is given, it is inserted in the tree immediately before the first element
+     * that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child
+     * if there is no such element, and the first &lt;tfoot&gt; that is a child of this element is removed
+     * from the tree, if any.
      *
      * @type {HTMLElement|null}
      */
@@ -94,25 +104,29 @@ export default class HTMLTableElement extends HTMLElement {
             throw new DOMException('HierarchyRequestError');
         }
 
-        let tfoot = this.tFoot;
-        if (tfoot !== null) {
-            this.replaceChild(element, tfoot);
-        } else {
-            if (this.children.every((child) => {
-                if (child.tagName !== 'caption' && child.tagName !== 'colgroup' && child !== 'thead') {
-                    this.insertBefore(element, child);
-                    return false;
-                }
+        const previousTFoot = this.tFoot;
+        if (previousTFoot) {
+            this.removeChild(previousTFoot);
+        }
 
+        if (this.children.some((child) => {
+            if (child.tagName !== 'caption' && child.tagName !== 'colgroup' && child.tagName !== 'thead') {
+                this.insertBefore(element, child);
                 return true;
-            })) {
-                this.appendChild(element);
             }
+
+            return false;
+        })) {
+            this.appendChild(element);
         }
     }
 
     /**
-     * All tr elements from table
+     * Returns a live {@link HTMLCollection} containing all the rows of the element,
+     * that is all &lt;tr&gt; that are a child of the element,
+     * or a child or one of its &lt;thead&gt;, &lt;tbody&gt; and &lt;tfoot&gt; children.
+     * The rows members of a &lt;thead&gt; appear first, in tree order, and those members of a &lt;tbody&gt; last,
+     * also in tree order. The HTMLCollection is live and is automatically updated when the HTMLTableElement changes.
      *
      * @type {HTMLElement[]}
      * @readonly
@@ -150,7 +164,8 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Returns all tbody elements from table
+     * Returns a live HTMLCollection containing all the &lt;tbody&gt; of the element. The HTMLCollection is live
+     * and is automatically updated when the HTMLTableElement changes.
      *
      * @type {HTMLElement[]}
      * @readonly
@@ -160,13 +175,16 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method creates &lt;thead&gt; element for table and adds it in particular place
+     * Returns an HTMLElement representing the first &lt;thead&gt; that is a child of the element.
+     * If none is found, a new one is created and inserted in the tree immediately before the first element
+     * that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead
      * @return {HTMLElement}
      */
     createTHead() {
         let tHead = this.tHead;
+
         if (tHead !== null) {
             return tHead;
         }
@@ -177,20 +195,55 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method deletes first &lt;thead&gt; element found in table (if any)
+     * Removes the first &lt;thead&gt; that is a child of the element.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead
      */
     deleteTHead() {
-        let thead = this.tHead;
-        if (thead !== null) {
-            this.removeChild(thead);
+        let tHead = this.tHead;
+
+        if (tHead !== null) {
+            this.removeChild(tHead);
         }
     }
 
     /**
-     * The HTMLTableElement.createCaption() method returns the caption for the table.
-     * If no caption element exists on the table, this method creates it, then returns it.
+     * Returns an {@link HTMLElement} representing the first &lt;tfoot&gt; that is a child of the element.
+     * If none is found, a new one is created and inserted in the tree immediately before the first element
+     * that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child
+     * if there is no such element.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
+     * @return {HTMLElement}
+     */
+    createTFoot() {
+        let tFoot = this.tFoot;
+
+        if (tFoot !== null) {
+            return tFoot;
+        }
+
+        tFoot = this.ownerDocument.createElement('tfoot');
+        this.tFoot = tFoot;
+        return tFoot;
+    }
+
+    /**
+     * Removes the first &lt;tfoot&gt; that is a child of the element.
+     *
+     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot
+     */
+    deleteTFoot() {
+        let tFoot = this.tFoot;
+
+        if (tFoot !== null) {
+            this.removeChild(tFoot);
+        }
+    }
+
+    /**
+     * Returns an {@link HTMLElement} representing the first &lt;caption&gt; that is a child of the element.
+     * If none is found, a new one is created and inserted in the tree as the first child of the &lt;table&gt; element.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption
      * @return {HTMLElement}
@@ -208,7 +261,7 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method deletes first found &lt;caption&gt; element if any
+     * Removes the first &lt;caption&gt; that is a child of the element.
      *
      * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption
      */
@@ -221,74 +274,41 @@ export default class HTMLTableElement extends HTMLElement {
     }
 
     /**
-     * Method adds &lt;tfoot&gt; element to table
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot
-     * @return {HTMLElement}
-     */
-    createTFoot() {
-        let tfoot = this.tFoot;
-
-        if (tfoot !== null) {
-            return tfoot;
-        }
-
-        tfoot = this.ownerDocument.createElement('tfoot');
-        this.tFoot = tfoot;
-        return tfoot;
-    }
-
-    /**
-     * Method deletes first found &lt;tfoot&gt; element from table
-     *
-     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot
-     */
-    deleteTFoot() {
-        let tfoot = this.tFoot;
-        if (tfoot !== null) {
-            this.removeChild(tfoot);
-        }
-    }
-
-    /**
      * Method creates &lt;tbody&gt; element and puts it in particular place
      *
      * @private
      */
     _createTBody() {
         let tbody = this.ownerDocument.createElement('tbody');
-        let tfoot = this.tFoot;
-        if (tfoot) {
-            this.insertBefore(tbody, tfoot);
-        } else {
-            this.appendChild(tbody);
-        }
-
+        this.insertBefore(tbody, this.tFoot);
         return tbody;
     }
 
     /**
-     * Method creates new &lt;tr&gt; element and adds it to table. If no &lt;tbody&gt; present in table
-     * creates it and adds &lt;tr&gt; to it, elsewhere adds row to last &lt;tbody&gt; element
+     * Returns an {@link HTMLElement} representing a new row of the table. It inserts it in the rows collection
+     * immediately before the &lt;tr&gt; element at the given index position. If necessary a &lt;tbody&gt; is created.
+     * If the index is -1, the new row is appended to the collection. If the index is smaller than -1 or greater than
+     * the number of rows in the collection, a {@link DOMException} with the value IndexSizeError is raised.
+
      *
      * @param {number} [index=-1]
      * @return {HTMLElement}
      */
     insertRow(index = -1) {
         let row = this.ownerDocument.createElement('tr');
-        let tbody = null;
-        let tbodies = this.tBodies;
+        let tBody = null;
+        let tBodies = this.tBodies;
 
-        if (tbodies.length === 0) {
-            tbody = this._createTBody();
+        if (tBodies.length === 0) {
+            tBody = this._createTBody();
         } else {
-            tbody = tbodies[tbodies.length - 1];
+            tBody = tBodies[tBodies.length - 1];
         }
 
-        if (index === -1 || index === tbody.length) {
-            tbody.appendChild(row);
-        } else if (index < tbody.length - 1) {
-            tbody.insertBefore(row, tbody.children[index]);
+        if (index === -1 || index === tBody.length) {
+            tBody.appendChild(row);
+        } else if (index < tBody.length - 1) {
+            tBody.insertBefore(row, tBody.children[index]);
         } else {
             throw new DOMException('IndexSizeError');
         }
@@ -301,15 +321,15 @@ export default class HTMLTableElement extends HTMLElement {
      */
     appendChild(element) {
         if (element.tagName === 'tr') {
-            let tbodies = this.tBodies;
-            let tbody = null;
-            if (tbodies.length === 0) {
-                tbody = this._createTBody();
+            let tBodies = this.tBodies;
+            let tBody = null;
+            if (tBodies.length === 0) {
+                tBody = this._createTBody();
             } else {
-                tbody = tbodies[tbodies.length - 1];
+                tBody = tBodies[tBodies.length - 1];
             }
 
-            return tbody.appendChild(element);
+            return tBody.appendChild(element);
         }
 
         return super.appendChild(element);

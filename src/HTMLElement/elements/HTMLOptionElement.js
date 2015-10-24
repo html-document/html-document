@@ -12,10 +12,10 @@ export default class HTMLOptionElement extends HTMLElement {
      * indicating whether the option is selected by default or not.
      *
      * @type {boolean}
-     * @ignore Unsuported
+     * @ignore
      */
     get defaultSelected() {
-        throw new Error('Unsuported');
+        throw new Error('Unsupported');
     }
 
     /**
@@ -23,7 +23,7 @@ export default class HTMLOptionElement extends HTMLElement {
      * @param {boolean} selected
      */
     set defaultSelected(selected) {
-        throw new Error('Unsuported');
+        throw new Error('Unsupported');
     }
 
     /**
@@ -50,7 +50,7 @@ export default class HTMLOptionElement extends HTMLElement {
     }
 
     /**
-     * If the option is a descendent of a select element, then this property has the same value as
+     * If the option is a descendant of a select element, then this property has the same value as
      * the form property of the corresponding HTMLSelectElement object; otherwise, it is null.
      *
      * @type {HTMLFormElement}
@@ -73,7 +73,7 @@ export default class HTMLOptionElement extends HTMLElement {
      *
      * @type {number}
      * @readonly
-     * @ignore Unsuported
+     * @ignore
      */
     get index() {
         throw new Error('Not implemented');
