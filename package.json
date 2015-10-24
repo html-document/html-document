@@ -1,6 +1,6 @@
 {
   "name": "html-document",
-  "description": "Partial implementation of document, HTMLElement for node",
+  "description": "Partial implementation of the DOM, document for node.",
   "keywords": [
     "DOM",
     "HTMLElement",

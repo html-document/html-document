@@ -1,7 +1,8 @@
-html-document [![NPM version][npm-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage][coverage-image]][coverage-url]
-============================
+# html-document [![NPM version][npm-image]][npm-url]
 
 Partial implementation of the DOM, document for node.
+
+[![Build Status][build-status-image]][build-status-url] [![Coverage][coverage-image]][coverage-url]
 
 Note: `html-document` requires npm 3 or newer.
 
