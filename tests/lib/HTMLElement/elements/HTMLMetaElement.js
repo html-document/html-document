@@ -7,7 +7,6 @@ var lib = '../../../../lib/';
 
 var HTMLMetaElement = require(lib + 'HTMLElement/elements/HTMLMetaElement');
 var Document = require(lib + 'Document');
-var DOMException = require(lib + 'DOMException');
 
 test('HTMLMetaElement should have the nodeName == meta ', function () {
     var elt = new HTMLMetaElement();

@@ -2,7 +2,7 @@ import Element from './Element';
 import CSSStyleDeclaration from './HTMLElement/CSSStyleDeclaration';
 import ClassList from './HTMLElement/ClassList';
 import escapeAttribute from './utils/escapeAttribute';
-import {attributeNameToProperty, propertyNameToAttribute} from './utils/escapeAttributeName';
+import {attributeNameToProperty} from './utils/escapeAttributeName';
 
 const voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');
 
