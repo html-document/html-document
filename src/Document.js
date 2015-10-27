@@ -25,6 +25,7 @@ const elementClasses = new Map([
     ['tfoot', HTMLTableSectionElement],
     ['tr', HTMLTableRowElement],
     ['select', HTMLSelectElement],
+    ['a', HTMLAnchorElement],
 ]);
 
 /**

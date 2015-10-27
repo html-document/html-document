@@ -1,3 +1,4 @@
+/* global test */
 import assert from 'proclaim';
 const expect = assert.strictEqual;
 
@@ -5,7 +6,6 @@ const lib = '../../../../lib/';
 
 const HTMLAnchorElement = require(lib + 'HTMLElement/elements/HTMLAnchorElement');
 const Document = require(lib + 'Document');
-const DOMException = require(lib + 'DOMException');
 
 test('HTMLAnchorElement should have the nodeName == table ', () => {
     let elt = new HTMLAnchorElement();

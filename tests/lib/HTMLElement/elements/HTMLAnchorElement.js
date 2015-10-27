@@ -1,3 +1,4 @@
+/* global test */
 'use strict';
 
 var _interopRequireDefault = require('babel-runtime/helpers/interop-require-default')['default'];
@@ -12,7 +13,6 @@ var lib = '../../../../lib/';
 
 var HTMLAnchorElement = require(lib + 'HTMLElement/elements/HTMLAnchorElement');
 var Document = require(lib + 'Document');
-var DOMException = require(lib + 'DOMException');
 
 test('HTMLAnchorElement should have the nodeName == table ', function () {
     var elt = new HTMLAnchorElement();

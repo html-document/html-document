@@ -49,7 +49,6 @@ export default class HTMLAnchorElement extends HTMLElement {
     set href(value) {
         this._href.href = value;
         this._setAttribute('href', this._href.toString());
-        let host = this.host;
         if (this.host === '' && this.ownerDocument) {
             this._href.host = this.ownerDocument.location.host;
         }
