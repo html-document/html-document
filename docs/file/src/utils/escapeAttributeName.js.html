@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/HTMLElement.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/utils/escapeAttributeName.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -68,82 +68,27 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import Element from &apos;./Element&apos;;
-import CSSStyleDeclaration from &apos;./HTMLElement/CSSStyleDeclaration&apos;;
-import ClassList from &apos;./HTMLElement/ClassList&apos;;
-import escapeAttribute from &apos;./utils/escapeAttribute&apos;;
-import {attributeNameToProperty} from &apos;./utils/escapeAttributeName&apos;;
-
-const voidElements = &apos;area base br col embed hr img input keygen link meta param source track wbr&apos;.split(&apos; &apos;);
+<div class="content" data-ice="content"><h1 data-ice="title">src/utils/escapeAttributeName.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
+ * Function converts attribute name &quot;data-some-value&quot; to &quot;someValue&quot;.
+ *
+ * @param {string} name
+ * @returns {string}
+ */
+export function attributeNameToProperty(name) {
+    let result = name.replace(/^data-/i, &apos;&apos;);
+    return result.replace(/-(\w)/g, (match, letter) =&gt; letter.toUpperCase());
+}
 
 /**
- * The HTMLElement interface represents any HTML element.
+ * Function converts dataset property name &quot;someValue&quot; to &quot;data-some-value&quot;.
  *
- * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement
+ * @param {string} name
+ * @returns {string}
  */
-export default class HTMLElement extends Element {
-    constructor() {
-        super();
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {CSSStyleDeclaration} style
-         * @readonly
-         */
-        this.style = new CSSStyleDeclaration(this);
-        /**
-         * returns a token list of the class attribute of the element
-         * @type {ClassList} classList
-         * @readonly
-         */
-        this.classList = new ClassList(this);
-
-        this._dataset = {};
-    }
-
-    /**
-     * The class of the element.
-     *
-     * @type {string}
-     */
-    get className() {
-        return this.getAttribute(&apos;class&apos;);
-    }
-
-    /**
-     * @param {string} className
-     */
-    set className(className) {
-        this.setAttribute(&apos;class&apos;, className);
-    }
-
-    _updatedAttribute(attributeName, value) {
-        if (attributeName === &apos;style&apos;) {
-            this.style.cssText = value || &apos;&apos;;
-        }
-
-        if (attributeName === &apos;class&apos;) {
-            this.classList._parse(value || &apos;&apos;);
-        }
-
-        if (attributeName.startsWith(&apos;data-&apos;)) {
-            this.dataset[attributeNameToProperty(attributeName)] = value;
-        }
-    }
-
-    /**
-     * @ignore
-     * @return {string}
-     */
-    get outerHTML() {
-        return &apos;&lt;&apos; + this.nodeName + Object.keys(this._attributes).reduce((value, attributeName) =&gt; {
-            return value + &apos; &apos; + attributeName + &apos;=&quot;&apos; + escapeAttribute(this._attributes[attributeName]) + &apos;&quot;&apos;;
-        }, &apos;&apos;) + &apos;&gt;&apos; + (voidElements.indexOf(this.nodeName) !== -1 ? &apos;&apos; : this.innerHTML + &apos;&lt;/&apos; + this.nodeName + &apos;&gt;&apos;);
-    }
-
-    get dataset() {
-        return this._dataset;
-    }
+export function propertyNameToAttribute(name) {
+    let result = name.replace(/([A-Z])/g, (match, letter) =&gt; &apos;-&apos; + letter.toLowerCase());
+    return &apos;data-&apos; + result;
 }
 </code></pre>
 

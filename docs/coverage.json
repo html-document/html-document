@@ -1,7 +1,7 @@
 {
-  "coverage": "84.78%",
-  "expectCount": 230,
-  "actualCount": 195,
+  "coverage": "84.54%",
+  "expectCount": 233,
+  "actualCount": 197,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -43,8 +43,8 @@
       "undocumentLines": [
         33,
         144,
-        184,
-        188
+        188,
+        184
       ]
     },
     "src/DocumentFragment.js": {
@@ -68,10 +68,11 @@
       ]
     },
     "src/HTMLElement.js": {
-      "expectCount": 6,
+      "expectCount": 7,
       "actualCount": 5,
       "undocumentLines": [
-        14
+        15,
+        73
       ]
     },
     "src/HTMLElement/elements/HTMLMetaElement.js": {
@@ -96,10 +97,10 @@
         285,
         289,
         293,
-        297,
         301,
-        327,
-        323
+        297,
+        323,
+        327
       ]
     },
     "src/HTMLElement/elements/HTMLTableCaptionElement.js": {
@@ -159,6 +160,11 @@
     "src/utils/Url.js": {
       "expectCount": 15,
       "actualCount": 15,
+      "undocumentLines": []
+    },
+    "src/utils/escapeAttributeName.js": {
+      "expectCount": 2,
+      "actualCount": 2,
       "undocumentLines": []
     },
     "src/utils/cloneNodeHelper.js": {
