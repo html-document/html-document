@@ -2,6 +2,7 @@ import Element from './Element';
 import CSSStyleDeclaration from './HTMLElement/CSSStyleDeclaration';
 import ClassList from './HTMLElement/ClassList';
 import escapeAttribute from './utils/escapeAttribute';
+import {attributeNameToProperty} from './utils/escapeAttributeName';
 
 const voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');
 
@@ -25,6 +26,8 @@ export default class HTMLElement extends Element {
          * @readonly
          */
         this.classList = new ClassList(this);
+
+        this._dataset = {};
     }
 
     /**
@@ -51,6 +54,10 @@ export default class HTMLElement extends Element {
         if (attributeName === 'class') {
             this.classList._parse(value || '');
         }
+
+        if (attributeName.startsWith('data-')) {
+            this.dataset[attributeNameToProperty(attributeName)] = value;
+        }
     }
 
     /**
@@ -63,4 +70,7 @@ export default class HTMLElement extends Element {
         }, '') + '>' + (voidElements.indexOf(this.nodeName) !== -1 ? '' : this.innerHTML + '</' + this.nodeName + '>');
     }
 
+    get dataset() {
+        return this._dataset;
+    }
 }
