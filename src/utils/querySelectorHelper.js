@@ -52,13 +52,8 @@ export function querySelectorAll(element, query) {
  */
 function* processElement(element, rules) {
     for (let child of element.children) {
-        for (let matchElement of processRules(child, rules)) {
-            yield matchElement;
-        }
-
-        for (let matchElement of processElement(child, rules)) {
-            yield matchElement;
-        }
+        yield* processRules(child, rules);
+        yield* processElement(child, rules);
     }
 }
 
@@ -102,9 +97,7 @@ function* processSelectors(element, selectors) {
             return;
         }
 
-        for (let childMatch of processElement(element, { type: 'ruleSet', rule: rule.rule })) {
-            yield childMatch;
-        }
+        yield* processElement(element, { type: 'ruleSet', rule: rule.rule });
 
         return;
     }
