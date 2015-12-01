@@ -1,6 +1,6 @@
 {
-  "coverage": "84.54%",
-  "expectCount": 233,
+  "coverage": "85.28%",
+  "expectCount": 231,
   "actualCount": 197,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
@@ -97,10 +97,10 @@
         285,
         289,
         293,
-        301,
         297,
-        323,
-        327
+        301,
+        327,
+        323
       ]
     },
     "src/HTMLElement/elements/HTMLTableCaptionElement.js": {
@@ -166,14 +166,6 @@
       "expectCount": 2,
       "actualCount": 2,
       "undocumentLines": []
-    },
-    "src/utils/cloneNodeHelper.js": {
-      "expectCount": 2,
-      "actualCount": 0,
-      "undocumentLines": [
-        5,
-        26
-      ]
     },
     "src/utils/escapeAttribute.js": {
       "expectCount": 1,

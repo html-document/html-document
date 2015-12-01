@@ -8296,130 +8296,6 @@
     "kind": "file",
     "static": true,
     "variation": null,
-    "name": "src/utils/cloneNodeHelper.js",
-    "memberof": null,
-    "longname": "src/utils/cloneNodeHelper.js",
-    "access": null,
-    "description": null,
-    "lineNumber": 1,
-    "content": "import Node from '../Node';\nimport Text from '../Text';\nimport DOMException from '../DOMException';\n\nfunction cloneElementNode(element, deep) {\n    let clone = element.ownerDocument.createElement(element.nodeName);\n    clone._ownerDocument = null;\n    clone._parentNode = null;\n    let attributes = element.attributes;\n    for (let key in attributes) {\n        if (attributes.hasOwnProperty(key)) {\n            clone.setAttribute(key, element.getAttribute(key));\n        }\n    }\n\n    if (deep) {\n        element.childNodes.every((child) => {\n            clone.appendChild(cloneAnyNode(child, deep));\n            return true;\n        });\n    }\n\n    return clone;\n}\n\nfunction cloneTextNode(element) {\n    return new Text(element.value);\n}\n\n/**\n * Function return copy of element and if request deep copy of element\n *\n * @param {ParentNode|Node} element\n * @param {boolean} deep\n * @ignore\n */\nfunction cloneAnyNode(element, deep) {\n    switch (element.nodeType) {\n        case Node.ELEMENT_NODE:\n            return cloneElementNode(element, deep);\n        case Node.TEXT_NODE:\n            return cloneTextNode(element);\n        default:\n            throw new DOMException(DOMException.DATA_CLONE_ERR);\n    }\n}\n\nexport {\n    cloneAnyNode,\n    cloneElementNode,\n    cloneTextNode,\n};\n"
-  },
-  {
-    "__docId__": 343,
-    "kind": "function",
-    "static": true,
-    "variation": null,
-    "name": "cloneAnyNode",
-    "memberof": "src/utils/cloneNodeHelper.js",
-    "longname": "src/utils/cloneNodeHelper.js~cloneAnyNode",
-    "access": null,
-    "export": true,
-    "importPath": "html-document/src/utils/cloneNodeHelper.js",
-    "importStyle": "{cloneAnyNode}",
-    "description": "Function return copy of element and if request deep copy of element",
-    "lineNumber": 37,
-    "ignore": true,
-    "params": [
-      {
-        "nullable": null,
-        "types": [
-          "ParentNode",
-          "Node"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "element",
-        "description": ""
-      },
-      {
-        "nullable": null,
-        "types": [
-          "boolean"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "deep",
-        "description": ""
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 344,
-    "kind": "function",
-    "static": true,
-    "variation": null,
-    "name": "cloneElementNode",
-    "memberof": "src/utils/cloneNodeHelper.js",
-    "longname": "src/utils/cloneNodeHelper.js~cloneElementNode",
-    "access": null,
-    "export": true,
-    "importPath": "html-document/src/utils/cloneNodeHelper.js",
-    "importStyle": "{cloneElementNode}",
-    "description": null,
-    "lineNumber": 5,
-    "undocument": true,
-    "params": [
-      {
-        "name": "element",
-        "types": [
-          "*"
-        ]
-      },
-      {
-        "name": "deep",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 345,
-    "kind": "function",
-    "static": true,
-    "variation": null,
-    "name": "cloneTextNode",
-    "memberof": "src/utils/cloneNodeHelper.js",
-    "longname": "src/utils/cloneNodeHelper.js~cloneTextNode",
-    "access": null,
-    "export": true,
-    "importPath": "html-document/src/utils/cloneNodeHelper.js",
-    "importStyle": "{cloneTextNode}",
-    "description": null,
-    "lineNumber": 26,
-    "undocument": true,
-    "params": [
-      {
-        "name": "element",
-        "types": [
-          "*"
-        ]
-      }
-    ],
-    "return": {
-      "types": [
-        "*"
-      ]
-    },
-    "generator": false
-  },
-  {
-    "__docId__": 346,
-    "kind": "file",
-    "static": true,
-    "variation": null,
     "name": "src/utils/escapeAttribute.js",
     "memberof": null,
     "longname": "src/utils/escapeAttribute.js",
@@ -8429,7 +8305,7 @@
     "content": "import escapeHTML from './escapeHTML';\n\nexport default function escapeAttribute(string) {\n    return escapeHTML(string).replace(/\"/g, '&quot;');\n}\n"
   },
   {
-    "__docId__": 347,
+    "__docId__": 343,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8459,7 +8335,7 @@
     "generator": false
   },
   {
-    "__docId__": 348,
+    "__docId__": 344,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8472,7 +8348,7 @@
     "content": "/**\n * Function converts attribute name \"data-some-value\" to \"someValue\".\n *\n * @param {string} name\n * @returns {string}\n */\nexport function attributeNameToProperty(name) {\n    let result = name.replace(/^data-/i, '');\n    return result.replace(/-(\\w)/g, (match, letter) => letter.toUpperCase());\n}\n\n/**\n * Function converts dataset property name \"someValue\" to \"data-some-value\".\n *\n * @param {string} name\n * @returns {string}\n */\nexport function propertyNameToAttribute(name) {\n    let result = name.replace(/([A-Z])/g, (match, letter) => '-' + letter.toLowerCase());\n    return 'data-' + result;\n}\n"
   },
   {
-    "__docId__": 349,
+    "__docId__": 345,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8514,7 +8390,7 @@
     "generator": false
   },
   {
-    "__docId__": 350,
+    "__docId__": 346,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8556,7 +8432,7 @@
     "generator": false
   },
   {
-    "__docId__": 351,
+    "__docId__": 347,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8569,7 +8445,7 @@
     "content": "export default function escapeHTML(string) {\n    if (!string) {\n        return string;\n    }\n\n    return String(string)\n        .replace(/&(?!\\w+;)/g, '&amp;')\n        .replace(/</g, '&lt;')\n        .replace(/>/g, '&gt;');\n}\n"
   },
   {
-    "__docId__": 352,
+    "__docId__": 348,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8599,7 +8475,7 @@
     "generator": false
   },
   {
-    "__docId__": 353,
+    "__docId__": 349,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8609,10 +8485,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { CssSelectorParser } from 'css-selector-parser';\nconst cssParser = new CssSelectorParser();\ncssParser.registerAttrEqualityMods('^', '$', '*', '~', '|');\n\n/**\n * querySelectorHelper interface provides simple processing\n * of Element.querySelector method.\n */\n\n/**\n *\n * @param {Element} element\n * @param {string} query\n * @return {Element|null}\n */\nexport function querySelector(element, query) {\n    let rules = cssParser.parse(query);\n\n    const iterator = processElement(element, rules);\n    const next = iterator.next();\n\n    if (next && next.value) {\n        return next.value;\n    }\n\n    return null;\n}\n\n/**\n  *\n  * @param {Element} element\n  * @param {string} query\n  * @return {Element[]}\n  */\nexport function querySelectorAll(element, query) {\n    let rules = cssParser.parse(query);\n\n    const result = [];\n    for (let element of processElement(element, rules)) {\n        result.push(element);\n    }\n\n    return result;\n}\n\n/**\n * Function processes one element using current rule\n *\n * @param element\n * @param rules\n * @return {boolean}\n */\nfunction* processElement(element, rules) {\n    for (let child of element.children) {\n        for (let matchElement of processRules(child, rules)) {\n            yield matchElement;\n        }\n\n        for (let matchElement of processElement(child, rules)) {\n            yield matchElement;\n        }\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rules\n * @return {boolean}\n */\nfunction processRules(element, rules) {\n    if (rules.type === 'selectors') {\n        return processSelectors(element, rules.selectors);\n    } else if (rules.type === 'ruleSet') {\n        return processRule(element, rules.rule);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rule\n * @return {boolean}\n */\nfunction processRule(element, rule) {\n    return processSelectors(element, [{ rule }]);\n}\n\n/**\n * @param {Element} element\n * @param {Object[]} selectors\n * @return {boolean}\n */\nfunction* processSelectors(element, selectors) {\n    for (let selector of selectors) {\n        const rule = selector.rule;\n\n        if (!matchRule(element, rule)) {\n            continue;\n        }\n\n        if (!rule.hasOwnProperty('rule')) {\n            yield element;\n            return;\n        }\n\n        for (let childMatch of processElement(element, { type: 'ruleSet', rule: rule.rule })) {\n            yield childMatch;\n        }\n\n        return;\n    }\n}\n\nfunction matchRule(element, rule) {\n    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('classNames')) {\n        if (!rule.classNames.every(name => element.classList.contains(name))) {\n            return false;\n        }\n    }\n\n    if (rule.hasOwnProperty('attrs')) {\n        if (!rule.attrs.some(attr => {\n            if (!element.hasAttribute(attr.name)) {\n                return false;\n            } else if (attr.operator === undefined) {\n                return true;\n            }\n\n            let value = element.getAttribute(attr.name);\n\n            switch (attr.operator) {\n                case '=':\n                    return value === attr.value;\n                case '^=':\n                    return value.startsWith(attr.value);\n                case '$=':\n                    return value.endsWith(attr.value);\n                case '~=':\n                    let words = value.split(' ');\n                    return words.some(word => word === attr.value);\n                case '*=':\n                    return value.indexOf(attr.value) !== -1;\n                case '|=':\n                    return value === attr.value || value.startsWith(attr.value + '-');\n                default:\n                    throw new Error('Unsupported attribute operator ' + attr.operator);\n            }\n        })) {\n            return false;\n        }\n    }\n\n    return true;\n}\n"
+    "content": "import { CssSelectorParser } from 'css-selector-parser';\nconst cssParser = new CssSelectorParser();\ncssParser.registerAttrEqualityMods('^', '$', '*', '~', '|');\n\n/**\n * querySelectorHelper interface provides simple processing\n * of Element.querySelector method.\n */\n\n/**\n *\n * @param {Element} element\n * @param {string} query\n * @return {Element|null}\n */\nexport function querySelector(element, query) {\n    let rules = cssParser.parse(query);\n\n    const iterator = processElement(element, rules);\n    const next = iterator.next();\n\n    if (next && next.value) {\n        return next.value;\n    }\n\n    return null;\n}\n\n/**\n  *\n  * @param {Element} element\n  * @param {string} query\n  * @return {Element[]}\n  */\nexport function querySelectorAll(element, query) {\n    let rules = cssParser.parse(query);\n\n    const result = [];\n    for (let element of processElement(element, rules)) {\n        result.push(element);\n    }\n\n    return result;\n}\n\n/**\n * Function processes one element using current rule\n *\n * @param element\n * @param rules\n * @return {boolean}\n */\nfunction* processElement(element, rules) {\n    for (let child of element.children) {\n        yield* processRules(child, rules);\n        yield* processElement(child, rules);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rules\n * @return {boolean}\n */\nfunction processRules(element, rules) {\n    if (rules.type === 'selectors') {\n        return processSelectors(element, rules.selectors);\n    } else if (rules.type === 'ruleSet') {\n        return processRule(element, rules.rule);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rule\n * @return {boolean}\n */\nfunction processRule(element, rule) {\n    return processSelectors(element, [{ rule }]);\n}\n\n/**\n * @param {Element} element\n * @param {Object[]} selectors\n * @return {boolean}\n */\nfunction* processSelectors(element, selectors) {\n    for (let selector of selectors) {\n        const rule = selector.rule;\n\n        if (!matchRule(element, rule)) {\n            continue;\n        }\n\n        if (!rule.hasOwnProperty('rule')) {\n            yield element;\n            return;\n        }\n\n        yield* processElement(element, { type: 'ruleSet', rule: rule.rule });\n\n        return;\n    }\n}\n\nfunction matchRule(element, rule) {\n    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('classNames')) {\n        if (!rule.classNames.every(name => element.classList.contains(name))) {\n            return false;\n        }\n    }\n\n    if (rule.hasOwnProperty('attrs')) {\n        if (!rule.attrs.some(attr => {\n            if (!element.hasAttribute(attr.name)) {\n                return false;\n            } else if (attr.operator === undefined) {\n                return true;\n            }\n\n            let value = element.getAttribute(attr.name);\n\n            switch (attr.operator) {\n                case '=':\n                    return value === attr.value;\n                case '^=':\n                    return value.startsWith(attr.value);\n                case '$=':\n                    return value.endsWith(attr.value);\n                case '~=':\n                    let words = value.split(' ');\n                    return words.some(word => word === attr.value);\n                case '*=':\n                    return value.indexOf(attr.value) !== -1;\n                case '|=':\n                    return value === attr.value || value.startsWith(attr.value + '-');\n                default:\n                    throw new Error('Unsupported attribute operator ' + attr.operator);\n            }\n        })) {\n            return false;\n        }\n    }\n\n    return true;\n}\n"
   },
   {
-    "__docId__": 354,
+    "__docId__": 350,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -8633,7 +8509,7 @@
     }
   },
   {
-    "__docId__": 355,
+    "__docId__": 351,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8680,7 +8556,7 @@
     "generator": false
   },
   {
-    "__docId__": 356,
+    "__docId__": 352,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8726,7 +8602,7 @@
     "generator": false
   },
   {
-    "__docId__": 357,
+    "__docId__": 353,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8772,7 +8648,7 @@
     "generator": true
   },
   {
-    "__docId__": 358,
+    "__docId__": 354,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8784,7 +8660,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 70,
+    "lineNumber": 65,
     "params": [
       {
         "nullable": null,
@@ -8818,7 +8694,7 @@
     "generator": false
   },
   {
-    "__docId__": 359,
+    "__docId__": 355,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8830,7 +8706,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 83,
+    "lineNumber": 78,
     "params": [
       {
         "nullable": null,
@@ -8864,7 +8740,7 @@
     "generator": false
   },
   {
-    "__docId__": 360,
+    "__docId__": 356,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8876,7 +8752,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 92,
+    "lineNumber": 87,
     "params": [
       {
         "nullable": null,
@@ -8910,7 +8786,7 @@
     "generator": true
   },
   {
-    "__docId__": 361,
+    "__docId__": 357,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8922,7 +8798,7 @@
     "importPath": "html-document/src/utils/querySelectorHelper.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 113,
+    "lineNumber": 106,
     "undocument": true,
     "params": [
       {
@@ -8946,7 +8822,7 @@
     "generator": false
   },
   {
-    "__docId__": 363,
+    "__docId__": 359,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -8959,7 +8835,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 364,
+    "__docId__": 360,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -8972,7 +8848,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 365,
+    "__docId__": 361,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -8985,7 +8861,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 366,
+    "__docId__": 362,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -8998,7 +8874,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 367,
+    "__docId__": 363,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9011,7 +8887,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 368,
+    "__docId__": 364,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9024,7 +8900,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 369,
+    "__docId__": 365,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9037,7 +8913,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 370,
+    "__docId__": 366,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9050,7 +8926,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 371,
+    "__docId__": 367,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9063,7 +8939,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 372,
+    "__docId__": 368,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9076,7 +8952,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 373,
+    "__docId__": 369,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9089,7 +8965,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 374,
+    "__docId__": 370,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9102,7 +8978,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 375,
+    "__docId__": 371,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9115,7 +8991,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 376,
+    "__docId__": 372,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9128,7 +9004,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 377,
+    "__docId__": 373,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9141,7 +9017,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 378,
+    "__docId__": 374,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9154,7 +9030,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 379,
+    "__docId__": 375,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9167,7 +9043,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 380,
+    "__docId__": 376,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9180,7 +9056,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 381,
+    "__docId__": 377,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9193,7 +9069,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 382,
+    "__docId__": 378,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9206,7 +9082,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 383,
+    "__docId__": 379,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9219,7 +9095,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 384,
+    "__docId__": 380,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9232,7 +9108,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 385,
+    "__docId__": 381,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9245,7 +9121,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 386,
+    "__docId__": 382,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9258,7 +9134,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 387,
+    "__docId__": 383,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9271,7 +9147,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 388,
+    "__docId__": 384,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9284,7 +9160,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 389,
+    "__docId__": 385,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9297,7 +9173,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 390,
+    "__docId__": 386,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9310,7 +9186,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 391,
+    "__docId__": 387,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9323,7 +9199,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 392,
+    "__docId__": 388,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9336,7 +9212,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 393,
+    "__docId__": 389,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9349,7 +9225,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 394,
+    "__docId__": 390,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9362,7 +9238,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 395,
+    "__docId__": 391,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9375,7 +9251,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 396,
+    "__docId__": 392,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9388,7 +9264,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 397,
+    "__docId__": 393,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9401,7 +9277,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 398,
+    "__docId__": 394,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9414,7 +9290,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 399,
+    "__docId__": 395,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9427,7 +9303,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 400,
+    "__docId__": 396,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9440,7 +9316,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 401,
+    "__docId__": 397,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9453,7 +9329,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 402,
+    "__docId__": 398,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9466,7 +9342,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 403,
+    "__docId__": 399,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9479,7 +9355,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 404,
+    "__docId__": 400,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9492,7 +9368,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 405,
+    "__docId__": 401,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9505,7 +9381,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 406,
+    "__docId__": 402,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9518,7 +9394,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 407,
+    "__docId__": 403,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9531,7 +9407,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 408,
+    "__docId__": 404,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9544,7 +9420,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 409,
+    "__docId__": 405,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9557,7 +9433,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 411,
+    "__docId__": 407,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9570,7 +9446,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 412,
+    "__docId__": 408,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9583,7 +9459,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 413,
+    "__docId__": 409,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9596,7 +9472,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 414,
+    "__docId__": 410,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9609,7 +9485,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 415,
+    "__docId__": 411,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9622,7 +9498,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 416,
+    "__docId__": 412,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9635,7 +9511,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 417,
+    "__docId__": 413,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9643,6 +9519,19 @@
     "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
     "memberof": "BuiltinExternal/WebAPIExternal.js",
     "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": null,
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 414,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
     "access": null,
     "description": null,
     "builtinExternal": true
