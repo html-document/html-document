@@ -18,19 +18,8 @@ export default class HTMLAnchorElement extends HTMLElement {
      * @inheritDoc
      */
     setAttribute(key, value) {
-        if (key === 'href') {
-            this.href = value;
-        } else {
-            super.setAttribute(key, value);
-        }
-    }
-
-    getAttribute(key) {
-        if (key === 'href') {
-            return this.href;
-        } else {
-            return super.getAttribute(key);
-        }
+        super.setAttribute(key, value);
+        this.href = value;
     }
 
     /**
