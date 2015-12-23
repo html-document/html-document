@@ -19,7 +19,9 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     setAttribute(key, value) {
         super.setAttribute(key, value);
-        this.href = value;
+        if (key === 'href') {
+            this.href = value;
+        }
     }
 
     /**
