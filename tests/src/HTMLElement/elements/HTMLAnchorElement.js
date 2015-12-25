@@ -108,3 +108,23 @@ test('HTMLAnchorElement pathname processed properly', () => {
     elt.pathname = 'some/path';
     expect(elt.href, 'http://other.link/some/path');
 });
+
+test('HTMLAnchorElement setAttribute', () => {
+    let document = new Document();
+    document.location.href = 'https://github.com/';
+    let object = document.createElement('a');
+    object.setAttribute('href', '/some_relative_url');
+    expect(object.href, 'https://github.com/some_relative_url');
+    expect(object.getAttribute('href'), '/some_relative_url');
+});
+
+test('HTMLAnchorElement set hash', () => {
+    let document = new Document();
+    document.location.href = 'https://github.com/';
+    let a = document.createElement('a');
+    a.href = '/';
+    expect(a.href, 'https://github.com/');
+    a.hash = '#some';
+    expect(a.href, 'https://github.com/#some');
+    expect(a.getAttribute('href'), 'https://github.com/#some');
+});

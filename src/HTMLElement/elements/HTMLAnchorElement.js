@@ -65,6 +65,7 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     set hash(value) {
         this._href.hash = value;
+        this._setAttribute('href', this._href.toString());
     }
 
     /**
@@ -82,6 +83,7 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     set host(value) {
         this._href.host = value;
+        this._setAttribute('href', this._href.toString());
     }
 
     /**
@@ -99,6 +101,7 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     set hostname(value) {
         this._href.hostname = value;
+        this._setAttribute('href', this._href.toString());
     }
 
     /**
@@ -134,6 +137,7 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     set pathname(value) {
         this._href.pathname = value;
+        this._setAttribute('href', this._href.toString());
     }
 
     /**
@@ -151,6 +155,7 @@ export default class HTMLAnchorElement extends HTMLElement {
      */
     set protocol(value) {
         this._href.protocol = value;
+        this._setAttribute('href', this._href.toString());
     }
 }
 
