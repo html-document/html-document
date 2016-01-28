@@ -28,7 +28,7 @@ export default class ParentNode extends Node {
      * @private
      */
     _childNodesRecursiveForEach(callback) {
-        this._childNodes.forEach(function(node) {
+        this._childNodes.forEach(node => {
             callback(node);
             if (node instanceof ParentNode) {
                 node._childNodesRecursiveForEach(callback);
@@ -42,7 +42,7 @@ export default class ParentNode extends Node {
      */
     _childNodesRecursiveFind(callback) {
         let result;
-        this._childNodes.some(function(node) {
+        this._childNodes.some(node => {
             if (callback(node)) {
                 result = node;
                 return true;
@@ -299,9 +299,7 @@ export default class ParentNode extends Node {
      * @return {string}
      */
     get innerHTML() {
-        return this._childNodes.reduce(function(value, node) {
-            return value + node._toHTML();
-        }, '');
+        return this._childNodes.reduce((value, node) => value + node._toHTML(), '');
     }
 
     /**
@@ -318,9 +316,7 @@ export default class ParentNode extends Node {
      * @return {string}
      */
     get textContent() {
-        return this._childNodes.reduce(function(value, node) {
-            return value + node.textContent;
-        }, '');
+        return this._childNodes.reduce((value, node) => value + node.textContent, '');
     }
 
     /**

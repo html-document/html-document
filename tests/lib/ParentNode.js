@@ -91,7 +91,7 @@ test('replaceChild throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    _proclaim2['default'].throws( /** @function */function () {
+    _proclaim2['default'].throws(function () {
         parentNode.replaceChild(span2, span1);
     }, 'Node was not found');
 });
@@ -157,7 +157,7 @@ test('removeChild throws', function () {
     var parentNode = new ParentNode();
     var span1 = document.createElement('span');
 
-    _proclaim2['default'].throws( /** @function */function () {
+    _proclaim2['default'].throws(function () {
         parentNode.removeChild(span1);
     }, 'Node was not found');
 });
@@ -193,7 +193,7 @@ test('insertBefore throws', function () {
     var span1 = document.createElement('span');
     var span2 = document.createElement('span');
 
-    _proclaim2['default'].throws( /** @function */function () {
+    _proclaim2['default'].throws(function () {
         parentNode.insertBefore(span2, span1);
     }, 'Node was not found');
 });
