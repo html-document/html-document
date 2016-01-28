@@ -48,7 +48,8 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html">HTMLAnchorElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
@@ -97,7 +98,7 @@ export default class ParentNode extends Node {
      * @private
      */
     _childNodesRecursiveForEach(callback) {
-        this._childNodes.forEach(function(node) {
+        this._childNodes.forEach(node =&gt; {
             callback(node);
             if (node instanceof ParentNode) {
                 node._childNodesRecursiveForEach(callback);
@@ -111,7 +112,7 @@ export default class ParentNode extends Node {
      */
     _childNodesRecursiveFind(callback) {
         let result;
-        this._childNodes.some(function(node) {
+        this._childNodes.some(node =&gt; {
             if (callback(node)) {
                 result = node;
                 return true;
@@ -368,9 +369,7 @@ export default class ParentNode extends Node {
      * @return {string}
      */
     get innerHTML() {
-        return this._childNodes.reduce(function(value, node) {
-            return value + node._toHTML();
-        }, &apos;&apos;);
+        return this._childNodes.reduce((value, node) =&gt; value + node._toHTML(), &apos;&apos;);
     }
 
     /**
@@ -387,9 +386,7 @@ export default class ParentNode extends Node {
      * @return {string}
      */
     get textContent() {
-        return this._childNodes.reduce(function(value, node) {
-            return value + node.textContent;
-        }, &apos;&apos;);
+        return this._childNodes.reduce((value, node) =&gt; value + node.textContent, &apos;&apos;);
     }
 
     /**

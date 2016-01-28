@@ -48,7 +48,8 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html">HTMLAnchorElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
@@ -116,6 +117,10 @@ export default class Url {
      * @type {string}
      */
     get protocol() {
+        if (this._data.protocol === null) {
+            return &apos;&apos;;
+        }
+
         return this._data.protocol;
     }
 
@@ -139,6 +144,10 @@ export default class Url {
      * @type {string}
      */
     get host() {
+        if (this._data.host === null) {
+            return &apos;&apos;;
+        }
+
         return this._data.host;
     }
 
@@ -180,6 +189,10 @@ export default class Url {
      * @type {string}
      */
     get hostname() {
+        if (this._data.hostname === null) {
+            return &apos;&apos;;
+        }
+
         return this._data.hostname;
     }
 
@@ -189,6 +202,8 @@ export default class Url {
      */
     set hostname(value) {
         this._data.hostname = value;
+        delete this._data.host;
+        this.href = urlFormat(this._data);
     }
 
     /**

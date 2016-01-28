@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../../">
-  <title data-ice="title">src/Abstract/AbstractCSSStyleDeclaration.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../../">
+  <title data-ice="title">src/HTMLElement/elements/HTMLAnchorElement.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -67,166 +67,187 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/Abstract/AbstractCSSStyleDeclaration.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">class CSSStyleRule {
+<div class="content" data-ice="content"><h1 data-ice="title">src/HTMLElement/elements/HTMLAnchorElement.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import HTMLElement from &apos;../../HTMLElement&apos;;
+import Url from &apos;../../utils/Url&apos;;
+
+/**
+ * The HTMLAnchorElement interface represents hyperlink elements and provides special properties and methods
+ * (beyond those of the regular HTMLElement object interface they also have available to them by inheritance)
+ * for manipulating the layout and presentation of such elements.
+ *
+ * @see https://developer.mozilla.org/en/docs/Web/API/HTMLAnchorElement
+ * @class HTMLAnchorElement
+ */
+export default class HTMLAnchorElement extends HTMLElement {
+    constructor() {
+        super();
+        this._href = new Url();
+    }
     /**
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {boolean} important
+     * @inheritDoc
      */
-    constructor(propertyName, value, important) {
-        this.name = propertyName;
-        this.value = value;
-        this.important = important;
+    setAttribute(key, value) {
+        super.setAttribute(key, value);
+        if (key === &apos;href&apos;) {
+            this.href = value;
+        }
+    }
+
+    /**
+     * Is a DOMString that reflects the href HTML attribute, containing a valid URL of a linked resource.
+     *
+     * @member {string} HTMLAnchorElement#href
+     * @returns {string}
+     */
+    get href() {
+        return this._href.toString();
+    }
+
+    /**
+     * @param {string} value
+     */
+    set href(value) {
+        this._href.href = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
+
+        if (this.protocol === &apos;&apos; &amp;&amp; this.ownerDocument) {
+            this._href.protocol = this.ownerDocument.location.protocol;
+        }
+
+        if (this.protocol !== &apos;javascript:&apos; &amp;&amp; // eslint-disable-line no-script-url
+            this.host === &apos;&apos; &amp;&amp;
+            this.ownerDocument) {
+            this._href.host = this.ownerDocument.location.host;
+        }
+    }
+
+    /**
+     * Is a DOMString representing the fragment identifier, including the leading hash mark (&apos;#&apos;), if any, in the
+     * referenced URL.
+     *
+     * @member {string} HTMLAnchorElement#hash
+    * @returns {string}
+     */
+    get hash() {
+        return this._href.hash;
+    }
+
+    /**
+     * @param {string} value
+     */
+    set hash(value) {
+        if (this.href === &apos;&apos; ||
+            value === null ||
+            this._href.protocol === &apos;javascript:&apos;) { // eslint-disable-line no-script-url
+            return;
+        }
+
+        if (value === &apos;&apos;) {
+            value = null;
+        } else {
+            value = value.replace(/^#/, &apos;&apos;);
+        }
+
+        this._href.hash = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
+    }
+
+    /**
+     * Is a DOMString representing the hostname and port (if it&apos;s not the default port) in the referenced URL.
+     *
+     * @member {string} HTMLAnchorElement#host
+     * @returns {string}
+     */
+    get host() {
+        return this._href.host;
+    }
+
+    /**
+     * @param {string} value
+     */
+    set host(value) {
+        this._href.host = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
+    }
+
+    /**
+     * Is a DOMString representing the hostname in the referenced URL.
+     *
+     * @member {string} HTMLAnchorElement#hostname
+     * @returns {string}
+     */
+    get hostname() {
+        return this._href.hostname;
+    }
+
+    /**
+     * @param {string} value
+     */
+    set hostname(value) {
+        this._href.hostname = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
+    }
+
+    /**
+     * Is a DOMString that reflects the rel HTML attribute, specifying the relationship of the target object to the
+     * linked object.
+     *
+     * @member {string} HTMLAnchorElement#rel
+     * @returns {string}
+     */
+    get rel() {
+        return this.getAttribute(&apos;rel&apos;);
+    }
+
+    /**
+     * @param {string} value
+     */
+    set rel(value) {
+        this.setAttribute(&apos;rel&apos;, value);
+    }
+
+    /**
+     * Is a DOMString representing the path name component, if any, of the referenced URL.
+     *
+     * @member {string} HTMLAnchorElement#pathname
+     * @returns {string}
+     */
+    get pathname() {
+        return this._href.pathname;
+    }
+
+    /**
+     * @param {string} value
+     */
+    set pathname(value) {
+        this._href.pathname = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
+    }
+
+    /**
+     * Is a DOMString representing the protocol component, including trailing colon (&apos;:&apos;), of the referenced URL.
+     *
+     * @member {string} HTMLAnchorElement#protocol
+     * @returns {string}
+     */
+    get protocol() {
+        return this._href.protocol;
+    }
+
+    /**
+     * @param {string} value
+     */
+    set protocol(value) {
+        this._href.protocol = value;
+        this._setAttribute(&apos;href&apos;, this._href.toString());
     }
 }
 
 /**
- * CSSStyleDeclaration represents a collection of CSS property-value pairs. It is used in a few APIs
- *
- * - HTMLElement.style - to manipulate the style of a single element (&lt;elem style=&quot;...&quot;&gt;);
- * - (TODO: reword) is an interface to the declaration block returned by the style
- * property of a cssRule in a stylesheet, when the rule is a CSSStyleRule.
- * - CSSStyleDeclaration is also a read-only interface to the result of window.getComputedStyle().
+ * @constant {string} HTMLAnchorElement#nodeName option
  */
-export default class AbstractCSSStyleDeclaration {
-    /**
-     * @type {string}
-     */
-    get cssText() {
-        return this._value;
-    }
-
-    /**
-     * @param {string} style
-     */
-    set cssText(style) {
-        this._parse(style);
-    }
-
-    /**
-     * Parse style
-     *
-     * @internal
-     * @param {string} style
-     */
-    _parse(style) {
-        this._properties = [];
-        this._propertiesMap = {};
-        style.split(&apos;;&apos;).forEach((part) =&gt; {
-            part = part.trim();
-            if (!part) {
-                return;
-            }
-
-            const important = !!part.match(/!important$/);
-            if (important) {
-                part = part.slice(0, -&apos;!important&apos;.length);
-            }
-
-            const splitPoint = part.indexOf(&apos;:&apos;);
-            if (splitPoint) {
-                const key = part.slice(0, splitPoint).trim();
-                const value = part.slice(splitPoint + 1).trim();
-                this._setProperty(key, value, important &amp;&amp; &apos;important&apos;);
-            }
-        });
-        this._stringify();
-    }
-
-    /**
-     * Parse style
-     *
-     * @internal
-     */
-    _stringify() {
-        let stylified = &apos;&apos;;
-        this._properties.forEach(prop =&gt; {
-            stylified += prop.name + &apos;:&apos; + prop.value + (prop.important &amp;&amp; &apos;!important&apos; || &apos;&apos;) + &apos;;&apos;;
-        });
-        this._value = stylified;
-    }
-
-    /**
-     * Returns the optional priority, &quot;important&quot;. Example: priString= styleObj.getPropertyPriority(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @param {String|undefined|false} important
-     */
-    getPropertyPriority(propertyName) {
-        return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].important &amp;&amp; &apos;important&apos;;
-    }
-
-    /**
-     * Returns the optional priority, &quot;important&quot;. Example: priString= styleObj.getPropertyPriority(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @return {*} propertyValue
-     */
-    getPropertyValue(propertyName) {
-        return this._propertiesMap[propertyName] &amp;&amp; this._propertiesMap[propertyName].value;
-    }
-
-    /**
-     * Returns a property name. Example: nameString= styleObj.item(0) Alternative: nameString= styleObj[0]
-     *
-     * @param {number} index
-     * @return {string} propertyName
-     */
-    item(index) {
-        return this._properties[index] &amp;&amp; this._properties[index].name;
-    }
-
-    /**
-     * Returns the value deleted. Example: valString= styleObj.removeProperty(&apos;color&apos;)
-     *
-     * @param {string} propertyName
-     * @return {*} propertyValue
-     */
-    removeProperty(propertyName) {
-        if (this._propertiesMap[propertyName]) {
-            const value = this._propertiesMap[propertyName];
-            this._properties.splice(this._properties.indexOf(value), 1);
-            delete this._propertiesMap[propertyName];
-            this._stringify();
-            return value.value;
-        }
-    }
-
-    /**
-     * No return. Example: styleObj.setProperty(&apos;color&apos;, &apos;red&apos;, &apos;important&apos;)
-     *
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {string} important
-     */
-    setProperty(propertyName, value, important) {
-        this._setProperty(propertyName, value, important);
-        this._stringify();
-    }
-
-    /**
-     * No return. Example: styleObj.setProperty(&apos;color&apos;, &apos;red&apos;, &apos;important&apos;)
-     *
-     * @param {string} propertyName
-     * @param {string} value
-     * @param {string} important
-     */
-    _setProperty(propertyName, value, important) {
-        if (!propertyName.match(/^[a-z\-]+$/)) {
-            throw new Error(&apos;Not valid property name: &apos; + propertyName);
-        }
-
-        const cssRule = new CSSStyleRule(propertyName, value, important === &apos;important&apos;);
-        if (this._propertiesMap[propertyName]) {
-            this._properties.splice(this._properties.indexOf(this._propertiesMap[propertyName]), 1, cssRule);
-        } else {
-            this._properties.push(cssRule);
-        }
-
-        this._propertiesMap[propertyName] = cssRule;
-    }
-}
+Object.defineProperty(HTMLAnchorElement.prototype, &apos;nodeName&apos;, { value: &apos;a&apos; });
 </code></pre>
 
 </div>

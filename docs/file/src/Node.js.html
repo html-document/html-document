@@ -48,7 +48,8 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html">HTMLAnchorElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
@@ -220,7 +221,7 @@ export default class Node {
         event.target = this;
 
         // Capturing phase
-        const capturingPhase = function(event) {
+        const capturingPhase = function (event) { // eslint-disable-line space-before-function-paren
             if (this._parentNode) {
                 capturingPhase.call(this._parentNode, event);
             }
@@ -231,7 +232,7 @@ export default class Node {
 
             const callbacks = this._eventsCapturingPhase &amp;&amp; this._eventsCapturingPhase.get(event.type);
             if (callbacks) {
-                callbacks.some(function(callback) {
+                callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren
                     callback(event);
                     return event.immediatePropagationStopped;
                 });
@@ -242,10 +243,10 @@ export default class Node {
 
         // Bubbling phase
         if (!event.propagationStopped) {
-            const bubblingPhase = function(event) {
+            const bubblingPhase = function (event) { // eslint-disable-line space-before-function-paren
                 const callbacks = this._eventsBubblingPhase &amp;&amp; this._eventsBubblingPhase.get(event.type);
                 if (callbacks) {
-                    callbacks.some(function(callback) {
+                    callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren
                         callback(event);
                         return event.immediatePropagationStopped;
                     });

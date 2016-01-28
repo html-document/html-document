@@ -48,7 +48,8 @@
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">Abstract</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Abstract/AbstractCSSStyleDeclaration.js~AbstractCSSStyleDeclaration.html">AbstractCSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/CSSStyleDeclaration.js~CSSStyleDeclaration.html">CSSStyleDeclaration</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/ClassList.js~ClassList.html">ClassList</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">HTMLElement/elements</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html">HTMLAnchorElement</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLMetaElement.js~HTMLMetaElement.html">HTMLMetaElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html">HTMLOptionElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html">HTMLSelectElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableCaptionElement.js~HTMLTableCaptionElement.html">HTMLTableCaptionElement</a></span></span></li>
@@ -261,7 +262,7 @@ export default class HTMLSelectElement extends HTMLElement {
             return index;
         }
 
-        options.some(function(option, idx) {
+        options.some((option, idx) =&gt; {
             if (option.selected) {
                 index = idx;
                 return true;
@@ -298,9 +299,7 @@ export default class HTMLSelectElement extends HTMLElement {
      * @readonly
      */
     get selectedOptions() {
-        return this.options.filter(function(option) {
-            return option.selected;
-        });
+        return this.options.filter(option =&gt; option.selected);
     }
 
     /**
