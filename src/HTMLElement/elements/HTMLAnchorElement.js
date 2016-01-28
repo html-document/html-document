@@ -40,12 +40,13 @@ export default class HTMLAnchorElement extends HTMLElement {
     set href(value) {
         this._href.href = value;
         this._setAttribute('href', this._href.toString());
-        if (this.host === '' && this.ownerDocument) {
-            this._href.host = this.ownerDocument.location.host;
-        }
 
         if (this.protocol === '' && this.ownerDocument) {
             this._href.protocol = this.ownerDocument.location.protocol;
+        }
+
+        if (this.protocol !== 'javascript:' && this.host === '' && this.ownerDocument) {
+            this._href.host = this.ownerDocument.location.host;
         }
     }
 
@@ -64,6 +65,16 @@ export default class HTMLAnchorElement extends HTMLElement {
      * @param {string} value
      */
     set hash(value) {
+        if (this.href === '' || value === null || this._href.protocol === 'javascript:') {
+            return;
+        }
+
+        if (value === '') {
+            value = null;
+        } else {
+            value = value.replace(/^#/, '');
+        }
+
         this._href.hash = value;
         this._setAttribute('href', this._href.toString());
     }

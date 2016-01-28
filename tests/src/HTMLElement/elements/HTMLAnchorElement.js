@@ -128,3 +128,29 @@ test('HTMLAnchorElement set hash', () => {
     expect(a.href, 'https://github.com/#some');
     expect(a.getAttribute('href'), 'https://github.com/#some');
 });
+
+test('HTMLAnchorElement should process javascript protocol properly', () => {
+    let document = new Document();
+    let element = document.createElement('a');
+    element.href = 'javascript:void(0);';
+    expect(element.host, '');
+    expect(element.href, 'javascript:void(0);');
+    expect(element.protocol, 'javascript:');
+});
+
+test('HTMLAnchorElement hash dont apply on javascript scheme', () => {
+    let document = new Document();
+    document.body.innerHTML = '<a href="javascript:void(0);">Text</a>';
+    let elt = document.body.querySelector('a');
+    expect(elt.href, 'javascript:void(0);');
+    elt.hash = '#some';
+    expect(elt.href, 'javascript:void(0);');
+});
+
+test('HTMLAnchorElement hash do nothing on null value', () => {
+    let document = new Document();
+    let element = document.createElement('a');
+    element.href = 'http://some.link/#hash';
+    element.hash = null;
+    expect(element.hash, '#hash');
+});
