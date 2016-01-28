@@ -6,9 +6,7 @@ import htmlparser from 'htmlparser2';
  */
 export default function parse(html, node) {
     const stack = [node];
-    const last = function() {
-        return stack.length === 0 ? null : stack[stack.length - 1];
-    };
+    const last = () => stack.length === 0 ? null : stack[stack.length - 1];
 
     const document = node.ownerDocument;
 

@@ -151,7 +151,7 @@ export default class Node {
         event.target = this;
 
         // Capturing phase
-        const capturingPhase = function(event) {
+        const capturingPhase = function (event) {
             if (this._parentNode) {
                 capturingPhase.call(this._parentNode, event);
             }
@@ -162,7 +162,7 @@ export default class Node {
 
             const callbacks = this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type);
             if (callbacks) {
-                callbacks.some(function(callback) {
+                callbacks.some(function (callback) {
                     callback(event);
                     return event.immediatePropagationStopped;
                 });
@@ -173,10 +173,10 @@ export default class Node {
 
         // Bubbling phase
         if (!event.propagationStopped) {
-            const bubblingPhase = function(event) {
+            const bubblingPhase = function (event) {
                 const callbacks = this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type);
                 if (callbacks) {
-                    callbacks.some(function(callback) {
+                    callbacks.some(function (callback) {
                         callback(event);
                         return event.immediatePropagationStopped;
                     });
