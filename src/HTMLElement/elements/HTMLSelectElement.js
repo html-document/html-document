@@ -192,7 +192,7 @@ export default class HTMLSelectElement extends HTMLElement {
             return index;
         }
 
-        options.some(function (option, idx) {
+        options.some((option, idx) => {
             if (option.selected) {
                 index = idx;
                 return true;

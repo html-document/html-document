@@ -45,7 +45,9 @@ export default class HTMLAnchorElement extends HTMLElement {
             this._href.protocol = this.ownerDocument.location.protocol;
         }
 
-        if (this.protocol !== 'javascript:' && this.host === '' && this.ownerDocument) {
+        if (this.protocol !== 'javascript:' && // eslint-disable-line no-script-url
+            this.host === '' &&
+            this.ownerDocument) {
             this._href.host = this.ownerDocument.location.host;
         }
     }
@@ -65,7 +67,9 @@ export default class HTMLAnchorElement extends HTMLElement {
      * @param {string} value
      */
     set hash(value) {
-        if (this.href === '' || value === null || this._href.protocol === 'javascript:') {
+        if (this.href === '' ||
+            value === null ||
+            this._href.protocol === 'javascript:') { // eslint-disable-line no-script-url
             return;
         }
 

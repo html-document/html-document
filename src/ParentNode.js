@@ -28,7 +28,7 @@ export default class ParentNode extends Node {
      * @private
      */
     _childNodesRecursiveForEach(callback) {
-        this._childNodes.forEach(function (node) {
+        this._childNodes.forEach(node => {
             callback(node);
             if (node instanceof ParentNode) {
                 node._childNodesRecursiveForEach(callback);

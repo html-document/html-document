@@ -139,19 +139,19 @@ test('HTMLAnchorElement set hash', function () {
 test('HTMLAnchorElement should process javascript protocol properly', function () {
     var document = new Document();
     var element = document.createElement('a');
-    element.href = 'javascript:void(0);';
+    element.href = 'javascript:void(0);'; // eslint-disable-line no-script-url
     expect(element.host, '');
-    expect(element.href, 'javascript:void(0);');
-    expect(element.protocol, 'javascript:');
+    expect(element.href, 'javascript:void(0);'); // eslint-disable-line no-script-url
+    expect(element.protocol, 'javascript:'); // eslint-disable-line no-script-url
 });
 
 test('HTMLAnchorElement hash dont apply on javascript scheme', function () {
     var document = new Document();
-    document.body.innerHTML = '<a href="javascript:void(0);">Text</a>';
+    document.body.innerHTML = '<a href="javascript:void(0);">Text</a>'; // eslint-disable-line no-script-url
     var elt = document.body.querySelector('a');
-    expect(elt.href, 'javascript:void(0);');
+    expect(elt.href, 'javascript:void(0);'); // eslint-disable-line no-script-url
     elt.hash = '#some';
-    expect(elt.href, 'javascript:void(0);');
+    expect(elt.href, 'javascript:void(0);'); // eslint-disable-line no-script-url
 });
 
 test('HTMLAnchorElement hash do nothing on null value', function () {

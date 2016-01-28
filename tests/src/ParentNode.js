@@ -84,7 +84,7 @@ test('replaceChild throws', () => {
     let span1 = document.createElement('span');
     let span2 = document.createElement('span');
 
-    assert.throws(function () {
+    assert.throws(() => {
         parentNode.replaceChild(span2, span1);
     }, 'Node was not found');
 });
@@ -150,7 +150,7 @@ test('removeChild throws', () => {
     let parentNode = new ParentNode();
     let span1 = document.createElement('span');
 
-    assert.throws(function () {
+    assert.throws(() => {
         parentNode.removeChild(span1);
     }, 'Node was not found');
 });
@@ -186,7 +186,7 @@ test('insertBefore throws', () => {
     let span1 = document.createElement('span');
     let span2 = document.createElement('span');
 
-    assert.throws(function () {
+    assert.throws(() => {
         parentNode.insertBefore(span2, span1);
     }, 'Node was not found');
 });
