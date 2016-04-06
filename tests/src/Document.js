@@ -22,6 +22,17 @@ test('create an HTMLElement', () => {
     expect(h1.textContent, '');
 });
 
+test('first child for empty document is html', () => {
+    let document = new Document();
+    expect(document.firstChild.nodeName, 'html');
+});
+
+test('first child is which one is set', () => {
+    let document = new Document();
+    document.innerHTML = '<some></some>';
+    expect(document.firstChild.nodeName, 'some');
+});
+
 test('create an element and add nodes inside', () => {
     let document = new Document();
     let textNode = document.createTextNode('Hello');
