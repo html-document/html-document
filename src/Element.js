@@ -103,9 +103,7 @@ export default class Element extends ParentNode {
      * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.
      */
     getElementById(id) {
-        return this._childNodesRecursiveFind(node => {
-            return node instanceof Element && node.getAttribute('id') === id;
-        }) || null;
+        return this._childNodesRecursiveFind(node => node instanceof Element && node.getAttribute('id') === id) || null;
     }
 
     /**

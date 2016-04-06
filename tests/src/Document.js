@@ -33,6 +33,30 @@ test('first child is which one is set', () => {
     expect(document.firstChild.nodeName, 'some');
 });
 
+test('append child should replace body and head if child is html', () => {
+    let document = new Document();
+    document.innerHTML = '<html><head></head><body>Hello</body></html>';
+    expect(document.body.innerHTML, 'Hello');
+});
+
+test('getElementById should return one element', () => {
+    let document = new Document();
+    document.body.innerHTML = '<b id="fat">1</b><b id="fat">2</b>';
+    expect(document.getElementById('fat').innerHTML, '1');
+});
+
+test('getElementById should return null if nothing found', () => {
+    let document = new Document();
+    document.body.innerHTML = '<b id="fat">1</b><b id="fat">2</b>';
+    expect(document.getElementById('thin'), null);
+});
+
+test('create comments in document', () => {
+    let document = new Document();
+    document.innerHTML = '<!-- some comment -->';
+    expect(document.firstChild.nodeName, '#comment');
+});
+
 test('create an element and add nodes inside', () => {
     let document = new Document();
     let textNode = document.createTextNode('Hello');
