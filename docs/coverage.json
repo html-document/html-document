@@ -1,7 +1,7 @@
 {
-  "coverage": "85.88%",
-  "expectCount": 248,
-  "actualCount": 213,
+  "coverage": "85.94%",
+  "expectCount": 249,
+  "actualCount": 214,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -38,13 +38,13 @@
       ]
     },
     "src/Document.js": {
-      "expectCount": 17,
-      "actualCount": 13,
+      "expectCount": 18,
+      "actualCount": 14,
       "undocumentLines": [
-        35,
-        147,
-        187,
-        191
+        36,
+        150,
+        194,
+        190
       ]
     },
     "src/DocumentFragment.js": {
@@ -56,7 +56,7 @@
       "expectCount": 13,
       "actualCount": 12,
       "undocumentLines": [
-        159
+        157
       ]
     },
     "src/Event.js": {
@@ -79,7 +79,7 @@
       "actualCount": 5,
       "undocumentLines": [
         15,
-        73
+        76
       ]
     },
     "src/HTMLElement/elements/HTMLMetaElement.js": {
@@ -97,17 +97,17 @@
       "actualCount": 23,
       "undocumentLines": [
         70,
-        107,
-        158,
-        172,
-        268,
-        283,
-        287,
-        291,
-        299,
-        295,
-        321,
-        325
+        105,
+        156,
+        170,
+        266,
+        281,
+        289,
+        285,
+        297,
+        293,
+        323,
+        319
       ]
     },
     "src/HTMLElement/elements/HTMLTableCaptionElement.js": {
@@ -159,8 +159,8 @@
       "expectCount": 7,
       "actualCount": 4,
       "undocumentLines": [
-        38,
         34,
+        38,
         13
       ]
     },
