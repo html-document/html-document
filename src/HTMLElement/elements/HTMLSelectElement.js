@@ -89,9 +89,7 @@ export default class HTMLSelectElement extends HTMLElement {
             return [];
         }
 
-        return highestParent._filterDescendantNodes(node => {
-            return node.tagName === 'label' && node.getAttribute('for') === id;
-        });
+        return highestParent._filterDescendantNodes(n => n.tagName === 'label' && n.getAttribute('for') === id);
     }
 
     /**

@@ -1,4 +1,5 @@
 import Node from './Node';
+import ParentNode from './ParentNode';
 import Comment from './Comment';
 import DocumentFragment from './DocumentFragment';
 import HTMLElement from './HTMLElement';
@@ -31,13 +32,14 @@ const elementClasses = new Map([
 /**
  * @see https://developer.mozilla.org/en/docs/Web/API/Document
  */
-export default class Document extends Node {
+export default class Document extends ParentNode {
     constructor() {
         super();
         /**
          * @type {HTMLElement}
          */
         this.documentElement = this.createElement('html');
+        this.appendChild(this.documentElement);
 
         /**
          * @type {HTMLElement}
@@ -52,6 +54,7 @@ export default class Document extends Node {
         this.documentElement.appendChild(this.body);
 
         this._location = new Url('about:blank');
+        this._ownerDocument = this;
     }
 
     /**
@@ -190,6 +193,29 @@ export default class Document extends Node {
 
     set location(value) {
         this._location.href = value;
+    }
+
+    /**
+     * @param {Node} child
+     * @return {Node}
+     */
+    appendChild(child) {
+        child = super.appendChild(child);
+        if (child.nodeName === 'html') {
+            this.documentElement = child;
+
+            let heads = this.documentElement.getElementsByTagName('head');
+            if (heads.length > 0) {
+                this.head = heads[0];
+            }
+
+            let bodies = this.documentElement.getElementsByTagName('body');
+            if (bodies.length > 0) {
+                this.body = bodies[0];
+            }
+        }
+
+        return child;
     }
 }
 
