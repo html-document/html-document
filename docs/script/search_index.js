@@ -66,6 +66,12 @@ window.esdocSearchIndex = [
     "class"
   ],
   [
+    "html-document/src/htmlelement/elements/htmldocumentelement.js~htmldocumentelement",
+    "class/src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement.html",
+    "<span>HTMLDocumentElement</span> <span class=\"search-result-import-path\">html-document/src/HTMLElement/elements/HTMLDocumentElement.js</span>",
+    "class"
+  ],
+  [
     "html-document/src/htmlelement.js~htmlelement",
     "class/src/HTMLElement.js~HTMLElement.html",
     "<span>HTMLElement</span> <span class=\"search-result-import-path\">html-document/src/HTMLElement.js</span>",
@@ -649,7 +655,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/document.js~document#body",
-    "class/src/Document.js~Document.html#instance-member-body",
+    "class/src/Document.js~Document.html#instance-get-body",
+    "src/Document.js~Document#body",
+    "member"
+  ],
+  [
+    "src/document.js~document#body",
+    "class/src/Document.js~Document.html#instance-set-body",
     "src/Document.js~Document#body",
     "member"
   ],
@@ -685,7 +697,7 @@ window.esdocSearchIndex = [
   ],
   [
     "src/document.js~document#documentelement",
-    "class/src/Document.js~Document.html#instance-member-documentElement",
+    "class/src/Document.js~Document.html#instance-get-documentElement",
     "src/Document.js~Document#documentElement",
     "member"
   ],
@@ -709,19 +721,19 @@ window.esdocSearchIndex = [
   ],
   [
     "src/document.js~document#head",
-    "class/src/Document.js~Document.html#instance-member-head",
+    "class/src/Document.js~Document.html#instance-get-head",
     "src/Document.js~Document#head",
     "member"
   ],
   [
     "src/document.js~document#location",
-    "class/src/Document.js~Document.html#instance-get-location",
+    "class/src/Document.js~Document.html#instance-set-location",
     "src/Document.js~Document#location",
     "member"
   ],
   [
     "src/document.js~document#location",
-    "class/src/Document.js~Document.html#instance-set-location",
+    "class/src/Document.js~Document.html#instance-get-location",
     "src/Document.js~Document#location",
     "member"
   ],
@@ -1051,13 +1063,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#hash",
-    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-set-hash",
+    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-hash",
     "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#hash",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#hash",
-    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-hash",
+    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-set-hash",
     "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#hash",
     "member"
   ],
@@ -1099,25 +1111,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#pathname",
-    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-pathname",
-    "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#pathname",
-    "member"
-  ],
-  [
-    "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#pathname",
     "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-set-pathname",
     "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#pathname",
     "member"
   ],
   [
-    "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#protocol",
-    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-protocol",
-    "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#protocol",
+    "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#pathname",
+    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-pathname",
+    "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#pathname",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#protocol",
     "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-set-protocol",
+    "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#protocol",
+    "member"
+  ],
+  [
+    "src/htmlelement/elements/htmlanchorelement.js~htmlanchorelement#protocol",
+    "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-get-protocol",
     "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#protocol",
     "member"
   ],
@@ -1138,6 +1150,12 @@ window.esdocSearchIndex = [
     "class/src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement.html#instance-method-setAttribute",
     "src/HTMLElement/elements/HTMLAnchorElement.js~HTMLAnchorElement#setAttribute",
     "method"
+  ],
+  [
+    "src/htmlelement/elements/htmldocumentelement.js",
+    "file/src/HTMLElement/elements/HTMLDocumentElement.js.html",
+    "src/HTMLElement/elements/HTMLDocumentElement.js",
+    "file"
   ],
   [
     "src/htmlelement/elements/htmlmetaelement.js",
@@ -1201,13 +1219,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmloptionelement.js~htmloptionelement#value",
-    "class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html#instance-set-value",
+    "class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html#instance-get-value",
     "src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement#value",
     "member"
   ],
   [
     "src/htmlelement/elements/htmloptionelement.js~htmloptionelement#value",
-    "class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html#instance-get-value",
+    "class/src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement.html#instance-set-value",
     "src/HTMLElement/elements/HTMLOptionElement.js~HTMLOptionElement#value",
     "member"
   ],
@@ -1219,25 +1237,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#autofocus",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-autoFocus",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#autoFocus",
-    "member"
-  ],
-  [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#autofocus",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-autoFocus",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#autoFocus",
     "member"
   ],
   [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#disabled",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-disabled",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#disabled",
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#autofocus",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-autoFocus",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#autoFocus",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#disabled",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-disabled",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#disabled",
+    "member"
+  ],
+  [
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#disabled",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-disabled",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#disabled",
     "member"
   ],
@@ -1267,13 +1285,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#length",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-length",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-length",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#length",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#length",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-length",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-length",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#length",
     "member"
   ],
@@ -1291,13 +1309,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#name",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-name",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-name",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#name",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#name",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-name",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-name",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#name",
     "member"
   ],
@@ -1315,25 +1333,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#required",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-required",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#required",
-    "member"
-  ],
-  [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#required",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-required",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#required",
     "member"
   ],
   [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#selectedindex",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-selectedIndex",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#selectedIndex",
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#required",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-required",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#required",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#selectedindex",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-selectedIndex",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#selectedIndex",
+    "member"
+  ],
+  [
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#selectedindex",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-selectedIndex",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#selectedIndex",
     "member"
   ],
@@ -1351,13 +1369,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#size",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-size",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-size",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#size",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#size",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-size",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-size",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#size",
     "member"
   ],
@@ -1369,25 +1387,25 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#type",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-type",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#type",
-    "member"
-  ],
-  [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#type",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-type",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#type",
     "member"
   ],
   [
-    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#validationmessage",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-validationMessage",
-    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#validationMessage",
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#type",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-type",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#type",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#validationmessage",
     "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-validationMessage",
+    "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#validationMessage",
+    "member"
+  ],
+  [
+    "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#validationmessage",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-validationMessage",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#validationMessage",
     "member"
   ],
@@ -1411,13 +1429,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#willvalidate",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-willValidate",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-willValidate",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#willValidate",
     "member"
   ],
   [
     "src/htmlelement/elements/htmlselectelement.js~htmlselectelement#willvalidate",
-    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-get-willValidate",
+    "class/src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement.html#instance-set-willValidate",
     "src/HTMLElement/elements/HTMLSelectElement.js~HTMLSelectElement#willValidate",
     "member"
   ],
@@ -1519,13 +1537,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmltablerowelement.js~htmltablerowelement#align",
-    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-align",
+    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-get-align",
     "src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement#align",
     "member"
   ],
   [
     "src/htmlelement/elements/htmltablerowelement.js~htmltablerowelement#align",
-    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-get-align",
+    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-align",
     "src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement#align",
     "member"
   ],
@@ -1579,13 +1597,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/htmlelement/elements/htmltablerowelement.js~htmltablerowelement#valign",
-    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-vAlign",
+    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-get-vAlign",
     "src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement#vAlign",
     "member"
   ],
   [
     "src/htmlelement/elements/htmltablerowelement.js~htmltablerowelement#valign",
-    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-get-vAlign",
+    "class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html#instance-set-vAlign",
     "src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement#vAlign",
     "member"
   ],
@@ -1681,13 +1699,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/node.js~node#nodevalue",
-    "class/src/Node.js~Node.html#instance-get-nodeValue",
+    "class/src/Node.js~Node.html#instance-set-nodeValue",
     "src/Node.js~Node#nodeValue",
     "member"
   ],
   [
     "src/node.js~node#nodevalue",
-    "class/src/Node.js~Node.html#instance-set-nodeValue",
+    "class/src/Node.js~Node.html#instance-get-nodeValue",
     "src/Node.js~Node#nodeValue",
     "member"
   ],
@@ -1861,13 +1879,13 @@ window.esdocSearchIndex = [
   ],
   [
     "src/text.js~text#textcontent",
-    "class/src/Text.js~Text.html#instance-set-textContent",
+    "class/src/Text.js~Text.html#instance-get-textContent",
     "src/Text.js~Text#textContent",
     "member"
   ],
   [
     "src/text.js~text#textcontent",
-    "class/src/Text.js~Text.html#instance-get-textContent",
+    "class/src/Text.js~Text.html#instance-set-textContent",
     "src/Text.js~Text#textContent",
     "member"
   ],

@@ -983,7 +983,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Node from './Node';\nimport ParentNode from './ParentNode';\nimport Comment from './Comment';\nimport DocumentFragment from './DocumentFragment';\nimport HTMLElement from './HTMLElement';\nimport Text from './Text';\nimport Url from './utils/Url';\n\n// HTML Elements\nimport HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';\nimport HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';\nimport HTMLTableCaptionElement from './HTMLElement/elements/HTMLTableCaptionElement';\nimport HTMLMetaElement from './HTMLElement/elements/HTMLMetaElement';\nimport HTMLTableElement from './HTMLElement/elements/HTMLTableElement';\nimport HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';\nimport HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';\nimport HTMLAnchorElement from './HTMLElement/elements/HTMLAnchorElement';\n\nconst elementClasses = new Map([\n    ['caption', HTMLTableCaptionElement],\n    ['meta', HTMLMetaElement],\n    ['option', HTMLOptionElement],\n    ['table', HTMLTableElement],\n    ['thead', HTMLTableSectionElement],\n    ['tfoot', HTMLTableSectionElement],\n    ['tfoot', HTMLTableSectionElement],\n    ['tr', HTMLTableRowElement],\n    ['select', HTMLSelectElement],\n    ['a', HTMLAnchorElement],\n]);\n\n/**\n * @see https://developer.mozilla.org/en/docs/Web/API/Document\n */\nexport default class Document extends ParentNode {\n    constructor() {\n        super();\n        /**\n         * @type {HTMLElement}\n         */\n        this.documentElement = this.createElement('html');\n        this.appendChild(this.documentElement);\n\n        /**\n         * @type {HTMLElement}\n         */\n        this.head = this.createElement('head');\n        this.documentElement.appendChild(this.head);\n\n        /**\n         * @type {HTMLElement}\n         */\n        this.body = this.createElement('body');\n        this.documentElement.appendChild(this.body);\n\n        this._location = new Url('about:blank');\n        this._ownerDocument = this;\n    }\n\n    /**\n     * Creates a new {@link Comment}.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment\n     *\n     * @param {string} data\n     * @return {Comment}\n    */\n    createComment(data) {\n        let comment = new Comment(data);\n        comment._ownerDocument = this;\n        return comment;\n    }\n\n    /**\n     * Creates a new empty {@link DocumentFragment}.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment\n     *\n     * @return {DocumentFragment}\n    */\n    createDocumentFragment() {\n        let fragment = new DocumentFragment();\n        fragment._ownerDocument = this;\n        return fragment;\n    }\n\n    /**\n     * Creates a new element with the given tag name.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement\n     *\n     * @param {string} name\n     * @return {HTMLElement}\n    */\n    createElement(name) {\n        name = name.toLowerCase();\n        const ElementClass = elementClasses.get(name) || HTMLElement;\n        let element = new ElementClass();\n\n        element._ownerDocument = this;\n\n        if (!element.nodeName) {\n            element.nodeName = name;\n        }\n\n        return element;\n    }\n\n    /**\n     * Creates a text node.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode\n     *\n     * @param {string} textContent\n     * @return {Text}\n    */\n    createTextNode(textContent) {\n        let text = new Text(textContent);\n        text._ownerDocument = this;\n        return text;\n    }\n\n    /**\n     * Returns a reference to the element by its ID.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById\n     *\n     * @param {string} id case-sensitive string representing the unique ID of the element being sought\n     * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.\n     */\n    getElementById(id) {\n        return this.documentElement.getElementById(id);\n    }\n\n    /**\n     * Returns an HTMLCollection of elements with the given tag name.\n     * The complete document is searched, including the root node.\n     * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync\n     * with the DOM treewithout having to call document.getElementsByTagName() again.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName\n     *\n     * @param {string} tagName\n     * @return {HTMLCollection}\n     */\n    getElementsByTagName(tagName, _array) {\n        return this.documentElement.getElementsByTagName(tagName, _array);\n    }\n\n    getElementsByClassName(className) {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * Returns the first element within the document (using depth-first pre-order traversal of the document's nodes|by\n     * first element in document markup and iterating through sequential nodes by order of amount of child nodes)\n     * that matches the specified group of selectors.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector\n     *\n     * @param {string} selector\n     * @return {Element}\n     */\n    querySelector(selector) {\n        return this.documentElement.querySelector(selector);\n    }\n\n    /**\n     * Returns a list of the elements within the document (using depth-first pre-order traversal of the document's\n     * nodes) that match the specified group of selectors. The object returned is a NodeList.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll\n     *\n     * @param {string} selector\n     * @return {NodeList}\n     */\n    querySelectorAll(selector) {\n        return this.documentElement.querySelectorAll(selector);\n    }\n\n    /**\n     * textContent returns null if the element is a document, a document type, or a notation.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\n     */\n    get textContent() {\n        return null;\n    }\n\n    get location() {\n        return this._location;\n    }\n\n    set location(value) {\n        this._location.href = value;\n    }\n\n    /**\n     * @param {Node} child\n     * @return {Node}\n     */\n    appendChild(child) {\n        child = super.appendChild(child);\n        if (child.nodeName === 'html') {\n            this.documentElement = child;\n\n            let heads = this.documentElement.getElementsByTagName('head');\n            if (heads.length > 0) {\n                this.head = heads[0];\n            }\n\n            let bodies = this.documentElement.getElementsByTagName('body');\n            if (bodies.length > 0) {\n                this.body = bodies[0];\n            }\n        }\n\n        return child;\n    }\n}\n\n/**\n * @constant {number} Comment#nodeType\n */\nObject.defineProperty(Document.prototype, 'nodeType', { value: Node.DOCUMENT_NODE });\n"
+    "content": "import Node from './Node';\nimport ParentNode from './ParentNode';\nimport Comment from './Comment';\nimport DocumentFragment from './DocumentFragment';\nimport HTMLElement from './HTMLElement';\nimport Text from './Text';\nimport Url from './utils/Url';\n\n// HTML Elements\nimport HTMLDocumentElement from './HTMLElement/elements/HTMLDocumentElement';\nimport HTMLOptionElement from './HTMLElement/elements/HTMLOptionElement';\nimport HTMLSelectElement from './HTMLElement/elements/HTMLSelectElement';\nimport HTMLTableCaptionElement from './HTMLElement/elements/HTMLTableCaptionElement';\nimport HTMLMetaElement from './HTMLElement/elements/HTMLMetaElement';\nimport HTMLTableElement from './HTMLElement/elements/HTMLTableElement';\nimport HTMLTableRowElement from './HTMLElement/elements/HTMLTableRowElement';\nimport HTMLTableSectionElement from './HTMLElement/elements/HTMLTableSectionElement';\nimport HTMLAnchorElement from './HTMLElement/elements/HTMLAnchorElement';\n\nconst elementClasses = new Map([\n    ['html', HTMLDocumentElement],\n    ['caption', HTMLTableCaptionElement],\n    ['meta', HTMLMetaElement],\n    ['option', HTMLOptionElement],\n    ['table', HTMLTableElement],\n    ['thead', HTMLTableSectionElement],\n    ['tfoot', HTMLTableSectionElement],\n    ['tfoot', HTMLTableSectionElement],\n    ['tr', HTMLTableRowElement],\n    ['select', HTMLSelectElement],\n    ['a', HTMLAnchorElement],\n]);\n\n/**\n * @see https://developer.mozilla.org/en/docs/Web/API/Document\n */\nexport default class Document extends ParentNode {\n    constructor() {\n        super();\n        /**\n         * @type {HTMLElement}\n         */\n        this._documentElement = this.createElement('html');\n        this.appendChild(this._documentElement);\n\n        this._location = new Url('about:blank');\n        this._ownerDocument = this;\n    }\n\n    /**\n     * Creates a new {@link Comment}.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment\n     *\n     * @param {string} data\n     * @return {Comment}\n    */\n    createComment(data) {\n        let comment = new Comment(data);\n        comment._ownerDocument = this;\n        return comment;\n    }\n\n    /**\n     * Creates a new empty {@link DocumentFragment}.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment\n     *\n     * @return {DocumentFragment}\n    */\n    createDocumentFragment() {\n        let fragment = new DocumentFragment();\n        fragment._ownerDocument = this;\n        return fragment;\n    }\n\n    /**\n     * Creates a new element with the given tag name.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement\n     *\n     * @param {string} name\n     * @return {HTMLElement}\n    */\n    createElement(name) {\n        name = name.toLowerCase();\n        const ElementClass = elementClasses.get(name) || HTMLElement;\n        let element = new ElementClass();\n\n        element._ownerDocument = this;\n\n        if (!element.nodeName) {\n            element.nodeName = name;\n        }\n\n        return element;\n    }\n\n    /**\n     * Creates a text node.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode\n     *\n     * @param {string} textContent\n     * @return {Text}\n    */\n    createTextNode(textContent) {\n        let text = new Text(textContent);\n        text._ownerDocument = this;\n        return text;\n    }\n\n    /**\n     * Returns a reference to the element by its ID.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById\n     *\n     * @param {string} id case-sensitive string representing the unique ID of the element being sought\n     * @return {Element} reference to an Element, or null if an element with the specified ID is not in the document.\n     */\n    getElementById(id) {\n        return this.documentElement.getElementById(id);\n    }\n\n    /**\n     * Returns an HTMLCollection of elements with the given tag name.\n     * The complete document is searched, including the root node.\n     * The returned HTMLCollection is live, meaning that it updates itself automatically to stay in sync\n     * with the DOM treewithout having to call document.getElementsByTagName() again.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName\n     *\n     * @param {string} tagName\n     * @return {HTMLCollection}\n     */\n    getElementsByTagName(tagName, _array) {\n        return this.documentElement.getElementsByTagName(tagName, _array);\n    }\n\n    getElementsByClassName(className) {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * Returns the first element within the document (using depth-first pre-order traversal of the document's nodes|by\n     * first element in document markup and iterating through sequential nodes by order of amount of child nodes)\n     * that matches the specified group of selectors.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector\n     *\n     * @param {string} selector\n     * @return {Element}\n     */\n    querySelector(selector) {\n        return this.documentElement.querySelector(selector);\n    }\n\n    /**\n     * Returns a list of the elements within the document (using depth-first pre-order traversal of the document's\n     * nodes) that match the specified group of selectors. The object returned is a NodeList.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll\n     *\n     * @param {string} selector\n     * @return {NodeList}\n     */\n    querySelectorAll(selector) {\n        return this.documentElement.querySelectorAll(selector);\n    }\n\n    /**\n     * textContent returns null if the element is a document, a document type, or a notation.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent\n     */\n    get textContent() {\n        return null;\n    }\n\n    get documentElement() {\n        return this._documentElement;\n    }\n\n    get head() {\n        let head = this._documentElement.getElementsByTagName('head').shift();\n        if (!head) {\n            head = this.createElement('head');\n            this._documentElement.insertBefore(head, this.body);\n        }\n\n        return head;\n    }\n\n    get body() {\n        let body = this._documentElement.getElementsByTagName('body').shift();\n        if (!body) {\n            body = this.createElement('body');\n            this._documentElement.appendChild(body);\n        }\n\n        return body;\n    }\n\n    set body(body) {\n        let current = this._documentElement.getElementsByTagName('body').shift();\n        if (current) {\n            this._documentElement.replaceChild(body, current);\n        } else {\n            this._documentElement.appendChild(body);\n        }\n    }\n\n    get location() {\n        return this._location;\n    }\n\n    set location(value) {\n        this._location.href = value;\n    }\n\n    /**\n     * @param {Node} child\n     * @return {Node}\n     */\n    appendChild(child) {\n        child = super.appendChild(child);\n        if (child.nodeName === 'html') {\n            this._documentElement = child;\n        }\n\n        return child;\n    }\n}\n\n/**\n * @constant {number} Comment#nodeType\n */\nObject.defineProperty(Document.prototype, 'nodeType', { value: Node.DOCUMENT_NODE });\n"
   },
   {
     "__docId__": 41,
@@ -998,7 +998,7 @@
     "importPath": "html-document/src/Document.js",
     "importStyle": null,
     "description": null,
-    "lineNumber": 19,
+    "lineNumber": 20,
     "undocument": true,
     "type": {
       "types": [
@@ -1022,7 +1022,7 @@
     "see": [
       "https://developer.mozilla.org/en/docs/Web/API/Document"
     ],
-    "lineNumber": 35,
+    "lineNumber": 37,
     "interface": false,
     "extends": [
       "src/ParentNode.js~ParentNode"
@@ -1038,7 +1038,7 @@
     "longname": "src/Document.js~Document#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 36,
+    "lineNumber": 38,
     "undocument": true,
     "params": [],
     "generator": false
@@ -1048,12 +1048,12 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "documentElement",
+    "name": "_documentElement",
     "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#documentElement",
+    "longname": "src/Document.js~Document#_documentElement",
     "access": null,
     "description": "",
-    "lineNumber": 41,
+    "lineNumber": 43,
     "type": {
       "nullable": null,
       "types": [
@@ -1068,52 +1068,12 @@
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "head",
-    "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#head",
-    "access": null,
-    "description": "",
-    "lineNumber": 47,
-    "type": {
-      "nullable": null,
-      "types": [
-        "HTMLElement"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 46,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "body",
-    "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#body",
-    "access": null,
-    "description": "",
-    "lineNumber": 53,
-    "type": {
-      "nullable": null,
-      "types": [
-        "HTMLElement"
-      ],
-      "spread": false,
-      "description": null
-    }
-  },
-  {
-    "__docId__": 47,
-    "kind": "member",
-    "static": false,
-    "variation": null,
     "name": "_location",
     "memberof": "src/Document.js~Document",
     "longname": "src/Document.js~Document#_location",
     "access": null,
     "description": null,
-    "lineNumber": 56,
+    "lineNumber": 46,
     "undocument": true,
     "type": {
       "types": [
@@ -1122,7 +1082,7 @@
     }
   },
   {
-    "__docId__": 48,
+    "__docId__": 46,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -1131,7 +1091,7 @@
     "longname": "src/Document.js~Document#_ownerDocument",
     "access": null,
     "description": null,
-    "lineNumber": 57,
+    "lineNumber": 47,
     "undocument": true,
     "type": {
       "types": [
@@ -1140,7 +1100,7 @@
     }
   },
   {
-    "__docId__": 49,
+    "__docId__": 47,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1152,7 +1112,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.createComment"
     ],
-    "lineNumber": 68,
+    "lineNumber": 58,
     "params": [
       {
         "nullable": null,
@@ -1176,7 +1136,7 @@
     "generator": false
   },
   {
-    "__docId__": 50,
+    "__docId__": 48,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1188,7 +1148,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.createDocumentFragment"
     ],
-    "lineNumber": 81,
+    "lineNumber": 71,
     "params": [],
     "return": {
       "nullable": null,
@@ -1201,7 +1161,7 @@
     "generator": false
   },
   {
-    "__docId__": 51,
+    "__docId__": 49,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1213,7 +1173,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.createElement"
     ],
-    "lineNumber": 95,
+    "lineNumber": 85,
     "params": [
       {
         "nullable": null,
@@ -1237,7 +1197,7 @@
     "generator": false
   },
   {
-    "__docId__": 52,
+    "__docId__": 50,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1249,7 +1209,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.createTextNode"
     ],
-    "lineNumber": 117,
+    "lineNumber": 107,
     "params": [
       {
         "nullable": null,
@@ -1273,7 +1233,7 @@
     "generator": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 51,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1285,7 +1245,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementById"
     ],
-    "lineNumber": 131,
+    "lineNumber": 121,
     "params": [
       {
         "nullable": null,
@@ -1309,7 +1269,7 @@
     "generator": false
   },
   {
-    "__docId__": 54,
+    "__docId__": 52,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1321,7 +1281,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document.getElementsByTagName"
     ],
-    "lineNumber": 146,
+    "lineNumber": 136,
     "params": [
       {
         "nullable": null,
@@ -1345,7 +1305,7 @@
     "generator": false
   },
   {
-    "__docId__": 55,
+    "__docId__": 53,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1354,7 +1314,7 @@
     "longname": "src/Document.js~Document#getElementsByClassName",
     "access": null,
     "description": null,
-    "lineNumber": 150,
+    "lineNumber": 140,
     "undocument": true,
     "params": [
       {
@@ -1367,7 +1327,7 @@
     "generator": false
   },
   {
-    "__docId__": 56,
+    "__docId__": 54,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1379,7 +1339,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector"
     ],
-    "lineNumber": 164,
+    "lineNumber": 154,
     "params": [
       {
         "nullable": null,
@@ -1403,7 +1363,7 @@
     "generator": false
   },
   {
-    "__docId__": 57,
+    "__docId__": 55,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1415,7 +1375,7 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll"
     ],
-    "lineNumber": 177,
+    "lineNumber": 167,
     "params": [
       {
         "nullable": null,
@@ -1439,7 +1399,7 @@
     "generator": false
   },
   {
-    "__docId__": 58,
+    "__docId__": 56,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -1451,7 +1411,45 @@
     "see": [
       "https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent"
     ],
-    "lineNumber": 186,
+    "lineNumber": 176,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 57,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "documentElement",
+    "memberof": "src/Document.js~Document",
+    "longname": "src/Document.js~Document#documentElement",
+    "access": null,
+    "description": null,
+    "lineNumber": 180,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "head",
+    "memberof": "src/Document.js~Document",
+    "longname": "src/Document.js~Document#head",
+    "access": null,
+    "description": null,
+    "lineNumber": 184,
+    "undocument": true,
     "type": {
       "types": [
         "*"
@@ -1464,12 +1462,12 @@
     "kind": "get",
     "static": false,
     "variation": null,
-    "name": "location",
+    "name": "body",
     "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#location",
+    "longname": "src/Document.js~Document#body",
     "access": null,
     "description": null,
-    "lineNumber": 190,
+    "lineNumber": 194,
     "undocument": true,
     "type": {
       "types": [
@@ -1483,12 +1481,12 @@
     "kind": "set",
     "static": false,
     "variation": null,
-    "name": "location",
+    "name": "body",
     "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#location",
+    "longname": "src/Document.js~Document#body",
     "access": null,
     "description": null,
-    "lineNumber": 194,
+    "lineNumber": 204,
     "undocument": true,
     "type": {
       "types": [
@@ -1499,6 +1497,44 @@
   },
   {
     "__docId__": 61,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "location",
+    "memberof": "src/Document.js~Document",
+    "longname": "src/Document.js~Document#location",
+    "access": null,
+    "description": null,
+    "lineNumber": 213,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 62,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "location",
+    "memberof": "src/Document.js~Document",
+    "longname": "src/Document.js~Document#location",
+    "access": null,
+    "description": null,
+    "lineNumber": 217,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 63,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -1507,7 +1543,7 @@
     "longname": "src/Document.js~Document#appendChild",
     "access": null,
     "description": "",
-    "lineNumber": 202,
+    "lineNumber": 225,
     "params": [
       {
         "nullable": null,
@@ -1531,52 +1567,16 @@
     "generator": false
   },
   {
-    "__docId__": 62,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "documentElement",
-    "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#documentElement",
-    "access": null,
-    "description": null,
-    "lineNumber": 205,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
-    "__docId__": 63,
-    "kind": "member",
-    "static": false,
-    "variation": null,
-    "name": "head",
-    "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#head",
-    "access": null,
-    "description": null,
-    "lineNumber": 209,
-    "undocument": true,
-    "type": {
-      "types": [
-        "*"
-      ]
-    }
-  },
-  {
     "__docId__": 64,
     "kind": "member",
     "static": false,
     "variation": null,
-    "name": "body",
+    "name": "_documentElement",
     "memberof": "src/Document.js~Document",
-    "longname": "src/Document.js~Document#body",
+    "longname": "src/Document.js~Document#_documentElement",
     "access": null,
     "description": null,
-    "lineNumber": 214,
+    "lineNumber": 228,
     "undocument": true,
     "type": {
       "types": [
@@ -3415,6 +3415,94 @@
     "kind": "file",
     "static": true,
     "variation": null,
+    "name": "src/HTMLElement/elements/HTMLDocumentElement.js",
+    "memberof": null,
+    "longname": "src/HTMLElement/elements/HTMLDocumentElement.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * The HTMLDocumentElement interface contains descriptive metadata about a documentElement. It inherits all of the\n * properties and methods described in the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement\n */\nexport default class HTMLDocumentElement extends HTMLElement {\n    /**\n     * Sets inner HTML and moves elements up if first created child is html.\n     *\n     * @ignore\n     * @param {string} value\n     */\n    set innerHTML(value) {\n        super.innerHTML = value;\n\n        if (this.childNodes.length === 1 && this.firstChild.tagName === 'html') {\n            let child;\n            while (child = this.firstChild.firstChild) {\n                this.appendChild(child);\n            }\n\n            this.removeChild(this.firstChild); // Remove html\n        }\n    }\n\n    /**\n     * @ignore\n     * @type {string}\n     */\n    get innerHTML() {\n        return super.innerHTML;\n    }\n}\n\n/**\n * @constant {string} HTMLDocumentElement#nodeName meta\n */\nObject.defineProperty(HTMLDocumentElement.prototype, 'nodeName', { value: 'html' });\n"
+  },
+  {
+    "__docId__": 140,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "HTMLDocumentElement",
+    "memberof": "src/HTMLElement/elements/HTMLDocumentElement.js",
+    "longname": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement",
+    "access": null,
+    "export": true,
+    "importPath": "html-document/src/HTMLElement/elements/HTMLDocumentElement.js",
+    "importStyle": "HTMLDocumentElement",
+    "description": "The HTMLDocumentElement interface contains descriptive metadata about a documentElement. It inherits all of the\nproperties and methods described in the HTMLElement interface.",
+    "see": [
+      "https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement"
+    ],
+    "lineNumber": 9,
+    "interface": false,
+    "extends": [
+      "src/HTMLElement.js~HTMLElement"
+    ]
+  },
+  {
+    "__docId__": 141,
+    "kind": "set",
+    "static": false,
+    "variation": null,
+    "name": "innerHTML",
+    "memberof": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement",
+    "longname": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement#innerHTML",
+    "access": null,
+    "description": "Sets inner HTML and moves elements up if first created child is html.",
+    "lineNumber": 16,
+    "ignore": true,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "value",
+        "description": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 142,
+    "kind": "get",
+    "static": false,
+    "variation": null,
+    "name": "innerHTML",
+    "memberof": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement",
+    "longname": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement#innerHTML",
+    "access": null,
+    "description": "",
+    "lineNumber": 33,
+    "ignore": true,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 143,
+    "kind": "file",
+    "static": true,
+    "variation": null,
     "name": "src/HTMLElement/elements/HTMLMetaElement.js",
     "memberof": null,
     "longname": "src/HTMLElement/elements/HTMLMetaElement.js",
@@ -3424,7 +3512,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * The HTMLMetaElement interface contains descriptive metadata about a document. It inherits all of the properties\n * and methods described in the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLMetaElement\n */\nexport default class HTMLMetaElement extends HTMLElement {\n    /**\n     * Gets or sets the value of meta-data property.\n     *\n     * @type {string}\n     */\n    get content() {\n        if (this.hasAttribute('content')) {\n            return this.getAttribute('content');\n        }\n\n        return '';\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set content(value) {\n        this.setAttribute('content', value);\n    }\n\n    /**\n     * Gets or sets the name of an HTTP response header to define for a document.\n     *\n     * @type {string}\n     */\n    get httpEquiv() {\n        if (this.hasAttribute('http-equiv')) {\n            return this.getAttribute('http-equiv');\n        }\n\n        return '';\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set httpEquiv(value) {\n        this.setAttribute('http-equiv', value);\n    }\n\n    /**\n     * Gets or sets the name of a meta-data property to define for a document.\n     *\n     * @type {string}\n     */\n    get name() {\n        if (this.hasAttribute('name')) {\n            return this.getAttribute('name');\n        }\n\n        return '';\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set name(value) {\n        this.setAttribute('name', value);\n    }\n}\n\n/**\n * @constant {string} HTMLMetaElement#nodeName meta\n */\nObject.defineProperty(HTMLMetaElement.prototype, 'nodeName', { value: 'meta' });\n\n"
   },
   {
-    "__docId__": 140,
+    "__docId__": 144,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3446,7 +3534,7 @@
     ]
   },
   {
-    "__docId__": 141,
+    "__docId__": 145,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3467,7 +3555,7 @@
     "generator": false
   },
   {
-    "__docId__": 142,
+    "__docId__": 146,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3498,7 +3586,7 @@
     "generator": false
   },
   {
-    "__docId__": 143,
+    "__docId__": 147,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3519,7 +3607,7 @@
     "generator": false
   },
   {
-    "__docId__": 144,
+    "__docId__": 148,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3550,7 +3638,7 @@
     "generator": false
   },
   {
-    "__docId__": 145,
+    "__docId__": 149,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3571,7 +3659,7 @@
     "generator": false
   },
   {
-    "__docId__": 146,
+    "__docId__": 150,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3602,7 +3690,7 @@
     "generator": false
   },
   {
-    "__docId__": 147,
+    "__docId__": 151,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -3615,7 +3703,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * The HTMLOptionElement interface represents option elements\n * and inherits all classes and methods of the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLOptionElement\n */\nexport default class HTMLOptionElement extends HTMLElement {\n    /**\n     * Contains the initial value of the selected HTML attribute,\n     * indicating whether the option is selected by default or not.\n     *\n     * @type {boolean}\n     * @ignore\n     */\n    get defaultSelected() {\n        throw new Error('Unsupported');\n    }\n\n    /**\n     * @ignore\n     * @param {boolean} selected\n     */\n    set defaultSelected(selected) {\n        throw new Error('Unsupported');\n    }\n\n    /**\n     * Reflects the value of the disabled HTML attribute, which indicates that the option is unavailable to be selected.\n     * An option can also be disabled if it is a child of an optgroup element that is disabled.\n     *\n     * @type {boolean}\n     */\n    get disabled() {\n        return !!this.getAttribute('disabled') &&\n             (this.parentNode.nodeName !== 'optgroup' || !this.parentNode.disabled);\n    }\n\n    /**\n     * @ignore\n     * @param {boolean} disabled\n     */\n    set disabled(disabled) {\n        if (disabled) {\n            this.setAttribute('disabled', 'disabled');\n        } else {\n            this.removeAttribute('disabled');\n        }\n    }\n\n    /**\n     * If the option is a descendant of a select element, then this property has the same value as\n     * the form property of the corresponding HTMLSelectElement object; otherwise, it is null.\n     *\n     * @type {HTMLFormElement}\n     * @readonly\n     */\n    get form() {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * @ignore\n     */\n    set form(value) {\n        throw new Error('form is read only');\n    }\n\n    /**\n     * The position of the option within the list of options it belongs to, in tree-order.\n     * If the option is not part of a list of options, like when it is part of the datalist element, the value is 0.\n     *\n     * @type {number}\n     * @readonly\n     * @ignore\n     */\n    get index() {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * @ignore\n     * @param {number} value\n     */\n    set index(value) {\n        throw new Error('index is read only');\n    }\n\n    /**\n     * Reflects the value of the label HTML attribute, which provides a label for the option.\n     * If this attribute isn't specifically set, reading it returns the element's text content.\n     *\n     * @type {string}\n     * @ignore\n     */\n    get label() {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * @ignore\n     * @param {string} label\n     */\n    set label(label) {\n        throw new Error('Not implemented');\n    }\n\n    get _select() {\n        // jscs:disable safeContextKeyword\n        let node = this;\n\n        // jscs:enable safeContextKeyword\n\n        while (node = node.parentNode) {\n            if (node.nodeName === 'select') {\n                return node;\n            }\n        }\n\n        return null;\n    }\n\n    /**\n     * Indicates whether the option is currently selected.\n     *\n     * @member {boolean}\n     */\n    get selected() {\n        return !!this.getAttribute('selected');\n    }\n\n    /**\n     * @ignore\n     * @param {boolean} selected\n     */\n    set selected(selected) {\n        if (selected) {\n            let selectElement = this._select;\n            if (!selectElement.multiple) {\n                let selectedOption = selectElement.selectedOption;\n                if (selectedOption) {\n                    selectedOption.selected = false;\n                }\n            }\n\n            this.setAttribute('selected', 'selected');\n        } else {\n            this.removeAttribute('selected');\n        }\n    }\n\n    /**\n     * Contains the text content of the element.\n     *\n     * @type {string}\n     */\n    get text() {\n        return this.textContent;\n    }\n\n    /**\n     * @param {string} text\n     */\n    set text(text) {\n        while (this.firstChild) {\n            this.removeChild(this.firstChild);\n        }\n\n        this.appendChild(this.ownerDocument.createTextNode(text));\n    }\n\n    /**\n     * Reflects the value of the value HTML attribute, if it exists;\n     * otherwise reflects value of the Node.textContent property.\n     *\n     * @type {string}\n     */\n    get value() {\n        const value = this.getAttribute('value');\n        return value === null ? this.textContent : value;\n    }\n\n    /**\n     * @param {string} value\n     */\n    set value(value) {\n        if (value) {\n            this.setAttribute('value', value);\n        } else {\n            this.removeAttribute('value');\n        }\n    }\n\n}\n\n/**\n * @constant {string} HTMLOptionElement#nodeName option\n */\nObject.defineProperty(HTMLOptionElement.prototype, 'nodeName', { value: 'option' });\n"
   },
   {
-    "__docId__": 148,
+    "__docId__": 152,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -3637,7 +3725,7 @@
     ]
   },
   {
-    "__docId__": 149,
+    "__docId__": 153,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3659,7 +3747,7 @@
     "generator": false
   },
   {
-    "__docId__": 150,
+    "__docId__": 154,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3690,7 +3778,7 @@
     "generator": false
   },
   {
-    "__docId__": 151,
+    "__docId__": 155,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3711,7 +3799,7 @@
     "generator": false
   },
   {
-    "__docId__": 152,
+    "__docId__": 156,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3742,7 +3830,7 @@
     "generator": false
   },
   {
-    "__docId__": 153,
+    "__docId__": 157,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3769,7 +3857,7 @@
     "generator": false
   },
   {
-    "__docId__": 154,
+    "__docId__": 158,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3788,7 +3876,7 @@
     "generator": false
   },
   {
-    "__docId__": 155,
+    "__docId__": 159,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3816,7 +3904,7 @@
     "generator": false
   },
   {
-    "__docId__": 156,
+    "__docId__": 160,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3847,7 +3935,7 @@
     "generator": false
   },
   {
-    "__docId__": 157,
+    "__docId__": 161,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3869,7 +3957,7 @@
     "generator": false
   },
   {
-    "__docId__": 158,
+    "__docId__": 162,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3900,7 +3988,7 @@
     "generator": false
   },
   {
-    "__docId__": 159,
+    "__docId__": 163,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3919,7 +4007,7 @@
     "generator": false
   },
   {
-    "__docId__": 160,
+    "__docId__": 164,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3943,7 +4031,7 @@
     "generator": false
   },
   {
-    "__docId__": 161,
+    "__docId__": 165,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -3974,7 +4062,7 @@
     "generator": false
   },
   {
-    "__docId__": 162,
+    "__docId__": 166,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -3995,7 +4083,7 @@
     "generator": false
   },
   {
-    "__docId__": 163,
+    "__docId__": 167,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4025,7 +4113,7 @@
     "generator": false
   },
   {
-    "__docId__": 164,
+    "__docId__": 168,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4046,7 +4134,7 @@
     "generator": false
   },
   {
-    "__docId__": 165,
+    "__docId__": 169,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4076,7 +4164,7 @@
     "generator": false
   },
   {
-    "__docId__": 166,
+    "__docId__": 170,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4089,7 +4177,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * HTML select elements share all of the properties and methods\n * of other HTML elements described in the element section.\n * They also have the specialized interface HTMLSelectElement.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLSelectElement\n *\n */\nexport default class HTMLSelectElement extends HTMLElement {\n    /**\n     * Is a Boolean that reflects the autofocus HTML attribute,\n     * which indicates whether the control should have input focus when the page loads,\n     * unless the user overrides it, for example by typing in a different control.\n     * Only one form-associated element in a document can have this attribute specified\n     *\n     * @type {boolean}\n     */\n    get autoFocus() {\n        return this.hasAttribute('autofocus');\n    }\n\n    /**\n     * @param {boolean} value\n     */\n    set autoFocus(value) {\n        if (value) {\n            this.setAttribute('autofocus', '');\n        } else {\n            this.removeAttribute('autofocus');\n        }\n    }\n\n    /**\n     * Is a Boolean that reflects the disabled HTML attribute,\n     * which indicates whether the control is disabled.\n     * If it is disabled, it does not accept clicks.\n     *\n     * @type {boolean}\n     */\n    get disabled() {\n        return this.hasAttribute('disabled');\n    }\n\n    /**\n     * @param {boolean} value\n     */\n    set disabled(value) {\n        if (value) {\n            this.setAttribute('disabled', 'disabled');\n        } else {\n            this.removeAttribute('disabled');\n        }\n    }\n\n    /**\n     * The form that this element is associated with. If this element is a descendant of a form element,\n     * then this attribute is the ID of that form element.\n     * If the element is not a descendant of a form element, then:\n     * The attribute can be the ID of any form element in the same document.\n     *\n     * @type {HTMLFormElement}\n     * @readonly\n     */\n    get form() {\n        return this._closestParent('form') || null;\n    }\n\n    set form(value) {\n        throw new Error('form is read only');\n    }\n\n    /**\n     * Returns a NodeList containing the list of label elements associated with this select element.\n     *\n     * @type {HTMLLabelElement[]}\n     * @readonly\n     */\n    get labels() {\n        if (!this.hasAttribute('id')) {\n            return [];\n        }\n\n        const id = this.getAttribute('id');\n        const highestParent = this._highestParent();\n\n        if (!highestParent) {\n            return [];\n        }\n\n        return highestParent._filterDescendantNodes(n => n.tagName === 'label' && n.getAttribute('for') === id);\n    }\n\n    /**\n     * The number of option elements in this select element.\n     *\n     * @type {number}\n     * @readonly\n     */\n    get length() {\n        return this.options.length;\n    }\n\n    set length(value) {\n        throw new Error('length is read only');\n    }\n\n    /**\n     * Reflects the multiple HTML attribute, which indicates whether multiple items can be selected.\n     *\n     * @type {boolean}\n     */\n    get multiple() {\n        return this.hasAttribute('multiple');\n    }\n\n    /**\n     * @param {boolean} multiple\n     */\n    set multiple(multiple) {\n        if (multiple) {\n            this.setAttribute('multiple', 'multiple');\n        } else {\n            this.removeAttribute('multiple');\n        }\n    }\n\n    /**\n     * Reflects the name HTML attribute, containing the name of this control\n     * used by servers and DOM search functions.\n     *\n     * @type {string}\n     */\n    get name() {\n        return this.getAttribute('name');\n    }\n\n    /**\n     * @param {string} name\n     */\n    set name(name) {\n        this.setAttribute('name', name);\n    }\n\n    /**\n     * The set of option elements contained by this element.\n     *\n     * @type {Array.<Element>}\n     * @readonly\n     */\n    get options() {\n        return this.getElementsByTagName('option');\n    }\n\n    set options(value) {\n        throw new Error('options is read only');\n    }\n\n    /**\n     * Reflects the required HTML attribute, which indicates whether the user is required\n     * to select a value before submitting the form\n     *\n     * @type {boolean}\n     */\n    get required() {\n        return this.hasAttribute('required');\n    }\n\n    set required(required) {\n        if (required) {\n            this.setAttribute('required', 'required');\n        } else {\n            this.removeAttribute('required');\n        }\n    }\n\n    /**\n     * The index of the first selected option element.\n     * The value -1 is returned if no element is selected.\n     *\n     * @type {number}\n     */\n    get selectedIndex() {\n        let index = -1;\n        let emptyIndex = -1;\n        const options = this.options;\n\n        if (!options.length) {\n            return index;\n        }\n\n        options.some((option, idx) => {\n            if (option.selected) {\n                index = idx;\n                return true;\n            }\n\n            if (emptyIndex === -1 && option.value === '') {\n                emptyIndex = idx;\n            }\n        });\n\n        if (index === -1 && !this.multiple) {\n            index = emptyIndex;\n\n            if (index === -1) {\n                return 0;\n            }\n        }\n\n        return index;\n    }\n\n    /**\n     * @param {number} index\n     */\n    set selectedIndex(index) {\n        this.selectedOptions.forEach(option => option.selected = false);\n        this.options[index].selected = true;\n    }\n\n    /**\n     * The set of options that are selected.\n     *\n     * @type {Element[]}\n     * @readonly\n     */\n    get selectedOptions() {\n        return this.options.filter(option => option.selected);\n    }\n\n    /**\n     * The first selected option.\n     *\n     * @type {HtmlOptionElement|null}\n     * @readonly\n     */\n    get selectedOption() {\n        let selectedIndex = this.selectedIndex;\n\n        if (selectedIndex === -1) {\n            return null;\n        }\n\n        return this.options[selectedIndex];\n    }\n\n    /**\n     * Reflects the size HTML attribute, which contains the number of visible items in the control.\n     * The default is 1, unless multiple is true, in which case it is 4.\n     *\n     * @type {number}\n     */\n    get size() {\n        return Number(this.getAttribute('size')) || (this.multiple ? 4 : 1);\n    }\n\n    /**\n     * @param {number} size\n     */\n    set size(size) {\n        this.setAttribute('size', size);\n    }\n\n    get tabIndex() {\n        throw new Error('Obsolete since HTML5');\n    }\n\n    /**\n     * The form control's type. When multiple is true, it returns select-multiple; otherwise, it returns select-one.\n     * Read only.\n     *\n     * @type {string}\n     * @readonly\n     */\n    get type() {\n        return this.multiple ? 'select-multiple' : 'select-one';\n    }\n\n    set type(value) {\n        throw new Error('type is read only');\n    }\n\n    get validationMessage() {\n        throw new Error('Not implemented');\n    }\n\n    set validationMessage(value) {\n        throw new Error('validationMessage is read only');\n    }\n\n    get validity() {\n        throw new Error('Not implemented');\n    }\n\n    set validity(value) {\n        throw new Error('validity is read only');\n    }\n\n    /**\n     * The value of this form control, that is, of the first selected option.\n     *\n     * @type {string}\n     */\n    get value() {\n        return this.selectedOption && this.selectedOption.value;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set value(value) {\n        this.selectedOption.value = value;\n        return value;\n    }\n\n    get willValidate() {\n        throw new Error('Not implemented');\n    }\n\n    set willValidate(value) {\n        throw new Error('willValidate is read only');\n    }\n\n    /**\n     * Gets an item from the options collection for this select element.\n     *\n     * @param {number} index\n     * @ return {HTMLSelectElement}\n     */\n    item(index) {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * Gets the item in the options collection with the specified name.\n     * The name string can match either the id or the name attribute of an option node\n     *\n     * @ignore Not implemented\n     * @param {string} name\n     * @ return {HTMLSelectElement}\n     */\n    namedItem(name) {\n        throw new Error('Not implemented');\n    }\n\n    /**\n     * Removes the element at the specified index from the options collection for this select element.\n     *\n     * @ignore Not implemented\n     * @param {number} index\n     */\n    remove(index) {\n        throw new Error('Not implemented');\n    }\n}\n\n/**\n * @constant {string} HTMLSelectElement#nodeName option\n */\nObject.defineProperty(HTMLSelectElement.prototype, 'nodeName', { value: 'select' });\n"
   },
   {
-    "__docId__": 167,
+    "__docId__": 171,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4111,7 +4199,7 @@
     ]
   },
   {
-    "__docId__": 168,
+    "__docId__": 172,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4132,7 +4220,7 @@
     "generator": false
   },
   {
-    "__docId__": 169,
+    "__docId__": 173,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4162,7 +4250,7 @@
     "generator": false
   },
   {
-    "__docId__": 170,
+    "__docId__": 174,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4183,7 +4271,7 @@
     "generator": false
   },
   {
-    "__docId__": 171,
+    "__docId__": 175,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4213,7 +4301,7 @@
     "generator": false
   },
   {
-    "__docId__": 172,
+    "__docId__": 176,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4240,7 +4328,7 @@
     "generator": false
   },
   {
-    "__docId__": 173,
+    "__docId__": 177,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4259,7 +4347,7 @@
     "generator": false
   },
   {
-    "__docId__": 174,
+    "__docId__": 178,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4286,7 +4374,7 @@
     "generator": false
   },
   {
-    "__docId__": 175,
+    "__docId__": 179,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4313,7 +4401,7 @@
     "generator": false
   },
   {
-    "__docId__": 176,
+    "__docId__": 180,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4332,7 +4420,7 @@
     "generator": false
   },
   {
-    "__docId__": 177,
+    "__docId__": 181,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4353,7 +4441,7 @@
     "generator": false
   },
   {
-    "__docId__": 178,
+    "__docId__": 182,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4383,7 +4471,7 @@
     "generator": false
   },
   {
-    "__docId__": 179,
+    "__docId__": 183,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4404,7 +4492,7 @@
     "generator": false
   },
   {
-    "__docId__": 180,
+    "__docId__": 184,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4434,7 +4522,7 @@
     "generator": false
   },
   {
-    "__docId__": 181,
+    "__docId__": 185,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4461,7 +4549,7 @@
     "generator": false
   },
   {
-    "__docId__": 182,
+    "__docId__": 186,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4480,7 +4568,7 @@
     "generator": false
   },
   {
-    "__docId__": 183,
+    "__docId__": 187,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4501,7 +4589,7 @@
     "generator": false
   },
   {
-    "__docId__": 184,
+    "__docId__": 188,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4520,7 +4608,7 @@
     "generator": false
   },
   {
-    "__docId__": 185,
+    "__docId__": 189,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4541,7 +4629,7 @@
     "generator": false
   },
   {
-    "__docId__": 186,
+    "__docId__": 190,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4571,7 +4659,7 @@
     "generator": false
   },
   {
-    "__docId__": 187,
+    "__docId__": 191,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4598,7 +4686,7 @@
     "generator": false
   },
   {
-    "__docId__": 188,
+    "__docId__": 192,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4626,7 +4714,7 @@
     "generator": false
   },
   {
-    "__docId__": 189,
+    "__docId__": 193,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4647,7 +4735,7 @@
     "generator": false
   },
   {
-    "__docId__": 190,
+    "__docId__": 194,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4677,7 +4765,7 @@
     "generator": false
   },
   {
-    "__docId__": 191,
+    "__docId__": 195,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4691,7 +4779,7 @@
     "generator": false
   },
   {
-    "__docId__": 192,
+    "__docId__": 196,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4718,7 +4806,7 @@
     "generator": false
   },
   {
-    "__docId__": 193,
+    "__docId__": 197,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4737,7 +4825,7 @@
     "generator": false
   },
   {
-    "__docId__": 194,
+    "__docId__": 198,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4751,7 +4839,7 @@
     "generator": false
   },
   {
-    "__docId__": 195,
+    "__docId__": 199,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4770,7 +4858,7 @@
     "generator": false
   },
   {
-    "__docId__": 196,
+    "__docId__": 200,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4784,7 +4872,7 @@
     "generator": false
   },
   {
-    "__docId__": 197,
+    "__docId__": 201,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4803,7 +4891,7 @@
     "generator": false
   },
   {
-    "__docId__": 198,
+    "__docId__": 202,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4824,7 +4912,7 @@
     "generator": false
   },
   {
-    "__docId__": 199,
+    "__docId__": 203,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4855,7 +4943,7 @@
     "generator": false
   },
   {
-    "__docId__": 200,
+    "__docId__": 204,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -4869,7 +4957,7 @@
     "generator": false
   },
   {
-    "__docId__": 201,
+    "__docId__": 205,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -4888,7 +4976,7 @@
     "generator": false
   },
   {
-    "__docId__": 202,
+    "__docId__": 206,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4913,7 +5001,7 @@
     "generator": false
   },
   {
-    "__docId__": 203,
+    "__docId__": 207,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4939,7 +5027,7 @@
     "generator": false
   },
   {
-    "__docId__": 204,
+    "__docId__": 208,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -4965,7 +5053,7 @@
     "generator": false
   },
   {
-    "__docId__": 205,
+    "__docId__": 209,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -4978,7 +5066,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * &lt;caption&gt; element.\n */\nexport default class HTMLTableCaptionElement extends HTMLElement {\n}\n\n/**\n * @constant {string} HTMLTableCaptionElement#nodeName option\n */\nObject.defineProperty(HTMLTableCaptionElement.prototype, 'nodeName', { value: 'caption' });\n"
   },
   {
-    "__docId__": 206,
+    "__docId__": 210,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -4997,7 +5085,7 @@
     ]
   },
   {
-    "__docId__": 207,
+    "__docId__": 211,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -5010,7 +5098,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\nimport DOMException from '../../DOMException';\n\n/**\n * &lt;table&gt; element.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableElement\n */\nexport default class HTMLTableElement extends HTMLElement {\n    /**\n     * Is an {@link HTMLTableCaptionElement} representing the first &lt;caption&gt; that is a child of the element,\n     * or null if none is found.\n     * When set, if the object doesn't represent a &lt;caption&gt;,\n     * a {@link DOMException} with the HierarchyRequestError name is thrown.\n     * If a correct object is given, it is inserted in the tree as the first child of this element\n     * and the first &lt;caption&gt; that is a child of this element is removed from the tree, if any.\n     *\n     * @type {HTMLTableCaptionElement|null}\n     */\n    get caption() {\n        return this._childNodeFind(child => child.tagName === 'caption');\n    }\n\n    /**\n     * @param {HTMLTableCaptionElement|null} element\n     * @ignore\n     */\n    set caption(element) {\n        if (element.tagName !== 'caption') {\n            throw new DOMException('HierarchyRequestError');\n        }\n\n        let previousCaption = this.caption;\n        if (previousCaption) {\n            this.removeChild(previousCaption);\n        }\n\n        if (this.firstChild) {\n            this.insertBefore(element, this.firstChild);\n        } else {\n            this.appendChild(element);\n        }\n    }\n\n    /**\n     * Is an {@link HTMLTableSectionElement} representing the first &lt;thead&gt; that is a child of the element,\n     * or null if none is found.\n     * When set, if the object doesn't represent a &lt;thead&gt;,\n     * a {@link DOMException} with the HierarchyRequestError name is thrown.\n     * If a correct object is given, it is inserted in the tree immediately before the first element\n     * that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element,\n     * and the first &lt;thead&gt; that is a child of this element is removed from the tree, if any.\n     *\n     * @type {HTMLTableSectionElement|null}\n     */\n    get tHead() {\n        return this._childNodeFind(child => child.tagName === 'thead');\n    }\n\n    /**\n     * @ignore\n     * @param {HTMLTableSectionElement|null} element\n     */\n    set tHead(element) {\n        if (element.tagName !== 'thead') {\n            throw new DOMException('HierarchyRequestError');\n        }\n\n        const previousTHead = this.tHead;\n        if (previousTHead) {\n            this.removeChild(previousTHead);\n        }\n\n        if (!this.children.some((child) => {\n            if (child.tagName !== 'caption' && child.tagName !== 'colgroup') {\n                this.insertBefore(element, child);\n                return true;\n            }\n\n            return false;\n        })) {\n            this.appendChild(element);\n        }\n    }\n\n    /**\n     * Is an {@link HTMLTableSectionElement} representing the first &lt;tfoot&gt; that is a child of the element,\n     * or null if none is found.\n     * When set, if the object doesn't represent a &lt;tfoot&gt;,\n     * a {@link DOMException} with the HierarchyRequestError name is thrown.\n     * If a correct object is given, it is inserted in the tree immediately before the first element\n     * that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child\n     * if there is no such element, and the first &lt;tfoot&gt; that is a child of this element is removed\n     * from the tree, if any.\n     *\n     * @type {HTMLElement|null}\n     */\n    get tFoot() {\n        return this._childNodeFind(child => child.tagName === 'tfoot');\n    }\n\n    /**\n     * @ignore\n     * @param {HTMLElement|null} element\n     */\n    set tFoot(element) {\n        if (element.tagName !== 'tfoot') {\n            throw new DOMException('HierarchyRequestError');\n        }\n\n        const previousTFoot = this.tFoot;\n        if (previousTFoot) {\n            this.removeChild(previousTFoot);\n        }\n\n        if (!this.children.some((child) => {\n            if (child.tagName !== 'caption' && child.tagName !== 'colgroup' && child.tagName !== 'thead') {\n                this.insertBefore(element, child);\n                return true;\n            }\n\n            return false;\n        })) {\n            this.appendChild(element);\n        }\n    }\n\n    /**\n     * Returns a live {@link HTMLCollection} containing all the rows of the element,\n     * that is all &lt;tr&gt; that are a child of the element,\n     * or a child or one of its &lt;thead&gt;, &lt;tbody&gt; and &lt;tfoot&gt; children.\n     * The rows members of a &lt;thead&gt; appear first, in tree order, and those members of a &lt;tbody&gt; last,\n     * also in tree order. The HTMLCollection is live and is automatically updated when the HTMLTableElement changes.\n     *\n     * @type {HTMLElement[]}\n     * @readonly\n     */\n    get rows() {\n        let result = [];\n        if (this.tHead !== null) {\n            this.tHead.children.forEach((element) => {\n                if (element.tagName === 'tr') {\n                    result.push(element);\n                }\n            });\n        }\n\n        const tBodies = this.tBodies;\n        if (tBodies.length !== 0) {\n            tBodies.forEach((body) => {\n                body.children.forEach((element) => {\n                    if (element.tagName === 'tr') {\n                        result.push(element);\n                    }\n                });\n            });\n        }\n\n        if (this.tFoot !== null) {\n            this.tFoot.children.forEach((element) => {\n                if (element.tagName === 'tr') {\n                    result.push(element);\n                }\n            });\n        }\n\n        return result;\n    }\n\n    /**\n     * Returns a live HTMLCollection containing all the &lt;tbody&gt; of the element. The HTMLCollection is live\n     * and is automatically updated when the HTMLTableElement changes.\n     *\n     * @type {HTMLElement[]}\n     * @readonly\n     */\n    get tBodies() {\n        return this.children.filter(element => element.tagName === 'tbody');\n    }\n\n    /**\n     * Returns an HTMLElement representing the first &lt;thead&gt; that is a child of the element.\n     * If none is found, a new one is created and inserted in the tree immediately before the first element\n     * that is neither a &lt;caption&gt;, nor a &lt;colgroup&gt;, or as the last child if there is no such element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTHead\n     * @return {HTMLElement}\n     */\n    createTHead() {\n        let tHead = this.tHead;\n\n        if (tHead !== null) {\n            return tHead;\n        }\n\n        tHead = this.ownerDocument.createElement('thead');\n        this.tHead = tHead;\n        return tHead;\n    }\n\n    /**\n     * Removes the first &lt;thead&gt; that is a child of the element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTHead\n     */\n    deleteTHead() {\n        let tHead = this.tHead;\n\n        if (tHead !== null) {\n            this.removeChild(tHead);\n        }\n    }\n\n    /**\n     * Returns an {@link HTMLElement} representing the first &lt;tfoot&gt; that is a child of the element.\n     * If none is found, a new one is created and inserted in the tree immediately before the first element\n     * that is neither a &lt;caption&gt;, a &lt;colgroup&gt;, nor a &lt;thead&gt;, or as the last child\n     * if there is no such element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createTFoot\n     * @return {HTMLElement}\n     */\n    createTFoot() {\n        let tFoot = this.tFoot;\n\n        if (tFoot !== null) {\n            return tFoot;\n        }\n\n        tFoot = this.ownerDocument.createElement('tfoot');\n        this.tFoot = tFoot;\n        return tFoot;\n    }\n\n    /**\n     * Removes the first &lt;tfoot&gt; that is a child of the element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteTFoot\n     */\n    deleteTFoot() {\n        let tFoot = this.tFoot;\n\n        if (tFoot !== null) {\n            this.removeChild(tFoot);\n        }\n    }\n\n    /**\n     * Returns an {@link HTMLElement} representing the first &lt;caption&gt; that is a child of the element.\n     * If none is found, a new one is created and inserted in the tree as the first child of the &lt;table&gt; element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/createCaption\n     * @return {HTMLElement}\n     */\n    createCaption() {\n        let caption = this.caption;\n\n        if (caption !== null) {\n            return caption;\n        }\n\n        caption = this.ownerDocument.createElement('caption');\n        this.caption = caption;\n        return caption;\n    }\n\n    /**\n     * Removes the first &lt;caption&gt; that is a child of the element.\n     *\n     * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLTableElement/deleteCaption\n     */\n    deleteCaption() {\n        let caption = this.caption;\n\n        if (caption !== null) {\n            this.removeChild(caption);\n        }\n    }\n\n    /**\n     * Method creates &lt;tbody&gt; element and puts it in particular place\n     *\n     * @private\n     */\n    _createTBody() {\n        let tBody = this.ownerDocument.createElement('tbody');\n        let tFoot = this.tFoot;\n\n        if (tFoot) {\n            this.insertBefore(tBody, tFoot);\n        } else {\n            this.appendChild(tBody);\n        }\n\n        return tBody;\n    }\n\n    /**\n     * Returns an {@link HTMLElement} representing a new row of the table. It inserts it in the rows collection\n     * immediately before the &lt;tr&gt; element at the given index position. If necessary a &lt;tbody&gt; is created.\n     * If the index is -1, the new row is appended to the collection. If the index is smaller than -1 or greater than\n     * the number of rows in the collection, a {@link DOMException} with the value IndexSizeError is raised.\n\n     *\n     * @param {number} [index=-1]\n     * @return {HTMLElement}\n     */\n    insertRow(index = -1) {\n        let row = this.ownerDocument.createElement('tr');\n        let tBody = null;\n        let tBodies = this.tBodies;\n\n        if (tBodies.length === 0) {\n            tBody = this._createTBody();\n        } else {\n            tBody = tBodies[tBodies.length - 1];\n        }\n\n        if (index === -1 || index === tBody.length) {\n            tBody.appendChild(row);\n        } else if (index < tBody.length - 1) {\n            tBody.insertBefore(row, tBody.children[index]);\n        } else {\n            throw new DOMException('IndexSizeError');\n        }\n\n        return row;\n    }\n\n    /**\n     * @inheritdoc\n     */\n    appendChild(element) {\n        if (element.tagName === 'tr') {\n            let tBodies = this.tBodies;\n            let tBody = null;\n            if (tBodies.length === 0) {\n                tBody = this._createTBody();\n            } else {\n                tBody = tBodies[tBodies.length - 1];\n            }\n\n            return tBody.appendChild(element);\n        }\n\n        return super.appendChild(element);\n    }\n}\n\n/**\n * @constant {string} HTMLTableElement#nodeName table\n */\nObject.defineProperty(HTMLTableElement.prototype, 'nodeName', { value: 'table' });\n"
   },
   {
-    "__docId__": 208,
+    "__docId__": 212,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5032,7 +5120,7 @@
     ]
   },
   {
-    "__docId__": 209,
+    "__docId__": 213,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5054,7 +5142,7 @@
     "generator": false
   },
   {
-    "__docId__": 210,
+    "__docId__": 214,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5086,7 +5174,7 @@
     "generator": false
   },
   {
-    "__docId__": 211,
+    "__docId__": 215,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5108,7 +5196,7 @@
     "generator": false
   },
   {
-    "__docId__": 212,
+    "__docId__": 216,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5140,7 +5228,7 @@
     "generator": false
   },
   {
-    "__docId__": 213,
+    "__docId__": 217,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5162,7 +5250,7 @@
     "generator": false
   },
   {
-    "__docId__": 214,
+    "__docId__": 218,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5194,7 +5282,7 @@
     "generator": false
   },
   {
-    "__docId__": 215,
+    "__docId__": 219,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5221,7 +5309,7 @@
     "generator": false
   },
   {
-    "__docId__": 216,
+    "__docId__": 220,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5248,7 +5336,7 @@
     "generator": false
   },
   {
-    "__docId__": 217,
+    "__docId__": 221,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5273,7 +5361,7 @@
     "generator": false
   },
   {
-    "__docId__": 218,
+    "__docId__": 222,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -5291,7 +5379,7 @@
     }
   },
   {
-    "__docId__": 219,
+    "__docId__": 223,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5308,7 +5396,7 @@
     "generator": false
   },
   {
-    "__docId__": 220,
+    "__docId__": 224,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5333,7 +5421,7 @@
     "generator": false
   },
   {
-    "__docId__": 221,
+    "__docId__": 225,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -5351,7 +5439,7 @@
     }
   },
   {
-    "__docId__": 222,
+    "__docId__": 226,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5368,7 +5456,7 @@
     "generator": false
   },
   {
-    "__docId__": 223,
+    "__docId__": 227,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5393,7 +5481,7 @@
     "generator": false
   },
   {
-    "__docId__": 224,
+    "__docId__": 228,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -5411,7 +5499,7 @@
     }
   },
   {
-    "__docId__": 225,
+    "__docId__": 229,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5428,7 +5516,7 @@
     "generator": false
   },
   {
-    "__docId__": 226,
+    "__docId__": 230,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5447,7 +5535,7 @@
     "generator": false
   },
   {
-    "__docId__": 227,
+    "__docId__": 231,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5482,7 +5570,7 @@
     "generator": false
   },
   {
-    "__docId__": 228,
+    "__docId__": 232,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5514,7 +5602,7 @@
     "generator": false
   },
   {
-    "__docId__": 229,
+    "__docId__": 233,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -5527,7 +5615,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\n\nexport default class HTMLTableRowElement extends HTMLElement {\n    constructor() {\n        super();\n    }\n\n    /**\n     * Returns a live HTMLCollection containing the cells in the row. The HTMLCollection is live and is automatically\n     * updated when rows are added or removed.\n     *\n     * @todo Update array to HTMLCollection when it's implemented\n     * @type {Element[]} HTMLTableRowElement#cells\n     */\n    get cells() {\n        return this._childNodeFind(child => child.tagName === 'td');\n    }\n\n    /**\n     * Is a DOMString containing one single character. This character is the one to align all the cell of a column on.\n     * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','\n     * for French. This property was optional and was not very well supported.\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get ch() {\n        return '.';\n    }\n\n    /**\n     * Is a DOMString containing a integer indicating how many characters must be left at the right (for left-to-right\n     * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This\n     * property was optional and was not very well supported.\n     *\n     * @type {number}\n     * @deprecated\n     */\n    get chOff() {\n        return 0;\n    }\n\n    /**\n     * Set align of element\n     *\n     * @param {string} value\n     * @deprecated\n     */\n    set vAlign(value) {\n        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value) !== -1) {\n            this.setAttribute('valign', value);\n        }\n    }\n\n    /**\n     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically\n     * aligned. It reflects the valign attribute and can have one of the following values: \"top\", \"middle\", \"bottom\",\n     * or \"baseline\".\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get vAlign() {\n        return this.getAttribute('valign');\n    }\n\n    /**\n     * Is a DOMString containing an enumerated value reflecting the align attribute. It indicates the alignment of the\n     * element's contents with respect to the surrounding context. The possible values are \"left\", \"right\", and\n     * \"center\".\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get align() {\n        return this.getAttribute('align');\n    }\n\n    /**\n     * Set align of element\n     *\n     * @param {string} value\n     */\n    set align(value) {\n        if (['left', 'right', 'center'].indexOf(value) !== 1) {\n            this.setAttribute('align', value);\n        }\n    }\n\n    /**\n     * Returns a long value which gives the logical position of the row within the table section it belongs to.\n     * If the row is not part of a section, returns -1.\n     *\n     * @return {number}\n     */\n    get sectionRowIndex() {\n        if (this.parentNode === null) {\n            return -1;\n        }\n\n        return this.parentNode.rows.indexOf(this);\n    }\n\n    /**\n     * Returns a long value which gives the logical position of the row within the entire table. If the row is not part\n     * of a table, returns -1.\n     *\n     * @type {number}\n     */\n    get rowIndex() {\n        if (this.parentNode === null) {\n            return -1;\n        }\n\n        if (this.parentNode.parentNode === null) {\n            return -1;\n        }\n\n        let inSection = this.sectionRowIndex;\n        let section = this.parentNode;\n        let table = this.parentNode.parentNode;\n        let index = 0;\n        if (section.nodeName === 'thead') {\n            return inSection;\n        }\n\n        if (table.tHead !== null) {\n            index += table.tHead.rows.length;\n        }\n\n        const tBodies = table.tBodies;\n        if (tBodies.length !== 0) {\n            let found = false;\n            table.tBodies.every((tbody) => {\n                if (tbody === section) {\n                    found = true;\n                    return false;\n                }\n\n                index += tbody.rows.length;\n            });\n            if (found) {\n                return index + inSection;\n            }\n        }\n\n        if (section.nodeName === 'tfoot') {\n            return index + inSection;\n        }\n\n        return -1;\n    }\n\n    /**\n     * Method creates new &lt;td&gt; element and adds it to row.\n     *\n     * @param {number} index\n     * @return {HTMLElement}\n     */\n    insertCell(index = -1) {\n        let row = this.ownerDocument.createElement('td');\n        if (index === -1 || index === this.children.length) {\n            this.appendChild(row);\n        } else if (index < this.children.length - 1) {\n            this.insertBefore(row, this.children[index]);\n        } else {\n            throw new DOMException('IndexSizeError');\n        }\n\n        return row;\n    }\n\n    /**\n     * Removes the cell at the given position in the section. If the given position is greater (or equal as it starts\n     * at zero) than the amount of rows in the section, or is smaller than 0, it raises a DOMException with the\n     * IndexSizeError value.\n     *\n     * @param {number} index\n     */\n    deleteCell(index) {\n        if (index >= this.children.length || index < 0) {\n            throw new DOMException('IndexSizeError');\n        }\n\n        this.removeChild(this.children[index]);\n    }\n}\n\n/**\n * @constant {string} HTMLTableElement#nodeName table\n */\nObject.defineProperty(HTMLTableRowElement.prototype, 'nodeName', { value: 'tr' });\n"
   },
   {
-    "__docId__": 230,
+    "__docId__": 234,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5547,7 +5635,7 @@
     ]
   },
   {
-    "__docId__": 231,
+    "__docId__": 235,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -5562,7 +5650,7 @@
     "generator": false
   },
   {
-    "__docId__": 232,
+    "__docId__": 236,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5586,7 +5674,7 @@
     "generator": false
   },
   {
-    "__docId__": 233,
+    "__docId__": 237,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5608,7 +5696,7 @@
     "generator": false
   },
   {
-    "__docId__": 234,
+    "__docId__": 238,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5630,7 +5718,7 @@
     "generator": false
   },
   {
-    "__docId__": 235,
+    "__docId__": 239,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5661,7 +5749,7 @@
     "generator": false
   },
   {
-    "__docId__": 236,
+    "__docId__": 240,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5683,7 +5771,7 @@
     "generator": false
   },
   {
-    "__docId__": 237,
+    "__docId__": 241,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5705,7 +5793,7 @@
     "generator": false
   },
   {
-    "__docId__": 238,
+    "__docId__": 242,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5735,7 +5823,7 @@
     "generator": false
   },
   {
-    "__docId__": 239,
+    "__docId__": 243,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5761,7 +5849,7 @@
     "generator": false
   },
   {
-    "__docId__": 240,
+    "__docId__": 244,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5782,7 +5870,7 @@
     "generator": false
   },
   {
-    "__docId__": 241,
+    "__docId__": 245,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5815,7 +5903,7 @@
     "generator": false
   },
   {
-    "__docId__": 242,
+    "__docId__": 246,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -5840,7 +5928,7 @@
     "generator": false
   },
   {
-    "__docId__": 243,
+    "__docId__": 247,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -5853,7 +5941,7 @@
     "content": "import HTMLElement from '../../HTMLElement';\nimport DOMException from '../../DOMException';\n\n/**\n * The HTMLSectionElement interface represents table section (thead, tbody etc.)\n * and inherits all classes and methods of the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLTableSectionElement\n */\nexport default class HTMLTableSectionElement extends HTMLElement {\n    /**\n     * Align of element content\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get align() {\n        return this.getAttribute('align');\n    }\n\n    /**\n     * Set align of element\n     *\n     * @param {string} value\n     */\n    set align(value) {\n        if (['left', 'right', 'center'].indexOf(value) !== -1) {\n            this.setAttribute('align', value);\n        }\n    }\n\n    /**\n     * Returns a live HTMLCollection containing the rows in the section. The HTMLCollection is live and is automatically\n     * updated when rows are added or removed.\n     *\n     * @todo Update array to HTMLCollection when it's implemented\n     * @type {Element[]}\n     */\n    get rows() {\n        return this._childNodeFind(child => child.tagName === 'tr');\n    }\n\n    /**\n     * Is a DOMString containing one single chararcter. This character is the one to align all the cell of a column on.\n     * It reflects the char and default to the decimal points associated with the language, e.g. '.' for English, or ','\n     * for French. This property was optional and was not very well supported.\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get ch() {\n        return '.';\n    }\n\n    /**\n     * Is a DOMString containing a integer indicating how many characters must be left at the right (for left-to-right\n     * scripts; or at the left for right-to-left scripts) of the character defined by HTMLTableRowElement.ch. This\n     * property was optional and was not very well supported.\n     *\n     * @type {number}\n     */\n    get chOff() {\n        return 0;\n    }\n\n    /**\n     * Is a DOMString representing an enumerated value indicating how the content of the cell must be vertically\n     * aligned. It reflects the valign attribute and can have one of the following values: \"top\", \"middle\", \"bottom\",\n     * or \"baseline\".\n     *\n     * @type {string}\n     * @deprecated\n     */\n    get vAlign() {\n        return this.getAttribute('valign');\n    }\n\n    /**\n     * Set align of element\n     *\n     * @param {string} value\n     * @ignore\n     */\n    set vAlign(value) {\n        if (['top', 'middle', 'bottom', 'baseline'].indexOf(value) !== -1) {\n            this.setAttribute('valign', value);\n        }\n    }\n\n    /**\n     * Method creates new &lt;tr&gt; element and adds it to section.\n     *\n     * @param {number} index\n     * @return {HTMLElement}\n     */\n    insertRow(index = -1) {\n        let row = this.ownerDocument.createElement('tr');\n        if (index === -1 || index === this.children.length) {\n            this.appendChild(row);\n        } else if (index < this.children.length - 1) {\n            this.insertBefore(row, this.children[index]);\n        } else {\n            throw new DOMException('IndexSizeError');\n        }\n\n        return row;\n    }\n\n    /**\n     * Removes the row at the given position in the section. If the given position is greater (or equal as it starts\n     * at zero) than the amount of rows in the section, or is smaller than 0, it raises a DOMException with the\n     * IndexSizeError value.\n     *\n     * @param {number} index\n     */\n    deleteRow(index) {\n        if (index >= this.children.length || index < 0) {\n            throw new DOMException('IndexSizeError');\n        }\n\n        this.removeChild(this.children[index]);\n    }\n}\n"
   },
   {
-    "__docId__": 244,
+    "__docId__": 248,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -5875,7 +5963,7 @@
     ]
   },
   {
-    "__docId__": 245,
+    "__docId__": 249,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5897,7 +5985,7 @@
     "generator": false
   },
   {
-    "__docId__": 246,
+    "__docId__": 250,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -5927,7 +6015,7 @@
     "generator": false
   },
   {
-    "__docId__": 247,
+    "__docId__": 251,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5951,7 +6039,7 @@
     "generator": false
   },
   {
-    "__docId__": 248,
+    "__docId__": 252,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5973,7 +6061,7 @@
     "generator": false
   },
   {
-    "__docId__": 249,
+    "__docId__": 253,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -5994,7 +6082,7 @@
     "generator": false
   },
   {
-    "__docId__": 250,
+    "__docId__": 254,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6016,7 +6104,7 @@
     "generator": false
   },
   {
-    "__docId__": 251,
+    "__docId__": 255,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -6047,7 +6135,7 @@
     "generator": false
   },
   {
-    "__docId__": 252,
+    "__docId__": 256,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6080,7 +6168,7 @@
     "generator": false
   },
   {
-    "__docId__": 253,
+    "__docId__": 257,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6105,7 +6193,7 @@
     "generator": false
   },
   {
-    "__docId__": 254,
+    "__docId__": 258,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -6115,10 +6203,10 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import Element from './Element';\nimport CSSStyleDeclaration from './HTMLElement/CSSStyleDeclaration';\nimport ClassList from './HTMLElement/ClassList';\nimport escapeAttribute from './utils/escapeAttribute';\nimport {attributeNameToProperty} from './utils/escapeAttributeName';\n\nconst voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');\n\n/**\n * The HTMLElement interface represents any HTML element.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement\n */\nexport default class HTMLElement extends Element {\n    constructor() {\n        super();\n        /**\n         * returns a token list of the class attribute of the element\n         * @type {CSSStyleDeclaration} style\n         * @readonly\n         */\n        this.style = new CSSStyleDeclaration(this);\n        /**\n         * returns a token list of the class attribute of the element\n         * @type {ClassList} classList\n         * @readonly\n         */\n        this.classList = new ClassList(this);\n\n        this._dataset = {};\n    }\n\n    /**\n     * The class of the element.\n     *\n     * @type {string}\n     */\n    get className() {\n        return this.getAttribute('class');\n    }\n\n    /**\n     * @param {string} className\n     */\n    set className(className) {\n        this.setAttribute('class', className);\n    }\n\n    _updatedAttribute(attributeName, value) {\n        if (attributeName === 'style') {\n            this.style.cssText = value || '';\n        }\n\n        if (attributeName === 'class') {\n            this.classList._parse(value || '');\n        }\n\n        if (attributeName.startsWith('data-')) {\n            this.dataset[attributeNameToProperty(attributeName)] = value;\n        }\n    }\n\n    /**\n     * @ignore\n     * @return {string}\n     */\n    get outerHTML() {\n        return '<' + this.nodeName +\n            Object.keys(this._attributes).reduce((value, attributeName) => value +\n                ' ' + attributeName + '=\"' +\n                escapeAttribute(this._attributes[attributeName]) + '\"',\n            '') + '>' +\n            (voidElements.indexOf(this.nodeName) !== -1 ? '' : this.innerHTML + '</' + this.nodeName + '>');\n    }\n\n    get dataset() {\n        return this._dataset;\n    }\n}\n"
+    "content": "import Element from './Element';\nimport CSSStyleDeclaration from './HTMLElement/CSSStyleDeclaration';\nimport ClassList from './HTMLElement/ClassList';\nimport escapeAttribute from './utils/escapeAttribute';\nimport {attributeNameToProperty} from './utils/escapeAttributeName';\n\nconst voidElements = 'area base br col embed hr img input keygen link meta param source track wbr'.split(' ');\n\n/**\n * The HTMLElement interface represents any HTML element.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/HTMLElement\n */\nexport default class HTMLElement extends Element {\n    constructor() {\n        super();\n        /**\n         * returns a token list of the class attribute of the element\n         * @type {CSSStyleDeclaration} style\n         * @readonly\n         */\n        this.style = new CSSStyleDeclaration(this);\n        /**\n         * returns a token list of the class attribute of the element\n         * @type {ClassList} classList\n         * @readonly\n         */\n        this.classList = new ClassList(this);\n\n        this._dataset = {};\n    }\n\n    /**\n     * The class of the element.\n     *\n     * @type {string}\n     */\n    get className() {\n        return this.getAttribute('class');\n    }\n\n    /**\n     * @param {string} className\n     */\n    set className(className) {\n        this.setAttribute('class', className);\n    }\n\n    _updatedAttribute(attributeName, value) {\n        if (attributeName === 'style') {\n            this.style.cssText = value || '';\n        }\n\n        if (attributeName === 'class') {\n            this.classList._parse(value || '');\n        }\n\n        if (attributeName.startsWith('data-')) {\n            this.dataset[attributeNameToProperty(attributeName)] = value;\n        }\n    }\n\n    /**\n     * @ignore\n     * @return {string}\n     */\n    get outerHTML() {\n        return '<' +\n            this.nodeName +\n            Object.keys(this._attributes).reduce(\n                (value, attributeName) => value +\n                ' ' + attributeName +\n                '=\"' + escapeAttribute(this._attributes[attributeName]) + '\"', '')\n            + '>'\n            + (voidElements.indexOf(this.nodeName) !== -1 ? '' : this.innerHTML + '</' + this.nodeName + '>');\n    }\n\n    get dataset() {\n        return this._dataset;\n    }\n}\n"
   },
   {
-    "__docId__": 255,
+    "__docId__": 259,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -6139,7 +6227,7 @@
     }
   },
   {
-    "__docId__": 256,
+    "__docId__": 260,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -6161,7 +6249,7 @@
     ]
   },
   {
-    "__docId__": 257,
+    "__docId__": 261,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -6176,7 +6264,7 @@
     "generator": false
   },
   {
-    "__docId__": 258,
+    "__docId__": 262,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -6202,7 +6290,7 @@
     }
   },
   {
-    "__docId__": 259,
+    "__docId__": 263,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -6228,7 +6316,7 @@
     }
   },
   {
-    "__docId__": 260,
+    "__docId__": 264,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -6246,7 +6334,7 @@
     }
   },
   {
-    "__docId__": 261,
+    "__docId__": 265,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6267,7 +6355,7 @@
     "generator": false
   },
   {
-    "__docId__": 262,
+    "__docId__": 266,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -6297,7 +6385,7 @@
     "generator": false
   },
   {
-    "__docId__": 263,
+    "__docId__": 267,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6325,7 +6413,7 @@
     "generator": false
   },
   {
-    "__docId__": 264,
+    "__docId__": 268,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6352,7 +6440,7 @@
     "generator": false
   },
   {
-    "__docId__": 265,
+    "__docId__": 269,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6361,7 +6449,7 @@
     "longname": "src/HTMLElement.js~HTMLElement#dataset",
     "access": null,
     "description": null,
-    "lineNumber": 76,
+    "lineNumber": 78,
     "undocument": true,
     "type": {
       "types": [
@@ -6371,7 +6459,7 @@
     "generator": false
   },
   {
-    "__docId__": 266,
+    "__docId__": 270,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -6384,7 +6472,7 @@
     "content": "/**\n * A Node is an interface from which a number of DOM types inherit,\n * and allows these various types to be treated (or tested) similarly.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/Node\n */\nexport default class Node {\n    constructor() {\n        this._attributes = {};\n    }\n\n    /**\n     * Returns the Document that this node belongs to.\n     * If no document is associated with it, returns null.\n     *\n     * @type {Document}\n     * @readonly\n     */\n    get ownerDocument() {\n        return this._ownerDocument || null;\n    }\n\n    /* ATTRIBUTES */\n\n    /**\n     * get attribute's value\n     *\n     * @param {string} attributeName\n     * @return {string}\n     */\n    getAttribute(attributeName) {\n        return attributeName in this._attributes ? this._attributes[attributeName] : null;\n    }\n\n    /**\n     * checks if attribute exists for node\n     *\n     * @method Node#hasAttribute\n     * @param {string} attributeName\n     * @return {boolean}\n     */\n    hasAttribute(attributeName) {\n        return attributeName in this._attributes;\n    }\n\n    /**\n     * set attribute's value\n     *\n     * @method Node#setAttribute\n     * @param {string} attributeName\n     * @param {string} attributeValue\n     */\n    setAttribute(attributeName, attributeValue) {\n        this._setAttribute(attributeName, attributeValue);\n        this._updatedAttribute(attributeName, this._attributes[attributeName]);\n    }\n\n    /**\n     * set attribute's value\n     *\n     * @internal\n     * @param {string} attributeName\n     * @param {string} attributeValue\n     */\n    _setAttribute(attributeName, attributeValue) {\n        this._attributes[attributeName] = String(attributeValue);\n    }\n\n    /**\n     * remove attribute\n     *\n     * @param {string} attributeName\n     */\n    removeAttribute(attributeName) {\n        if (this._attributes[attributeName] !== undefined) {\n            delete this._attributes[attributeName];\n            this._updatedAttribute(attributeName);\n        }\n    }\n\n    /**\n     * @internal\n     * @param {string} attributeName\n     * @param {string} [value]\n     */\n    _updatedAttribute(attributeName, value) {\n    }\n\n    /* CONTENT */\n\n    /**\n     * @type {string}\n     */\n    get textContent() {\n        return '';\n    }\n\n    _toHTML() {\n        return this.outerHTML;\n    }\n\n    /* EVENTS */\n\n    /**\n     * @param {string} eventType\n     * @param {function} listener\n     * @param {boolean} capturingPhase\n     */\n    addEventListener(eventType, listener, capturingPhase) {\n        eventType = eventType.toLowerCase();\n        const _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';\n        if (!this[_eventsKey]) {\n            this[_eventsKey] = new Map();\n        }\n\n        let callbacks;\n        if (!this[_eventsKey].has(eventType)) {\n            this[_eventsKey].set(eventType, callbacks = []);\n        } else {\n            callbacks = this[_eventsKey].get(eventType);\n        }\n\n        callbacks.push(listener);\n        return this;\n    }\n\n    /**\n     * @param {string} eventType\n     * @param {function} listener\n     * @param {boolean} capturingPhase\n     */\n    removeEventListener(eventType, listener, capturingPhase) {\n        eventType = eventType.toLowerCase();\n        const _eventsKey = capturingPhase ? '_eventsCapturingPhase' : '_eventsBubblingPhase';\n        if (this[_eventsKey] && this[_eventsKey].has(eventType)) {\n            let callbacks = this[_eventsKey].get(eventType);\n            let index = callbacks.indexOf(listener);\n            if (index === -1) {\n                return false;\n            }\n\n            callbacks.splice(index, 1);\n        }\n    }\n\n    /**\n     * @param {Event} event\n     * @return {boolean}\n     */\n    dispatchEvent(event) {\n        event.target = this;\n\n        // Capturing phase\n        const capturingPhase = function (event) { // eslint-disable-line space-before-function-paren\n            if (this._parentNode) {\n                capturingPhase.call(this._parentNode, event);\n            }\n\n            if (event.propagationStopped) {\n                return;\n            }\n\n            const callbacks = this._eventsCapturingPhase && this._eventsCapturingPhase.get(event.type);\n            if (callbacks) {\n                callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren\n                    callback(event);\n                    return event.immediatePropagationStopped;\n                });\n            }\n        };\n\n        capturingPhase.call(this, event);\n\n        // Bubbling phase\n        if (!event.propagationStopped) {\n            const bubblingPhase = function (event) { // eslint-disable-line space-before-function-paren\n                const callbacks = this._eventsBubblingPhase && this._eventsBubblingPhase.get(event.type);\n                if (callbacks) {\n                    callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren\n                        callback(event);\n                        return event.immediatePropagationStopped;\n                    });\n                }\n\n                if (!event.propagationStopped && this._parentNode) {\n                    bubblingPhase.call(this._parentNode, event);\n                }\n            };\n\n            bubblingPhase.call(this, event);\n        }\n\n        return !event.defaultPrevented;\n    }\n\n    /**\n     * @property Node#nodeValue\n     * @returns {string|null}\n     */\n    get nodeValue() {\n        return null;\n    }\n\n    /**\n     * @param {*} value\n     */\n    set nodeValue(value) {\n    }\n}\n\n/**\n * @constant {number} Node.ELEMENT_NODE\n */\nObject.defineProperty(Node, 'ELEMENT_NODE', { value: 1 });\n\n/**\n * @constant {number} Node.ATTRIBUTE_NODE\n */\nObject.defineProperty(Node, 'ATTRIBUTE_NODE', { value: 2 });\n\n/**\n * @constant {number} Node.TEXT_NODE\n */\nObject.defineProperty(Node, 'TEXT_NODE', { value: 3 });\n\n/**\n * @constant {number} Node.CDATA_SECTION_NODE\n */\nObject.defineProperty(Node, 'CDATA_SECTION_NODE', { value: 4 });\n\n/**\n * @constant {number} Node.ENTITY_REFERENCE_NODE\n */\nObject.defineProperty(Node, 'ENTITY_REFERENCE_NODE', { value: 5 });\n\n/**\n * @constant {number} Node.ENTITY_NODE\n */\nObject.defineProperty(Node, 'ENTITY_NODE', { value: 6 });\n\n/**\n * @constant {number} Node.PROCESSING_INSTRUCTION_NODE\n */\nObject.defineProperty(Node, 'PROCESSING_INSTRUCTION_NODE', { value: 7 });\n\n/**\n * @constant {number} Node.COMMENT_NODE\n */\nObject.defineProperty(Node, 'COMMENT_NODE', { value: 8 });\n\n/**\n * @constant {number} Node.DOCUMENT_NODE\n */\nObject.defineProperty(Node, 'DOCUMENT_NODE', { value: 9 });\n\n/**\n * @constant {number} Node.DOCUMENT_TYPE_NODE\n */\nObject.defineProperty(Node, 'DOCUMENT_TYPE_NODE', { value: 10 });\n\n/**\n * @constant {number} Node.DOCUMENT_FRAGMENT_NODE\n */\nObject.defineProperty(Node, 'DOCUMENT_FRAGMENT_NODE', { value: 11 });\n\n/**\n * @constant {number} Node.NOTATION_NODE\n */\nObject.defineProperty(Node, 'NOTATION_NODE', { value: 12 });\n"
   },
   {
-    "__docId__": 267,
+    "__docId__": 271,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -6403,7 +6491,7 @@
     "interface": false
   },
   {
-    "__docId__": 268,
+    "__docId__": 272,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -6418,7 +6506,7 @@
     "generator": false
   },
   {
-    "__docId__": 269,
+    "__docId__": 273,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -6436,7 +6524,7 @@
     }
   },
   {
-    "__docId__": 270,
+    "__docId__": 274,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6463,7 +6551,7 @@
     "generator": false
   },
   {
-    "__docId__": 271,
+    "__docId__": 275,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6496,7 +6584,7 @@
     "generator": false
   },
   {
-    "__docId__": 272,
+    "__docId__": 276,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6535,7 +6623,7 @@
     "generator": false
   },
   {
-    "__docId__": 273,
+    "__docId__": 277,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6576,7 +6664,7 @@
     "generator": false
   },
   {
-    "__docId__": 274,
+    "__docId__": 278,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6617,7 +6705,7 @@
     "generator": false
   },
   {
-    "__docId__": 275,
+    "__docId__": 279,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6642,7 +6730,7 @@
     "generator": false
   },
   {
-    "__docId__": 276,
+    "__docId__": 280,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6683,7 +6771,7 @@
     "generator": false
   },
   {
-    "__docId__": 277,
+    "__docId__": 281,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6704,7 +6792,7 @@
     "generator": false
   },
   {
-    "__docId__": 278,
+    "__docId__": 282,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6724,7 +6812,7 @@
     "generator": false
   },
   {
-    "__docId__": 279,
+    "__docId__": 283,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6774,7 +6862,7 @@
     "generator": false
   },
   {
-    "__docId__": 280,
+    "__docId__": 284,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6824,7 +6912,7 @@
     "generator": false
   },
   {
-    "__docId__": 281,
+    "__docId__": 285,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -6857,7 +6945,7 @@
     "generator": false
   },
   {
-    "__docId__": 282,
+    "__docId__": 286,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -6902,7 +6990,7 @@
     "generator": false
   },
   {
-    "__docId__": 283,
+    "__docId__": 287,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -6932,7 +7020,7 @@
     "generator": false
   },
   {
-    "__docId__": 284,
+    "__docId__": 288,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -6945,7 +7033,7 @@
     "content": "/**\n * NodeList objects are collections of nodes\n * such as those returned by Node.childNodes and the document.querySelectorAll method..\n *\n  * @see https://developer.mozilla.org/en/docs/Web/API/NodeList\n */\nexport default class NodeList {\n    constructor() {\n        /**\n         * @property {number} length length of the list\n         */\n        this.length = 0;\n    }\n\n    /**\n     * @param {number} index\n     * @return {Node|null}\n     */\n    item(index) {\n        return this[index] || null;\n    }\n\n    _push() {\n        Array.prototype.push.call(this, ...arguments);\n    }\n\n    [Symbol.iterator]() {\n        let index = 0;\n\n        return {\n            next: () => ({ value: this[index++], done: index > this.length }),\n        };\n    }\n}\n"
   },
   {
-    "__docId__": 285,
+    "__docId__": 289,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -6964,7 +7052,7 @@
     "interface": false
   },
   {
-    "__docId__": 286,
+    "__docId__": 290,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -6979,7 +7067,7 @@
     "generator": false
   },
   {
-    "__docId__": 287,
+    "__docId__": 291,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -7008,7 +7096,7 @@
     }
   },
   {
-    "__docId__": 288,
+    "__docId__": 292,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7042,7 +7130,7 @@
     "generator": false
   },
   {
-    "__docId__": 289,
+    "__docId__": 293,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7057,7 +7145,7 @@
     "generator": false
   },
   {
-    "__docId__": 290,
+    "__docId__": 294,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7077,7 +7165,7 @@
     "generator": false
   },
   {
-    "__docId__": 291,
+    "__docId__": 295,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -7090,7 +7178,7 @@
     "content": "import Node from './Node';\nimport parse from './parse';\nimport {cloneAnyNode} from './utils/cloneNodeHelper';\n\n/**\n * The ParentNode interface contains methods that are particular to Node objects that can have children.\n *\n * @see https://developer.mozilla.org/en/docs/Web/API/ParentNode\n */\nexport default class ParentNode extends Node {\n    constructor() {\n        super();\n        this._childNodes = [];\n    }\n\n    /**\n     * TODO return {HTMLCollection}\n     *\n     * @type {Node[]}\n     * @readonly\n     */\n    get childNodes() {\n        return this._childNodes;\n    }\n\n    /**\n     * @param callback\n     * @private\n     */\n    _childNodesRecursiveForEach(callback) {\n        this._childNodes.forEach(node => {\n            callback(node);\n            if (node instanceof ParentNode) {\n                node._childNodesRecursiveForEach(callback);\n            }\n        });\n    }\n\n    /**\n     * @param callback\n     * @private\n     */\n    _childNodesRecursiveFind(callback) {\n        let result;\n        this._childNodes.some(node => {\n            if (callback(node)) {\n                result = node;\n                return true;\n            }\n\n            if (node instanceof ParentNode) {\n                result = node._childNodesRecursiveFind(callback);\n                if (result !== undefined) {\n                    return true;\n                }\n            }\n        });\n        return result;\n    }\n\n    /**\n     * @param callback\n     * @private\n     */\n    _filterDescendantNodes(callback) {\n        let result = [];\n\n        this._childNodesRecursiveForEach(node => {\n            if (callback(node)) {\n                result.push(node);\n            }\n        });\n\n        return result;\n    }\n\n    /**\n     * @param callback\n     * @private\n     */\n    _childNodeFind(callback) {\n        let result = null;\n        this._childNodes.some(node => {\n            if (callback(node)) {\n                result = node;\n                return true;\n            }\n        });\n        return result;\n    }\n\n    /**\n     * @type {Node|null}\n     * @readonly\n     */\n    get parentNode() {\n        return this._parentNode || null;\n    }\n\n    /**\n     * @return {Node|null}\n     * @private\n     */\n    _highestParent() {\n        let node = this._parentNode;\n\n        if (!node) {\n            return node;\n        }\n\n        while (node._parentNode != null) {\n            node = node._parentNode;\n        }\n\n        return node;\n    }\n\n    /**\n     * @param {string} nodeName\n     * @return {Node|null}\n     * @private\n     */\n    _closestParent(nodeName) {\n        let node = this._parentNode;\n\n        while (node != null && node.nodeName !== nodeName) {\n            node = node._parentNode;\n        }\n\n        return node;\n    }\n\n    /**\n     * Method returns true if node has child nodes.\n     *\n     * @returns {boolean}\n     */\n    hasChildNodes() {\n        return this._childNodes && this._childNodes.length > 0;\n    }\n\n    /**\n     * @type {Node|null}\n     * @readonly\n     */\n    get firstChild() {\n        return this._childNodes[0] || null;\n    }\n\n    /**\n     * @type {Node|null}\n     * @readonly\n     */\n    get lastChild() {\n        return this._childNodes[this._childNodes.length - 1] || null;\n    }\n\n    /**\n     * @type {Node|null}\n     * @readonly\n     */\n    get previousSibling() {\n        const indexInParent = this.parentNode._childNodes.indexOf(this);\n        if (indexInParent === -1) {\n            throw new Error('Unexpected state: this node is not in the parent');\n        }\n\n        return indexInParent !== 0 && this.parentNode._childNodes[indexInParent - 1] || null;\n    }\n\n    /**\n     * @type {Node|null}\n     * @readonly\n     */\n    get nextSibling() {\n        const indexInParent = this.parentNode._childNodes.indexOf(this);\n        if (indexInParent === -1) {\n            throw new Error('Unexpected state: this node is not in the parent');\n        }\n\n        return this.parentNode._childNodes[indexInParent + 1] || null;\n    }\n\n    /**\n     * @param {Node} child\n     * @return {Node}\n     */\n    appendChild(child) {\n        if (!(child instanceof Node)) {\n            throw new Error('Trying to add non node element');\n        }\n\n        if (child._parentNode) {\n            child._parentNode.removeChild(child);\n        }\n\n        if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n            let childNode;\n\n            while (childNode = child.firstChild) {\n                child.removeChild(childNode);\n                this.appendChild(childNode);\n            }\n\n            return child;\n        }\n\n        child._parentNode = this;\n        this._childNodes.push(child);\n        return child;\n    }\n\n    /**\n     * @param {Node} newChild\n     * @param {Node} oldChild\n     * @return {Node}\n     */\n    replaceChild(newChild, oldChild) {\n        const index = this._childNodes.indexOf(oldChild);\n        if (index === -1) {\n            throw new Error('Node was not found');\n        }\n\n        if (newChild._parentNode) {\n            newChild._parentNode.removeChild(newChild);\n        }\n\n        if (newChild.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n            const newChildren = [];\n            let childNode;\n\n            while (childNode = newChild.firstChild) {\n                newChild.removeChild(childNode);\n                childNode._parentNode = this;\n                newChildren.push(childNode);\n            }\n\n            this._childNodes.splice(index, 1, ...newChildren);\n        } else {\n            newChild._parentNode = this;\n            this._childNodes[index] = newChild;\n        }\n\n        delete oldChild._parentNode;\n        return oldChild;\n    }\n\n    /**\n     * @param {Node} toRemoveChild\n     * @return {Node}\n     */\n    removeChild(toRemoveChild) {\n        const index = this._childNodes.indexOf(toRemoveChild);\n        if (index === -1) {\n            throw new Error('Node was not found');\n        }\n\n        this._childNodes.splice(index, 1);\n        delete toRemoveChild._parentNode;\n        return toRemoveChild;\n    }\n\n    /**\n     * @param {Node} child\n     * @param {Node} existingChild\n     * @return {Node}\n     */\n    insertBefore(child, existingChild) {\n        const index = this._childNodes.indexOf(existingChild);\n        if (index === -1) {\n            throw new Error('Node was not found');\n        }\n\n        if (child._parentNode) {\n            child._parentNode.removeChild(child);\n        }\n\n        if (child.nodeType === Node.DOCUMENT_FRAGMENT_NODE) {\n            const children = [];\n            let childNode;\n\n            while (childNode = child.firstChild) {\n                child.removeChild(childNode);\n                childNode._parentNode = this;\n                children.push(childNode);\n            }\n\n            this._childNodes.splice(index, 0, ...children);\n        } else {\n            child._parentNode = this;\n            this._childNodes.splice(index, 0, child);\n        }\n\n        return child;\n    }\n\n    /**\n     * @ignore\n     * @return {string}\n     */\n    get innerHTML() {\n        return this._childNodes.reduce((value, node) => value + node._toHTML(), '');\n    }\n\n    /**\n     * @ignore\n     * @param {string} html\n     */\n    set innerHTML(html) {\n        this._childNodes = [];\n        parse(html, this);\n    }\n\n    /**\n     * @ignore\n     * @return {string}\n     */\n    get textContent() {\n        return this._childNodes.reduce((value, node) => value + node.textContent, '');\n    }\n\n    /**\n     * Clone a Node, and optionally, all of its contents. By default, it clones the content of the node.\n     *\n     * @param {boolean} deep\n     * @returns {Node}\n     */\n    cloneNode(deep = false) {\n        return cloneAnyNode(this, deep);\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set textContent(value) {\n        this._childNodes = [];\n        this.appendChild(this._ownerDocument.createTextNode(value));\n    }\n}\n"
   },
   {
-    "__docId__": 292,
+    "__docId__": 296,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -7112,7 +7200,7 @@
     ]
   },
   {
-    "__docId__": 293,
+    "__docId__": 297,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -7127,7 +7215,7 @@
     "generator": false
   },
   {
-    "__docId__": 294,
+    "__docId__": 298,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -7145,7 +7233,7 @@
     }
   },
   {
-    "__docId__": 295,
+    "__docId__": 299,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7172,7 +7260,7 @@
     "generator": false
   },
   {
-    "__docId__": 296,
+    "__docId__": 300,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7197,7 +7285,7 @@
     "generator": false
   },
   {
-    "__docId__": 297,
+    "__docId__": 301,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7227,7 +7315,7 @@
     "generator": false
   },
   {
-    "__docId__": 298,
+    "__docId__": 302,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7257,7 +7345,7 @@
     "generator": false
   },
   {
-    "__docId__": 299,
+    "__docId__": 303,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7287,7 +7375,7 @@
     "generator": false
   },
   {
-    "__docId__": 300,
+    "__docId__": 304,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7315,7 +7403,7 @@
     "generator": false
   },
   {
-    "__docId__": 301,
+    "__docId__": 305,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7338,7 +7426,7 @@
     "generator": false
   },
   {
-    "__docId__": 302,
+    "__docId__": 306,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7372,7 +7460,7 @@
     "generator": false
   },
   {
-    "__docId__": 303,
+    "__docId__": 307,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7400,7 +7488,7 @@
     "generator": false
   },
   {
-    "__docId__": 304,
+    "__docId__": 308,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7428,7 +7516,7 @@
     "generator": false
   },
   {
-    "__docId__": 305,
+    "__docId__": 309,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7456,7 +7544,7 @@
     "generator": false
   },
   {
-    "__docId__": 306,
+    "__docId__": 310,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7484,7 +7572,7 @@
     "generator": false
   },
   {
-    "__docId__": 307,
+    "__docId__": 311,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7512,7 +7600,7 @@
     "generator": false
   },
   {
-    "__docId__": 308,
+    "__docId__": 312,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7545,7 +7633,7 @@
     "generator": false
   },
   {
-    "__docId__": 309,
+    "__docId__": 313,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7588,7 +7676,7 @@
     "generator": false
   },
   {
-    "__docId__": 310,
+    "__docId__": 314,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7621,7 +7709,7 @@
     "generator": false
   },
   {
-    "__docId__": 311,
+    "__docId__": 315,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7664,7 +7752,7 @@
     "generator": false
   },
   {
-    "__docId__": 312,
+    "__docId__": 316,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7691,7 +7779,7 @@
     "generator": false
   },
   {
-    "__docId__": 313,
+    "__docId__": 317,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -7722,7 +7810,7 @@
     "generator": false
   },
   {
-    "__docId__": 314,
+    "__docId__": 318,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -7740,7 +7828,7 @@
     }
   },
   {
-    "__docId__": 315,
+    "__docId__": 319,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7767,7 +7855,7 @@
     "generator": false
   },
   {
-    "__docId__": 316,
+    "__docId__": 320,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7806,7 +7894,7 @@
     "generator": false
   },
   {
-    "__docId__": 317,
+    "__docId__": 321,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -7837,7 +7925,7 @@
     "generator": false
   },
   {
-    "__docId__": 318,
+    "__docId__": 322,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -7855,7 +7943,7 @@
     }
   },
   {
-    "__docId__": 319,
+    "__docId__": 323,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -7868,7 +7956,7 @@
     "content": "import escapeHTML from './utils/escapeHTML';\nimport Node from './Node';\n\n/**\n* @see https://developer.mozilla.org/en/docs/Web/API/Text\n*/\nexport default class Text extends Node {\n    /**\n     * @param {string} textContent\n     */\n    constructor(textContent) {\n        super();\n        this.value = textContent;\n    }\n\n    _toHTML() {\n        return escapeHTML(this.value);\n    }\n\n    /**\n     * @return {string}\n     */\n    get textContent() {\n        return this.value;\n    }\n\n    /**\n     * @param {string} textContent\n     */\n    set textContent(textContent) {\n        this.value = textContent;\n    }\n\n    get nodeValue() {\n        return this.textContent;\n    }\n\n    set nodeValue(value) {\n        this.textContent = value;\n    }\n}\n\n/**\n * @constant {number} Comment#nodeType\n */\nObject.defineProperty(Text.prototype, 'nodeType', { value: Node.TEXT_NODE });\n\n/**\n * @constant {string} Comment#nodeName\n */\nObject.defineProperty(Text.prototype, 'nodeName', { value: '#text' });\n"
   },
   {
-    "__docId__": 320,
+    "__docId__": 324,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -7890,7 +7978,7 @@
     ]
   },
   {
-    "__docId__": 321,
+    "__docId__": 325,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -7915,7 +8003,7 @@
     "generator": false
   },
   {
-    "__docId__": 322,
+    "__docId__": 326,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -7933,7 +8021,7 @@
     }
   },
   {
-    "__docId__": 323,
+    "__docId__": 327,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -7953,7 +8041,7 @@
     "generator": false
   },
   {
-    "__docId__": 324,
+    "__docId__": 328,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -7979,7 +8067,7 @@
     "generator": false
   },
   {
-    "__docId__": 325,
+    "__docId__": 329,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8009,7 +8097,7 @@
     "generator": false
   },
   {
-    "__docId__": 326,
+    "__docId__": 330,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8027,7 +8115,7 @@
     }
   },
   {
-    "__docId__": 327,
+    "__docId__": 331,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8046,7 +8134,7 @@
     "generator": false
   },
   {
-    "__docId__": 328,
+    "__docId__": 332,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8065,7 +8153,7 @@
     "generator": false
   },
   {
-    "__docId__": 329,
+    "__docId__": 333,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8083,7 +8171,7 @@
     }
   },
   {
-    "__docId__": 330,
+    "__docId__": 334,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8096,7 +8184,7 @@
     "content": "import Node from './Node';\nimport Event from './Event';\nimport Document from './Document';\nimport DocumentFragment from './DocumentFragment';\n\nglobal.window = global;\nglobal.document = new Document();\nglobal.Event = Event;\nglobal.Node = Node;\nglobal.Document = Document;\nglobal.DocumentFragment = DocumentFragment;\n"
   },
   {
-    "__docId__": 331,
+    "__docId__": 335,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8109,7 +8197,7 @@
     "content": "import htmlparser from 'htmlparser2';\n\n/**\n * @param {string} html\n * @param {Node} node\n */\nexport default function parse(html, node) {\n    const stack = [node];\n    const last = () => stack.length === 0 ? null : stack[stack.length - 1];\n\n    const document = node.ownerDocument;\n\n    const parser = new htmlparser.Parser({\n        onopentagname(name) {\n            const elt = document.createElement(name);\n            stack.push(elt);\n        },\n\n        onattribute(name, value) {\n            last().setAttribute(name, value);\n        },\n\n        ontext(text) {\n            last().appendChild(document.createTextNode(text));\n        },\n\n        onclosetag(name) {\n            const elt = stack.pop();\n            last().appendChild(elt);\n        },\n\n        oncomment(data) {\n            last().appendChild(document.createComment(data));\n        },\n    }, { recognizeSelfClosing: true });\n    parser.write(html);\n    parser.end();\n}\n"
   },
   {
-    "__docId__": 332,
+    "__docId__": 336,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -8147,7 +8235,7 @@
     "generator": false
   },
   {
-    "__docId__": 333,
+    "__docId__": 337,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -8160,7 +8248,7 @@
     "content": "import { parse as urlParse, format as urlFormat } from 'url';\n\n/**\n * Helper class providing URLUtils object implementation. Used in document.location, HTMLAnchorElement etc.\n *\n * @see https://developer.mozilla.org/en-US/docs/Web/API/URLUtils\n */\nexport default class Url {\n    /**\n     * Creates object using given value as start url.\n     *\n     * @param {string} url - url to parse.\n     */\n    constructor(url) {\n        url = url || 'about:blank';\n        this._data = urlParse(url);\n    }\n\n    /**\n     * @returns {string} - string representation of Url (Full URI)\n     */\n    toString() {\n        return urlFormat(this._data);\n    }\n\n    /**\n     * Is a DOMString containing the whole URL.\n     *\n     * @type {string}\n     */\n    get href() {\n        return this.toString();\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set href(value) {\n        value = value || 'about:blank';\n        this._data = urlParse(value);\n    }\n\n    /**\n     * Is a DOMString containing the protocol scheme of the URL, including the final ':'.\n     *\n     * @type {string}\n     */\n    get protocol() {\n        if (this._data.protocol === null) {\n            return '';\n        }\n\n        return this._data.protocol;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set protocol(value) {\n        if (!value.endsWith(':')) {\n            value += ':';\n        }\n\n        this._data.protocol = value;\n    }\n\n    /**\n     * Is a DOMString containing the host, that is the hostname, and then, if the port of the URL is not empty\n     * (which can happen because it was not specified or because it was specified to be the default port of the\n     * URL's scheme), a ':', and the port of the URL.\n     *\n     * @type {string}\n     */\n    get host() {\n        if (this._data.host === null) {\n            return '';\n        }\n\n        return this._data.host;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set host(value) {\n        let tmpUrl = urlParse('//' + value, false, true);\n        this._data.host = tmpUrl.host;\n        this._data.hostname = tmpUrl.hostname;\n        this._data.port = tmpUrl.port;\n    }\n\n    /**\n     * The authentication information portion of a URL.\n     *\n     * @type {string}\n     */\n    get auth() {\n        if (this._data.auth === null || this._data.auth === undefined) {\n            return '';\n        }\n\n        return this._data.auth;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set auth(value) {\n        this._data.auth = value;\n    }\n\n    /**\n     * Is a DOMString containing the domain of the URL.\n     *\n     * @type {string}\n     */\n    get hostname() {\n        if (this._data.hostname === null) {\n            return '';\n        }\n\n        return this._data.hostname;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set hostname(value) {\n        this._data.hostname = value;\n        delete this._data.host;\n        this.href = urlFormat(this._data);\n    }\n\n    /**\n     * Is a DOMString containing the port number of the URL.\n     *\n     * @returns {string}\n     */\n    get port() {\n        if (this._data.port === null || this._data.port === undefined) {\n            switch (this._data.protocol) {\n                case 'http:':\n                    return '80';\n                case 'https:':\n                    return '443';\n                case 'ftp:':\n                    return '21';\n            }\n            return '';\n        }\n\n        return this._data.port;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set port(value) {\n        value = parseInt(value, 10);\n        if (isNaN(value)) {\n            value = '';\n        }\n\n        this._data.port = value;\n        delete this._data.host;\n        this.href = urlFormat(this._data);\n    }\n\n    /**\n     * Is a DOMString containing an initial '/' followed by the path of the URL.\n     *\n     * @returns {string}\n     */\n    get pathname() {\n        return this._data.pathname;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set pathname(value) {\n        this._data.pathname = value;\n    }\n\n    /**\n     * Is a DOMString containing a '?' followed by the parameters of the URL.\n     *\n     * @returns {string}\n     */\n    get search() {\n        if (this._data.search === null) {\n            return '';\n        }\n\n        return this._data.search;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set search(value) {\n        this._data.search = value;\n    }\n\n    /**\n     * Is a DOMString containing a '#' followed by the fragment identifier of the URL.\n     *\n     * @type {string}\n     */\n    get hash() {\n        if (this._data.hash === null) {\n            return '#';\n        }\n\n        return this._data.hash;\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set hash(value) {\n        if (!value.startsWith('#')) {\n            value = '#' + value;\n        }\n\n        this._data.hash = value;\n    }\n\n    /**\n     * Is a DOMString containing the username specified before the domain name.\n     *\n     * @type {string}\n     */\n    get username() {\n        if (this.auth !== '') {\n            if (this.auth.indexOf(':') !== -1) {\n                return this.auth.split(':')[0];\n            } else {\n                return this.auth;\n            }\n        }\n\n        return '';\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set username(value) {\n        if (this.auth !== '') {\n            let password = this.auth.split(':')[1];\n            this.auth = value + ':' + password;\n        } else {\n            this.auth = value;\n        }\n    }\n\n    /**\n     * Is a DOMString containing the password specified before the domain name.\n     *\n     * @type {string}\n     */\n    get password() {\n        if (this.auth !== '' && this.auth.indexOf(':') !== -1) {\n            return this.auth.split(':')[1];\n        }\n\n        return '';\n    }\n\n    /**\n     * @ignore\n     * @param {string} value\n     */\n    set password(value) {\n        if (this.auth !== '') {\n            let name = this.auth.split(':')[0];\n            this.auth = name + ':' + value;\n        } else {\n            this.auth = ':' + value;\n        }\n    }\n\n    /**\n     * Return 'params' part of href as object.\n     *\n     * @type {Object}\n     */\n    get searchParams() {\n        let tempUrl = urlParse(this.href, true);\n        return tempUrl.query;\n    }\n}\n"
   },
   {
-    "__docId__": 334,
+    "__docId__": 338,
     "kind": "class",
     "static": true,
     "variation": null,
@@ -8179,7 +8267,7 @@
     "interface": false
   },
   {
-    "__docId__": 335,
+    "__docId__": 339,
     "kind": "constructor",
     "static": false,
     "variation": null,
@@ -8204,7 +8292,7 @@
     "generator": false
   },
   {
-    "__docId__": 336,
+    "__docId__": 340,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8222,7 +8310,7 @@
     }
   },
   {
-    "__docId__": 337,
+    "__docId__": 341,
     "kind": "method",
     "static": false,
     "variation": null,
@@ -8250,7 +8338,7 @@
     "generator": false
   },
   {
-    "__docId__": 338,
+    "__docId__": 342,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8271,7 +8359,7 @@
     "generator": false
   },
   {
-    "__docId__": 339,
+    "__docId__": 343,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8302,7 +8390,7 @@
     "generator": false
   },
   {
-    "__docId__": 340,
+    "__docId__": 344,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8320,7 +8408,7 @@
     }
   },
   {
-    "__docId__": 341,
+    "__docId__": 345,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8341,7 +8429,7 @@
     "generator": false
   },
   {
-    "__docId__": 342,
+    "__docId__": 346,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8372,7 +8460,7 @@
     "generator": false
   },
   {
-    "__docId__": 343,
+    "__docId__": 347,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8393,7 +8481,7 @@
     "generator": false
   },
   {
-    "__docId__": 344,
+    "__docId__": 348,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8424,7 +8512,7 @@
     "generator": false
   },
   {
-    "__docId__": 345,
+    "__docId__": 349,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8445,7 +8533,7 @@
     "generator": false
   },
   {
-    "__docId__": 346,
+    "__docId__": 350,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8476,7 +8564,7 @@
     "generator": false
   },
   {
-    "__docId__": 347,
+    "__docId__": 351,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8497,7 +8585,7 @@
     "generator": false
   },
   {
-    "__docId__": 348,
+    "__docId__": 352,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8528,7 +8616,7 @@
     "generator": false
   },
   {
-    "__docId__": 349,
+    "__docId__": 353,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8546,7 +8634,7 @@
     }
   },
   {
-    "__docId__": 350,
+    "__docId__": 354,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8578,7 +8666,7 @@
     "generator": false
   },
   {
-    "__docId__": 351,
+    "__docId__": 355,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8609,7 +8697,7 @@
     "generator": false
   },
   {
-    "__docId__": 352,
+    "__docId__": 356,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8627,7 +8715,7 @@
     }
   },
   {
-    "__docId__": 353,
+    "__docId__": 357,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8659,7 +8747,7 @@
     "generator": false
   },
   {
-    "__docId__": 354,
+    "__docId__": 358,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8690,7 +8778,7 @@
     "generator": false
   },
   {
-    "__docId__": 355,
+    "__docId__": 359,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8722,7 +8810,7 @@
     "generator": false
   },
   {
-    "__docId__": 356,
+    "__docId__": 360,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8753,7 +8841,7 @@
     "generator": false
   },
   {
-    "__docId__": 357,
+    "__docId__": 361,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8774,7 +8862,7 @@
     "generator": false
   },
   {
-    "__docId__": 358,
+    "__docId__": 362,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8805,7 +8893,7 @@
     "generator": false
   },
   {
-    "__docId__": 359,
+    "__docId__": 363,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8826,7 +8914,7 @@
     "generator": false
   },
   {
-    "__docId__": 360,
+    "__docId__": 364,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8857,7 +8945,7 @@
     "generator": false
   },
   {
-    "__docId__": 361,
+    "__docId__": 365,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8875,7 +8963,7 @@
     }
   },
   {
-    "__docId__": 362,
+    "__docId__": 366,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8893,7 +8981,7 @@
     }
   },
   {
-    "__docId__": 363,
+    "__docId__": 367,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -8914,7 +9002,7 @@
     "generator": false
   },
   {
-    "__docId__": 364,
+    "__docId__": 368,
     "kind": "set",
     "static": false,
     "variation": null,
@@ -8945,7 +9033,7 @@
     "generator": false
   },
   {
-    "__docId__": 365,
+    "__docId__": 369,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8963,7 +9051,7 @@
     }
   },
   {
-    "__docId__": 366,
+    "__docId__": 370,
     "kind": "member",
     "static": false,
     "variation": null,
@@ -8981,7 +9069,7 @@
     }
   },
   {
-    "__docId__": 367,
+    "__docId__": 371,
     "kind": "get",
     "static": false,
     "variation": null,
@@ -9002,7 +9090,7 @@
     "generator": false
   },
   {
-    "__docId__": 368,
+    "__docId__": 372,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -9015,7 +9103,7 @@
     "content": "import escapeHTML from './escapeHTML';\n\nexport default function escapeAttribute(string) {\n    return escapeHTML(string).replace(/\"/g, '&quot;');\n}\n"
   },
   {
-    "__docId__": 369,
+    "__docId__": 373,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9045,7 +9133,7 @@
     "generator": false
   },
   {
-    "__docId__": 370,
+    "__docId__": 374,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -9058,7 +9146,7 @@
     "content": "/**\n * Function converts attribute name \"data-some-value\" to \"someValue\".\n *\n * @param {string} name\n * @returns {string}\n */\nexport function attributeNameToProperty(name) {\n    let result = name.replace(/^data-/i, '');\n    return result.replace(/-(\\w)/g, (match, letter) => letter.toUpperCase());\n}\n\n/**\n * Function converts dataset property name \"someValue\" to \"data-some-value\".\n *\n * @param {string} name\n * @returns {string}\n */\nexport function propertyNameToAttribute(name) {\n    let result = name.replace(/([A-Z])/g, (match, letter) => '-' + letter.toLowerCase());\n    return 'data-' + result;\n}\n"
   },
   {
-    "__docId__": 371,
+    "__docId__": 375,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9100,7 +9188,7 @@
     "generator": false
   },
   {
-    "__docId__": 372,
+    "__docId__": 376,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9142,7 +9230,7 @@
     "generator": false
   },
   {
-    "__docId__": 373,
+    "__docId__": 377,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -9155,7 +9243,7 @@
     "content": "export default function escapeHTML(string) {\n    if (!string) {\n        return string;\n    }\n\n    return String(string)\n        .replace(/&(?!\\w+;)/g, '&amp;')\n        .replace(/</g, '&lt;')\n        .replace(/>/g, '&gt;');\n}\n"
   },
   {
-    "__docId__": 374,
+    "__docId__": 378,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9185,7 +9273,7 @@
     "generator": false
   },
   {
-    "__docId__": 375,
+    "__docId__": 379,
     "kind": "file",
     "static": true,
     "variation": null,
@@ -9198,7 +9286,7 @@
     "content": "import { CssSelectorParser } from 'css-selector-parser';\nconst cssParser = new CssSelectorParser();\ncssParser.registerAttrEqualityMods('^', '$', '*', '~', '|');\n\n/**\n * querySelectorHelper interface provides simple processing\n * of Element.querySelector method.\n */\n\n/**\n *\n * @param {Element} element\n * @param {string} query\n * @return {Element|null}\n */\nexport function querySelector(element, query) {\n    let rules = cssParser.parse(query);\n\n    const iterator = processElement(element, rules);\n    const next = iterator.next();\n\n    if (next && next.value) {\n        return next.value;\n    }\n\n    return null;\n}\n\n/**\n  *\n  * @param {Element} element\n  * @param {string} query\n  * @return {Element[]}\n  */\nexport function querySelectorAll(element, query) {\n    let rules = cssParser.parse(query);\n\n    const result = [];\n    for (let element of processElement(element, rules)) {\n        result.push(element);\n    }\n\n    return result;\n}\n\n/**\n * Function processes one element using current rule\n *\n * @param element\n * @param rules\n * @return {boolean}\n */\nfunction* processElement(element, rules) {\n    for (let child of element.children) {\n        yield* processRules(child, rules);\n        yield* processElement(child, rules);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rules\n * @return {boolean}\n */\nfunction processRules(element, rules) {\n    if (rules.type === 'selectors') {\n        return processSelectors(element, rules.selectors);\n    } else if (rules.type === 'ruleSet') {\n        return processRule(element, rules.rule);\n    }\n}\n\n/**\n * @param {Element} element\n * @param {Object} rule\n * @return {boolean}\n */\nfunction processRule(element, rule) {\n    return processSelectors(element, [{ rule }]);\n}\n\n/**\n * @param {Element} element\n * @param {Object[]} selectors\n * @return {boolean}\n */\nfunction* processSelectors(element, selectors) {\n    for (let selector of selectors) {\n        const rule = selector.rule;\n\n        if (!matchRule(element, rule)) {\n            continue;\n        }\n\n        if (!rule.hasOwnProperty('rule')) {\n            yield element;\n            return;\n        }\n\n        yield* processElement(element, { type: 'ruleSet', rule: rule.rule });\n\n        return;\n    }\n}\n\nfunction matchRule(element, rule) {\n    if (rule.hasOwnProperty('tagName') && element.tagName !== rule.tagName) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('id') && element.getAttribute('id') !== rule.id) {\n        return false;\n    }\n\n    if (rule.hasOwnProperty('classNames')) {\n        if (!rule.classNames.every(name => element.classList.contains(name))) {\n            return false;\n        }\n    }\n\n    if (rule.hasOwnProperty('attrs')) {\n        if (!rule.attrs.some(attr => {\n            if (!element.hasAttribute(attr.name)) {\n                return false;\n            } else if (attr.operator === undefined) {\n                return true;\n            }\n\n            let value = element.getAttribute(attr.name);\n\n            switch (attr.operator) {\n                case '=':\n                    return value === attr.value;\n                case '^=':\n                    return value.startsWith(attr.value);\n                case '$=':\n                    return value.endsWith(attr.value);\n                case '~=':\n                    let words = value.split(' ');\n                    return words.some(word => word === attr.value);\n                case '*=':\n                    return value.indexOf(attr.value) !== -1;\n                case '|=':\n                    return value === attr.value || value.startsWith(attr.value + '-');\n                default:\n                    throw new Error('Unsupported attribute operator ' + attr.operator);\n            }\n        })) {\n            return false;\n        }\n    }\n\n    return true;\n}\n"
   },
   {
-    "__docId__": 376,
+    "__docId__": 380,
     "kind": "variable",
     "static": true,
     "variation": null,
@@ -9219,7 +9307,7 @@
     }
   },
   {
-    "__docId__": 377,
+    "__docId__": 381,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9266,7 +9354,7 @@
     "generator": false
   },
   {
-    "__docId__": 378,
+    "__docId__": 382,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9312,7 +9400,7 @@
     "generator": false
   },
   {
-    "__docId__": 379,
+    "__docId__": 383,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9358,7 +9446,7 @@
     "generator": true
   },
   {
-    "__docId__": 380,
+    "__docId__": 384,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9404,7 +9492,7 @@
     "generator": false
   },
   {
-    "__docId__": 381,
+    "__docId__": 385,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9450,7 +9538,7 @@
     "generator": false
   },
   {
-    "__docId__": 382,
+    "__docId__": 386,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9496,7 +9584,7 @@
     "generator": true
   },
   {
-    "__docId__": 383,
+    "__docId__": 387,
     "kind": "function",
     "static": true,
     "variation": null,
@@ -9532,7 +9620,7 @@
     "generator": false
   },
   {
-    "__docId__": 385,
+    "__docId__": 389,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9545,7 +9633,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 386,
+    "__docId__": 390,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9558,7 +9646,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 387,
+    "__docId__": 391,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9571,7 +9659,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 388,
+    "__docId__": 392,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9584,7 +9672,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 389,
+    "__docId__": 393,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9597,7 +9685,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 390,
+    "__docId__": 394,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9610,7 +9698,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 391,
+    "__docId__": 395,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9623,7 +9711,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 392,
+    "__docId__": 396,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9636,7 +9724,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 393,
+    "__docId__": 397,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9649,7 +9737,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 394,
+    "__docId__": 398,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9662,7 +9750,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 395,
+    "__docId__": 399,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9675,7 +9763,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 396,
+    "__docId__": 400,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9688,7 +9776,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 397,
+    "__docId__": 401,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9701,7 +9789,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 398,
+    "__docId__": 402,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9714,7 +9802,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 399,
+    "__docId__": 403,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9727,7 +9815,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 400,
+    "__docId__": 404,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9740,7 +9828,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 401,
+    "__docId__": 405,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9753,7 +9841,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 402,
+    "__docId__": 406,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9766,7 +9854,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 403,
+    "__docId__": 407,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9779,7 +9867,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 404,
+    "__docId__": 408,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9792,7 +9880,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 405,
+    "__docId__": 409,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9805,7 +9893,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 406,
+    "__docId__": 410,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9818,7 +9906,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 407,
+    "__docId__": 411,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9831,7 +9919,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 408,
+    "__docId__": 412,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9844,7 +9932,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 409,
+    "__docId__": 413,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9857,7 +9945,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 410,
+    "__docId__": 414,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9870,7 +9958,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 411,
+    "__docId__": 415,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9883,7 +9971,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 412,
+    "__docId__": 416,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9896,7 +9984,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 413,
+    "__docId__": 417,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9909,7 +9997,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 414,
+    "__docId__": 418,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9922,7 +10010,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 415,
+    "__docId__": 419,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9935,7 +10023,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 416,
+    "__docId__": 420,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9948,7 +10036,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 417,
+    "__docId__": 421,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9961,7 +10049,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 418,
+    "__docId__": 422,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9974,7 +10062,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 419,
+    "__docId__": 423,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -9987,7 +10075,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 420,
+    "__docId__": 424,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10000,7 +10088,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 421,
+    "__docId__": 425,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10013,7 +10101,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 422,
+    "__docId__": 426,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10026,7 +10114,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 423,
+    "__docId__": 427,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10039,7 +10127,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 424,
+    "__docId__": 428,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10052,7 +10140,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 425,
+    "__docId__": 429,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10065,7 +10153,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 426,
+    "__docId__": 430,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10078,7 +10166,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 427,
+    "__docId__": 431,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10091,7 +10179,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 428,
+    "__docId__": 432,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10104,7 +10192,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 429,
+    "__docId__": 433,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10117,7 +10205,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 430,
+    "__docId__": 434,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10130,7 +10218,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 431,
+    "__docId__": 435,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10143,7 +10231,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 433,
+    "__docId__": 437,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10156,7 +10244,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 434,
+    "__docId__": 438,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10169,7 +10257,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 435,
+    "__docId__": 439,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10182,7 +10270,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 436,
+    "__docId__": 440,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10195,7 +10283,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 437,
+    "__docId__": 441,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10208,7 +10296,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 438,
+    "__docId__": 442,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10221,7 +10309,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 439,
+    "__docId__": 443,
     "kind": "external",
     "static": true,
     "variation": null,
@@ -10234,7 +10322,7 @@
     "builtinExternal": true
   },
   {
-    "__docId__": 440,
+    "__docId__": 444,
     "kind": "external",
     "static": true,
     "variation": null,

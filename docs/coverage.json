@@ -1,7 +1,7 @@
 {
-  "coverage": "85.94%",
-  "expectCount": 249,
-  "actualCount": 214,
+  "coverage": "84.46%",
+  "expectCount": 251,
+  "actualCount": 212,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -38,13 +38,17 @@
       ]
     },
     "src/Document.js": {
-      "expectCount": 18,
-      "actualCount": 14,
+      "expectCount": 19,
+      "actualCount": 11,
       "undocumentLines": [
-        36,
-        150,
+        204,
         194,
-        190
+        38,
+        180,
+        140,
+        184,
+        213,
+        217
       ]
     },
     "src/DocumentFragment.js": {
@@ -74,12 +78,17 @@
         13
       ]
     },
+    "src/HTMLElement/elements/HTMLDocumentElement.js": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
     "src/HTMLElement.js": {
       "expectCount": 7,
       "actualCount": 5,
       "undocumentLines": [
         15,
-        76
+        78
       ]
     },
     "src/HTMLElement/elements/HTMLMetaElement.js": {
