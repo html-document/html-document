@@ -87,13 +87,15 @@ export default class HTMLDocumentElement extends HTMLElement {
     set innerHTML(value) {
         super.innerHTML = value;
 
-        if (this.childNodes.length === 1 &amp;&amp; this.firstChild.tagName === &apos;html&apos;) {
+        let htmlElement = this._childNodeFind(node =&gt; node.tagName === &apos;html&apos;);
+
+        if (htmlElement !== null) {
             let child;
-            while (child = this.firstChild.firstChild) {
+            while (child = htmlElement.firstChild) {
                 this.appendChild(child);
             }
 
-            this.removeChild(this.firstChild); // Remove html
+            this.removeChild(htmlElement); // Remove html
         }
     }
 

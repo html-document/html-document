@@ -3421,7 +3421,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * The HTMLDocumentElement interface contains descriptive metadata about a documentElement. It inherits all of the\n * properties and methods described in the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement\n */\nexport default class HTMLDocumentElement extends HTMLElement {\n    /**\n     * Sets inner HTML and moves elements up if first created child is html.\n     *\n     * @ignore\n     * @param {string} value\n     */\n    set innerHTML(value) {\n        super.innerHTML = value;\n\n        if (this.childNodes.length === 1 && this.firstChild.tagName === 'html') {\n            let child;\n            while (child = this.firstChild.firstChild) {\n                this.appendChild(child);\n            }\n\n            this.removeChild(this.firstChild); // Remove html\n        }\n    }\n\n    /**\n     * @ignore\n     * @type {string}\n     */\n    get innerHTML() {\n        return super.innerHTML;\n    }\n}\n\n/**\n * @constant {string} HTMLDocumentElement#nodeName meta\n */\nObject.defineProperty(HTMLDocumentElement.prototype, 'nodeName', { value: 'html' });\n"
+    "content": "import HTMLElement from '../../HTMLElement';\n\n/**\n * The HTMLDocumentElement interface contains descriptive metadata about a documentElement. It inherits all of the\n * properties and methods described in the HTMLElement interface.\n *\n * @see https://developer.mozilla.org/en-US/docs/Web/API/Document/documentElement\n */\nexport default class HTMLDocumentElement extends HTMLElement {\n    /**\n     * Sets inner HTML and moves elements up if first created child is html.\n     *\n     * @ignore\n     * @param {string} value\n     */\n    set innerHTML(value) {\n        super.innerHTML = value;\n\n        let htmlElement = this._childNodeFind(node => node.tagName === 'html');\n\n        if (htmlElement !== null) {\n            let child;\n            while (child = htmlElement.firstChild) {\n                this.appendChild(child);\n            }\n\n            this.removeChild(htmlElement); // Remove html\n        }\n    }\n\n    /**\n     * @ignore\n     * @type {string}\n     */\n    get innerHTML() {\n        return super.innerHTML;\n    }\n}\n\n/**\n * @constant {string} HTMLDocumentElement#nodeName meta\n */\nObject.defineProperty(HTMLDocumentElement.prototype, 'nodeName', { value: 'html' });\n"
   },
   {
     "__docId__": 140,
@@ -3486,7 +3486,7 @@
     "longname": "src/HTMLElement/elements/HTMLDocumentElement.js~HTMLDocumentElement#innerHTML",
     "access": null,
     "description": "",
-    "lineNumber": 33,
+    "lineNumber": 35,
     "ignore": true,
     "type": {
       "nullable": null,
