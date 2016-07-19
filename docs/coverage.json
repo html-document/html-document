@@ -1,7 +1,7 @@
 {
-  "coverage": "84.46%",
-  "expectCount": 251,
-  "actualCount": 212,
+  "coverage": "84.58%",
+  "expectCount": 253,
+  "actualCount": 214,
   "files": {
     "src/Abstract/AbstractCSSStyleDeclaration.js": {
       "expectCount": 8,
@@ -47,8 +47,8 @@
         180,
         140,
         184,
-        213,
-        217
+        217,
+        213
       ]
     },
     "src/DocumentFragment.js": {
@@ -57,10 +57,10 @@
       "undocumentLines": []
     },
     "src/Element.js": {
-      "expectCount": 13,
-      "actualCount": 12,
+      "expectCount": 15,
+      "actualCount": 14,
       "undocumentLines": [
-        157
+        195
       ]
     },
     "src/Event.js": {
@@ -115,8 +115,8 @@
         285,
         297,
         293,
-        323,
-        319
+        319,
+        323
       ]
     },
     "src/HTMLElement/elements/HTMLTableCaptionElement.js": {

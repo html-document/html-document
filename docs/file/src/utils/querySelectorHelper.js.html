@@ -72,6 +72,7 @@
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { CssSelectorParser } from &apos;css-selector-parser&apos;;
 const cssParser = new CssSelectorParser();
 cssParser.registerAttrEqualityMods(&apos;^&apos;, &apos;$&apos;, &apos;*&apos;, &apos;~&apos;, &apos;|&apos;);
+cssParser.registerNestingOperators(&apos;&gt;&apos;, &apos;+&apos;, &apos;~&apos;);
 
 /**
  * querySelectorHelper interface provides simple processing
@@ -87,7 +88,7 @@ cssParser.registerAttrEqualityMods(&apos;^&apos;, &apos;$&apos;, &apos;*&apos;, 
 export function querySelector(element, query) {
     let rules = cssParser.parse(query);
 
-    const iterator = processElement(element, rules);
+    const iterator = processElementDeep(element, rules);
     const next = iterator.next();
 
     if (next &amp;&amp; next.value) {
@@ -107,7 +108,7 @@ export function querySelectorAll(element, query) {
     let rules = cssParser.parse(query);
 
     const result = [];
-    for (let element of processElement(element, rules)) {
+    for (let element of processElementDeep(element, rules)) {
         result.push(element);
     }
 
@@ -117,14 +118,27 @@ export function querySelectorAll(element, query) {
 /**
  * Function processes one element using current rule
  *
- * @param element
- * @param rules
+ * @param {HTMLElement} element - element to check
+ * @param {*} rules - current rules to check against element
  * @return {boolean}
  */
 function* processElement(element, rules) {
     for (let child of element.children) {
         yield* processRules(child, rules);
-        yield* processElement(child, rules);
+    }
+}
+
+/**
+ * Function processes one element using current rule
+ *
+ * @param {HTMLElement} element - element to check
+ * @param {*} rules - current rules to check against element
+ * @return {boolean}
+ */
+function* processElementDeep(element, rules) {
+    for (let child of element.children) {
+        yield* processRules(child, rules);
+        yield* processElementDeep(child, rules);
     }
 }
 
@@ -168,7 +182,23 @@ function* processSelectors(element, selectors) {
             return;
         }
 
-        yield* processElement(element, { type: &apos;ruleSet&apos;, rule: rule.rule });
+        switch (rule.rule.nestingOperator) {
+            case &apos;+&apos;:
+                const nextElementSibling = element.nextElementSibling;
+                if (nextElementSibling &amp;&amp; matchRule(nextElementSibling, rule.rule)) {
+                    yield nextElementSibling;
+                }
+
+                break;
+            case &apos;~&apos;:
+                yield* processElement(element.parentNode, { type: &apos;ruleSet&apos;, rule: rule.rule });
+                break;
+            case &apos;&gt;&apos;:
+                yield* processElement(element, { type: &apos;ruleSet&apos;, rule: rule.rule });
+                break;
+            default:
+                yield* processElementDeep(element, { type: &apos;ruleSet&apos;, rule: rule.rule });
+        }
 
         return;
     }
