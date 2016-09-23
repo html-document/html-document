@@ -153,21 +153,27 @@ export default class Element extends ParentNode {
      * @param {string} tagName
      * @return {HTMLCollection}
      */
-    getElementsByTagName(tagName, _array) {
+    getElementsByTagName(tagName) {
         if (!tagName) {
-            return !_array ? this.children.slice() : _array.push(...this.children);
+            return this._createCollection(child => true);
         }
 
-        _array = _array || [];
         tagName = tagName.toLowerCase();
-        this.children.forEach(child => {
-            if (child.nodeName.toLowerCase() === tagName) {
-                _array.push(child);
-            } else if (child.childElementCount > 0) {
-                child.getElementsByTagName(tagName, _array);
-            }
-        });
-        return _array;
+        return this._createCollection(child => child.nodeName.toLowerCase() === tagName);
+    }
+
+    /**
+     * The Element.getElementsByClassName() method returns a live HTMLCollection containing all child
+     * elements which have all of the given class names. When called on the document object,
+     * the complete document is searched, including the root node.
+     *
+     * @param {string} names is a string representing the list of class names to match;
+     *                class names are separated by whitespace
+     * @return {HTMLCollection}
+     */
+    getElementsByClassName(names) {
+        const classes = names.split(' ');
+        return this._createCollection(child => classes.every(token => child.classList.contains(token)));
     }
 
     /**
