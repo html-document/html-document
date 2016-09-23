@@ -57,7 +57,8 @@
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableElement.js~HTMLTableElement.html">HTMLTableElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableRowElement.js~HTMLTableRowElement.html">HTMLTableRowElement</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/HTMLElement/elements/HTMLTableSectionElement.js~HTMLTableSectionElement.html">HTMLTableSectionElement</a></span></span></li>
-<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Url.js~Url.html">Url</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">utils</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/HTMLCollection.js~HTMLCollection.html">HTMLCollection</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/utils/Url.js~Url.html">Url</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-escapeAttribute">escapeAttribute</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-attributeNameToProperty">attributeNameToProperty</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-propertyNameToAttribute">propertyNameToAttribute</a></span></span></li>
@@ -792,6 +793,32 @@ and methods described in the HTMLElement interface.</p>
       
     </td>
   </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">protected</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/ParentNode.js~ParentNode.html#instance-method-_createCollection">_createCollection</a></span></span><span data-ice="signature">(selector: <span>*</span>): <span>*</span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Inner method to create new live HTMLCollection.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
 </tbody>
 </table>
 
@@ -867,7 +894,7 @@ and methods described in the HTMLElement interface.</p>
       <div>
         
         
-        <div data-ice="description"><p>Returns a live <span>HTMLCollection</span> containing all objects of type <span><a href="class/src/Element.js~Element.html">Element</a></span>
+        <div data-ice="description"><p>Returns a live <span><a href="class/src/utils/HTMLCollection.js~HTMLCollection.html">HTMLCollection</a></span> containing all objects of type <span><a href="class/src/Element.js~Element.html">Element</a></span>
 that are children of this ParentNode.</p>
 </div>
       </div>
@@ -1097,7 +1124,34 @@ if the specified element is the first one in the list.</p>
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/src/Element.js~Element.html#instance-method-getElementsByTagName">getElementsByTagName</a></span></span><span data-ice="signature">(tagName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span>HTMLCollection</span></span>
+           <span data-ice="name"><span><a href="class/src/Element.js~Element.html#instance-method-getElementsByClassName">getElementsByClassName</a></span></span><span data-ice="signature">(names: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/utils/HTMLCollection.js~HTMLCollection.html">HTMLCollection</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>The Element.getElementsByClassName() method returns a live HTMLCollection containing all child
+elements which have all of the given class names.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/Element.js~Element.html#instance-method-getElementsByTagName">getElementsByTagName</a></span></span><span data-ice="signature">(tagName: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>): <span><a href="class/src/utils/HTMLCollection.js~HTMLCollection.html">HTMLCollection</a></span></span>
         </p>
       </div>
       <div>
@@ -1438,7 +1492,7 @@ specified group of CSS selectors.</p>
 </div>
 
 <footer class="footer">
-  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.7)</span></a>
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
 </footer>
 
 <script src="script/search_index.js"></script>

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href="../../">
-  <title data-ice="title">src/Node.js | API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/utils/HTMLCollection.js | API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -69,276 +69,57 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1 data-ice="title">src/Node.js</h1>
+<div class="content" data-ice="content"><h1 data-ice="title">src/utils/HTMLCollection.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">/**
- * A Node is an interface from which a number of DOM types inherit,
- * and allows these various types to be treated (or tested) similarly.
+ * Class provides interface for HTLMCollection. Used in getElementsByTagName etc.
  *
- * @see https://developer.mozilla.org/en/docs/Web/API/Node
+ * @see https://developer.mozilla.org/en-US/docs/Web/API/HTMLCollection
  */
-export default class Node {
-    constructor() {
-        this._attributes = {};
+export default class HTMLCollection extends Array {
+    constructor(parent, selector) {
+        super();
+        this._parent = parent;
+        this._selector = selector;
+        this._fillChildren(this._parent);
     }
 
-    /**
-     * Returns the Document that this node belongs to.
-     * If no document is associated with it, returns null.
-     *
-     * @type {Document}
-     * @readonly
-     */
-    get ownerDocument() {
-        return this._ownerDocument || null;
-    }
-
-    /* ATTRIBUTES */
-
-    /**
-     * get attribute&apos;s value
-     *
-     * @param {string} attributeName
-     * @return {string}
-     */
-    getAttribute(attributeName) {
-        return attributeName in this._attributes ? this._attributes[attributeName] : null;
-    }
-
-    /**
-     * checks if attribute exists for node
-     *
-     * @method Node#hasAttribute
-     * @param {string} attributeName
-     * @return {boolean}
-     */
-    hasAttribute(attributeName) {
-        return attributeName in this._attributes;
-    }
-
-    /**
-     * set attribute&apos;s value
-     *
-     * @method Node#setAttribute
-     * @param {string} attributeName
-     * @param {string} attributeValue
-     */
-    setAttribute(attributeName, attributeValue) {
-        this._setAttribute(attributeName, attributeValue);
-        this._updatedAttribute(attributeName, this._attributes[attributeName]);
-    }
-
-    /**
-     * set attribute&apos;s value
-     *
-     * @internal
-     * @param {string} attributeName
-     * @param {string} attributeValue
-     */
-    _setAttribute(attributeName, attributeValue) {
-        this._attributes[attributeName] = String(attributeValue);
-    }
-
-    /**
-     * remove attribute
-     *
-     * @param {string} attributeName
-     */
-    removeAttribute(attributeName) {
-        if (this._attributes[attributeName] !== undefined) {
-            delete this._attributes[attributeName];
-            this._updatedAttribute(attributeName);
-        }
-    }
-
-    /**
-     * @internal
-     * @param {string} attributeName
-     * @param {string} [value]
-     */
-    _updatedAttribute(attributeName, value) {
-    }
-
-    /* CONTENT */
-
-    /**
-     * @type {string}
-     */
-    get textContent() {
-        return &apos;&apos;;
-    }
-
-    _toHTML() {
-        return this.outerHTML;
-    }
-
-    /* EVENTS */
-
-    /**
-     * @param {string} eventType
-     * @param {function} listener
-     * @param {boolean} capturingPhase
-     */
-    addEventListener(eventType, listener, capturingPhase) {
-        eventType = eventType.toLowerCase();
-        const _eventsKey = capturingPhase ? &apos;_eventsCapturingPhase&apos; : &apos;_eventsBubblingPhase&apos;;
-        if (!this[_eventsKey]) {
-            this[_eventsKey] = new Map();
-        }
-
-        let callbacks;
-        if (!this[_eventsKey].has(eventType)) {
-            this[_eventsKey].set(eventType, callbacks = []);
-        } else {
-            callbacks = this[_eventsKey].get(eventType);
-        }
-
-        callbacks.push(listener);
-        return this;
-    }
-
-    /**
-     * @param {string} eventType
-     * @param {function} listener
-     * @param {boolean} capturingPhase
-     */
-    removeEventListener(eventType, listener, capturingPhase) {
-        eventType = eventType.toLowerCase();
-        const _eventsKey = capturingPhase ? &apos;_eventsCapturingPhase&apos; : &apos;_eventsBubblingPhase&apos;;
-        if (this[_eventsKey] &amp;&amp; this[_eventsKey].has(eventType)) {
-            let callbacks = this[_eventsKey].get(eventType);
-            let index = callbacks.indexOf(listener);
-            if (index === -1) {
-                return false;
+    _fillChildren(parent) {
+        parent.children.forEach(child =&gt; {
+            if (this._selector(child)) {
+                this.push(child);
             }
 
-            callbacks.splice(index, 1);
-        }
+            if (child.childElementCount &gt; 0) {
+                this._fillChildren(child);
+            }
+        });
     }
 
     /**
-     * @param {Event} event
-     * @return {boolean}
+     * Method updates state of collection
+     *
+     * @private
      */
-    dispatchEvent(event) {
-        event.target = this;
-
-        // Capturing phase
-        const capturingPhase = function (event) { // eslint-disable-line space-before-function-paren
-            if (this._parentNode) {
-                capturingPhase.call(this._parentNode, event);
-            }
-
-            if (event.propagationStopped) {
-                return;
-            }
-
-            const callbacks = this._eventsCapturingPhase &amp;&amp; this._eventsCapturingPhase.get(event.type);
-            if (callbacks) {
-                callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren
-                    callback(event);
-                    return event.immediatePropagationStopped;
-                });
-            }
-        };
-
-        capturingPhase.call(this, event);
-
-        // Bubbling phase
-        if (!event.propagationStopped) {
-            const bubblingPhase = function (event) { // eslint-disable-line space-before-function-paren
-                const callbacks = this._eventsBubblingPhase &amp;&amp; this._eventsBubblingPhase.get(event.type);
-                if (callbacks) {
-                    callbacks.some(function (callback) { // eslint-disable-line space-before-function-paren
-                        callback(event);
-                        return event.immediatePropagationStopped;
-                    });
-                }
-
-                if (!event.propagationStopped &amp;&amp; this._parentNode) {
-                    bubblingPhase.call(this._parentNode, event);
-                }
-            };
-
-            bubblingPhase.call(this, event);
-        }
-
-        return !event.defaultPrevented;
+    _update() {
+        this.splice(0, this.length);
+        this._fillChildren(this._parent);
     }
 
     /**
-     * @property Node#nodeValue
-     * @returns {string|null}
+     * Returns the specific node at the given zero-based index into the list. Returns null if the index
+     * is out of range.
+     *
+     * @param {number} index
+     * @returns {HTMLElement|null}
      */
-    get nodeValue() {
+    item(index) {
+        if (index &gt;= 0 &amp;&amp; index &lt; this.length) {
+            return this[index];
+        }
+
         return null;
     }
-
-    /**
-     * @param {*} value
-     */
-    set nodeValue(value) {
-    }
 }
-
-/**
- * @constant {number} Node.ELEMENT_NODE
- */
-Object.defineProperty(Node, &apos;ELEMENT_NODE&apos;, { value: 1 });
-
-/**
- * @constant {number} Node.ATTRIBUTE_NODE
- */
-Object.defineProperty(Node, &apos;ATTRIBUTE_NODE&apos;, { value: 2 });
-
-/**
- * @constant {number} Node.TEXT_NODE
- */
-Object.defineProperty(Node, &apos;TEXT_NODE&apos;, { value: 3 });
-
-/**
- * @constant {number} Node.CDATA_SECTION_NODE
- */
-Object.defineProperty(Node, &apos;CDATA_SECTION_NODE&apos;, { value: 4 });
-
-/**
- * @constant {number} Node.ENTITY_REFERENCE_NODE
- */
-Object.defineProperty(Node, &apos;ENTITY_REFERENCE_NODE&apos;, { value: 5 });
-
-/**
- * @constant {number} Node.ENTITY_NODE
- */
-Object.defineProperty(Node, &apos;ENTITY_NODE&apos;, { value: 6 });
-
-/**
- * @constant {number} Node.PROCESSING_INSTRUCTION_NODE
- */
-Object.defineProperty(Node, &apos;PROCESSING_INSTRUCTION_NODE&apos;, { value: 7 });
-
-/**
- * @constant {number} Node.COMMENT_NODE
- */
-Object.defineProperty(Node, &apos;COMMENT_NODE&apos;, { value: 8 });
-
-/**
- * @constant {number} Node.DOCUMENT_NODE
- */
-Object.defineProperty(Node, &apos;DOCUMENT_NODE&apos;, { value: 9 });
-
-/**
- * @constant {number} Node.DOCUMENT_TYPE_NODE
- */
-Object.defineProperty(Node, &apos;DOCUMENT_TYPE_NODE&apos;, { value: 10 });
-
-/**
- * @constant {number} Node.DOCUMENT_FRAGMENT_NODE
- */
-Object.defineProperty(Node, &apos;DOCUMENT_FRAGMENT_NODE&apos;, { value: 11 });
-
-/**
- * @constant {number} Node.NOTATION_NODE
- */
-Object.defineProperty(Node, &apos;NOTATION_NODE&apos;, { value: 12 });
 </code></pre>
 
 </div>
