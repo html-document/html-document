@@ -28,7 +28,7 @@ This library will never implement all specifications of the W3C.
 
 ## API
 
-See the generated API [here](http://christophehurpeau.github.io/html-document/docs/).
+See the generated API [here](https://html-document.github.io/html-document/docs/).
 
 ## Examples
 
@@ -59,7 +59,7 @@ expect(fragment.innerHTML, '<!DOCTYPE html><html><head></head><body></body></htm
 
 [npm-image]: https://img.shields.io/npm/v/html-document.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/html-document
-[build-status-image]: https://img.shields.io/circleci/project/christophehurpeau/html-document/master.svg?style=flat-square
-[build-status-url]: https://circleci.com/gh/christophehurpeau/html-document
-[coverage-image]: https://img.shields.io/coveralls/christophehurpeau/html-document/master.svg?style=flat-square
-[coverage-url]: http://christophehurpeau.github.io/html-document/coverage/lcov-report/
+[build-status-image]: https://img.shields.io/circleci/project/html-document/html-document/master.svg?style=flat-square
+[build-status-url]: https://circleci.com/gh/html-document/html-document
+[coverage-image]: https://img.shields.io/coveralls/html-document/html-document/master.svg?style=flat-square
+[coverage-url]: http://html-document.github.io/html-document/coverage/lcov-report/
